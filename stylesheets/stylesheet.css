@@ -227,6 +227,11 @@ hr {
   background: url("../images/btn_p.png") 0 0 no-repeat;
 }
 
+.btn-mail .icon {
+  opacity: 0.6;
+  background: url("../images/btn_mail.png") 0 0 no-repeat;
+}
+
 /* Links
    a, a:hover, a:visited
 */
