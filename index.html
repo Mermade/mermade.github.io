@@ -24,7 +24,7 @@
 
         <section id="downloads">
           <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
-		  <a id="aPassHash0" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
+		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
 		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
 		</section>
       </div>
@@ -47,9 +47,6 @@
 <span class="octicon octicon-link"></span>ipv6tools</a> - human readable IPv6 addresses
 </h3>
 
-<a id="aPassHash" class="anchor" href="/page2.html" aria-hidden="true">
-<span class="octicon octicon-link"></span>Details</a>
-
 <pre><code>require('mermade');
 console.log('Result!');
 </code></pre>
@@ -59,12 +56,14 @@ console.log('Result!');
 	
 	<div id='hidden' style='display: none'>
 	You shouldn't be reading this
+	<a id="aDetails" class="anchor" href="/page2.html" aria-hidden="true">
+	<span class="octicon octicon-link"></span>Details</a>
 	</div>
 	
 	<script language="JavaScript" type='text/javascript'>
 		$(document).ready(function(){
-			$("#aPassHash").colorbox();
-			$("#aPassHash0").colorbox();
+			$("#aDetails").colorbox();
+			//$("#aPassHash").colorbox();
 			$('#hidden').colorbox();
 		});
 	</script>
