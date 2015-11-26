@@ -6,17 +6,12 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/colorbox.css" media="screen">
 	
 		<script src="javascripts/jQuery-min.js"></script>
 		<script src="javascripts/jquery.colorbox-min.js"></script>
 		
-		<script>
-			$(document).ready(function(){
-				$("#aPassHash").colorbox();
-			};
-		</script>
-
     <title>Mermade Software by Mermade</title>
   </head>
 
@@ -29,7 +24,7 @@
 
         <section id="downloads">
           <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
-		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
+		  <a id="aPassHash" href="static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
 		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
 		</section>
       </div>
@@ -59,8 +54,18 @@ console.log('Result!');
       </section>
     </div>
 	
-	<div style='display-none'>
+	<a href='#' 
+	<div id='hidden' style='display: none'>
+	You shouldn't be reading this
 	</div>
+	
+	<script language="JavaScript" type='text/javascript'>
+		$(document).ready(function(){
+			$("#aPassHash").colorbox();
+			$('#hidden').colorbox();
+		});
+	</script>
+
     
   </body>
 </html>
