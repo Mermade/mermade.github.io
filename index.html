@@ -49,24 +49,23 @@
 <span class="octicon octicon-link"></span>ipv6tools</a> - human readable IPv6 addresses
 </h3>
 
-<pre><code>require('mermade');
+<pre><code id="code1">require('mermade');
 console.log('Result!');
 </code></pre>
 
+		<div id='hidden' style='display: none'>
+		You shouldn't be reading this
+		<a id="aDetails" class="anchor" href="/page2.html" aria-hidden="true">
+		<span class="octicon octicon-link"></span>Details</a>
+		</div>
+
       </section>
     </div>
-	
-	<div id='hidden' style='display: none'>
-	You shouldn't be reading this
-	<a id="aDetails" class="anchor" href="/page2.html" aria-hidden="true">
-	<span class="octicon octicon-link"></span>Details</a>
-	</div>
-	
+		
 	<script language="JavaScript" type='text/javascript'>
 		$(document).ready(function(){
 			$("#aDetails").colorbox();
-			//$("#aPassHash").colorbox();
-			$('#hidden').colorbox();
+			$("#aPassHash").colorbox({iframe:true, width:"300", height:"90%"});
 		});
 	</script>
 
