@@ -64,14 +64,19 @@
 							var p = json.episodes[i].programme;
 							//alert(JSON.stringify(p));
 							var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>'; 
-							var title;
+							var title = p.title;
+							if (p.display_titles) {
+								title = p.display_titles.title;
+								if (p.display_titles.subtitle) title += ' : ' + p.display_titles.subtitle;
+							}
+							var tlink;
 							if (p.type == 'brand' || p.type == 'series') {
-								title = '<a href="/bbc/children.html?pid='+p.pid+'">'+p.title+'</a>';
+								tlink = '<a href="/bbc/children.html?pid='+p.pid+'">'+title+'</a>';
 							}
 							else {
-								title = '<a href="/bbc/detail.html?pid='+p.pid+'">'+p.title+'</a>';
+								tlink = '<a href="/bbc/detail.html?pid='+p.pid+'">'+title+'</a>';
 							}
-							var row = [pid,p.type,title];
+							var row = [pid,p.type,tlink];
 							result.push(row);
 						}
 						//alert(result);

@@ -199,16 +199,28 @@
 							if (p.programme) p = p.programme;
 								if (seen.indexOf(p.pid)<0) {
 								var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>'; 
-								var title;
+								var tlink;
+								
+								var title = p.title;
+								if (p.display_titles) {
+									title = p.display_titles.title;
+									if (p.display_titles.subtitle) title += ' : ' + p.display_titles.subtitle;
+								}
+								
 								if (p.type == 'brand' || p.type == 'series') {
-									title = '<a href="/bbc/children.html?pid='+p.pid+'">'+p.title+'</a>';
+									tlink = '<a href="/bbc/children.html?pid='+p.pid+'">'+title+'</a>';
 								}
 								else {
-									title = '<a href="/bbc/detail.html?pid='+p.pid+'">'+p.title+'</a>';
+									tlink = '<a href="/bbc/detail.html?pid='+p.pid+'">'+title+'</a>';
 								}
-								var row = [pid,p.type,title];
+								var row = [pid,p.type,tlink];
 								result.push(row);
 								seen.push(p.pid);
+								
+								//if (title.indexOf('Episode')==0) {
+								//	alert(JSON.stringify(p));
+								//}
+								
 							}
 						}
 						//alert(JSON.stringify(result));

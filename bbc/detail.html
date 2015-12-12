@@ -35,6 +35,8 @@
     <div class="container">
       <section id="main_content">
 	  
+	  <img id="image" src="" alt="Image placeholder"/>
+	  
 	  <table id="tblMain" class="display">
 	  <thead>
 	  <tr><td>Field</td><td>Value</td>
@@ -60,6 +62,11 @@
 					url: 'http://www.bbc.co.uk/programmes/'+parent+'.json',
 					"dataSrc": function(json){
 						var p = json.programme;
+						
+						if (p.image.pid) {
+							$('#image').attr('src',"http://ichef.bbci.co.uk/images/ic/640x360/"+p.image.pid+".jpg");
+						}
+						
 						var result = [];
 						for (var i in p) {
 							if (!(p[i] instanceof Object)) {
@@ -70,7 +77,7 @@
 							var v = p.versions[i];
 							for (var j in v) {
 								if (!(v[j] instanceof Object)) {
-									result.push(['_Version '+i+' '+j,v[j]]);
+									result.push(['Version #'+i+' '+j,v[j]]);
 								}
 							}
 						}
