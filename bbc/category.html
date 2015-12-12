@@ -3,17 +3,17 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-	
+
 	<meta name="description" content="Open source software including BBC Nitro feed parser" />
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
     <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
-	
+
 		<script src="/javascripts/jQuery-min.js"></script>
 		<script src="/javascripts/dataTables.js"></script>
-		
+
     <title>Software by Mermade</title>
   </head>
 
@@ -34,7 +34,7 @@
 
     <div class="container">
       <section id="main_content">
-	  
+
 	  <form id="form1">
 		<div>
 		<input type="radio" name="domain" value="radio" checked>Radio Only
@@ -153,9 +153,16 @@
 <option value="genres/sport/wintersports">Winter Sports</option>
 </option>
 		</select>
+		<div>
+			<form id="form2">
+				<input id="search" name="search"/>
+				<button id="btnSearch" name="Search" onclick='return false;'>Search</button>
+			</form>
+		<div>
 		</div>
 	  </form>
-	  
+	  <hr width="50%">
+
 	  <table id="tblMain" class="display nowrap">
 	  <thead>
 	  <tr><td>PID</td><td>Type</td><td>Title</td>
@@ -166,7 +173,7 @@
 
       </section>
     </div>
-		
+
 	<script language="JavaScript" type='text/javascript'>
 		var domain = '/radio';
 		function url(){
@@ -175,11 +182,13 @@
 		}
 		$(document).ready(function(){
 			var table = $('#tblMain').DataTable({
+				"stateSave": true,
+				"stateDuration": -1,
 				"ajax": {
 					url: url(),
 					"dataSrc": function(json){
 						var result = [];
-						
+
 						var container = {};
 						if (json.category_page) {
 							container = json.category_page.available_programmes;
@@ -193,22 +202,25 @@
 						else if (json.broadcasts) {
 							container = json.broadcasts;
 						}
-						
+						else if (json.atoz) {
+							container = json.atoz.tleo_titles;
+						}
+
 						seen = [];
-						
+
 						for (var i in container) {
-							var p = container[i]; 
+							var p = container[i];
 							if (p.programme) p = p.programme;
 								if (seen.indexOf(p.pid)<0) {
-								var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>'; 
+								var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>';
 								var tlink;
-								
+
 								var title = p.title;
 								if (p.display_titles) {
 									title = p.display_titles.title;
 									if (p.display_titles.subtitle) title += ' : ' + p.display_titles.subtitle;
 								}
-								
+
 								if (p.type == 'brand' || p.type == 'series') {
 									tlink = '<a href="/bbc/children.html?pid='+p.pid+'">'+title+'</a>';
 								}
@@ -218,11 +230,11 @@
 								var row = [pid,p.type,tlink];
 								result.push(row);
 								seen.push(p.pid);
-								
+
 								//if (title.indexOf('Episode')==0) {
 								//	alert(JSON.stringify(p));
 								//}
-								
+
 							}
 						}
 						//alert(JSON.stringify(result));
@@ -255,12 +267,17 @@
 				}
 				table.ajax.url(url()).load();
 			});
+			$('#btnSearch').click(function(e){
+				table.ajax.url('http://bbc.co.uk/programmes/a-z/by/'+encodeURIComponent($('#search').val())+'/player.json').load();
+				e.preventDefault();
+				return false;
+			});
 			//table.ajax.reload(function(data){
 			//	alert('Got some data');
 			//});
 		});
 	</script>
 
-    
+
   </body>
 </html>
