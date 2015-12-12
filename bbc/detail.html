@@ -6,13 +6,13 @@
 	
 	<meta name="description" content="Open source software including BBC Nitro feed parser" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
     <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
-	<link rel="stylesheet" type="text/css" href="stylesheets/datatables.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
 	
-		<script src="javascripts/jQuery-min.js"></script>
-		<script src="javascripts/dataTables.js"></script>
+		<script src="/javascripts/jQuery-min.js"></script>
+		<script src="/javascripts/dataTables.js"></script>
 		
     <title>Software by Mermade</title>
   </head>
@@ -35,9 +35,9 @@
     <div class="container">
       <section id="main_content">
 	  
-	  <table id="tblMain">
+	  <table id="tblMain" class="display">
 	  <thead>
-	  <tr><td>Programme id</td><td>Type</td><td>Title</td>
+	  <tr><td>Field</td><td>Value</td>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -47,19 +47,33 @@
     </div>
 		
 	<script language="JavaScript" type='text/javascript'>
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
 		$(document).ready(function(){
+			var parent = getParameterByName('pid');
 			var table = $('#tblMain').DataTable({
 				"ajax": {
-					url: 'http://www.bbc.co.uk/radio/programmes/genres/drama/scifiandfantasy/player.json',
+					url: 'http://www.bbc.co.uk/programmes/'+parent+'.json',
 					"dataSrc": function(json){
+						var p = json.programme;
 						var result = [];
-						for (var i in json.category_slice.programmes) {
-							var p = json.category_slice.programmes[i];
-							var href = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>';
-							var row = [href,p.type,p.title];
-							result.push(row);
+						for (var i in p) {
+							if (!(p[i] instanceof Object)) {
+								result.push([i,p[i]]);
+							}
 						}
-						//alert(JSON.stringify(result));
+						for (var i in p.versions) {
+							var v = p.versions[i];
+							for (var j in v) {
+								if (!(v[j] instanceof Object)) {
+									result.push(['_Version '+i+' '+j,v[j]]);
+								}
+							}
+						}
 						return result;
 					}
 				}
@@ -74,7 +88,10 @@
 				//alert( ((json && json.category_slice) ? json.category_slice.programmes.length : 0)+' row(s) were loaded');
 				return {};
 			});
-			//table.ajax.url('').load();
+			$('#category').change(function(){
+				table.ajax.url('http://www.bbc.co.uk/radio/programmes/genres/'+this.value+'/player.json').load();
+			});
+			//
 			//table.ajax.reload(function(data){
 			//	alert('Got some data');
 			//});

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	
+	<meta name="description" content="Open source software including BBC Nitro feed parser" />
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
+	
+		<script src="/javascripts/jQuery-min.js"></script>
+		<script src="/javascripts/dataTables.js"></script>
+		
+    <title>Software by Mermade</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Mermade Software</h1>
+        <h2>Itches elegantly scratched</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
+		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
+		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
+		</section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+	  
+	  <form id="form1">
+		<div>
+		<input type="radio" name="domain" value="radio" checked>Radio Only
+		&nbsp;-&nbsp;
+		<input type="radio" name="domain" value="tv">Radio and TV
+		</div>
+		<div>
+		<input type="radio" name="page" value="/player" checked>Available
+		&nbsp;-&nbsp;
+		<input type="radio" name="page" value="/schedules/upcoming">Upcoming
+		&nbsp;-&nbsp;
+		<input type="radio" name="page" value="/player/episodes">Latest
+		</div>
+		<div>
+		<select id="category" name="category">
+<option value="genres/comedy/character">Character</option>
+<option value="genres/comedy/impressionists">Impressionists</option>
+<option value="genres/comedy/music">Music</option>
+<option value="genres/comedy/satire">Satire</option>
+<option value="genres/comedy/sitcoms">Sitcoms</option>
+<option value="genres/comedy/sketch">Sketch</option>
+<option value="genres/comedy/spoof">Spoof</option>
+<option value="genres/comedy/standup">Standup</option>
+<option value="genres/comedy/stunt">Stunt</option>
+<option value="genres/drama/actionandadventure">Action & Adventure</option>
+<option value="genres/drama/biographical">Biographical</option>
+<option value="genres/drama/classicandperiod">Classic & Period</option>
+<option value="genres/drama/crime">Crime</option>
+<option value="genres/drama/historical">Historical</option>
+<option value="genres/drama/horrorandsupernatural">Horror & Supernatural</option>
+<option value="genres/drama/legalandcourtroom">Legal & Courtroom</option>
+<option value="genres/drama/medical">Medical</option>
+<option value="genres/drama/musical">Musical</option>
+<option value="genres/drama/political">Political</option>
+<option value="genres/drama/psychological">Psychological</option>
+<option value="genres/drama/relationshipsandromance">Relationships & Romance</option>
+<option value="genres/drama/scifiandfantasy" selected>SciFi & Fantasy</option>
+<option value="genres/drama/soaps">Soaps</option>
+<option value="genres/drama/spiritual">Spiritual</option>
+<option value="genres/drama/thriller">Thriller</option>
+<option value="genres/drama/waranddisaster">War & Disaster</option>
+<option value="genres/drama/western">Western</option>
+<option value="genres/entertainment/varietyshows">Variety Shows</option>
+<option value="formats/films">Films</option>
+<option value="genres/factual/antiques">Antiques</option>
+<option value="genres/factual/artscultureandthemedia">Arts, Culture & the Media</option>
+<option value="genres/factual/beautyandstyle">Beauty & Style</option>
+<option value="genres/factual/carsandmotors">Cars & Motors</option>
+<option value="genres/factual/consumer">Consumer</option>
+<option value="genres/factual/crimeandjustice">Crime & Justice</option>
+<option value="genres/factual/disability">Disability</option>
+<option value="genres/factual/familiesandrelationships">Families & Relationships</option>
+<option value="genres/factual/foodanddrink">Food & Drink</option>
+<option value="genres/factual/healthandwellbeing">Health & Wellbeing</option>
+<option value="genres/factual/history">History</option>
+<option value="genres/factual/homesandgardens">Homes & Gardens</option>
+<option value="genres/factual/lifestories">Life Stories</option>
+<option value="genres/factual/money">Money</option>
+<option value="genres/factual/petsandanimals">Pets & Animals</option>
+<option value="genres/factual/politics">Politics</option>
+<option value="genres/factual/scienceandnature">Science & Nature</option>
+<option value="genres/factual/travel">Travel</option>
+<option value="genres/learning/adults">Adults</option>
+<option value="genres/learning/preschool">Pre-School</option>
+<option value="genres/learning/primary">Primary</option>
+<option value="genres/learning/secondary">Secondary</option>
+<option value="genres/music/classicpopandrock">Classic Pop & Rock</option>
+<option value="genres/music/classical">Classical</option>
+<option value="genres/music/country">Country</option>
+<option value="genres/music/danceandelectronica">Dance & Electronica</option>
+<option value="genres/music/desi">Desi</option>
+<option value="genres/music/easylisteningsoundtracksandmusicals">Easy Listening, Soundtracks & Musicals</option>
+<option value="genres/music/folk">Folk</option>
+<option value="genres/music/hiphoprnbanddancehall">Hip Hop, RnB & Dancehall</option>
+<option value="genres/music/jazzandblues">Jazz & Blues</option>
+<option value="genres/music/popandchart">Pop & Chart</option>
+<option value="genres/music/rockandindie">Rock & Indie</option>
+<option value="genres/music/soulandreggae">Soul & Reggae</option>
+<option value="genres/music/world">World</option>
+<option value="genres/news">News</option>
+<option value="genres/sport/americanfootball">American Football</option>
+<option value="genres/sport/athletics">Athletics</option>
+<option value="genres/sport/baseball">Baseball</option>
+<option value="genres/sport/basketball">Basketball</option>
+<option value="genres/sport/bobsleigh">Bobsleigh</option>
+<option value="genres/sport/boxing">Boxing</option>
+<option value="genres/sport/commonwealthgames">Commonwealth Games</option>
+<option value="genres/sport/cricket">Cricket</option>
+<option value="genres/sport/cycling">Cycling</option>
+<option value="genres/sport/disabilitysport">Disability Sport</option>
+<option value="genres/sport/football">Football</option>
+<option value="genres/sport/formulaone">Formula One</option>
+<option value="genres/sport/gaelicgames">Gaelic Games</option>
+<option value="genres/sport/golf">Golf</option>
+<option value="genres/sport/gymnastics">Gymnastics</option>
+<option value="genres/sport/hockey">Hockey</option>
+<option value="genres/sport/horseracing">Horse Racing</option>
+<option value="genres/sport/icehockey">Ice Hockey</option>
+<option value="genres/sport/motorsport">Motorsport</option>
+<option value="genres/sport/netball">Netball</option>
+<option value="genres/sport/olympics">Olympics</option>
+<option value="genres/sport/rowing">Rowing</option>
+<option value="genres/sport/rugbyleague">Rugby League</option>
+<option value="genres/sport/rugbyunion">Rugby Union</option>
+<option value="genres/sport/sailing">Sailing</option>
+<option value="genres/sport/shinty">Shinty</option>
+<option value="genres/sport/snooker">Snooker</option>
+<option value="genres/sport/swimming">Swimming</option>
+<option value="genres/sport/synchronisedswimming">Synchronised Swimming</option>
+<option value="genres/sport/tabletennis">Table Tennis</option>
+<option value="genres/sport/taekwondo">Taekwondo</option>
+<option value="genres/sport/tennis">Tennis</option>
+<option value="genres/sport/winterolympics">Winter Olympics</option>
+<option value="genres/sport/wintersports">Winter Sports</option>
+</option>
+		</select>
+		</div>
+	  </form>
+	  
+	  <table id="tblMain" class="display nowrap">
+	  <thead>
+	  <tr><td>PID</td><td>Type</td><td>Title</td>
+	  </thead>
+	  <tbody>
+	  </tbody>
+	  </table>
+
+      </section>
+    </div>
+		
+	<script language="JavaScript" type='text/javascript'>
+		var domain = '/radio';
+		function url(){
+			var page = $('input:radio[name=page]:checked').val();
+			return 'http://www.bbc.co.uk'+domain+'/programmes/'+$('#category').val()+page+'.json'
+		}
+		$(document).ready(function(){
+			var table = $('#tblMain').DataTable({
+				"ajax": {
+					url: url(),
+					"dataSrc": function(json){
+						var result = [];
+						
+						var container = {};
+						if (json.category_page) {
+							container = json.category_page.available_programmes;
+						}
+						else if (json.category_slice) {
+							container = json.category_slice.programmes;
+						}
+						else if (json.episodes) {
+							container = json.episodes;
+						}
+						else if (json.broadcasts) {
+							container = json.broadcasts;
+						}
+						
+						seen = [];
+						
+						for (var i in container) {
+							var p = container[i]; 
+							if (p.programme) p = p.programme;
+								if (seen.indexOf(p.pid)<0) {
+								var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>'; 
+								var title;
+								if (p.type == 'brand' || p.type == 'series') {
+									title = '<a href="/bbc/children.html?pid='+p.pid+'">'+p.title+'</a>';
+								}
+								else {
+									title = '<a href="/bbc/detail.html?pid='+p.pid+'">'+p.title+'</a>';
+								}
+								var row = [pid,p.type,title];
+								result.push(row);
+								seen.push(p.pid);
+							}
+						}
+						//alert(JSON.stringify(result));
+						return result;
+					}
+				}
+				//,
+				//"columns": [
+				//	{ "data": "0"},
+				//	{ "data": "1"}
+				//]
+			});
+			table.on( 'xhr', function () {
+				var json = table.ajax.json();
+				//alert( ((json && json.category_slice) ? json.category_slice.programmes.length : 0)+' row(s) were loaded');
+				return {};
+			});
+			$('#category').change(function(){
+				table.ajax.url(url()).load();
+			});
+			$('input:radio[name=page]').change(function(){
+				table.ajax.url(url()).load();
+			});
+			$('input:radio[name=domain]').change(function(){
+				if (this.value=='radio') {
+					domain = '/radio';
+				}
+				else {
+					domain = '';
+				}
+				table.ajax.url(url()).load();
+			});
+			//table.ajax.reload(function(data){
+			//	alert('Got some data');
+			//});
+		});
+	</script>
+
+    
+  </body>
+</html>
