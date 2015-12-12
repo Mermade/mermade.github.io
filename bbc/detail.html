@@ -35,7 +35,8 @@
     <div class="container">
       <section id="main_content">
 	  
-	  <img id="image" src="" alt="Image placeholder"/>
+	  <div><a id="imagelink" href=""><img id="image" src="" alt="Image placeholder"/></a>
+	  </div>
 	  
 	  <table id="tblMain" class="display">
 	  <thead>
@@ -65,6 +66,7 @@
 						
 						if (p.image.pid) {
 							$('#image').attr('src',"http://ichef.bbci.co.uk/images/ic/640x360/"+p.image.pid+".jpg");
+							$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parent);
 						}
 						
 						var result = [];
