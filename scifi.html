@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	
+	<meta name="description" content="Open source software including BBC Nitro feed parser" />
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/datatables.css" media="screen">
+	
+		<script src="javascripts/jQuery-min.js"></script>
+		<script src="javascripts/dataTables.js"></script>
+		
+    <title>Software by Mermade</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Mermade Software</h1>
+        <h2>Itches elegantly scratched</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
+		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
+		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
+		</section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+	  
+	  <table id="tblMain">
+	  <thead>
+	  <tr><td>Programme id</td><td>Type</td><td>Title</td>
+	  </thead>
+	  <tbody>
+	  </tbody>
+	  </table>
+
+      </section>
+    </div>
+		
+	<script language="JavaScript" type='text/javascript'>
+		$(document).ready(function(){
+			var table = $('#tblMain').DataTable({
+				"ajax": {
+					url: 'http://www.bbc.co.uk/radio/programmes/genres/drama/scifiandfantasy/player.json',
+					"dataSrc": function(json){
+						var result = [];
+						for (var i in json.category_slice.programmes) {
+							var p = json.category_slice.programmes[i];
+							var href = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>';
+							var row = [href,p.type,p.title];
+							result.push(row);
+						}
+						//alert(JSON.stringify(result));
+						return result;
+					}
+				}
+				//,
+				//"columns": [
+				//	{ "data": "0"},
+				//	{ "data": "1"}
+				//]
+			});
+			table.on( 'xhr', function () {
+				var json = table.ajax.json();
+				//alert( ((json && json.category_slice) ? json.category_slice.programmes.length : 0)+' row(s) were loaded');
+				return {};
+			});
+			//table.ajax.url('').load();
+			//table.ajax.reload(function(data){
+			//	alert('Got some data');
+			//});
+			//alert('oh');
+		});
+	</script>
+
+    
+  </body>
+</html>
