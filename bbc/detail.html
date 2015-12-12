@@ -10,9 +10,11 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
     <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
 	
 		<script src="/javascripts/jQuery-min.js"></script>
 		<script src="/javascripts/dataTables.js"></script>
+		<script src="/javascripts/jquery.colorbox-min.js"></script>
 		
     <title>Software by Mermade</title>
   </head>
@@ -57,6 +59,7 @@
 			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
 		$(document).ready(function(){
+			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 			var parent = getParameterByName('pid');
 			var table = $('#tblMain').DataTable({
 				"ajax": {
@@ -81,6 +84,11 @@
 								if (!(v[j] instanceof Object)) {
 									result.push(['Version #'+i+' '+j,v[j]]);
 								}
+							}
+						}
+						for (var i in p.parent.programme) {
+							if (!(p.parent.programme[i] instanceof Object)) {
+								result.push(['Parent '+i,p.parent.programme[i]]);
 							}
 						}
 						return result;
