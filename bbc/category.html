@@ -52,6 +52,14 @@
 		</div>
 		<div>
 		<select id="category" name="category">
+<option value="formats/animation">Animation</option>
+<option value="genres/childrens/activities">Childrens/Activities</option>
+<option value="genres/childrens/drama">Childrens/Drama</option>
+<option value="genres/childrens/entertainmentandcomedy">Childrens/Entertainment & Comedy</option>
+<option value="genres/childrens/factual">Childrens/Factual</option>
+<option value="genres/childrens/music">Childrens/Music</option>
+<option value="genres/childrens/news">Childrens/News</option>
+<option value="genres/childrens/sport">Childrens/Sport</option>
 <option value="genres/comedy/character">Comedy/Character</option>
 <option value="genres/comedy/impressionists">Comedy/Impressionists</option>
 <option value="genres/comedy/music">Comedy/Music</option>
@@ -79,6 +87,7 @@
 <option value="genres/drama/thriller">Drama/Thriller</option>
 <option value="genres/drama/waranddisaster">Drama/War & Disaster</option>
 <option value="genres/drama/western">Drama/Western</option>
+<option value="formats/docudramas">Docudramas</option>
 <option value="formats/documentaries">Documentaries</option>
 <option value="genres/entertainment/varietyshows">Entertainment/Variety Shows</option>
 <option value="genres/factual/antiques">Factual/Antiques</option>
@@ -153,6 +162,7 @@
 <option value="genres/sport/tennis">Sport/Tennis</option>
 <option value="genres/sport/winterolympics">Sport/Winter Olympics</option>
 <option value="genres/sport/wintersports">Sport/Winter Sports</option>
+<option value="genres/weather">Weather</option>
 </option>
 		</select>
 		<div>
@@ -215,7 +225,7 @@
 						for (var i in container) {
 							var p = container[i];
 							if (p.programme) p = p.programme;
-								if (seen.indexOf(p.pid)<0) {
+							if (seen.indexOf(p.pid)<0) {
 								var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>';
 								var tlink;
 
