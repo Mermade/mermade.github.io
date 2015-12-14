@@ -59,6 +59,7 @@
 			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 			var parent = getParameterByName('pid');
 			var table = $('#tblMain').DataTable({
+				"order": [[ 2, "asc" ]],
 				"ajax": {
 					url: 'http://www.bbc.co.uk/programmes/'+parent+'/episodes/player.json',
 					"dataSrc": function(json){
@@ -93,7 +94,6 @@
 			//});
 		});
 	</script>
-
     
   </body>
 </html>

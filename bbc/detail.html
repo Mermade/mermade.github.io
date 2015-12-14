@@ -77,18 +77,31 @@
 							if (!(p[i] instanceof Object)) {
 								result.push([i,p[i]]);
 							}
-						}
-						for (var i in p.versions) {
-							var v = p.versions[i];
-							for (var j in v) {
-								if (!(v[j] instanceof Object)) {
-									result.push(['Version #'+i+' '+j,v[j]]);
+							else if (i == 'versions') {
+								for (var v in p.versions) {
+									var ver = p.versions[v];
+									for (var j in ver) {
+										if (!(ver[j] instanceof Object)) {
+											result.push(['Version #'+v+' '+j,ver[j]]);
+										}
+										else {
+											result.push(['Version #'+v+' '+j,JSON.stringify(ver[j])]);
+										}
+									}
 								}
 							}
-						}
-						for (var i in p.parent.programme) {
-							if (!(p.parent.programme[i] instanceof Object)) {
-								result.push(['Parent '+i,p.parent.programme[i]]);
+							else if (i == 'parent') {
+								for (var j in p.parent.programme) {
+									if (!(p.parent.programme[j] instanceof Object)) {
+										result.push(['Parent '+j,p.parent.programme[j]]);
+									}
+									else {
+										result.push(['Parent '+j,JSON.stringify(p.parent.programme[j])]);
+									}
+								}
+							} 
+							else {
+								result.push([i,JSON.stringify(p[i])]);
 							}
 						}
 						return result;
@@ -115,7 +128,6 @@
 			//alert('oh');
 		});
 	</script>
-
-    
+   
   </body>
 </html>

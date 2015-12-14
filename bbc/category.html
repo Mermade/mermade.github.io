@@ -16,7 +16,6 @@
 	<script src="/javascripts/dataTables.js"></script>
 	<script src="/javascripts/jquery.colorbox-min.js"></script>
 
-	<!--
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -26,7 +25,6 @@
 	ga('create', 'UA-71322956-1', 'auto');
 	ga('send', 'pageview');
 	</script>
-	-->
 
     <title>Software by Mermade</title>
   </head>
@@ -51,28 +49,29 @@
 
 	  <form id="form1">
 		<div>
-		<input type="radio" name="domain" value="radio" checked>Radio Only
+		<input type="radio" id="rbRadio" name="domain" value="radio" checked />Radio Only
 		&nbsp;-&nbsp;
-		<input type="radio" name="domain" value="tv">Radio and TV
+		<input type="radio" id="rbTv" name="domain" value="tv"/>Radio and TV
 		</div>
 		<div>
-		<input type="radio" name="page" value="/player" checked>Available
+		<input type="radio" name="page" value="/player" checked />Available
 		&nbsp;-&nbsp;
-		<input type="radio" name="page" value="/schedules/upcoming">Upcoming
+		<input type="radio" name="page" value="/schedules/upcoming"/>Upcoming
 		&nbsp;-&nbsp;
-		<input type="radio" name="page" value="/player/episodes">Latest
+		<input type="radio" name="page" value="/player/episodes"/>Latest
 		</div>
 		<div>
 
 <select id="category" name="category">
-<option value="formats/animation">Animation</option>
+<option value="formats/animation">Animation*</option>
 <option value="genres/childrens/activities">Childrens/Activities</option>
 <option value="genres/childrens/drama">Childrens/Drama</option>
 <option value="genres/childrens/entertainmentandcomedy">Childrens/Entertainment & Comedy</option>
 <option value="genres/childrens/factual">Childrens/Factual</option>
 <option value="genres/childrens/music">Childrens/Music</option>
-<option value="genres/childrens/news">Childrens/News</option>
+<option value="genres/childrens/news">Childrens/News*</option>
 <option value="genres/childrens/sport">Childrens/Sport</option>
+<option value="genres/comedy">Comedy (all)</option>
 <option value="genres/comedy/character">Comedy/Character</option>
 <option value="genres/comedy/impressionists">Comedy/Impressionists</option>
 <option value="genres/comedy/music">Comedy/Music</option>
@@ -82,6 +81,7 @@
 <option value="genres/comedy/spoof">Comedy/Spoof</option>
 <option value="genres/comedy/standup">Comedy/Standup</option>
 <option value="genres/comedy/stunt">Comedy/Stunt</option>
+<option value="genres/drama">Drama (All)</option>
 <option value="genres/drama/actionandadventure">Drama/Action & Adventure</option>
 <option value="genres/drama/biographical">Drama/Biographical</option>
 <option value="genres/drama/classicandperiod">Drama/Classic & Period</option>
@@ -121,7 +121,7 @@
 <option value="genres/factual/politics">Factual/Politics</option>
 <option value="genres/factual/scienceandnature">Factual/Science & Nature</option>
 <option value="genres/factual/travel">Factual/Travel</option>
-<option value="formats/films">Films</option>
+<option value="formats/films">Films*</option>
 <option value="genres/learning/adults">Learning/Adults</option>
 <option value="genres/learning/preschool">Learning/Pre-School</option>
 <option value="genres/learning/primary">Learning/Primary</option>
@@ -189,7 +189,7 @@
 
 	  <table id="tblMain" class="display nowrap">
 	  <thead>
-	  <tr><td>PID</td><td>Type</td><td>Title</td></tr>
+	  <tr><td>PID</td><td>Type</td><td class="dt-left">Title</td></tr>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -210,6 +210,7 @@
 			var table = $('#tblMain').DataTable({
 				"stateSave": true,
 				"stateDuration": -1,
+				"order": [[ 3, "asc" ]],
 				"ajax": {
 					url: url(),
 					"dataSrc": function(json){
@@ -273,12 +274,16 @@
 				//	{ "data": "1"}
 				//]
 			});
-			table.on( 'xhr', function () {
-				var json = table.ajax.json();
-				//alert( ((json && json.category_slice) ? json.category_slice.programmes.length : 0)+' row(s) were loaded');
-				return {};
-			});
+			//table.on('xhr', function() {
+			//	var json = table.ajax.json();
+			//	return {};
+			//});
 			$('#category').change(function(){
+				if (($('#category :selected').text().indexOf('*')>=0) && (domain == '/radio')) {
+					// for films and animation etc switch to TV mode automatically
+					$('#rbTv').prop('checked', true);
+					domain = '';
+				}
 				table.ajax.url(url()).load();
 			});
 			$('input:radio[name=page]').change(function(){
@@ -294,17 +299,23 @@
 				table.ajax.url(url()).load();
 			});
 			$('#btnSearch').click(function(e){
-				// nb www in the host, AJAX / CORS not following redirect
-				table.ajax.url('http://www.bbc.co.uk/programmes/a-z/by/'+encodeURIComponent($('#search').val())+'/player.json').load();
+				var searchTerm = $('#search').val();
+				var pidRegex = /^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$/;
+				if (searchTerm.search(pidRegex)==0) {
+					window.location.href = '/bbc/detail.html?pid='+searchTerm;
+				}
+				else {
+					// nb www in the host, AJAX / CORS not following redirect
+					table.ajax.url('http://www.bbc.co.uk/programmes/a-z/by/'+encodeURIComponent(searchTerm)+'/player.json').load();
+				}
 				e.preventDefault();
 				return false;
 			});
 			//table.ajax.reload(function(data){
-			//	alert('Got some data');
+			//	alert('Data returned');
 			//});
 		});
 	</script>
-
 
   </body>
 </html>
