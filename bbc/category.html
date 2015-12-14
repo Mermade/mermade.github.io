@@ -248,6 +248,7 @@
 							container = json.atoz.tleo_titles;
 						}
 						else {
+							// searchSuggest results
 							container = [];
 							for (var i in json[1]) {
 								var o = json[1][i];
@@ -282,14 +283,8 @@
 								var row = [pid,p.type,tlink];
 								result.push(row);
 								seen.push(p.pid);
-
-								//if (title.indexOf('Episode')==0) {
-								//	alert(JSON.stringify(p));
-								//}
-
 							}
 						}
-						//alert(JSON.stringify(result));
 						return result;
 					}
 				}
