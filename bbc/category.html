@@ -183,6 +183,7 @@
 			<form id="form2">
 				<input id="search" name="search"/>
 				<button id="btnSearch" name="Search">Search iPlayer</button>
+				<input type="checkbox" id="cbAltSearch" />Alternative Search
 			</form>
 		</div>
 	  <hr width="50%">
@@ -231,6 +232,16 @@
 						}
 						else if (json.atoz) {
 							container = json.atoz.tleo_titles;
+						}
+						else {
+							container = [];
+							for (var i in json[1]) {
+								var o = json[1][i];
+								for (var t in o.tleo) {
+									var tleo = o.tleo[t];
+									container.push(o.tleo[t]);
+								}
+							}
 						}
 
 						seen = [];
@@ -299,14 +310,21 @@
 				table.ajax.url(url()).load();
 			});
 			$('#btnSearch').click(function(e){
-				var searchTerm = $('#search').val();
+				var searchTerm = encodeURIComponent($('#search').val());
 				var pidRegex = /^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$/;
 				if (searchTerm.search(pidRegex)==0) {
 					window.location.href = '/bbc/detail.html?pid='+searchTerm;
 				}
 				else {
-					// nb www in the host, AJAX / CORS not following redirect
-					table.ajax.url('http://www.bbc.co.uk/programmes/a-z/by/'+encodeURIComponent(searchTerm)+'/player.json').load();
+					if ($('#cbAltSearch').is(":checked")) {
+						var mediatype = (domain == '' ? 'video' : 'audio');
+						table.ajax.url('http://search-suggest.api.bbci.co.uk/search-suggest/suggest?q='+
+							searchTerm+'&scope=iplayer&format=bigscreen-2&mediatype='+mediatype+'&mediaset=pc&apikey=sUDquwOAnfNDMeRGWY9vQUuUnsQPRBOA').load();
+					}
+					else {
+						// nb www in the host, AJAX / CORS not following redirect
+						table.ajax.url('http://www.bbc.co.uk/programmes/a-z/by/'+searchTerm+'/player.json').load();
+					}
 				}
 				e.preventDefault();
 				return false;
