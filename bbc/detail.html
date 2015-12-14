@@ -99,7 +99,14 @@
 										result.push(['Parent '+j,JSON.stringify(p.parent.programme[j])]);
 									}
 								}
-							} 
+							}
+							else if (i == 'links') {							
+								for (var l in p.links) {
+									var link = p.links[l];
+									var href = '<a href=' + link.url + '>' + link.title + '</a>';
+									result.push([link.type,href]);
+								}
+							}
 							else {
 								result.push([i,JSON.stringify(p[i])]);
 							}
