@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-	
+
 	<meta name="description" content="Open source software including BBC Nitro feed parser" />
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
@@ -11,11 +11,11 @@
     <!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"> -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
-	
+
 		<script src="/javascripts/jQuery-min.js"></script>
 		<script src="/javascripts/dataTables.js"></script>
 		<script src="/javascripts/jquery.colorbox-min.js"></script>
-		
+
     <title>Software by Mermade</title>
   </head>
 
@@ -36,10 +36,11 @@
 
     <div class="container">
       <section id="main_content">
-	  
-	  <div><a id="imagelink" href=""><img id="image" src="" alt="Image placeholder"/></a>
+
+	  <div><a id="imagelink" href=""><img id="image" src="" alt="Image placeholder"/></a><br>
+	  <span>Default version PID= <span id="verpid"></span></span>
 	  </div>
-	  
+
 	  <table id="tblMain" class="display">
 	  <thead>
 	  <tr><td>Field</td><td>Value</td></tr>
@@ -50,7 +51,7 @@
 
       </section>
     </div>
-		
+
 	<script language="JavaScript" type='text/javascript'>
 		function getParameterByName(name) {
 			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -66,12 +67,12 @@
 					url: 'http://www.bbc.co.uk/programmes/'+parent+'.json',
 					"dataSrc": function(json){
 						var p = json.programme;
-						
+
 						if (p.image.pid) {
 							$('#image').attr('src',"http://ichef.bbci.co.uk/images/ic/640x360/"+p.image.pid+".jpg");
 							$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parent);
 						}
-						
+
 						var result = [];
 						for (var i in p) {
 							if (!(p[i] instanceof Object)) {
@@ -80,6 +81,9 @@
 							else if (i == 'versions') {
 								for (var v in p.versions) {
 									var ver = p.versions[v];
+									if (ver.canonical == 1) {
+										$('#verpid').text(ver.pid);
+									}
 									for (var j in ver) {
 										if (!(ver[j] instanceof Object)) {
 											result.push(['Version #'+v+' '+j,ver[j]]);
@@ -91,16 +95,27 @@
 								}
 							}
 							else if (i == 'parent') {
-								for (var j in p.parent.programme) {
-									if (!(p.parent.programme[j] instanceof Object)) {
-										result.push(['Parent '+j,p.parent.programme[j]]);
-									}
-									else {
-										result.push(['Parent '+j,JSON.stringify(p.parent.programme[j])]);
+								level = 0;
+								var parent = p.parent.programme;
+								var loop = true;
+								while (loop) {
+									loop = false;
+									for (var j in parent) {
+										if (!(parent[j] instanceof Object)) {
+											result.push(['Parent '+level+' '+j,parent[j]]);
+										}
+										else if (j == 'parent') {
+											parent = parent.parent.programme;
+											loop = true;
+											level++;
+										}
+										else {
+											result.push(['Parent '+level+' '+j,JSON.stringify(parent[j])]);
+										}
 									}
 								}
 							}
-							else if (i == 'links') {							
+							else if (i == 'links') {
 								for (var l in p.links) {
 									var link = p.links[l];
 									var href = '<a href=' + link.url + '>' + link.title + '</a>';
@@ -135,6 +150,6 @@
 			//alert('oh');
 		});
 	</script>
-   
+
   </body>
 </html>
