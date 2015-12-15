@@ -47,7 +47,7 @@
     <div class="container">
       <section id="main_content">
 
-	  <form id="form1">
+	  <form id="form1" action='#'>
 		<div>
 		<input type="radio" id="rbRadio" name="domain" value="radio" checked />Radio Only
 		&nbsp;-&nbsp;
@@ -194,7 +194,7 @@
 		</div>
 		</form>
 		<div>
-			<form id="form2">
+			<form id="form2" action='#'>
 				<input id="search" name="search"/>
 				<button id="btnSearch" name="Search">Search iPlayer</button>
 				<input type="checkbox" id="cbAltSearch" />Alternative Search
@@ -204,7 +204,7 @@
 
 	  <table id="tblMain" class="display nowrap">
 	  <thead>
-	  <tr><td>PID</td><td>Type</td><td class="dt-left">Title</td></tr>
+	  <tr><td>PID</td><td>Type</td><td>Title</td></tr>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -304,9 +304,11 @@
 					$('#rbTv').prop('checked', true);
 					domain = '';
 				}
+				$('#search').val('');
 				table.ajax.url(url()).load();
 			});
 			$('input:radio[name=page]').change(function(){
+				$('#search').val('');
 				table.ajax.url(url()).load();
 			});
 			$('input:radio[name=domain]').change(function(){
@@ -316,6 +318,7 @@
 				else {
 					domain = '';
 				}
+				$('#search').val('');
 				table.ajax.url(url()).load();
 			});
 			$('#btnSearch').click(function(e){
