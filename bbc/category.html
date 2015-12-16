@@ -202,11 +202,12 @@
 		</div>
 	  <hr width="50%">
 
-	  <table id="tblMain" class="display nowrap">
+	  <table id="tblMain" class="compact nowrap">
 	  <thead>
 	  <tr><td>PID</td><td>Type</td><td>Title</td></tr>
 	  </thead>
 	  <tbody>
+	  <tr><td>Loading</td><td>data</td><td>please wait</td></tr>
 	  </tbody>
 	  </table>
 
@@ -219,13 +220,14 @@
 		var domain = '/radio';
 		function url(){
 			var page = $('input:radio[name=page]:checked').val();
-			return 'http://www.bbc.co.uk'+domain+'/programmes/'+$('#category').val()+page+'.json'
+			return 'http://www.bbc.co.uk'+domain+'/programmes/'+$('#category').val()+page+'.json';
 		}
 		$(document).ready(function(){
 			var table = $('#tblMain').DataTable({
 				"stateSave": true,
 				"stateDuration": -1,
-				"order": [[ 3, "asc" ]],
+				"bSort": false,
+				//"order": [[ 3, "asc" ]],
 				"ajax": {
 					url: url(),
 					"dataSrc": function(json){
@@ -254,12 +256,12 @@
 								var o = json[1][i];
 								for (var t in o.tleo) {
 									var tleo = o.tleo[t];
-									container.push(o.tleo[t]);
+									container.push(tleo);
 								}
 							}
 						}
 
-						seen = [];
+						var seen = [];
 
 						for (var i in container) {
 							var p = container[i];

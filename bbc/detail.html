@@ -99,7 +99,7 @@
 								}
 							}
 							else if (i == 'parent') {
-								level = 0;
+								var level = 0;
 								var parent = p.parent.programme;
 								var loop = true;
 								while (loop) {
@@ -130,6 +130,24 @@
 								var href = '<a href="http://www.bbc.co.uk/'+p.ownership.service.key+'">'+
 									p.ownership.service.title+'</a>';
 								result.push([i,href]);
+							}
+							else if (i == 'display_title') {
+								result.push([i,p[i].title+'\n'+(p[i].subtitle ? p[i].subtitle : '')]);
+							}
+							else if (i == 'peers') {
+								for (var np in p.peers) {
+									var peer = p.peers[np];
+									if (peer) {
+										var href = '<a href="/bbc/detail.html?pid='+peer.pid+'">'+peer.title+'</a>';
+										result.push(['peer '+np,href]);
+									}
+								}
+							}
+							else if (i == 'categories') {
+								for (var c in p.categories) {
+									var cat = p.categories[c];
+									result.push([i,cat.title]);
+								}
 							}
 							else {
 								result.push([i,JSON.stringify(p[i])]);
