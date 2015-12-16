@@ -59,6 +59,89 @@
 				results = regex.exec(location.search);
 			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
+		function extractDetails(p,result,prefix) {
+			var parentPid = getParameterByName('pid');
+			if (p.image && p.image.pid && prefix == '') {
+				$('#image').attr('src','http://ichef.bbci.co.uk/images/ic/640x360/'+p.image.pid+'.jpg');
+				$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parentPid);
+			}
+
+			for (var i in p) {
+				if (i == 'pid') {
+					var href = '<a href="/bbc/detail.html?pid=' + p[i] + '">' + p[i] + '</a>';
+					result.push([prefix+i,href]);
+				}
+				else if (!(p[i] instanceof Object)) {
+					result.push([prefix+i,p[i]]);
+				}
+				else if (i == 'versions') {
+					for (var v in p.versions) {
+						var ver = p.versions[v];
+						if (ver.canonical == 1 && prefix == '') {
+							$('#verpid').text(ver.pid);
+						}
+						for (var j in ver) {
+							if (!(ver[j] instanceof Object)) {
+								result.push(['Version #'+v+' '+j,ver[j]]);
+							}
+							else {
+								result.push(['Version #'+v+' '+j,JSON.stringify(ver[j])]);
+							}
+						}
+					}
+				}
+				else if (i == 'parent') {
+					var level = 1;
+					var parent = p.parent.programme;
+					var loop = true;
+					while (loop) {
+						loop = false;
+						extractDetails(parent,result,'Parent '+level+' ');
+						for (var j in parent) {
+							if (j == 'parent') {
+								parent = parent.parent.programme;
+								loop = true;
+								level++;
+							}
+						}
+					}
+				}
+				else if (i == 'links') {
+					for (var l in p.links) {
+						var link = p.links[l];
+						var href = '<a href="' + link.url + '">' + link.title + '</a>';
+						result.push([link.type,href]);
+					}
+				}
+				else if (i == 'ownership') {
+					var href = '<a href="http://www.bbc.co.uk/'+p.ownership.service.key+'">'+
+						p.ownership.service.title+'</a>';
+					result.push([prefix+i,href]);
+				}
+				else if (i == 'display_title') {
+					result.push([prefix+i,p[i].title+'\n'+(p[i].subtitle ? p[i].subtitle : '')]);
+				}
+				else if (i == 'peers') {
+					for (var np in p.peers) {
+						var peer = p.peers[np];
+						if (peer) {
+							var href = '<a href="/bbc/detail.html?pid='+peer.pid+'">'+peer.title+'</a>';
+							result.push(['peer '+np,href]);
+						}
+					}
+				}
+				else if (i == 'categories') {
+					for (var c in p.categories) {
+						var cat = p.categories[c];
+						result.push([i,cat.title]);
+					}
+				}
+				else {
+					result.push([prefix+i,JSON.stringify(p[i])]);
+				}
+			}
+			return result;
+		}
 		$(document).ready(function(){
 			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 			var parentPid = getParameterByName('pid');
@@ -66,92 +149,12 @@
 				"ajax": {
 					url: 'http://www.bbc.co.uk/programmes/'+parentPid+'.json',
 					"dataSrc": function(json){
-						var parentPid = getParameterByName('pid');
+						var result = [];
 						if (!json.programme) {
 							alert(JSON.stringify(json));
 						}
-						var p = json.programme;
-
-						if (p.image && p.image.pid) {
-							$('#image').attr('src','http://ichef.bbci.co.uk/images/ic/640x360/'+p.image.pid+'.jpg');
-							$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parentPid);
-						}
-
-						var result = [];
-						for (var i in p) {
-							if (!(p[i] instanceof Object)) {
-								result.push([i,p[i]]);
-							}
-							else if (i == 'versions') {
-								for (var v in p.versions) {
-									var ver = p.versions[v];
-									if (ver.canonical == 1) {
-										$('#verpid').text(ver.pid);
-									}
-									for (var j in ver) {
-										if (!(ver[j] instanceof Object)) {
-											result.push(['Version #'+v+' '+j,ver[j]]);
-										}
-										else {
-											result.push(['Version #'+v+' '+j,JSON.stringify(ver[j])]);
-										}
-									}
-								}
-							}
-							else if (i == 'parent') {
-								var level = 0;
-								var parent = p.parent.programme;
-								var loop = true;
-								while (loop) {
-									loop = false;
-									for (var j in parent) {
-										if (!(parent[j] instanceof Object)) {
-											result.push(['Parent '+level+' '+j,parent[j]]);
-										}
-										else if (j == 'parent') {
-											parent = parent.parent.programme;
-											loop = true;
-											level++;
-										}
-										else {
-											result.push(['Parent '+level+' '+j,JSON.stringify(parent[j])]);
-										}
-									}
-								}
-							}
-							else if (i == 'links') {
-								for (var l in p.links) {
-									var link = p.links[l];
-									var href = '<a href="' + link.url + '">' + link.title + '</a>';
-									result.push([link.type,href]);
-								}
-							}
-							else if (i == 'ownership') {
-								var href = '<a href="http://www.bbc.co.uk/'+p.ownership.service.key+'">'+
-									p.ownership.service.title+'</a>';
-								result.push([i,href]);
-							}
-							else if (i == 'display_title') {
-								result.push([i,p[i].title+'\n'+(p[i].subtitle ? p[i].subtitle : '')]);
-							}
-							else if (i == 'peers') {
-								for (var np in p.peers) {
-									var peer = p.peers[np];
-									if (peer) {
-										var href = '<a href="/bbc/detail.html?pid='+peer.pid+'">'+peer.title+'</a>';
-										result.push(['peer '+np,href]);
-									}
-								}
-							}
-							else if (i == 'categories') {
-								for (var c in p.categories) {
-									var cat = p.categories[c];
-									result.push([i,cat.title]);
-								}
-							}
-							else {
-								result.push([i,JSON.stringify(p[i])]);
-							}
+						else {
+							extractDetails(json.programme,result,'');
 						}
 						return result;
 					}
