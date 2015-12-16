@@ -95,17 +95,15 @@
 					}
 				}
 				else if (i == 'parent') {
-					var level = 1;
 					var parent = p.parent.programme;
 					var loop = true;
 					while (loop) {
 						loop = false;
-						extractDetails(parent,result,'Parent '+level+' ');
+						extractDetails(parent,result,'Parent '+parent.type+' ');
 						for (var j in parent) {
 							if (j == 'parent') {
 								parent = parent.parent.programme;
 								loop = true;
-								level++;
 							}
 						}
 					}
@@ -137,7 +135,12 @@
 				else if (i == 'categories') {
 					for (var c in p.categories) {
 						var cat = p.categories[c];
-						result.push([i,cat.title]);
+						var title = cat.title;
+						if (cat.broader) {
+							title = cat.broader.category.title + '/' + title;
+						}
+						//alert(JSON.stringify(cat));
+						result.push([i,title]);
 					}
 				}
 				else {
