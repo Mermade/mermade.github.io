@@ -74,6 +74,10 @@
 				else if (!(p[i] instanceof Object)) {
 					result.push([prefix+i,p[i]]);
 				}
+				else if (i == 'image') {
+					var href = '<a href="http://ichef.bbci.co.uk/images/ic/640x360/' + p[i].pid + '.jpg">' + p[i].pid + '</a>';
+					result.push([prefix+i,href]);
+				}
 				else if (i == 'versions') {
 					for (var v in p.versions) {
 						var ver = p.versions[v];
