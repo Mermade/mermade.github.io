@@ -37,9 +37,16 @@
     <div class="container">
       <section id="main_content">
 
-	  <div><a id="imagelink" href=""><img id="image" src="" alt="Image placeholder"/></a><br>
-	  <span>Default version PID= <span id="verpid"></span></span>
-	  </div>
+		<div class="divWrapper hidden" id="divProgImg" align="center">
+			<div class="!divBackground">
+				<img class="imgBox" id="image" src="" alt="Image placeholder"/><br>
+				<span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span>
+			</div>
+			<div class="divMidground"><br><span id="spnTitle"></span></div>
+			<div id="divImgOverlay" class="divMidground">
+				<a id="imagelink" href=""><img src="/images/iPeeker.png"/></a>
+			</div>
+		</div>
 
 	  <table id="tblMain" class="display">
 	  <thead>
@@ -64,6 +71,8 @@
 			if (p.image && p.image.pid && prefix == '') {
 				$('#image').attr('src','http://ichef.bbci.co.uk/images/ic/640x360/'+p.image.pid+'.jpg');
 				$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parentPid);
+				$('#spnTitle').text(p.title);
+				$('#divProgImg').show();
 			}
 
 			for (var i in p) {
@@ -83,6 +92,7 @@
 						var ver = p.versions[v];
 						if (ver.canonical == 1 && prefix == '') {
 							$('#verpid').text(ver.pid);
+							$('#spnVerPid').show();
 						}
 						for (var j in ver) {
 							if (!(ver[j] instanceof Object)) {
@@ -96,13 +106,15 @@
 				}
 				else if (i == 'parent') {
 					var parent = p.parent.programme;
+					var level = 1;
 					var loop = true;
 					while (loop) {
 						loop = false;
-						extractDetails(parent,result,'Parent '+parent.type+' ');
+						extractDetails(parent,result,'Parent '+parent.type+' '+level+' ');
 						for (var j in parent) {
 							if (j == 'parent') {
 								parent = parent.parent.programme;
+								level++;
 								loop = true;
 							}
 						}
@@ -136,7 +148,7 @@
 					for (var c in p.categories) {
 						var cat = p.categories[c];
 						var title = cat.title;
-						if (cat.broader) {
+						if (cat.broader && cat.category) {
 							title = cat.broader.category.title + '/' + title;
 						}
 						//alert(JSON.stringify(cat));
