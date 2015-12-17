@@ -42,7 +42,7 @@
 				<img class="imgBox" id="image" src="" alt="Image placeholder"/><br>
 				<span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span>
 			</div>
-			<div class="divMidground"><br><span id="spnTitle"></span></div>
+			<div class="divMidground"><br><strong><span id="spnTitle"></span></strong></div>
 			<div id="divImgOverlay" class="divMidground">
 				<a id="imagelink" href=""><img src="/images/iPeeker.png"/></a>
 			</div>
@@ -73,6 +73,10 @@
 				$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parentPid);
 				$('#spnTitle').text(p.title);
 				$('#divProgImg').show();
+			}
+			if (prefix == '') {
+				var href = '<a href="http://www.bbc.co.uk/programmes/'+parentPid+'/qrcode.png">'+parentPid+'</a>';
+				result.push(['QR code',href]);
 			}
 
 			for (var i in p) {
