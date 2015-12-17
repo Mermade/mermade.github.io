@@ -207,7 +207,6 @@
 	  <tr><td>PID</td><td>Type</td><td>Title</td></tr>
 	  </thead>
 	  <tbody>
-	  <tr><td>Loading</td><td>data</td><td>please wait</td></tr>
 	  </tbody>
 	  </table>
 
@@ -217,6 +216,9 @@
 	<script language="JavaScript" type='text/javascript'>
 		$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 
+		function jAlert(obj) {
+			alert(JSON.stringify(obj));
+		}
 		function domain(){
 			return $('input:radio[name=domain]:checked').val();
 		}
@@ -224,8 +226,9 @@
 			var page = $('input:radio[name=page]:checked').val();
 			return 'http://www.bbc.co.uk'+domain()+'/programmes/'+$('#category').val()+page+'.json';
 		}
+		var table;
 		$(document).ready(function(){
-			var table = $('#tblMain').DataTable({
+			table = $('#tblMain').DataTable({
 				"stateSave": true,
 				"stateDuration": -1,
 				"bSort": false,
@@ -300,6 +303,7 @@
 			});
 			//table.on('xhr', function() {
 			//	var json = table.ajax.json();
+			//	jAlert(json);
 			//	return {};
 			//});
 			$('#category').change(function(){
@@ -341,6 +345,10 @@
 			//table.ajax.reload(function(data){
 			//	alert('Data returned');
 			//});
+		});
+		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+			alert('No data returned');
+			table.clear().draw();
 		});
 	</script>
 
