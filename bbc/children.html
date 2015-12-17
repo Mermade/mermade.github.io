@@ -39,7 +39,7 @@
 	  
 	  <table id="tblMain" class="compact nowrap">
 	  <thead>
-	  <tr><td>PID</td><td>Type</td><td>Title</td></tr>
+	  <tr><td>PID</td><td>Type</td><td>Title</td><<td>Note</td></tr>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -80,16 +80,17 @@
 							else {
 								tlink = '<a href="/bbc/detail.html?pid='+p.pid+'">'+title+'</a>';
 							}
-							var row = [pid,p.type,tlink];
+							//alert(JSON.stringify(p.media));
+							var row = [pid,p.type,tlink,p.media.availability];
 							result.push(row);
 						}
-						//alert(result);
 						return result;
 					}
 				}
 			});
 			//table.on( 'xhr', function () {
 			//	var json = table.ajax.json();
+			//	alert(JSON.stringify(json));
 			//	return {};
 			//});
 		});
