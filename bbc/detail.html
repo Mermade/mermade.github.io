@@ -40,13 +40,15 @@
 		<div class="divWrapper hidden" id="divProgImg" align="center">
 			<div class="!divBackground">
 				<img class="imgBox" id="image" src="" alt="Image placeholder"/><br>
-				<span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span>
 			</div>
 			<div class="divMidground"><br><strong><span id="spnTitle"></span></strong></div>
 			<div id="divImgOverlay" class="divMidground">
 				<a id="imagelink" href=""><img src="/images/iPeeker.png"/></a>
 			</div>
 		</div>
+
+		<div align="center"><span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span></div>
+
 
 	  <table id="tblMain" class="display">
 	  <thead>
@@ -66,7 +68,8 @@
 				results = regex.exec(location.search);
 			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
-		function extractDetails(p,result,prefix) {
+		var seen = [];
+		function extractDetails(p,result,prefix,level) {
 			var parentPid = getParameterByName('pid');
 			if (p.image && p.image.pid && prefix == '') {
 				$('#image').attr('src','http://ichef.bbci.co.uk/images/ic/640x360/'+p.image.pid+'.jpg');
@@ -99,7 +102,11 @@
 							$('#spnVerPid').show();
 						}
 						for (var j in ver) {
-							if (!(ver[j] instanceof Object)) {
+							if (j == 'pid') {
+								var href = '<a href="/bbc/detail.html?pid=' + ver[j] + '">' + ver[j] + '</a>';
+								result.push(['Version #'+v+' '+j,href]);
+							}
+							else if (!(ver[j] instanceof Object)) {
 								result.push(['Version #'+v+' '+j,ver[j]]);
 							}
 							else {
@@ -110,15 +117,17 @@
 				}
 				else if (i == 'parent') {
 					var parent = p.parent.programme;
-					var level = 1;
 					var loop = true;
 					while (loop) {
 						loop = false;
-						extractDetails(parent,result,'Parent '+parent.type+' '+level+' ');
+						level++;
+						if (seen.indexOf(parent.pid)<0) {
+							extractDetails(parent,result,'Parent '+level+' '+parent.type+' ',level);
+							seen.push(parent.pid);
+						}
 						for (var j in parent) {
 							if (j == 'parent') {
 								parent = parent.parent.programme;
-								level++;
 								loop = true;
 							}
 						}
@@ -173,11 +182,15 @@
 					url: 'http://www.bbc.co.uk/programmes/'+parentPid+'.json',
 					"dataSrc": function(json){
 						var result = [];
-						if (!json.programme) {
+						var p = json.programme;
+						if (!p && json.version) {
+							p = json.version.parent.programme;
+						}
+						if (!p) {
 							alert(JSON.stringify(json));
 						}
 						else {
-							extractDetails(json.programme,result,'');
+							extractDetails(p,result,'',0);
 						}
 						return result;
 					}
