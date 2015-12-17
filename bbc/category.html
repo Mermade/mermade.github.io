@@ -49,9 +49,9 @@
 
 	  <form id="form1">
 		<div>
-		<input type="radio" id="rbRadio" name="domain" value="radio" checked />Radio Only
+		<input type="radio" id="rbRadio" name="domain" value="/radio" checked />Radio Only
 		&nbsp;-&nbsp;
-		<input type="radio" id="rbTv" name="domain" value="tv"/>Radio and TV
+		<input type="radio" id="rbTv" name="domain" value=""/>Radio and TV
 		</div>
 		<div>
 		<input type="radio" name="page" value="/player" checked />Available
@@ -217,10 +217,12 @@
 	<script language="JavaScript" type='text/javascript'>
 		$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 
-		var domain = '/radio';
+		function domain(){
+			return $('input:radio[name=domain]:checked').val();
+		}
 		function url(){
 			var page = $('input:radio[name=page]:checked').val();
-			return 'http://www.bbc.co.uk'+domain+'/programmes/'+$('#category').val()+page+'.json';
+			return 'http://www.bbc.co.uk'+domain()+'/programmes/'+$('#category').val()+page+'.json';
 		}
 		$(document).ready(function(){
 			var table = $('#tblMain').DataTable({
@@ -301,10 +303,9 @@
 			//	return {};
 			//});
 			$('#category').change(function(){
-				if (($('#category :selected').text().indexOf('*')>=0) && (domain == '/radio')) {
+				if (($('#category :selected').text().indexOf('*')>=0) && (domain() == '/radio')) {
 					// for films and animation etc switch to TV mode automatically
 					$('#rbTv').prop('checked', true);
-					domain = '';
 				}
 				$('#search').val('');
 				table.ajax.url(url()).load();
@@ -314,12 +315,6 @@
 				table.ajax.url(url()).load();
 			});
 			$('input:radio[name=domain]').change(function(){
-				if (this.value=='radio') {
-					domain = '/radio';
-				}
-				else {
-					domain = '';
-				}
 				$('#search').val('');
 				table.ajax.url(url()).load();
 			});
@@ -331,7 +326,7 @@
 				}
 				else {
 					if ($('#cbAltSearch').is(":checked")) {
-						var mediatype = (domain == '' ? 'video' : 'audio');
+						var mediatype = (domain() == '' ? 'video' : 'audio');
 						table.ajax.url('http://search-suggest.api.bbci.co.uk/search-suggest/suggest?q='+
 							searchTerm+'&scope=iplayer&format=bigscreen-2&mediatype='+mediatype+'&mediaset=pc&apikey=sUDquwOAnfNDMeRGWY9vQUuUnsQPRBOA').load();
 					}

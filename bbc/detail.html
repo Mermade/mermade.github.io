@@ -161,10 +161,9 @@
 					for (var c in p.categories) {
 						var cat = p.categories[c];
 						var title = cat.title;
-						if (cat.broader && cat.category) {
+						if (cat.broader && cat.broader.category) {
 							title = cat.broader.category.title + '/' + title;
 						}
-						//alert(JSON.stringify(cat));
 						result.push([i,title]);
 					}
 				}
