@@ -295,3 +295,7 @@ a {
    -1px  1px 0 #000,
     1px  1px 0 #000;
 }
+
+.twitter-share-button { 
+	vertical-align: text-top !important;
+}
