@@ -12,14 +12,16 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
 
-		<script src="/javascripts/jQuery-min.js"></script>
-		<script src="/javascripts/dataTables.js"></script>
-		<script src="/javascripts/jquery.colorbox-min.js"></script>
+	<script src="/javascripts/jQuery-min.js"></script>
+	<script src="/javascripts/dataTables.js"></script>
+	<script src="/javascripts/jquery.colorbox-min.js"></script>
 
     <title>Software by Mermade</title>
   </head>
 
   <body>
+  
+	<div id="fb-root"></div>
 
     <header>
       <div class="container">
@@ -47,8 +49,15 @@
 			</div>
 		</div>
 
-		<div align="center"><span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span></div>
-
+		<div align="center">
+			<span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span>
+			<span id="spnPodcast" class="hidden"><a id="aPodcast" href='#'>Download Podcast version</a></span>
+		</div>
+		<div align="center">
+			<div valign="top" class="fb-share-button" id="btnFbShare" data-href="#" data-layout="button"></div>&nbsp;
+			<a href="https://twitter.com/share" class="twitter-share-button" id="btnTweet"
+			data-url="http:/bbc.co.uk" data-via="PermittedSoc" data-related="bbciplayer" data-text="Clock this" data-hashtags="bbc">Tweet</a>
+		</div>
 
 	  <table id="tblMain" class="display">
 	  <thead>
@@ -68,6 +77,20 @@
 				results = regex.exec(location.search);
 			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
+		
+		function duration(s) {
+			suffix = 's';
+			if (s>60) {
+				suffix = 'm';
+				s = Math.floor(s/60);
+			}
+			if (s>=100) {
+				suffix = 'h';
+				s = Math.round(s/60,0.1);
+			}
+			return s+suffix;
+		}
+		
 		var seen = [];
 		function extractDetails(p,result,prefix,level) {
 			var parentPid = getParameterByName('pid');
@@ -80,6 +103,7 @@
 			if (prefix == '') {
 				var href = '<a href="http://www.bbc.co.uk/programmes/'+parentPid+'/qrcode.png">'+parentPid+'</a>';
 				result.push(['QR code',href]);
+				$('#btnTweet').attr('data-text',p.title);
 			}
 
 			for (var i in p) {
@@ -101,10 +125,17 @@
 							$('#verpid').text(ver.pid);
 							$('#spnVerPid').show();
 						}
+						if (ver.types.indexOf('Podcast version') >=0) {
+							$('#aPodcast').attr('href','http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/'+ver.pid+'.mp3');
+							$('#spnPodcast').show();
+						}
 						for (var j in ver) {
 							if (j == 'pid') {
 								var href = '<a href="/bbc/detail.html?pid=' + ver[j] + '">' + ver[j] + '</a>';
 								result.push(['Version #'+v+' '+j,href]);
+							}
+							else if (j == 'duration') {
+								result.push(['Version #'+v+' '+j,duration(ver[j])]);
 							}
 							else if (!(ver[j] instanceof Object)) {
 								result.push(['Version #'+v+' '+j,ver[j]]);
@@ -176,6 +207,26 @@
 		$(document).ready(function(){
 			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 			var parentPid = getParameterByName('pid');
+			$('#btnFbShare').attr('data-href','http://www.bbc.co.uk/programmes/'+parentPid);
+			$('#btnTweet').attr('data-url','http://www.bbc.co.uk/programmes/'+parentPid);
+			
+			// facebook SDK
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
+			// twitter SDK
+			(function(d,s,id){
+			var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+			if(!d.getElementById(id)){js=d.createElement(s);
+			js.id=id;
+			js.src=p+'://platform.twitter.com/widgets.js';
+			fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'));
+			
 			var table = $('#tblMain').DataTable({
 				"ajax": {
 					url: 'http://www.bbc.co.uk/programmes/'+parentPid+'.json',
