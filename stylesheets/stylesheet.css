@@ -267,8 +267,9 @@ a {
 }
 
 .divWrapper {
-  /*width: 100px;
-  height: 100px;*/
+  /*height: 100px;*/
+  max-width: 640px;
+  margin: 0 auto;
   position: relative;
 }
 .divBackground,
