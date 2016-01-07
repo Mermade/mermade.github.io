@@ -348,7 +348,9 @@
 		});
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
 			alert('No data returned');
-			table.clear().draw();
+			if (table) {
+				table.clear().draw();
+			}
 		});
 	</script>
 
