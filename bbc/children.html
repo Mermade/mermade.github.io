@@ -94,6 +94,12 @@
 			//	return {};
 			//});
 		});
+		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+			alert('No data returned: '+thrownError);
+			if (table) {
+				table.clear().draw();
+			}
+		});
 	</script>
     
   </body>

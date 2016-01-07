@@ -344,10 +344,10 @@
 			});
 			//table.ajax.reload(function(data){
 			//	alert('Data returned');
-			//});
+			//});			
 		});
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-			alert('No data returned');
+			alert('No data returned: '+thrownError);
 			if (table) {
 				table.clear().draw();
 			}

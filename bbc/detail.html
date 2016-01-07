@@ -52,10 +52,11 @@
 		<div align="center">
 			<span id="spnVerPid" class="hidden">Default version PID= <span id="verpid"></span></span>
 			<span id="spnPodcast" class="hidden"><a id="aPodcast" href='#'>Download Podcast version</a></span>
+			<span id="spnDebug" class="hidden"><a id="aDebug" href='#'>Debug Info</a></span>
 		</div>
 		<div align="center">
 			<div style="vertical-align:top;" class="fb-share-button" id="btnFbShare" data-href="#" data-layout="button_count"></div>&nbsp;
-			<a href="https://twitter.com/share" class="twitter-share-button" id="btnTweet"
+			<a href="https://twitter.com/share" class="hidden" id="btnTweet"
 			data-url="http:/bbc.co.uk" data-via="PermittedSoc" data-related="bbciplayer" data-text="Clock this" data-hashtags="bbc">Tweet</a>
 		</div>
 
@@ -94,16 +95,27 @@
 		var seen = [];
 		function extractDetails(p,result,prefix,level) {
 			var parentPid = getParameterByName('pid');
+			var title = p.display_title ? p.display_title.title + (p.display_title.subtitle ? ' / ' + p.display_title.subtitle : '') : p.title;
+
 			if (p.image && p.image.pid && prefix == '') {
 				$('#image').attr('src','http://ichef.bbci.co.uk/images/ic/640x360/'+p.image.pid+'.jpg');
 				$('#imagelink').attr('href','http://bbc.co.uk/programmes/'+parentPid);
-				$('#spnTitle').text(p.title);
+				$('#spnTitle').text(title);
 				$('#divProgImg').show();
 			}
+
 			if (prefix == '') {
-				var href = '<a href="http://www.bbc.co.uk/programmes/'+parentPid+'/qrcode.png">'+parentPid+'</a>';
+				var href = '<a id="aQrCode" class="colorbox" href="http://www.bbc.co.uk/programmes/'+parentPid+'/qrcode.png">'+parentPid+'</a>';
 				result.push(['QR code',href]);
-				$('#btnTweet').attr('data-text',p.title);
+				$('a[data-text]').each(function(){
+					$(this).attr('data-text',title);
+					$(this).addClass('twitter-share-button');
+					$(this).show();
+				});
+				// try and cope with AJAX race condition
+				if (typeof twttr != 'undefined') {
+					twttr.widgets.load();
+				}
 			}
 
 			for (var i in p) {
@@ -115,7 +127,7 @@
 					result.push([prefix+i,p[i]]);
 				}
 				else if (i == 'image') {
-					var href = '<a href="http://ichef.bbci.co.uk/images/ic/640x360/' + p[i].pid + '.jpg">' + p[i].pid + '</a>';
+					var href = '<a class="colorbox" href="http://ichef.bbci.co.uk/images/ic/640x360/' + p[i].pid + '.jpg">' + p[i].pid + '</a>';
 					result.push([prefix+i,href]);
 				}
 				else if (i == 'versions') {
@@ -124,6 +136,15 @@
 						if (ver.canonical == 1 && prefix == '') {
 							$('#verpid').text(ver.pid);
 							$('#spnVerPid').show();
+							
+							var url = 'http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/vpid/'+ver.pid+'/format/json/mediaset/pc/proto/http';
+							$('#aDebug').attr('href',url);
+							$('#spnDebug').show();
+							// fetching the subtitle link directly doesn't succeed because of cross-origin issues
+							//$.getJSON(url, function(data) {
+							//	alert(JSON.stringify(data));
+							//});
+							
 						}
 						if (ver.types.indexOf('Podcast version') >=0) {
 							$('#aPodcast').attr('href','http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/'+ver.pid+'.mp3');
@@ -177,7 +198,7 @@
 					result.push([prefix+i,href]);
 				}
 				else if (i == 'display_title') {
-					result.push([prefix+i,p[i].title+'\n'+(p[i].subtitle ? p[i].subtitle : '')]);
+					result.push([prefix+i,p[i].title+'\n'+(p[i].subtitle ? ' / '+p[i].subtitle : '')]);
 				}
 				else if (i == 'peers') {
 					for (var np in p.peers) {
@@ -206,6 +227,13 @@
 		}
 		$(document).ready(function(){
 			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
+			$("#aDebug").colorbox({iframe:true, width:"410", height:"90%"});
+			
+			$('body').on('click', '.colorbox', function() {
+				$.colorbox({href:$(this).attr('href'), open:true});
+				return false;
+			});
+			
 			var parentPid = getParameterByName('pid');
 			$('#btnFbShare').attr('data-href','http://www.bbc.co.uk/programmes/'+parentPid);
 			$('#btnTweet').attr('data-url','http://www.bbc.co.uk/programmes/'+parentPid);
@@ -220,12 +248,9 @@
 			}(document, 'script', 'facebook-jssdk'));
 			
 			// twitter SDK
-			(function(d,s,id){
-			var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-			if(!d.getElementById(id)){js=d.createElement(s);
-			js.id=id;
-			js.src=p+'://platform.twitter.com/widgets.js';
-			fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'));
+			$.getScript('//platform.twitter.com/widgets.js',function(){
+				twttr.widgets.load();
+			});
 			
 			var table = $('#tblMain').DataTable({
 				"ajax": {
@@ -256,14 +281,17 @@
 				//alert( ((json && json.category_slice) ? json.category_slice.programmes.length : 0)+' row(s) were loaded');
 				return {};
 			});
-			$('#category').change(function(){
-				table.ajax.url('http://www.bbc.co.uk/radio/programmes/genres/'+this.value+'/player.json').load();
-			});
 			//
 			//table.ajax.reload(function(data){
 			//	alert('Got some data');
 			//});
 			//alert('oh');
+		});
+		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+			alert('No data returned: '+thrownError);
+			if (table) {
+				table.clear().draw();
+			}
 		});
 	</script>
 
