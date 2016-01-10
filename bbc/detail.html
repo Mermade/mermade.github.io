@@ -32,6 +32,7 @@
           <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
 		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
 		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
+		  <a href="http://mikeralphson.github.io/" class="btn btn-blog"><span class="icon"></span>Blog</a>
 		</section>
       </div>
     </header>
@@ -237,15 +238,17 @@
 			var parentPid = getParameterByName('pid');
 			$('#btnFbShare').attr('data-href','http://www.bbc.co.uk/programmes/'+parentPid);
 			$('#btnTweet').attr('data-url','http://www.bbc.co.uk/programmes/'+parentPid);
-			
+
+			// to speed up SDK loading
+			$.ajaxSetup({
+				cache: true
+			});
+
 			// facebook SDK
-			(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+			$.getScript('//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5',function(){
+				FB.init({version: 'v2.5'});
+				FB.XFBML.parse();
+			});
 			
 			// twitter SDK
 			$.getScript('//platform.twitter.com/widgets.js',function(){

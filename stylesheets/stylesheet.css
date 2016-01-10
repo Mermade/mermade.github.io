@@ -232,6 +232,11 @@ hr {
   background: url("../images/btn_mail.png") 0 0 no-repeat;
 }
 
+.btn-blog .icon {
+  opacity: 0.6;
+  background: url("../images/btn_b.png") 0 0 no-repeat;
+}
+
 /* Links
    a, a:hover, a:visited
 */
