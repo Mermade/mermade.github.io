@@ -62,11 +62,12 @@
 			var table = $('#tblMain').DataTable({
 				"order": [[ 2, "asc" ]],
 				"ajax": {
-					url: 'http://www.bbc.co.uk/programmes/'+parent+'/episodes/player.json',
+					url: 'http://www.bbc.co.uk/programmes/'+parent+'/children.json',
 					"dataSrc": function(json){
 						var result = [];
-						for (var i in json.episodes) {
-							var p = json.episodes[i].programme;
+						//alert(JSON.stringify(json));
+						for (var i in json.children.programmes) {
+							var p = json.children.programmes[i];
 							//alert(JSON.stringify(p));
 							var pid = '<a href="http://bbc.co.uk/programmes/'+p.pid+'">'+p.pid+'</a>'; 
 							var title = p.title;
@@ -75,15 +76,20 @@
 								if (p.display_titles.subtitle) title += ' : ' + p.display_titles.subtitle;
 							}
 							var tlink;
+							var avail;
 							if (p.type == 'brand' || p.type == 'series') {
 								tlink = '<a href="/bbc/children.html?pid='+p.pid+'">'+title+'</a>';
+								avail = '';
 							}
 							else {
 								tlink = '<a href="/bbc/detail.html?pid='+p.pid+'">'+title+'</a>';
+								avail = (p.available_until ? p.available_until : 'Unavailable');
 							}
 							//alert(JSON.stringify(p.media));
-							var row = [pid,p.type,tlink,p.media.availability];
-							result.push(row);
+							if (avail != 'Unavailable') {
+								var row = [pid,p.type,tlink,avail];
+								result.push(row);
+							}
 						}
 						return result;
 					}
@@ -96,7 +102,7 @@
 			//});
 		});
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-			alert('No data returned: '+thrownError);
+			alert('No data returned: '+thrownError+' '+settings.url);
 			if (table) {
 				table.clear().draw();
 			}
