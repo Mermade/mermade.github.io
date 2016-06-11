@@ -15,12 +15,13 @@
 	<script src="/javascripts/jQuery-min.js"></script>
 	<script src="/javascripts/dataTables.js"></script>
 	<script src="/javascripts/jquery.colorbox-min.js"></script>
+	<script src="/javascripts/twittermap.js"></script>
 
     <title>Software by Mermade</title>
   </head>
 
   <body>
-  
+
 	<div id="fb-root"></div>
 
     <header>
@@ -79,7 +80,7 @@
 				results = regex.exec(location.search);
 			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
-		
+
 		function duration(s) {
 			suffix = 's';
 			if (s>60) {
@@ -92,7 +93,7 @@
 			}
 			return s+suffix;
 		}
-		
+
 		var seen = [];
 		function extractDetails(p,result,prefix,level) {
 			var parentPid = getParameterByName('pid');
@@ -109,7 +110,8 @@
 				var href = '<a id="aQrCode" class="colorbox" href="http://www.bbc.co.uk/programmes/'+parentPid+'/qrcode.png">'+parentPid+'</a>';
 				result.push(['QR code',href]);
 				$('a[data-text]').each(function(){
-					$(this).attr('data-text',title);
+					$(this).attr('data-text',title); // btnTweet
+					$(this).attr('data-via',midToTwitter(p.ownership.service.id).replace('@',''));
 					$(this).addClass('twitter-share-button');
 					$(this).show();
 				});
@@ -137,7 +139,7 @@
 						if (ver.canonical == 1 && prefix == '') {
 							$('#verpid').text(ver.pid);
 							$('#spnVerPid').show();
-							
+
 							var url = 'http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/vpid/'+ver.pid+'/format/json/mediaset/pc/proto/http';
 							$('#aDebug').attr('href',url);
 							$('#spnDebug').show();
@@ -145,7 +147,7 @@
 							//$.getJSON(url, function(data) {
 							//	alert(JSON.stringify(data));
 							//});
-							
+
 						}
 						if (ver.types.indexOf('Podcast version') >=0) {
 							$('#aPodcast').attr('href','http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/'+ver.pid+'.mp3');
@@ -229,12 +231,12 @@
 		$(document).ready(function(){
 			$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
 			$("#aDebug").colorbox({iframe:true, width:"410", height:"90%"});
-			
+
 			$('body').on('click', '.colorbox', function() {
 				$.colorbox({href:$(this).attr('href'), open:true});
 				return false;
 			});
-			
+
 			var parentPid = getParameterByName('pid');
 			$('#btnFbShare').attr('data-href','http://www.bbc.co.uk/programmes/'+parentPid);
 			$('#btnTweet').attr('data-url','http://www.bbc.co.uk/programmes/'+parentPid);
@@ -249,12 +251,12 @@
 				FB.init({version: 'v2.5'});
 				FB.XFBML.parse();
 			});
-			
+
 			// twitter SDK
 			$.getScript('//platform.twitter.com/widgets.js',function(){
 				twttr.widgets.load();
 			});
-			
+
 			var table = $('#tblMain').DataTable({
 				"ajax": {
 					url: 'http://www.bbc.co.uk/programmes/'+parentPid+'.json',
