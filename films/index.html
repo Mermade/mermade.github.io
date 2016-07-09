@@ -31,7 +31,7 @@
 
 	  <table id="tblMain" class="compact nowrap">
 	  <thead>
-	  <tr><td>Channel</td><td>Rating</td><td>Title</td><td>Time</td></tr>
+	  <tr><td>Channel</td><td>Rating</td><td>Len</td><td>Time</td><td>Genre</td><td>Year</td></tr>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -47,14 +47,22 @@
 		if (c == '3605') return 'Horror';
 	}
 	$(document).ready(function(){
+		var first = true;
 		var table = $('#tblMain').DataTable({
+			"order": [[ 2, "asc" ]]
 		});
 		var minLength = 61; // minutes
 		var processOmdb = function(data) {
 			table.rows().every(function () {
 				var d = this.data();
-				console.log(JSON.stringify(d,null,2));
+				if (d[2].indexOf('>'+data.Title+'</')>=0) {
+					d[1] = data.imdbRating;
+					d[4] = data.Genre;
+					d[5] = data.Year;
+				}
+				this.data(d);
 			});
+			table.draw();
 		};
 		var processResults = function(data) {
 			try {
@@ -64,9 +72,11 @@
 				for (var l in obj.listings) {
 					var row = [];
 					row.push(channel(obj.channelId));
-					row.push('tba');
+					row.push('');
 					row.push(obj.listings[l].title);
 					row.push(Math.floor(obj.listings[l].length/60));
+					row.push('Unknown');
+					row.push('Unknown');
 					if ((row[3]>=minLength) && (row[2].indexOf('Teleshopping')<0)) {
 						var found = false;
 						var existing = table.column(2).data();
@@ -75,7 +85,10 @@
 							if ((typeof existing[r] == 'string') && (existing[r].indexOf('">'+row[2]+'</a>')>=0)) found = true;
 						}
 						if (!found) {
-							$.ajax('http://omdbapi.com/?t='+encodeURIComponent(row[2])+'&type=movie',processOmdb);
+							if (first) {
+								$.ajax('http://omdbapi.com/?t='+encodeURIComponent(row[2])+'&type=movie').done(processOmdb);
+							}
+							//first = false;
 							row[2] = '<a href="/films/detail.html?c='+obj.channelId+'&e='+obj.listings[l].eventId+'">'+row[2]+'</a>';
 							rows.push(row);
 						}
@@ -97,10 +110,10 @@
 			day = new Date(day.setTime(day.getTime() + 1 * 86400000));
 		}
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-			alert('No data returned: '+thrownError+' '+settings.url);
-			//if (table) {
-			//	table.clear().draw();
-			//}
+			//alert('No data returned: '+thrownError+' '+settings.url);
+			////if (table) {
+			////	table.clear().draw();
+			////}
 		});
 	});
 </script>
