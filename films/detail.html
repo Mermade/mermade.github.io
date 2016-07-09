@@ -1,0 +1,120 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/datatables.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
+
+	<script src="/javascripts/jQuery-min.js"></script>
+	<script src="/javascripts/dataTables.js"></script>
+	<script src="/javascripts/jquery.colorbox-min.js"></script>
+
+    <title>Software by Mermade</title>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <h1><a href="/index.html">Mermade Software</a> / Films</h1>
+        <h2>Itches elegantly scratched</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
+		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
+		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
+		  <a href="http://mikeralphson.github.io/" class="btn btn-blog"><span class="icon"></span>Blog</a>
+		</section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+	  <div align="center">
+		<img id="imgMain" src="#" class="hidden"/>
+	  </div>
+
+	  <table id="tblMain" class="compact wrap">
+	  <thead>
+	  <tr><td>Key</td><td>Value</td></tr>
+	  </thead>
+	  <tbody>
+	  </tbody>
+	  </table>
+
+      </section>
+    </div>
+</body>
+<script type="text/javascript">
+	var channels = ['1073','3605'];
+	function channel(c) {
+		if (c == '1073') return 'Film4';
+		if (c == '3605') return 'Horror';
+	}
+	function parseQuery(qstr) {
+        var query = {};
+        var a = qstr.substr(1).split('&');
+        for (var i = 0; i < a.length; i++) {
+            var b = a[i].split('=');
+            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+        }
+        return query;
+    }
+	$(document).ready(function(){
+		var table = $('#tblMain').DataTable({
+		});
+		var processOmdb = function(data) {
+			try {
+				//var obj = JSON.parse(data);
+				var obj = data;
+				//alert(JSON.stringify(obj,null,2));
+				rows = [];
+				rows.push(['Year',obj.Year]);
+				rows.push(['Plot',obj.Plot]);
+				rows.push(['Rating',obj.Rated]);
+				rows.push(['Genre',obj.Genre]);
+				rows.push(['Director',obj.Director]);
+				rows.push(['Writer',obj.Writer]);
+				rows.push(['Actors',obj.Actors]);
+				rows.push(['Language',obj.Language]);
+				rows.push(['Country',obj.Country]);
+				rows.push(['Awards',obj.Awards]);
+				rows.push(['imdb','<a href="http://imdb.com/title/'+obj.imdbID+'">'+obj.imdbRating+'</a>']);
+				table.rows.add(rows).draw();
+			}
+			catch (e) {
+				alert(e);
+			}
+
+		};
+		var processResults = function(data) {
+			try {
+				var obj = JSON.parse(data);
+				$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.title)+'&type=movie').done(processOmdb);
+				rows = [];
+				rows.push(['Channel',channel(obj.channelId)]);
+				rows.push(['Title',obj.title]);
+				rows.push(['Description',obj.description]);
+				rows.push(['Duration',Math.floor(obj.duration/60)]);
+				rows.push(['Time',new Date(obj.timestamp*1000).toISOString()]);
+				table.rows.add(rows).draw();
+
+				$('#imgMain').attr('src',obj.imageUrl);
+				$('#imgMain').removeClass('hidden');
+			}
+			catch (e) {
+				alert(e);
+			}
+		};
+		$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
+
+		var query = parseQuery(document.location.search);
+
+		$.ajax('http://bbc-rss.herokuapp.com/sky/tv/api/epg/programme/'+query.c+'/'+query.e).done(processResults);
+		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+			alert('No data returned: '+thrownError+' '+settings.url);
+			//if (table) {
+			//	table.clear().draw();
+			//}
+		});
+	});
+</script>
+</html>
