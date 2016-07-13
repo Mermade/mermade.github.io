@@ -44,10 +44,12 @@
     </div>
 </body>
 <script type="text/javascript">
-	var channels = ['1073','3605'];
 	function channel(c) {
 		if (c == '1073') return 'Film4';
+		if (c == '2002') return 'BBC One';
+		if (c == '2006') return 'BBC Two';
 		if (c == '3605') return 'Horror';
+		if (c == '3708') return 'M4M';
 	}
 	function parseQuery(qstr) {
         var query = {};

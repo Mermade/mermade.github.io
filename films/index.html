@@ -31,7 +31,7 @@
 
 	  <table id="tblMain" class="compact nowrap">
 	  <thead>
-	  <tr><td>Channel</td><td>Rating</td><td>Len</td><td>Time</td><td>Genre</td><td>Year</td></tr>
+	  <tr><td>Channel</td><td>Rating</td><td>Title</td><td>Len</td><td>Genre</td><td>Year</td></tr>
 	  </thead>
 	  <tbody>
 	  </tbody>
@@ -41,56 +41,94 @@
     </div>
 </body>
 <script type="text/javascript">
-	var channels = ['1073','3605'];
+	var cache = [];
 	function channel(c) {
 		if (c == '1073') return 'Film4';
+		if (c == '2002') return 'BBC One';
+		if (c == '2006') return 'BBC Two';
 		if (c == '3605') return 'Horror';
+		if (c == '3708') return 'M4M';
+	}
+	function add(chan,title,duration,eventId) {
+		var row = [];
+		row.push(channel(chan));
+		row.push('');
+		row.push(mungeTitle(title));
+		row.push(duration);
+		row.push('Unknown');
+		row.push('Unknown');
+		row[2] = '<a href="/films/detail.html?c='+chan+'&e='+eventId+'">'+row[2]+'</a>';
+		cache.push(row);
+		return row;
+	}
+	var channels = ['1073','2002','2006','3605','3708'];
+	var strip = ['2002','2006'];
+	function mungeTitle(s) {
+		if (s && s.startsWith('The ')) {
+			s = s.substr(4)+', The';
+		}
+		return s;
 	}
 	$(document).ready(function(){
-		var first = true;
+		//var first = true;
 		var table = $('#tblMain').DataTable({
 			"order": [[ 2, "asc" ]]
 		});
 		var minLength = 61; // minutes
 		var processOmdb = function(data) {
+			var found = false;
+			var title = mungeTitle(data.Title);
 			table.rows().every(function () {
 				var d = this.data();
-				if (d[2].indexOf('>'+data.Title+'</')>=0) {
+				if (d[2].indexOf('>'+title+'</')>=0) {
+					found = true;
 					d[1] = data.imdbRating;
 					d[4] = data.Genre;
 					d[5] = data.Year;
 				}
 				this.data(d);
 			});
-			table.draw();
+			if (!found) {
+				for (var c in cache) {
+					var entry = cache[c];
+					if (entry[2].indexOf('>'+title+'</')>=0) {
+						found = true;
+						entry[1] = data.imdbRating;
+						entry[4] = data.Genre;
+						entry[5] = data.Year;
+						break;
+					}
+				}
+				if (found) {
+					var rows = [];
+					rows.push(entry);
+					table.rows.add(rows);
+				}
+			}
+			if (found) table.draw();
 		};
 		var processResults = function(data) {
 			try {
-				//alert(data);
+				//console.log(data);
 				var obj = JSON.parse(data);
 				var rows = [];
 				for (var l in obj.listings) {
-					var row = [];
-					row.push(channel(obj.channelId));
-					row.push('');
-					row.push(obj.listings[l].title);
-					row.push(Math.floor(obj.listings[l].length/60));
-					row.push('Unknown');
-					row.push('Unknown');
-					if ((row[3]>=minLength) && (row[2].indexOf('Teleshopping')<0)) {
+					var duration = Math.floor(obj.listings[l].length/60);
+					var title = obj.listings[l].title;
+					if ((duration>=minLength) && (title.indexOf('Teleshopping')<0)) {
 						var found = false;
 						var existing = table.column(2).data();
 						for (var r in existing) {
 							//console.log(JSON.stringify(existing[r],null,2));
-							if ((typeof existing[r] == 'string') && (existing[r].indexOf('">'+row[2]+'</a>')>=0)) found = true;
+							if ((typeof existing[r] == 'string') && (existing[r].indexOf('">'+mungeTitle(title)+'</a>')>=0)) found = true;
 						}
 						if (!found) {
-							if (first) {
-								$.ajax('http://omdbapi.com/?t='+encodeURIComponent(row[2])+'&type=movie').done(processOmdb);
+							var row = add(obj.channelId,title,duration);
+							$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.listings[l].title)+'&type=movie').done(processOmdb);
+							if (strip.indexOf(obj.channelId)<0) {
+								//console.log(row);
+								rows.push(row);
 							}
-							//first = false;
-							row[2] = '<a href="/films/detail.html?c='+obj.channelId+'&e='+obj.listings[l].eventId+'">'+row[2]+'</a>';
-							rows.push(row);
 						}
 					}
 				}
