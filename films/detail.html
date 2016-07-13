@@ -8,6 +8,7 @@
 	<script src="/javascripts/jQuery-min.js"></script>
 	<script src="/javascripts/dataTables.js"></script>
 	<script src="/javascripts/jquery.colorbox-min.js"></script>
+	<script src="/javascripts/skyChannel.js"></script>
 
     <title>Software by Mermade</title>
 </head>
@@ -44,13 +45,6 @@
     </div>
 </body>
 <script type="text/javascript">
-	function channel(c) {
-		if (c == '1073') return 'Film4';
-		if (c == '2002') return 'BBC One';
-		if (c == '2006') return 'BBC Two';
-		if (c == '3605') return 'Horror';
-		if (c == '3708') return 'M4M';
-	}
 	function parseQuery(qstr) {
         var query = {};
         var a = qstr.substr(1).split('&');
@@ -92,7 +86,7 @@
 				var obj = JSON.parse(data);
 				$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.title)+'&type=movie').done(processOmdb);
 				rows = [];
-				rows.push(['Channel',channel(obj.channelId)]);
+				rows.push(['Channel',skyChannel(obj.channelId)]);
 				rows.push(['Title',obj.title]);
 				rows.push(['Description',obj.description]);
 				rows.push(['Duration',Math.floor(obj.duration/60)]);

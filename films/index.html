@@ -8,6 +8,7 @@
 	<script src="/javascripts/jQuery-min.js"></script>
 	<script src="/javascripts/dataTables.js"></script>
 	<script src="/javascripts/jquery.colorbox-min.js"></script>
+	<script src="/javascripts/skyChannel.js"></script>
 
     <title>Software by Mermade</title>
 </head>
@@ -42,16 +43,9 @@
 </body>
 <script type="text/javascript">
 	var cache = [];
-	function channel(c) {
-		if (c == '1073') return 'Film4';
-		if (c == '2002') return 'BBC One';
-		if (c == '2006') return 'BBC Two';
-		if (c == '3605') return 'Horror';
-		if (c == '3708') return 'M4M';
-	}
 	function add(chan,title,duration,eventId) {
 		var row = [];
-		row.push(channel(chan));
+		row.push(skyChannel(chan));
 		row.push('');
 		row.push(mungeTitle(title));
 		row.push(duration);
@@ -61,8 +55,6 @@
 		cache.push(row);
 		return row;
 	}
-	var channels = ['1073','2002','2006','3605','3708'];
-	var strip = ['2002','2006'];
 	function mungeTitle(s) {
 		if (s && s.startsWith('The ')) {
 			s = s.substr(4)+', The';
@@ -123,7 +115,7 @@
 							if ((typeof existing[r] == 'string') && (existing[r].indexOf('">'+mungeTitle(title)+'</a>')>=0)) found = true;
 						}
 						if (!found) {
-							var row = add(obj.channelId,title,duration);
+							var row = add(obj.channelId,title,duration,obj.listings[l].eventId);
 							$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.listings[l].title)+'&type=movie').done(processOmdb);
 							if (strip.indexOf(obj.channelId)<0) {
 								//console.log(row);
