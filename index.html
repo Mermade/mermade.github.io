@@ -21,6 +21,8 @@
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
+
   </head>
 
   <body id="page-top">
@@ -113,7 +115,8 @@
             <a href="https://github.com/mermade">GitHub</a></h2>
             <ul>
                 <li><a href="https://openapi-converter.herokuapp.com"><strong>Online Swagger 2.0 to OpenAPI 3.0.x converter / validator</strong></a>
-                <li>Generate secure passwords</li>
+                <li><a href="http://petstore.swagger.io/?url=https://openapi-converter.herokuapp.com/contract/swagger.json">Converter API documentation / console</a></li>
+                <li><a id="aPassHash" href="/static/passWordHasher.html">Generate secure passwords</a></li>
                 <li><a href="/films/index.html">Films on UK TV</a></li>
             </ul>
           <!--
@@ -187,6 +190,14 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
+
+    <script src="/javascripts/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
+        });
+    </script>
 
   </body>
 
