@@ -106,7 +106,7 @@
 
 		var query = parseQuery(document.location.search);
 
-		$.ajax('http://bbc-rss.herokuapp.com/sky/tv/api/epg/programme/'+query.c+'/'+query.e).done(processResults);
+		$.ajax('https://bbc-rss.herokuapp.com/sky/tv/api/epg/programme/'+query.c+'/'+query.e).done(processResults);
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
 			alert('No data returned: '+thrownError+' '+settings.url);
 			//if (table) {
