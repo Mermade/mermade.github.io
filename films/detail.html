@@ -84,7 +84,9 @@
 		var processResults = function(data) {
 			try {
 				var obj = JSON.parse(data);
+                /*
 				$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.title)+'&type=movie').done(processOmdb);
+                */
 				rows = [];
 				rows.push(['Channel',skyChannel(obj.channelId)]);
 				rows.push(['Title',obj.title]);

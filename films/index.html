@@ -16,13 +16,13 @@
     <header>
       <div class="container">
         <h1><a href="/index.html">Mermade Software</a> / Films</h1>
-        <h2>Itches elegantly scratched</h2>
+        <h2>Your needs, our passion</h2>
 
         <section id="downloads">
           <a href="https://github.com/Mermade" class="btn btn-github"><span class="icon"></span>Follow us on GitHub</a>
 		  <a id="aPassHash" href="/static/passwordHasher.html" class="btn btn-passwd"><span class="icon"></span>Generate secure passwords</a>
-		  <a href="mailto:meic@gmx.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
-		  <a href="http://mikeralphson.github.io/" class="btn btn-blog"><span class="icon"></span>Blog</a>
+		  <a href="mailto:mike.ralphson@gmail.com" class="btn btn-mail"><span class="icon"></span>Contact us</a>
+		  <a href="http://dev.to/mikeralphson/" class="btn btn-blog"><span class="icon"></span>Blog</a>
 		</section>
       </div>
     </header>
@@ -116,7 +116,9 @@
 						}
 						if (!found) {
 							var row = add(obj.channelId,title,duration,obj.listings[l].eventId);
+                            /*
 							$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.listings[l].title)+'&type=movie').done(processOmdb);
+                            */
 							if (strip.indexOf(obj.channelId)<0) {
 								//console.log(row);
 								rows.push(row);
