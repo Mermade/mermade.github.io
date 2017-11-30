@@ -1758,7 +1758,8 @@ The available status codes are defined by <a href="http://tools.ietf.org/html/rf
    <h3 class="heading settled" data-level="4.2" id="format"><span class="secno">4.2. </span><span class="content">Format</span><a class="self-link" href="#format"></a></h3>
    <p>An OpenAPI document that conforms to the OpenAPI Specification is itself a JSON object, which may be represented either in JSON or YAML format.</p>
    <p>For example, if a field has an array value, the JSON array representation will be used:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>   <span class="nt">"field"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+   <span class="nt">"field"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
    <p>All field names in the specification are <strong>case sensitive</strong>.</p>
@@ -1938,7 +1939,8 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.4.1" id="info-object-example"><span class="secno">4.7.4.1. </span><span class="content">Info Object Example:</span><a class="self-link" href="#info-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"Sample Pet Store App"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"Sample Pet Store App"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"This is a sample server for a pet store."</span><span class="p">,</span>
   <span class="nt">"termsOfService"</span><span class="p">:</span> <span class="s2">"http://example.com/terms/"</span><span class="p">,</span>
   <span class="nt">"contact"</span><span class="p">:</span> <span class="p">{</span>
@@ -1990,7 +1992,8 @@ version: 1.0.1
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.6.1" id="contact-object-example"><span class="secno">4.7.6.1. </span><span class="content">Contact Object Example:</span><a class="self-link" href="#contact-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"API Support"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"API Support"</span><span class="p">,</span>
   <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.example.com/support"</span><span class="p">,</span>
   <span class="nt">"email"</span><span class="p">:</span> <span class="s2">"support@example.com"</span>
 <span class="p">}</span>
@@ -2020,7 +2023,8 @@ email: support@example.com
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.8.1" id="license-object-example"><span class="secno">4.7.8.1. </span><span class="content">License Object Example:</span><a class="self-link" href="#license-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Apache 2.0"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Apache 2.0"</span><span class="p">,</span>
   <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.apache.org/licenses/LICENSE-2.0.html"</span>
 <span class="p">}</span>
 </code></pre>
@@ -2053,7 +2057,8 @@ url: http://www.apache.org/licenses/LICENSE-2.0.html
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.10.1" id="server-object-example"><span class="secno">4.7.10.1. </span><span class="content">Server Object Example</span><a class="self-link" href="#server-object-example"></a></h5>
    <p>A single server would be described as:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://development.gigantic-server.com/v1"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://development.gigantic-server.com/v1"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Development server"</span>
 <span class="p">}</span>
 </code></pre>
@@ -2061,7 +2066,8 @@ url: http://www.apache.org/licenses/LICENSE-2.0.html
 description: Development server
 </code></pre>
    <p>The following shows how multiple servers can be described, for example, at the OpenAPI Object’s <a href="#oasServers"><code>servers</code></a>:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"servers"</span><span class="p">:</span> <span class="p">[</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"servers"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://development.gigantic-server.com/v1"</span><span class="p">,</span>
       <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Development server"</span>
@@ -2086,7 +2092,8 @@ description: Development server
   description: Production server
 </code></pre>
    <p>The following shows how variables can be used for a server configuration:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"servers"</span><span class="p">:</span> <span class="p">[</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"servers"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://{username}.gigantic-server.com:{port}/{basePath}"</span><span class="p">,</span>
       <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"The production API server"</span><span class="p">,</span>
@@ -2208,7 +2215,8 @@ user-name
 my.org.User
 </code></pre>
    <h5 class="heading settled" data-level="4.7.14.1" id="components-object-example"><span class="secno">4.7.14.1. </span><span class="content">Components Object Example</span><a class="self-link" href="#components-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="s2">"components"</span>: <span class="p">{</span>  <span class="nt">"schemas"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="s2">"components"</span>: <span class="p">{</span>
+  <span class="nt">"schemas"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"Category"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
       <span class="nt">"properties"</span><span class="p">:</span> <span class="p">{</span>
@@ -2383,7 +2391,8 @@ The path is appended to the URL from the <a href="#serverObject"><code>Server Ob
 <pre><code>  /{entity}/me/books/{id}
 </code></pre>
    <h5 class="heading settled" data-level="4.7.16.2" id="paths-object-example"><span class="secno">4.7.16.2. </span><span class="content">Paths Object Example</span><a class="self-link" href="#paths-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"/pets"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"/pets"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"get"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Returns all pets from the system that the user has access to"</span><span class="p">,</span>
       <span class="nt">"responses"</span><span class="p">:</span> <span class="p">{</span>
@@ -2485,7 +2494,8 @@ The path itself is still exposed to the documentation viewer but they will not k
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.18.1" id="path-item-object-example"><span class="secno">4.7.18.1. </span><span class="content">Path Item Object Example</span><a class="self-link" href="#path-item-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"get"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"get"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Returns pets based on ID"</span><span class="p">,</span>
     <span class="nt">"summary"</span><span class="p">:</span> <span class="s2">"Find pets by ID"</span><span class="p">,</span>
     <span class="nt">"operationId"</span><span class="p">:</span> <span class="s2">"getPetsById"</span><span class="p">,</span>
@@ -2623,7 +2633,8 @@ parameters:
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.20.1" id="operation-object-example"><span class="secno">4.7.20.1. </span><span class="content">Operation Object Example</span><a class="self-link" href="#operation-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"tags"</span><span class="p">:</span> <span class="p">[</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"tags"</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">"pet"</span>
   <span class="p">],</span>
   <span class="nt">"summary"</span><span class="p">:</span> <span class="s2">"Updates a pet in the store with form data"</span><span class="p">,</span>
@@ -2746,7 +2757,8 @@ security:
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.22.1" id="external-documentation-object-example"><span class="secno">4.7.22.1. </span><span class="content">External Documentation Object Example</span><a class="self-link" href="#external-documentation-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Find more info here"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Find more info here"</span><span class="p">,</span>
   <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://example.com"</span>
 <span class="p">}</span>
 </code></pre>
@@ -2995,7 +3007,8 @@ object -> { "R": 100, "G": 200, "B": 150 }
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.24.4" id="parameter-object-examples"><span class="secno">4.7.24.4. </span><span class="content">Parameter Object Examples</span><a class="self-link" href="#parameter-object-examples"></a></h5>
    <p>A header parameter with an array of 64 bit integer numbers:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"token"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"token"</span><span class="p">,</span>
   <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"header"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"token to be passed as a header"</span><span class="p">,</span>
   <span class="nt">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -3021,7 +3034,8 @@ schema:
 style: simple
 </code></pre>
    <p>A path parameter of a string value:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"username"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"username"</span><span class="p">,</span>
   <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"path"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"username to fetch"</span><span class="p">,</span>
   <span class="nt">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -3038,7 +3052,8 @@ schema:
   type: string
 </code></pre>
    <p>An optional query parameter of a string value, allowing multiple values by repeating the query parameter:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"id"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"id"</span><span class="p">,</span>
   <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"ID of the object to fetch"</span><span class="p">,</span>
   <span class="nt">"required"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -3064,7 +3079,8 @@ style: form
 explode: true
 </code></pre>
    <p>A free-form query parameter, allowing undefined parameters of a specific type:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">,</span>
   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"freeForm"</span><span class="p">,</span>
   <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
@@ -3084,7 +3100,8 @@ schema:
 style: form
 </code></pre>
    <p>A complex parameter using <code>content</code> to define serialization:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">,</span>
   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"coordinates"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"application/json"</span><span class="p">:</span> <span class="p">{</span>
@@ -3148,7 +3165,8 @@ content:
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.26.1" id="request-body-examples"><span class="secno">4.7.26.1. </span><span class="content">Request Body Examples</span><a class="self-link" href="#request-body-examples"></a></h5>
    <p>A request body with a referenced model definition.</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"user to add to the system"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"user to add to the system"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"application/json"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
@@ -3219,7 +3237,8 @@ content:
         externalValue: <span class="s">'http://foo.bar/examples/user-example.whatever'</span>
 </code></pre>
    <p>A body parameter that is an array of string values:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"user to add to the system"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"user to add to the system"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"text/plain"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
@@ -3540,7 +3559,8 @@ SHOULD be the response for a successful operation call.</p>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="5.1.4.2" id="responses-object-example"><span class="secno">5.1.4.2. </span><span class="content">Responses Object Example</span><a class="self-link" href="#responses-object-example"></a></h5>
    <p>A 200 response for a successful operation and a default response for others (implying an error):</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"200"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"200"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"a pet to be returned"</span><span class="p">,</span>
     <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"application/json"</span><span class="p">:</span> <span class="p">{</span>
@@ -3605,7 +3625,8 @@ default:
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="5.1.6.1" id="response-object-examples"><span class="secno">5.1.6.1. </span><span class="content">Response Object Examples</span><a class="self-link" href="#response-object-examples"></a></h5>
    <p>Response of an array of a complex type:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A complex object array response"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A complex object array response"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"application/json"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
@@ -3627,7 +3648,8 @@ content:
         $ref: <span class="s">'#/components/schemas/VeryComplexType'</span>
 </code></pre>
    <p>Response with a string type:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A simple string response"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A simple string response"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"text/plain"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
@@ -3645,7 +3667,8 @@ representations:
       type: string
 </code></pre>
    <p>Plain text response with headers:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A simple string response"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"A simple string response"</span><span class="p">,</span>
   <span class="nt">"content"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"text/plain"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
@@ -3696,7 +3719,8 @@ headers:
       type: integer
 </code></pre>
    <p>Response with no return value:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"object created"</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"object created"</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="language-yaml highlight">description: object created
@@ -4061,7 +4085,8 @@ Expressions can be embedded into string values by surrounding the expression wit
    </ol>
    <h4 class="heading settled" data-level="7.1.3" id="header-object-example"><span class="secno">7.1.3. </span><span class="content">Header Object Example</span><a class="self-link" href="#header-object-example"></a></h4>
    <p>A simple header of type <code>integer</code>:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"The number of allowed requests in the current period"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"The number of allowed requests in the current period"</span><span class="p">,</span>
   <span class="nt">"schema"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"integer"</span>
   <span class="p">}</span>
@@ -4097,7 +4122,8 @@ It is not mandatory to have a Tag Object per tag defined in the Operation Object
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="7.1.5.1" id="tag-object-example"><span class="secno">7.1.5.1. </span><span class="content">Tag Object Example</span><a class="self-link" href="#tag-object-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"pet"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"pet"</span><span class="p">,</span>
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Pets operations"</span>
 <span class="p">}</span>
 </code></pre>
@@ -4180,19 +4206,22 @@ schemas:
    </table>
    <p>This object cannot be extended with additional properties and any properties added SHALL be ignored.</p>
    <h3 class="heading settled" data-level="9.1" id="reference-object-example"><span class="secno">9.1. </span><span class="content">Reference Object Example</span><a class="self-link" href="#reference-object-example"></a></h3>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"#/components/schemas/Pet"</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"#/components/schemas/Pet"</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="language-yaml highlight">$ref: <span class="s">'#/components/schemas/Pet'</span>
 </code></pre>
    <h4 class="heading settled" data-level="9.1.1" id="relative-schema-document-example"><span class="secno">9.1.1. </span><span class="content">Relative Schema Document Example</span><a class="self-link" href="#relative-schema-document-example"></a></h4>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"Pet.json"</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"Pet.json"</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="language-yaml highlight">$ref: Pet.yaml
 </code></pre>
    <h5 class="heading settled" data-level="9.1.1.1" id="relative-documents-with-embedded-schema-example"><span class="secno">9.1.1.1. </span><span class="content">Relative Documents With Embedded Schema Example</span><a class="self-link" href="#relative-documents-with-embedded-schema-example"></a></h5>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"definitions.json#/Pet"</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"definitions.json#/Pet"</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="language-yaml highlight">$ref: definitions.yaml#/Pet
@@ -4299,7 +4328,8 @@ There are are two ways to define the value of a discriminator for an inheriting 
 The <a href="#xmlObject">XML Object</a> contains additional information about the available options.</p>
    <h5 class="heading settled" data-level="9.1.3.2" id="schema-object-examples"><span class="secno">9.1.3.2. </span><span class="content">Schema Object Examples</span><a class="self-link" href="#schema-object-examples"></a></h5>
    <h6 class="heading settled" data-level="9.1.3.2.1" id="primitive-sample"><span class="secno">9.1.3.2.1. </span><span class="content">Primitive Sample</span><a class="self-link" href="#primitive-sample"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
   <span class="nt">"format"</span><span class="p">:</span> <span class="s2">"email"</span>
 <span class="p">}</span>
 </code></pre>
@@ -4307,7 +4337,8 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
 format: email
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.2" id="simple-model"><span class="secno">9.1.3.2.2. </span><span class="content">Simple Model</span><a class="self-link" href="#simple-model"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
   <span class="nt">"required"</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">"name"</span>
   <span class="p">],</span>
@@ -4341,7 +4372,8 @@ properties:
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.3" id="model-with-map-dictionary-properties"><span class="secno">9.1.3.2.3. </span><span class="content">Model with Map/Dictionary Properties</span><a class="self-link" href="#model-with-map-dictionary-properties"></a></h6>
    <p>For a simple string to string mapping:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
   <span class="nt">"additionalProperties"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span>
   <span class="p">}</span>
@@ -4352,7 +4384,8 @@ additionalProperties:
   type: string
 </code></pre>
    <p>For a string to model mapping:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
   <span class="nt">"additionalProperties"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"$ref"</span><span class="p">:</span> <span class="s2">"#/components/schemas/ComplexModel"</span>
   <span class="p">}</span>
@@ -4363,7 +4396,8 @@ additionalProperties:
   $ref: <span class="s">'#/components/schemas/ComplexModel'</span>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.4" id="model-with-example"><span class="secno">9.1.3.2.4. </span><span class="content">Model with Example</span><a class="self-link" href="#model-with-example"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
   <span class="nt">"properties"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"id"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"integer"</span><span class="p">,</span>
@@ -4396,7 +4430,8 @@ example:
   id: 1
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.5" id="models-with-composition"><span class="secno">9.1.3.2.5. </span><span class="content">Models with Composition</span><a class="self-link" href="#models-with-composition"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"components"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"components"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"schemas"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"ErrorModel"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
@@ -4462,7 +4497,8 @@ example:
             type: string
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.6" id="models-with-polymorphism-support"><span class="secno">9.1.3.2.6. </span><span class="content">Models with Polymorphism Support</span><a class="self-link" href="#models-with-polymorphism-support"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"components"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"components"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"schemas"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"Pet"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
@@ -4724,7 +4760,8 @@ See examples for expected behavior.</p>
    <p>The examples of the XML object definitions are included inside a property definition of a <a href="#schemaObject">Schema Object</a> with a sample of the XML representation of it.</p>
    <h6 class="heading settled" data-level="9.1.7.1.1" id="no-xml-element"><span class="secno">9.1.7.1.1. </span><span class="content">No XML Element</span><a class="self-link" href="#no-xml-element"></a></h6>
    <p>Basic string property:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>    <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+    <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -4735,7 +4772,8 @@ See examples for expected behavior.</p>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animals></span>...<span class="nt">&lt;/animals></span>
 </code></pre>
    <p>Basic string array property (<a href="#xmlWrapped"><code>wrapped</code></a> is <code>false</code> by default):</p>
-<pre><code class="language-json highlight"><span class="p">{</span>    <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+    <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
         <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span>
@@ -4752,7 +4790,8 @@ See examples for expected behavior.</p>
 <span class="nt">&lt;animals></span>...<span class="nt">&lt;/animals></span>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.7.1.2" id="xml-name-replacement"><span class="secno">9.1.7.1.2. </span><span class="content">XML Name Replacement</span><a class="self-link" href="#xml-name-replacement"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
     <span class="nt">"xml"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"animal"</span>
@@ -4769,7 +4808,8 @@ See examples for expected behavior.</p>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.7.1.3" id="xml-attribute-prefix-and-namespace"><span class="secno">9.1.7.1.3. </span><span class="content">XML Attribute, Prefix and Namespace</span><a class="self-link" href="#xml-attribute-prefix-and-namespace"></a></h6>
    <p>In this example, a full model definition is shown.</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"Person"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"Person"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
     <span class="nt">"properties"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"id"</span><span class="p">:</span> <span class="p">{</span>
@@ -4809,7 +4849,8 @@ See examples for expected behavior.</p>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.7.1.4" id="xml-arrays"><span class="secno">9.1.7.1.4. </span><span class="content">XML Arrays</span><a class="self-link" href="#xml-arrays"></a></h6>
    <p>Changing the element names:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
@@ -4830,7 +4871,8 @@ See examples for expected behavior.</p>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal>&lt;animal></span>value<span class="nt">&lt;/animal></span>
 </code></pre>
    <p>The external <code>name</code> property has no effect on the XML:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
@@ -4856,7 +4898,8 @@ See examples for expected behavior.</p>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal>&lt;animal></span>value<span class="nt">&lt;/animal></span>
 </code></pre>
    <p>Even when the array is wrapped, if a name is not explicitly defined, the same name will be used both internally and externally:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span>
@@ -4879,7 +4922,8 @@ See examples for expected behavior.</p>
 <span class="nt">&lt;/animals></span>
 </code></pre>
    <p>To overcome the naming problem in the example above, the following definition can be used:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
@@ -4907,7 +4951,8 @@ See examples for expected behavior.</p>
 <span class="nt">&lt;/animals></span>
 </code></pre>
    <p>Affecting both internal and external names:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
@@ -4937,7 +4982,8 @@ See examples for expected behavior.</p>
 <span class="nt">&lt;/aliens></span>
 </code></pre>
    <p>If we change the external element but not the internal ones:</p>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"animals"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
     <span class="nt">"items"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span>
@@ -5017,7 +5063,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="9.1.9.1" id="security-scheme-object-example"><span class="secno">9.1.9.1. </span><span class="content">Security Scheme Object Example</span><a class="self-link" href="#security-scheme-object-example"></a></h5>
    <h6 class="heading settled" data-level="9.1.9.1.1" id="basic-authentication-sample"><span class="secno">9.1.9.1.1. </span><span class="content">Basic Authentication Sample</span><a class="self-link" href="#basic-authentication-sample"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"http"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"http"</span><span class="p">,</span>
   <span class="nt">"scheme"</span><span class="p">:</span> <span class="s2">"basic"</span>
 <span class="p">}</span>
 </code></pre>
@@ -5025,7 +5072,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
 scheme: basic
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.2" id="api-key-sample"><span class="secno">9.1.9.1.2. </span><span class="content">API Key Sample</span><a class="self-link" href="#api-key-sample"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"apiKey"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"apiKey"</span><span class="p">,</span>
   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"api_key"</span><span class="p">,</span>
   <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"header"</span>
 <span class="p">}</span>
@@ -5035,7 +5083,8 @@ name: api_key
 in: header
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.3" id="jwt-bearer-sample"><span class="secno">9.1.9.1.3. </span><span class="content">JWT Bearer Sample</span><a class="self-link" href="#jwt-bearer-sample"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"http"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"http"</span><span class="p">,</span>
   <span class="nt">"scheme"</span><span class="p">:</span> <span class="s2">"bearer"</span><span class="p">,</span>
   <span class="nt">"bearerFormat"</span><span class="p">:</span> <span class="s2">"JWT"</span><span class="p">,</span>
 <span class="p">}</span>
@@ -5045,7 +5094,8 @@ scheme: bearer
 bearerFormat: JWT
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.4" id="implicit-oauth2-sample"><span class="secno">9.1.9.1.4. </span><span class="content">Implicit OAuth2 Sample</span><a class="self-link" href="#implicit-oauth2-sample"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"oauth2"</span><span class="p">,</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"oauth2"</span><span class="p">,</span>
   <span class="nt">"flows"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"implicit"</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">"authorizationUrl"</span><span class="p">:</span> <span class="s2">"https://example.com/api/oauth/dialog"</span><span class="p">,</span>
@@ -5181,13 +5231,15 @@ This enables support for scenarios where multiple query parameters or HTTP heade
    </table>
    <h5 class="heading settled" data-level="9.1.15.1" id="security-requirement-object-examples"><span class="secno">9.1.15.1. </span><span class="content">Security Requirement Object Examples</span><a class="self-link" href="#security-requirement-object-examples"></a></h5>
    <h6 class="heading settled" data-level="9.1.15.1.1" id="non-oauth2-security-requirement"><span class="secno">9.1.15.1.1. </span><span class="content">Non-OAuth2 Security Requirement</span><a class="self-link" href="#non-oauth2-security-requirement"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"api_key"</span><span class="p">:</span> <span class="p">[]</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"api_key"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="language-yaml highlight">api_key: []
 </code></pre>
    <h6 class="heading settled" data-level="9.1.15.1.2" id="oauth2-security-requirement"><span class="secno">9.1.15.1.2. </span><span class="content">OAuth2 Security Requirement</span><a class="self-link" href="#oauth2-security-requirement"></a></h6>
-<pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"petstore_auth"</span><span class="p">:</span> <span class="p">[</span>
+<pre><code class="language-json highlight"><span class="p">{</span>
+  <span class="nt">"petstore_auth"</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">"write:pets"</span><span class="p">,</span>
     <span class="s2">"read:pets"</span>
   <span class="p">]</span>
