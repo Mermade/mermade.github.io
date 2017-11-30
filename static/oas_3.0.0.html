@@ -1925,7 +1925,8 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
   <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"1.0.1"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">title: Sample Pet Store Appdescription: This is a sample server for a pet store.
+<pre><code class="language-yaml highlight">title: Sample Pet Store App
+description: This is a sample server for a pet store.
 termsOfService: http://example.com/terms/
 contact:
   name: API Support
@@ -1966,7 +1967,8 @@ version: 1.0.1
   <span class="nt">"email"</span><span class="p">:</span> <span class="s2">"support@example.com"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: API Supporturl: http://www.example.com/support
+<pre><code class="language-yaml highlight">name: API Support
+url: http://www.example.com/support
 email: support@example.com
 </code></pre>
    <h4 class="heading settled" data-level="4.7.7" id="license-object"><span class="secno">4.7.7. </span><span class="content"><a data-link-type="dfn" id="licenseObject">License Object</a></span><a class="self-link" href="#license-object"></a></h4>
@@ -1994,7 +1996,8 @@ email: support@example.com
   <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.apache.org/licenses/LICENSE-2.0.html"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: Apache 2.0url: http://www.apache.org/licenses/LICENSE-2.0.html
+<pre><code class="language-yaml highlight">name: Apache 2.0
+url: http://www.apache.org/licenses/LICENSE-2.0.html
 </code></pre>
    <h4 class="heading settled" data-level="4.7.9" id="server-object"><span class="secno">4.7.9. </span><span class="content"><a data-link-type="dfn" id="serverObject">Server Object</a></span><a class="self-link" href="#server-object"></a></h4>
    <p>An object representing a Server.</p>
@@ -2026,7 +2029,8 @@ email: support@example.com
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Development server"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">url: https://development.gigantic-server.com/v1description: Development server
+<pre><code class="language-yaml highlight">url: https://development.gigantic-server.com/v1
+description: Development server
 </code></pre>
    <p>The following shows how multiple servers can be described, for example, at the OpenAPI Object’s <a href="#oasServers"><code>servers</code></a>:</p>
 <pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"servers"</span><span class="p">:</span> <span class="p">[</span>
@@ -2045,7 +2049,8 @@ email: support@example.com
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">servers:- url: https://development.gigantic-server.com/v1
+<pre><code class="language-yaml highlight">servers:
+- url: https://development.gigantic-server.com/v1
   description: Development server
 - url: https://staging.gigantic-server.com/v1
   description: Staging server
@@ -2077,7 +2082,8 @@ email: support@example.com
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">servers:- url: https://{username}.gigantic-server.com:{port}/{basePath}
+<pre><code class="language-yaml highlight">servers:
+- url: https://{username}.gigantic-server.com:{port}/{basePath}
   description: The production API server
   variables:
     username:
@@ -2261,64 +2267,65 @@ my.org.User
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">components:schemas:
-  Category:
-    type: object
-    properties:
-      id:
+<pre><code class="language-yaml highlight">components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+  parameters:
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      required: true
+      schema:
         type: integer
-        format: int64
-      name:
-        type: string
-  Tag:
-    type: object
-    properties:
-      id:
+        format: int32
+    limitParam:
+      name: limit
+      in: query
+      description: max records to return
+      required: true
+      schema:
         type: integer
-        format: int64
-      name:
-        type: string
-parameters:
-  skipParam:
-    name: skip
-    in: query
-    description: number of items to skip
-    required: true
-    schema:
-      type: integer
-      format: int32
-  limitParam:
-    name: limit
-    in: query
-    description: max records to return
-    required: true
-    schema:
-      type: integer
-      format: int32
-responses:
-  NotFound:
-    description: Entity not found.
-  IllegalInput:
-    description: Illegal input for operation.
-  GeneralError:
-    description: General Error
-    content:
-      application/json:
-        schema:
-          $ref: <span class="s">'#/components/schemas/GeneralError'</span>
-securitySchemes:
-  api_key:
-    type: apiKey
-    name: api_key
-    in: header
-  petstore_auth:
-    type: oauth2
-    flows: 
-      implicit:
-        authorizationUrl: http://example.org/api/oauth/dialog
-        scopes:
-          write:pets: modify pets in your account
-          read:pets: read your pets
+        format: int32
+  responses:
+    NotFound:
+      description: Entity not found.
+    IllegalInput:
+      description: Illegal input for operation.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: <span class="s">'#/components/schemas/GeneralError'</span>
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+    petstore_auth:
+      type: oauth2
+      flows: 
+        implicit:
+          authorizationUrl: http://example.org/api/oauth/dialog
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
 </code></pre>
    <h4 class="heading settled" data-level="4.7.15" id="paths-object"><span class="secno">4.7.15. </span><span class="content"><a data-link-type="dfn" id="pathsObject">Paths Object</a></span><a class="self-link" href="#paths-object"></a></h4>
    <p>Holds the relative paths to the individual endpoints and their operations.
@@ -2370,17 +2377,18 @@ The path is appended to the URL from the <a href="#serverObject"><code>Server Ob
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">/pets:get:
-  description: Returns all pets from the system that the user has access to
-  responses:
-    <span class="s">'200'</span>:
-      description: A list of pets.
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: <span class="s">'#/components/schemas/pet'</span>
+<pre><code class="language-yaml highlight">/pets:
+  get:
+    description: Returns all pets from the system that the user has access to
+    responses:
+      <span class="s">'200'</span>:
+        description: A list of pets.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: <span class="s">'#/components/schemas/pet'</span>
 </code></pre>
    <h4 class="heading settled" data-level="4.7.17" id="path-item-object"><span class="secno">4.7.17. </span><span class="content"><a data-link-type="dfn" id="pathItemObject">Path Item Object</a></span><a class="self-link" href="#path-item-object"></a></h4>
    <p>Describes the operations available on a single path.
@@ -2496,7 +2504,8 @@ The path itself is still exposed to the documentation viewer but they will not k
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">get:  description: Returns pets based on ID
+<pre><code class="language-yaml highlight">get:
+  description: Returns pets based on ID
   summary: Find pets by ID
   operationId: getPetsById
   responses:
@@ -2648,7 +2657,8 @@ parameters:
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">tags:- pet
+<pre><code class="language-yaml highlight">tags:
+- pet
 summary: Updates a pet in the store with form data
 operationId: updatePetWithForm
 parameters:
@@ -2711,6 +2721,9 @@ security:
 <pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Find more info here"</span><span class="p">,</span>
   <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"https://example.com"</span>
 <span class="p">}</span>
+</code></pre>
+<pre><code class="language-yaml highlight">description: Find more info here
+url: https://example.com
 </code></pre>
    <h4 class="heading settled" data-level="4.7.23" id="parameter-object"><span class="secno">4.7.23. </span><span class="content"><a data-link-type="dfn" id="parameterObject">Parameter Object</a></span><a class="self-link" href="#parameter-object"></a></h4>
    <p>Describes a single operation parameter.</p>
@@ -2968,7 +2981,8 @@ object -> { "R": 100, "G": 200, "B": 150 }
   <span class="nt">"style"</span><span class="p">:</span> <span class="s2">"simple"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: tokenin: header
+<pre><code class="language-yaml highlight">name: token
+in: header
 description: token to be passed as a header
 required: true
 schema:
@@ -2988,7 +3002,8 @@ style: simple
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: usernamein: path
+<pre><code class="language-yaml highlight">name: username
+in: path
 description: username to fetch
 required: true
 schema:
@@ -3009,7 +3024,8 @@ schema:
   <span class="nt">"explode"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: idin: query
+<pre><code class="language-yaml highlight">name: id
+in: query
 description: ID of the object to fetch
 required: false
 schema:
@@ -3031,7 +3047,8 @@ explode: true
   <span class="nt">"style"</span><span class="p">:</span> <span class="s2">"form"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">in: queryname: freeForm
+<pre><code class="language-yaml highlight">in: query
+name: freeForm
 schema:
   type: object
   additionalProperties:
@@ -3062,7 +3079,8 @@ style: form
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">in: queryname: coordinates
+<pre><code class="language-yaml highlight">in: query
+name: coordinates
 content:
   application/json:
     schema:
@@ -3145,7 +3163,8 @@ content:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: user to add to the systemcontent: 
+<pre><code class="language-yaml highlight">description: user to add to the system
+content: 
   <span class="s">'application/json'</span>:
     schema:
       $ref: <span class="s">'#/components/schemas/User'</span>
@@ -3185,7 +3204,8 @@ content:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: user to add to the systemrequired: true
+<pre><code class="language-yaml highlight">description: user to add to the system
+required: true
 content:
   text/plain:
     schema:
@@ -3255,50 +3275,55 @@ content:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">application/json:schema:
-  $ref: <span class="s">"#/components/schemas/Pet"</span>
-examples:
-  cat:
-    summary: An example of a cat
-    value:
-      name: Fluffy
-      petType: Cat
-      color: White
-      gender: male
-      breed: Persian
-  dog:
-    summary: An example of a dog with a cat’s name
-    value:
-      name: Puma
-      petType: Dog
-      color: Black
-      gender: Female
-      breed: Mixed
-  frog:
-    $ref: <span class="s">"#/components/examples/frog-example"</span>
+<pre><code class="language-yaml highlight">application/json: 
+  schema:
+    $ref: <span class="s">"#/components/schemas/Pet"</span>
+  examples:
+    cat:
+      summary: An example of a cat
+      value:
+        name: Fluffy
+        petType: Cat
+        color: White
+        gender: male
+        breed: Persian
+    dog:
+      summary: An example of a dog with a cat’s name
+      value:
+        name: Puma
+        petType: Dog
+        color: Black
+        gender: Female
+        breed: Mixed
+    frog:
+      $ref: <span class="s">"#/components/examples/frog-example"</span>
 </code></pre>
    <h5 class="heading settled" data-level="4.7.28.2" id="considerations-for-file-uploads"><span class="secno">4.7.28.2. </span><span class="content">Considerations for File Uploads</span><a class="self-link" href="#considerations-for-file-uploads"></a></h5>
    <p>In contrast with the 2.0 specification, <code>file</code> input/output content in OpenAPI is described with the same semantics as any other schema type. Specifically:</p>
-<pre><code class="language-yaml highlight"><span class="c1"># content transferred with base64 encodingschema:</span>
+<pre><code class="language-yaml highlight"><span class="c1"># content transferred with base64 encoding</span>
+schema:
   type: string
   format: base64
 </code></pre>
-<pre><code class="language-yaml highlight"><span class="c1"># content transferred in binary (octet-stream):schema:</span>
+<pre><code class="language-yaml highlight"><span class="c1"># content transferred in binary (octet-stream):</span>
+schema:
   type: string
   format: binary
 </code></pre>
    <p>These examples apply to either input payloads of file uploads or response payloads.</p>
    <p>A <code>requestBody</code> for submitting a file in a <code>POST</code> operation may look like the following example:</p>
-<pre><code class="language-yaml highlight">requestBody:content:
-  application/octet-stream:
-    <span class="c1"># any media type is accepted, functionally equivalent to </span><code class="highlight"><span class="c1">*/*</span></code>
-    schema:
-      <span class="c1"># a binary file of any type</span>
-      type: string
-      format: binary
+<pre><code class="language-yaml highlight">requestBody:
+  content:
+    application/octet-stream:
+      <span class="c1"># any media type is accepted, functionally equivalent to </span><code class="highlight"><span class="c1">*/*</span></code>
+      schema:
+        <span class="c1"># a binary file of any type</span>
+        type: string
+        format: binary
 </code></pre>
    <p>In addition, specific media types MAY be specified:</p>
-<pre><code class="language-yaml highlight"><span class="c1"># multiple, specific media types may be specified:requestBody:</span>
+<pre><code class="language-yaml highlight"><span class="c1"># multiple, specific media types may be specified:</span>
+requestBody:
   content:
       <span class="c1"># a binary file of type png or jpeg</span>
     <span class="s">'image/jpeg'</span>:
@@ -3311,32 +3336,34 @@ examples:
         format: binary        
 </code></pre>
    <p>To upload multiple files, a <code>multipart</code> media type MUST be used:</p>
-<pre><code class="language-yaml highlight">requestBody:content:
-  multipart/form-data:
-    schema:
-      properties:
-        <span class="c1"># The property name 'file' will be used for all files.</span>
-        file:
-          type: array
-          items:
-            type: string
-            format: binary
+<pre><code class="language-yaml highlight">requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        properties:
+          <span class="c1"># The property name 'file' will be used for all files.</span>
+          file:
+            type: array
+            items:
+              type: string
+              format: binary
 </code></pre>
    <h2 class="heading settled" data-level="5" id="support-for-x-www-form-urlencoded-request-bodies"><span class="secno">5. </span><span class="content">Support for x-www-form-urlencoded Request Bodies</span><a class="self-link" href="#support-for-x-www-form-urlencoded-request-bodies"></a></h2>
    <p>To submit content using form url encoding via <a data-link-type="biblio" href="#biblio-rfc1866">[rfc1866]</a>, the following
 definition may be used:</p>
-<pre><code class="language-yaml highlight">requestBody:content:
-  application/x-www-form-urlencoded:
-    schema:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          <span class="c1"># complex types are stringified to support RFC 1866</span>
-          type: object
-          properties: {}
+<pre><code class="language-yaml highlight">requestBody:
+  content:
+    application/x-www-form-urlencoded:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+          address:
+            <span class="c1"># complex types are stringified to support RFC 1866</span>
+            type: object
+            properties: {}
 </code></pre>
    <p>In this example, the contents in the <code>requestBody</code> MUST be stringified per <a data-link-type="biblio" href="#biblio-rfc1866">[rfc1866]</a>) when passed to the server.  In addition, the <code>address</code> field complex object will be stringified.</p>
    <p>When passing complex objects in the <code>application/x-www-form-urlencoded</code> content type, the default serialization strategy of such properties is described in the <a href="#encodingObject"><code>Encoding Object</code></a>’s <a href="#encodingStyle"><code>style</code></a> property as <code>form</code>.</p>
@@ -3349,32 +3376,33 @@ definition may be used:</p>
     <li>If the property is a <code>type: string</code> with <code>format: binary</code> or <code>format: base64</code> (aka a file object), the default Content-Type is <code>application/octet-stream</code>
    </ul>
    <p>Examples:</p>
-<pre><code class="language-yaml highlight">requestBody:content:
-  multipart/form-data:
-    schema:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          <span class="c1"># default Content-Type for objects is </span><code class="highlight"><span class="c1">application/json</span></code>
-          type: object
-          properties: {}
-        profileImage:
-          <span class="c1"># default Content-Type for string/binary is </span><code class="highlight"><span class="c1">application/octet-stream</span></code>
-          type: string
-          format: binary
-        children:
-          <span class="c1"># default Content-Type for arrays is based on the </span><code class="highlight"><span class="c1">inner</span></code><span class="c1"> type (text/plain here)</span>
-          type: array
-          items:
+<pre><code class="language-yaml highlight">requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          id:
             type: string
-        addresses:
-          <span class="c1"># default Content-Type for arrays is based on the </span><code class="highlight"><span class="c1">inner</span></code><span class="c1"> type (object shown, so </span><code class="highlight"><span class="c1">application/json</span></code><span class="c1"> in this example)</span>
-          type: array
-          items:
-            type: <span class="s">'#/components/schemas/Address'</span>
+            format: uuid
+          address:
+            <span class="c1"># default Content-Type for objects is </span><code class="highlight"><span class="c1">application/json</span></code>
+            type: object
+            properties: {}
+          profileImage:
+            <span class="c1"># default Content-Type for string/binary is </span><code class="highlight"><span class="c1">application/octet-stream</span></code>
+            type: string
+            format: binary
+          children:
+            <span class="c1"># default Content-Type for arrays is based on the </span><code class="highlight"><span class="c1">inner</span></code><span class="c1"> type (text/plain here)</span>
+            type: array
+            items:
+              type: string
+          addresses:
+            <span class="c1"># default Content-Type for arrays is based on the </span><code class="highlight"><span class="c1">inner</span></code><span class="c1"> type (object shown, so </span><code class="highlight"><span class="c1">application/json</span></code><span class="c1"> in this example)</span>
+            type: array
+            items:
+              type: <span class="s">'#/components/schemas/Address'</span>
 </code></pre>
    <p>An <code>encoding</code> attribute is introduced to give you control over the serialization of parts of <code>multipart</code> request bodies.  This attribute is <em>only</em> applicable to <code>multipart</code> and <code>application/x-www-form-urlencoded</code> request bodies.</p>
    <h4 class="heading settled" data-level="5.1.1" id="encoding-object"><span class="secno">5.1.1. </span><span class="content"><a data-link-type="dfn" id="encodingObject">Encoding Object</a></span><a class="self-link" href="#encoding-object"></a></h4>
@@ -3410,40 +3438,41 @@ definition may be used:</p>
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="5.1.2.1" id="encoding-object-example"><span class="secno">5.1.2.1. </span><span class="content">Encoding Object Example</span><a class="self-link" href="#encoding-object-example"></a></h5>
-<pre><code class="language-yaml highlight">requestBody:content:
-  multipart/mixed:
-    schema:
-      type: object
-      properties:
-        id:
-          <span class="c1"># default is text/plain</span>
-          type: string
-          format: uuid
-        address:
-          <span class="c1"># default is application/json</span>
-          type: object
-          properties: {}
+<pre><code class="language-yaml highlight">requestBody:
+  content:
+    multipart/mixed:
+      schema:
+        type: object
+        properties:
+          id:
+            <span class="c1"># default is text/plain</span>
+            type: string
+            format: uuid
+          address:
+            <span class="c1"># default is application/json</span>
+            type: object
+            properties: {}
+          historyMetadata:
+            <span class="c1"># need to declare XML format!</span>
+            description: metadata in XML format
+            type: object
+            properties: {}
+          profileImage:
+            <span class="c1"># default is application/octet-stream, need to declare an image type only!</span>
+            type: string
+            format: binary
+      encoding:
         historyMetadata:
-          <span class="c1"># need to declare XML format!</span>
-          description: metadata in XML format
-          type: object
-          properties: {}
+          <span class="c1"># require XML Content-Type in utf-8 encoding</span>
+          contentType: application/xml; charset=utf-8
         profileImage:
-          <span class="c1"># default is application/octet-stream, need to declare an image type only!</span>
-          type: string
-          format: binary
-    encoding:
-      historyMetadata:
-        <span class="c1"># require XML Content-Type in utf-8 encoding</span>
-        contentType: application/xml; charset=utf-8
-      profileImage:
-        <span class="c1"># only accept png/jpeg</span>
-        contentType: image/png, image/jpeg
-        headers:
-          X-Rate-Limit-Limit:
-            description: The number of allowed requests in the current period
-            schema:
-              type: integer
+          <span class="c1"># only accept png/jpeg</span>
+          contentType: image/png, image/jpeg
+          headers:
+            X-Rate-Limit-Limit:
+              description: The number of allowed requests in the current period
+              schema:
+                type: integer
 </code></pre>
    <h4 class="heading settled" data-level="5.1.3" id="responses-object"><span class="secno">5.1.3. </span><span class="content"><a data-link-type="dfn" id="responsesObject">Responses Object</a></span><a class="self-link" href="#responses-object"></a></h4>
    <p>A container for the expected responses of an operation.
@@ -3505,7 +3534,8 @@ SHOULD be the response for a successful operation call.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight"><span class="s">'200'</span>:  description: a pet to be returned
+<pre><code class="language-yaml highlight"><span class="s">'200'</span>:
+  description: a pet to be returned
   content: 
     application/json:
       schema:
@@ -3560,7 +3590,8 @@ default:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: A complex object array responsecontent: 
+<pre><code class="language-yaml highlight">description: A complex object array response
+content: 
   application/json:
     schema: 
       type: array
@@ -3579,7 +3610,8 @@ default:
 
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: A simple string responserepresentations:
+<pre><code class="language-yaml highlight">description: A simple string response
+representations:
   text/plain:
     schema:
       type: string
@@ -3615,7 +3647,8 @@ default:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: A simple string responsecontent:
+<pre><code class="language-yaml highlight">description: A simple string response
+content:
   text/plain:
     schema:
       type: string
@@ -3714,17 +3747,18 @@ Location: http://example.org/subscription/1
    </table>
    <h5 class="heading settled" data-level="5.1.8.2" id="callback-object-example"><span class="secno">5.1.8.2. </span><span class="content">Callback Object Example</span><a class="self-link" href="#callback-object-example"></a></h5>
    <p>The following example shows a callback to the URL specified by the <code>id</code> and <code>email</code> property in the request body.</p>
-<pre><code class="language-yaml highlight">myWebhook:'http://notificationServer.com?transactionId={$request.body#/id}&amp;email={$request.body#/email}':
-  post:
-    requestBody:
-      description: Callback payload
-      content: 
-        <span class="s">'application/json'</span>:
-          schema:
-            $ref: <span class="s">'#/components/schemas/SomePayload'</span>
-    responses:
-      <span class="s">'200'</span>:
-        description: webhook successfully processed and no retries will be performed
+<pre><code class="language-yaml highlight">myWebhook:
+  <span class="s">'http://notificationServer.com?transactionId={$request.body#/id}&amp;email={$request.body#/email}'</span>:
+    post:
+      requestBody:
+        description: Callback payload
+        content: 
+          <span class="s">'application/json'</span>:
+            schema:
+              $ref: <span class="s">'#/components/schemas/SomePayload'</span>
+      responses:
+        <span class="s">'200'</span>:
+          description: webhook successfully processed and no retries will be performed
 </code></pre>
    <h4 class="heading settled" data-level="5.1.9" id="example-object"><span class="secno">5.1.9. </span><span class="content"><a data-link-type="dfn" id="exampleObject">Example Object</a></span><a class="self-link" href="#example-object"></a></h4>
    <h4 class="heading settled" data-level="5.1.10" id="fixed-fields①⑥"><span class="secno">5.1.10. </span><span class="content">Fixed Fields</span><a class="self-link" href="#fixed-fields①⑥"></a></h4>
@@ -3757,7 +3791,8 @@ Location: http://example.org/subscription/1
 of its associated value.  Tooling implementations MAY choose to
 validate compatibility automatically, and reject the example value(s) if incompatible.</p>
    <h5 class="heading settled" data-level="5.1.10.1" id="example-object-example"><span class="secno">5.1.10.1. </span><span class="content">Example Object Example</span><a class="self-link" href="#example-object-example"></a></h5>
-<pre><code class="language-yaml highlight"><span class="c1"># in a modelschemas:</span>
+<pre><code class="language-yaml highlight"><span class="c1"># in a model</span>
+schemas:
   properties:
     name:
       type: string
@@ -3858,56 +3893,58 @@ Because of the potential for name clashes, the <code>operationRef</code> syntax 
 for specifications with external references.</p>
    <h3 class="heading settled" data-level="7.1" id="examples"><span class="secno">7.1. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h3>
    <p>Computing a link from a request operation where the <code>$request.path.id</code> is used to pass a request parameter to the linked operation.</p>
-<pre><code class="language-yaml highlight">paths:/users/{id}:
-  parameters:
-  - name: id
-    in: path
-    required: true
-    description: the user identifier, as userId 
-    schema:
-      type: string
-  get:
-    responses:
-      <span class="s">'200'</span>:
-        description: the user being returned
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                uuid: <span class="c1"># the unique user id</span>
-                  type: string
-                  format: uuid
-      links:
-        address:
-          <span class="c1"># the target link operationId</span>
-          operationId: getUserAddress
-          parameters:
-            <span class="c1"># get the </span><code class="highlight"><span class="c1">id</span></code><span class="c1"> field from the request path parameter named </span><code class="highlight"><span class="c1">id</span></code>
-            userId: $request.path.id
-<span class="c1"># the path item of the linked operation</span>
-/users/{userid}/address:
-  parameters:
-  - name: userid
-    in: path
-    required: true
-    description: the user identifier, as userId 
-    schema:
-      type: string
-    <span class="c1"># linked operation</span>
+<pre><code class="language-yaml highlight">paths:
+  /users/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: the user identifier, as userId 
+      schema:
+        type: string
     get:
-      operationId: getUserAddress
       responses:
         <span class="s">'200'</span>:
-          description: the user’s address
+          description: the user being returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid: <span class="c1"># the unique user id</span>
+                    type: string
+                    format: uuid
+        links:
+          address:
+            <span class="c1"># the target link operationId</span>
+            operationId: getUserAddress
+            parameters:
+              <span class="c1"># get the </span><code class="highlight"><span class="c1">id</span></code><span class="c1"> field from the request path parameter named </span><code class="highlight"><span class="c1">id</span></code>
+              userId: $request.path.id
+  <span class="c1"># the path item of the linked operation</span>
+  /users/{userid}/address:
+    parameters:
+    - name: userid
+      in: path
+      required: true
+      description: the user identifier, as userId 
+      schema:
+        type: string
+      <span class="c1"># linked operation</span>
+      get:
+        operationId: getUserAddress
+        responses:
+          <span class="s">'200'</span>:
+            description: the user’s address
 </code></pre>
    <p>When a runtime expression fails to evaluate, no parameter value is passed to the target operation.</p>
    <p>Values from the response body can be used to drive a linked operation.</p>
-<pre><code class="language-yaml highlight">links:address:
-  operationId: getUserAddressByUUID
-  parameters:
-    <span class="c1"># get the </span><code class="highlight"><span class="c1">id</span></code><span class="c1"> field from the request path parameter named </span><code class="highlight"><span class="c1">id</span></code>
-    userUuid: $response.body#/uuid
+<pre><code class="language-yaml highlight">links:
+  address:
+    operationId: getUserAddressByUUID
+    parameters:
+      <span class="c1"># get the </span><code class="highlight"><span class="c1">id</span></code><span class="c1"> field from the request path parameter named </span><code class="highlight"><span class="c1">id</span></code>
+      userUuid: $response.body#/uuid
 </code></pre>
    <p>Clients follow all links at their discretion.
 Neither permissions, nor the capability to make a successful call to that link, is guaranteed
@@ -3915,18 +3952,20 @@ solely by the existence of a relationship.</p>
    <h4 class="heading settled" data-level="7.1.1" id="operationref-examples"><span class="secno">7.1.1. </span><span class="content">OperationRef Examples</span><a class="self-link" href="#operationref-examples"></a></h4>
    <p>As references to <code>operationId</code> MAY NOT be possible (the <code>operationId</code> is an optional
 value), references MAY also be made through a relative <code>operationRef</code>:</p>
-<pre><code class="language-yaml highlight">links:UserRepositories:
-  <span class="c1"># returns array of '#/components/schemas/repository'</span>
-  operationRef: <span class="s">'#/paths/~12.0~1repositories~1{username}/get'</span>
-  parameters:
-    username: $response.body#/username
+<pre><code class="language-yaml highlight">links:
+  UserRepositories:
+    <span class="c1"># returns array of '#/components/schemas/repository'</span>
+    operationRef: <span class="s">'#/paths/~12.0~1repositories~1{username}/get'</span>
+    parameters:
+      username: $response.body#/username
 </code></pre>
    <p>or an absolute <code>operationRef</code>:</p>
-<pre><code class="language-yaml highlight">links:UserRepositories:
-  <span class="c1"># returns array of '#/components/schemas/repository'</span>
-  operationRef: <span class="s">'https://na2.gigantic-server.com/#/paths/~12.0~1repositories~1{username}/get'</span>
-  parameters:
-    username: $response.body#/username
+<pre><code class="language-yaml highlight">links:
+  UserRepositories:
+    <span class="c1"># returns array of '#/components/schemas/repository'</span>
+    operationRef: <span class="s">'https://na2.gigantic-server.com/#/paths/~12.0~1repositories~1{username}/get'</span>
+    parameters:
+      username: $response.body#/username
 </code></pre>
    <p>Note that in the use of <code>operationRef</code>, the <em>escaped forward-slash</em> is necessary when
 using JSON references.</p>
@@ -3939,7 +3978,7 @@ header-reference = "header." token
 query-reference = "query." name  
 path-reference = "path." name
 body-reference = "body" ["#" fragment]
-fragment = a JSON Pointer [[!rfc6901]]  
+fragment = a JSON Pointer [[!rfc 6901]]  
 name = *( char )
 char = as per RFC [7159]section-7)
 token = as per RFC [7230]section-3.2.6)
@@ -4000,7 +4039,8 @@ Expressions can be embedded into string values by surrounding the expression wit
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">description: The number of allowed requests in the current periodschema:
+<pre><code class="language-yaml highlight">description: The number of allowed requests in the current period
+schema:
   type: integer
 </code></pre>
    <h4 class="heading settled" data-level="7.1.4" id="tag-object"><span class="secno">7.1.4. </span><span class="content"><a data-link-type="dfn" id="tagObject">Tag Object</a></span><a class="self-link" href="#tag-object"></a></h4>
@@ -4033,7 +4073,8 @@ It is not mandatory to have a Tag Object per tag defined in the Operation Object
   <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Pets operations"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">name: petdescription: Pets operations
+<pre><code class="language-yaml highlight">name: pet
+description: Pets operations
 </code></pre>
    <h4 class="heading settled" data-level="7.1.6" id="examples-object"><span class="secno">7.1.6. </span><span class="content"><a data-link-type="dfn" id="examplesObject">Examples Object</a></span><a class="self-link" href="#examples-object"></a></h4>
    <p>In an <code>example</code>, a JSON Reference MAY be used, with the
@@ -4043,7 +4084,8 @@ either a string primitive or an object, similar to <code>additionalProperties</c
 for the associated value.  Tooling implementations MAY choose to
 validate compatibility automatically, and reject the example value(s) if they
 are incompatible.</p>
-<pre><code class="language-yaml highlight"><span class="c1"># in a modelschemas:</span>
+<pre><code class="language-yaml highlight"><span class="c1"># in a model</span>
+schemas:
   properties:
     name:
       type: string
@@ -4233,7 +4275,8 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
   <span class="nt">"format"</span><span class="p">:</span> <span class="s2">"email"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: stringformat: email
+<pre><code class="language-yaml highlight">type: string
+format: email
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.2" id="simple-model"><span class="secno">9.1.3.2.2. </span><span class="content">Simple Model</span><a class="self-link" href="#simple-model"></a></h6>
 <pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
@@ -4255,7 +4298,8 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: objectrequired:
+<pre><code class="language-yaml highlight">type: object
+required:
 - name
 properties:
   name:
@@ -4275,7 +4319,8 @@ properties:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: objectadditionalProperties:
+<pre><code class="language-yaml highlight">type: object
+additionalProperties:
   type: string
 </code></pre>
    <p>For a string to model mapping:</p>
@@ -4285,7 +4330,8 @@ properties:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: objectadditionalProperties:
+<pre><code class="language-yaml highlight">type: object
+additionalProperties:
   $ref: <span class="s">'#/components/schemas/ComplexModel'</span>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.4" id="model-with-example"><span class="secno">9.1.3.2.4. </span><span class="content">Model with Example</span><a class="self-link" href="#model-with-example"></a></h6>
@@ -4308,7 +4354,8 @@ properties:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: objectproperties:
+<pre><code class="language-yaml highlight">type: object
+properties:
   id:
     type: integer
     format: int64
@@ -4362,28 +4409,29 @@ example:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">components:schemas:
-  ErrorModel:
-    type: object
-    required:
-    - message
-    - code
-    properties:
-      message:
-        type: string
-      code:
-        type: integer
-        minimum: 100
-        maximum: 600
-  ExtendedErrorModel:
-    allOf:
-    - $ref: <span class="s">'#/components/schemas/ErrorModel'</span>
-    - type: object
+<pre><code class="language-yaml highlight">components:
+  schemas:
+    ErrorModel:
+      type: object
       required:
-      - rootCause
+      - message
+      - code
       properties:
-        rootCause:
+        message:
           type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
+    ExtendedErrorModel:
+      allOf:
+      - $ref: <span class="s">'#/components/schemas/ErrorModel'</span>
+      - type: object
+        required:
+        - rootCause
+        properties:
+          rootCause:
+            type: string
 </code></pre>
    <h6 class="heading settled" data-level="9.1.3.2.6" id="models-with-polymorphism-support"><span class="secno">9.1.3.2.6. </span><span class="content">Models with Polymorphism Support</span><a class="self-link" href="#models-with-polymorphism-support"></a></h6>
 <pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"components"</span><span class="p">:</span> <span class="p">{</span>
@@ -4460,49 +4508,50 @@ example:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">components:schemas:
-  Pet:
-    type: object
-    discriminator:
-      propertyName: petType
-    properties:
-      name:
-        type: string
-      petType:
-        type: string
-    required:
-    - name
-    - petType
-  Cat:  <span class="c1">## "Cat" will be used as the discriminator value</span>
-    description: A representation of a cat
-    allOf:
-    - $ref: <span class="s">'#/components/schemas/Pet'</span>
-    - type: object
+<pre><code class="language-yaml highlight">components:
+  schemas:
+    Pet:
+      type: object
+      discriminator:
+        propertyName: petType
       properties:
-        huntingSkill:
+        name:
           type: string
-          description: The measured skill for hunting
-          enum:
-          - clueless
-          - lazy
-          - adventurous
-          - aggressive
+        petType:
+          type: string
       required:
-      - huntingSkill
-  Dog:  <span class="c1">## "Dog" will be used as the discriminator value</span>
-    description: A representation of a dog
-    allOf:
-    - $ref: <span class="s">'#/components/schemas/Pet'</span>
-    - type: object
-      properties:
-        packSize:
-          type: integer
-          format: int32
-          description: the size of the pack the dog is from
-          default: 0
-          minimum: 0
-      required:
-      - packSize
+      - name
+      - petType
+    Cat:  <span class="c1">## "Cat" will be used as the discriminator value</span>
+      description: A representation of a cat
+      allOf:
+      - $ref: <span class="s">'#/components/schemas/Pet'</span>
+      - type: object
+        properties:
+          huntingSkill:
+            type: string
+            description: The measured skill for hunting
+            enum:
+            - clueless
+            - lazy
+            - adventurous
+            - aggressive
+        required:
+        - huntingSkill
+    Dog:  <span class="c1">## "Dog" will be used as the discriminator value</span>
+      description: A representation of a dog
+      allOf:
+      - $ref: <span class="s">'#/components/schemas/Pet'</span>
+      - type: object
+        properties:
+          packSize:
+            type: integer
+            format: int32
+            description: the size of the pack the dog is from
+            default: 0
+            minimum: 0
+        required:
+        - packSize
 </code></pre>
    <h4 class="heading settled" data-level="9.1.4" id="discriminator-object"><span class="secno">9.1.4. </span><span class="content"><a data-link-type="dfn" id="discriminatorObject">Discriminator Object</a></span><a class="self-link" href="#discriminator-object"></a></h4>
    <p>When request bodies or response payloads may be one of a number of different schemas, a <code>discriminator</code> object can be used to aid in serialization, deserialization, and validation.  The discriminator is a specific object in a schema which is used to inform the consumer of the specification of an alternative schema based on the value associated with it.</p>
@@ -4652,7 +4701,8 @@ See examples for expected behavior.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: string
+<pre><code class="language-yaml highlight">animals:
+  type: string
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animals></span>...<span class="nt">&lt;/animals></span>
 </code></pre>
@@ -4665,9 +4715,10 @@ See examples for expected behavior.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animals></span>...<span class="nt">&lt;/animals>&lt;animals></span>...<span class="nt">&lt;/animals></span>
 <span class="nt">&lt;animals></span>...<span class="nt">&lt;/animals></span>
@@ -4681,9 +4732,10 @@ items:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: string
-xml:
-  name: animal
+<pre><code class="language-yaml highlight">animals:
+  type: string
+  xml:
+    name: animal
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animal></span>...<span class="nt">&lt;/animal></span>
 </code></pre>
@@ -4710,18 +4762,19 @@ xml:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">Person:type: object
-properties:
-  id:
-    type: integer
-    format: int32
-    xml:
-      attribute: true
-  name:
-    type: string
-    xml:
-      namespace: http://example.com/schema/sample
-      prefix: sample
+<pre><code class="language-yaml highlight">Person:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int32
+      xml:
+        attribute: true
+    name:
+      type: string
+      xml:
+        namespace: http://example.com/schema/sample
+        prefix: sample
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;Person</span> <span class="na">id=</span><span class="s">"123"</span><span class="nt">></span>    <span class="nt">&lt;sample:name</span> <span class="na">xmlns:sample=</span><span class="s">"http://example.com/schema/sample"</span><span class="nt">></span>example<span class="nt">&lt;/sample:name></span>
 <span class="nt">&lt;/Person></span>
@@ -4739,11 +4792,12 @@ properties:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
-  xml:
-    name: animal
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal>&lt;animal></span>value<span class="nt">&lt;/animal></span>
 </code></pre>
@@ -4762,13 +4816,14 @@ items:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
   xml:
-    name: animal
-xml:
-  name: aliens
+    name: aliens
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal>&lt;animal></span>value<span class="nt">&lt;/animal></span>
 </code></pre>
@@ -4784,11 +4839,12 @@ xml:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
-xml:
-  wrapped: true
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+  xml:
+    wrapped: true
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animals></span>  <span class="nt">&lt;animals></span>value<span class="nt">&lt;/animals></span>
   <span class="nt">&lt;animals></span>value<span class="nt">&lt;/animals></span>
@@ -4809,13 +4865,14 @@ xml:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
   xml:
-    name: animal
-xml:
-  wrapped: true
+    wrapped: true
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;animals></span>  <span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal></span>
   <span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal></span>
@@ -4837,14 +4894,15 @@ xml:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
   xml:
-    name: animal
-xml:
-  name: aliens
-  wrapped: true
+    name: aliens
+    wrapped: true
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;aliens></span>  <span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal></span>
   <span class="nt">&lt;animal></span>value<span class="nt">&lt;/animal></span>
@@ -4863,12 +4921,13 @@ xml:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">animals:type: array
-items:
-  type: string
-xml:
-  name: aliens
-  wrapped: true
+<pre><code class="language-yaml highlight">animals:
+  type: array
+  items:
+    type: string
+  xml:
+    name: aliens
+    wrapped: true
 </code></pre>
 <pre><code class="language-xml highlight"><span class="nt">&lt;aliens></span>  <span class="nt">&lt;aliens></span>value<span class="nt">&lt;/aliens></span>
   <span class="nt">&lt;aliens></span>value<span class="nt">&lt;/aliens></span>
@@ -4934,7 +4993,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
   <span class="nt">"scheme"</span><span class="p">:</span> <span class="s2">"basic"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: httpscheme: basic
+<pre><code class="language-yaml highlight">type: http
+scheme: basic
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.2" id="api-key-sample"><span class="secno">9.1.9.1.2. </span><span class="content">API Key Sample</span><a class="self-link" href="#api-key-sample"></a></h6>
 <pre><code class="language-json highlight"><span class="p">{</span>  <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"apiKey"</span><span class="p">,</span>
@@ -4942,7 +5002,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
   <span class="nt">"in"</span><span class="p">:</span> <span class="s2">"header"</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: apiKeyname: api_key
+<pre><code class="language-yaml highlight">type: apiKey
+name: api_key
 in: header
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.3" id="jwt-bearer-sample"><span class="secno">9.1.9.1.3. </span><span class="content">JWT Bearer Sample</span><a class="self-link" href="#jwt-bearer-sample"></a></h6>
@@ -4951,7 +5012,8 @@ in: header
   <span class="nt">"bearerFormat"</span><span class="p">:</span> <span class="s2">"JWT"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: httpscheme: bearer
+<pre><code class="language-yaml highlight">type: http
+scheme: bearer
 bearerFormat: JWT
 </code></pre>
    <h6 class="heading settled" data-level="9.1.9.1.4" id="implicit-oauth2-sample"><span class="secno">9.1.9.1.4. </span><span class="content">Implicit OAuth2 Sample</span><a class="self-link" href="#implicit-oauth2-sample"></a></h6>
@@ -4967,7 +5029,8 @@ bearerFormat: JWT
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">type: oauth2flows: 
+<pre><code class="language-yaml highlight">type: oauth2
+flows: 
   implicit:
     authorizationUrl: https://example.com/api/oauth/dialog
     scopes:
@@ -5102,7 +5165,8 @@ This enables support for scenarios where multiple query parameters or HTTP heade
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre>
-<pre><code class="language-yaml highlight">petstore_auth:- write:pets
+<pre><code class="language-yaml highlight">petstore_auth:
+- write:pets
 - read:pets
 </code></pre>
    <h3 class="heading settled" data-level="9.2" id="specification-extensions"><span class="secno">9.2. </span><span class="content"><a data-link-type="dfn" id="specificationExtensions">Specification Extensions</a></span><a class="self-link" href="#specification-extensions"></a></h3>
