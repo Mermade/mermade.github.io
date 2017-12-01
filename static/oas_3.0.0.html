@@ -1349,6 +1349,43 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
 <style>/* style-selflinks */
 
 .heading, .issue, .note, .example, li, dt {
@@ -1495,9 +1532,9 @@ pre .property::before, pre .property::after {
     <li>
      <a href="#definitions"><span class="secno">3</span> <span class="content">Definitions</span></a>
      <ol class="toc">
-      <li><a href="#openapi-document"><span class="secno">3.1</span> <span class="content"><span>OpenAPI Document</span></span></a>
-      <li><a href="#path-templating"><span class="secno">3.2</span> <span class="content"><span>Path Templating</span></span></a>
-      <li><a href="#media-types"><span class="secno">3.3</span> <span class="content"><span>Media Types</span></span></a>
+      <li><a href="#openapi-document"><span class="secno">3.1</span> <span class="content"><span><span>OpenAPI Document</span></span></span></a>
+      <li><a href="#path-templating"><span class="secno">3.2</span> <span class="content"><span><span>Path Templating</span></span></span></a>
+      <li><a href="#media-types"><span class="secno">3.3</span> <span class="content"><span><span>Media Types</span></span></span></a>
       <li><a href="#http-status-codes"><span class="secno">3.4</span> <span class="content"><span>HTTP Status Codes</span></span></a>
      </ol>
     <li>
@@ -1748,7 +1785,7 @@ pre .property::before, pre .property::after {
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
-      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -1758,7 +1795,7 @@ pre .property::before, pre .property::after {
    </ol>
   </nav>
   <main>
-   <p class="copyright"> Copyright © 2017 the Linux Foundation. This specification is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2 license</a>. You may not use it except in accordance with that license. </p>
+   <p class="copyright"> Copyright © 2017 the Linux Foundation. This specification is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">The Apache License, Version 2.0</a>. You may not use it except in accordance with that license. The source-of-truth for the specification is the GitHub markdown file referenced above. </p>
    <p class="copyright" data-fill-with="copyright" style="display:none"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
 In addition, as of 26 July 2017,
@@ -1768,21 +1805,22 @@ Parts of this work may be from another specification document.  If so, those par
    <p class="logo" data-fill-with="logo" style="display:none"></p>
    <p><img alt="Open API Initiative logo" src="https://www.openapis.org/wp-content/uploads/sites/3/2016/10/OpenAPI_Pantone.png" width="300"></p>
    <h2 class="heading settled" data-level="1" id="version-300"><span class="secno">1. </span><span class="content">Version 3.0.0</span><a class="self-link" href="#version-300"></a></h2>
-   <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/bcp14">BCP 14</a> [[!rfc2119] <a data-link-type="biblio" href="#biblio-rfc8174">[rfc8174]</a>] when, and only when, they appear in all capitals, as shown here.</p>
+   <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/bcp14">BCP 14</a> <a data-link-type="biblio" href="#biblio-rfc2119">[rfc2119]</a> <a data-link-type="biblio" href="#biblio-rfc8174">[rfc8174]</a> when, and only when, they appear in all capitals, as shown here.</p>
    <p>This document is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html">The Apache License, Version 2.0</a>.</p>
    <h2 class="heading settled" data-level="2" id="introduction"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
    <p>The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.</p>
    <p>An OpenAPI definition can then be used by documentation generation tools to display the API, code generation tools to generate servers and clients in various programming languages, testing tools, and many other use cases.</p>
    <h2 class="heading settled" data-level="3" id="definitions"><span class="secno">3. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
-   <h3 class="heading settled" data-level="3.1" id="openapi-document"><span class="secno">3.1. </span><span class="content"><a data-link-type="dfn" id="oasDocument">OpenAPI Document</a></span><a class="self-link" href="#openapi-document"></a></h3>
+   <h3 class="heading settled" data-level="3.1" id="openapi-document"><span class="secno">3.1. </span><span class="content"><a data-link-type="dfn" href="#openapi-document①" id="oasDocument"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="openapi-document①">OpenAPI Document</dfn></a></span><a class="self-link" href="#openapi-document"></a></h3>
     A document (or set of documents) that defines or describes an API. An OpenAPI definition uses and conforms to the OpenAPI Specification. 
-   <h3 class="heading settled" data-level="3.2" id="path-templating"><span class="secno">3.2. </span><span class="content"><a data-link-type="dfn" id="pathTemplating">Path Templating</a></span><a class="self-link" href="#path-templating"></a></h3>
+   <h3 class="heading settled" data-level="3.2" id="path-templating"><span class="secno">3.2. </span><span class="content"><a data-link-type="dfn" href="#path-templating①" id="pathTemplating"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="path-templating①">Path Templating</dfn></a></span><a class="self-link" href="#path-templating"></a></h3>
     Path templating refers to the usage of curly braces ({}) to mark a section of a URL path as replaceable using path parameters. 
-   <h3 class="heading settled" data-level="3.3" id="media-types"><span class="secno">3.3. </span><span class="content"><a data-link-type="dfn" href="https://drafts.csswg.org/mediaqueries-4/#media-type" id="mediaTypes">Media Types</a></span><a class="self-link" href="#media-types"></a></h3>
+   <h3 class="heading settled" data-level="3.3" id="media-types"><span class="secno">3.3. </span><span class="content"><a data-link-type="dfn" href="#media-types①" id="mediaTypes"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="media-types①">Media Types</dfn></a></span><a class="self-link" href="#media-types"></a></h3>
     Media type definitions are spread across several resources.
-The media type definitions SHOULD be in compliance with <a data-link-type="biblio" href="#biblio-rfc6838">[rfc6838]</a>(http://tools.ietf.org/html/rfc6838). 
+The media type definitions SHOULD be in compliance with <a data-link-type="biblio" href="#biblio-rfc6838">[rfc6838]</a>. 
    <p>Some examples of possible media type definitions:</p>
-<pre class="highlight"><code>  text/plain; charset=utf-8application/json
+<pre class="highlight"><code>text/plain; charset=utf-8
+application/json
 application/vnd.github+json
 application/vnd.github.v3+json
 application/vnd.github.v3.raw+json
@@ -1794,7 +1832,7 @@ application/vnd.github.v3.patch
 </code></pre>
    <h3 class="heading settled" data-level="3.4" id="http-status-codes"><span class="secno">3.4. </span><span class="content"><a data-link-type="dfn" id="httpCodes">HTTP Status Codes</a></span><a class="self-link" href="#http-status-codes"></a></h3>
     The HTTP Status Codes are used to indicate the status of the executed operation. 
-The available status codes are defined by <a href="http://tools.ietf.org/html/rfc7231#section-6">[!rfc7231</a> and registered status codes are listed in the [IANA Status Code Registry]](http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml). 
+The available status codes are defined by <a data-link-type="biblio" href="#biblio-rfc7231">[rfc7231]</a>section-6) and registered status codes are listed in the <a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">IANA Status Code Registry</a>. 
    <h2 class="heading settled" data-level="4" id="specification"><span class="secno">4. </span><span class="content">Specification</span><a class="self-link" href="#specification"></a></h2>
    <h3 class="heading settled" data-level="4.1" id="versions"><span class="secno">4.1. </span><span class="content">Versions</span><a class="self-link" href="#versions"></a></h3>
    <p>The OpenAPI Specification is versioned using <a href="http://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0</a> (semver) and follows the semver specification.</p>
@@ -2255,7 +2293,8 @@ All objects defined within the components object will have no effect on the API 
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <p>All the fixed fields declared above are objects that MUST use keys that match the regular expression: <code>^[a-zA-Z0-9\.\-_]+$</code>.</p>
    <p>Field Name Examples:</p>
-<pre class="highlight"><code>UserUser_1
+<pre class="highlight"><code>User
+User_1
 User_Name
 user-name
 my.org.User
@@ -2428,13 +2467,16 @@ The path is appended to the URL from the <a href="#serverObject"><code>Server Ob
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.16.1" id="path-templating-matching"><span class="secno">4.7.16.1. </span><span class="content">Path Templating Matching</span><a class="self-link" href="#path-templating-matching"></a></h5>
    <p>Assuming the following paths, the concrete definition, <code>/pets/mine</code>, will be matched first if used:</p>
-<pre class="highlight"><code>  /pets/{petId}/pets/mine
+<pre class="highlight"><code>/pets/{petId}
+/pets/mine
 </code></pre>
    <p>The following paths are considered identical and invalid:</p>
-<pre class="highlight"><code>  /pets/{petId}/pets/{name}
+<pre class="highlight"><code>/pets/{petId}
+/pets/{name}
 </code></pre>
    <p>The following may lead to ambiguous resolution:</p>
-<pre class="highlight"><code>  /{entity}/me/books/{id}
+<pre class="highlight"><code>/{entity}/me
+/books/{id}
 </code></pre>
    <h5 class="heading settled" data-level="4.7.16.2" id="paths-object-example"><span class="secno">4.7.16.2. </span><span class="content">Paths Object Example</span><a class="self-link" href="#paths-object-example"></a></h5>
 <pre class="nohighlight"><code>{
@@ -2881,7 +2923,7 @@ For simpler scenarios, a <a href="#parameterSchema"><code>schema</code></a> and 
      <tr>
       <td><a data-link-type="dfn" id="parameterAllowReserved"> </a>allowReserved
       <td style="text-align:center"><code>boolean</code>
-      <td>Determines whether the parameter value SHOULD allow reserved characters, as defined by [[!rfc3986]section-2.2) <code>:/?#[]]@!$&amp;'()*+,;=</code> to be included without percent-encoding. This property only applies to parameters with an <code>in</code> value of <code>query</code>. The default value is <code>false</code>.
+      <td>Determines whether the parameter value SHOULD allow reserved characters, as defined by <a data-link-type="biblio" href="#biblio-rfc3986">[rfc3986]</a>section-2.2) <code>:/?#[]@!$&amp;'()*+,;=</code> to be included without percent-encoding. This property only applies to parameters with an <code>in</code> value of <code>query</code>. The default value is <code>false</code>.
      <tr>
       <td><a data-link-type="dfn" id="parameterSchema"> </a>schema
       <td style="text-align:center"><a href="#schemaObject">Schema Object</a> | <a href="#referenceObject">Reference Object</a>
@@ -2958,7 +3000,8 @@ When <code>example</code> or <code>examples</code> are provided in conjunction w
    </table>
    <h5 class="heading settled" data-level="4.7.24.3" id="style-examples"><span class="secno">4.7.24.3. </span><span class="content">Style Examples</span><a class="self-link" href="#style-examples"></a></h5>
    <p>Assume a parameter named <code>color</code> has one of the following values:</p>
-<pre class="highlight"><code>   string -> "blue"array -> ["blue","black","brown"]
+<pre class="highlight"><code>string -> "blue"
+array -> ["blue","black","brown"]
 object -> { "R": 100, "G": 200, "B": 150 }
 </code></pre>
    <p>The following table shows examples of rendering differences for each value.</p>
@@ -3335,7 +3378,8 @@ object -> { "R": 100, "G": 200, "B": 150 }
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="4.7.28.1" id="media-type-examples"><span class="secno">4.7.28.1. </span><span class="content">Media Type Examples</span><a class="self-link" href="#media-type-examples"></a></h5>
-<pre class="nohighlight"><code>{  <span class="hljs-string">"application/json"</span>: {
+<pre class="nohighlight"><code>{
+  <span class="hljs-string">"application/json"</span>: {
     <span class="hljs-string">"schema"</span>: {
          <span class="hljs-string">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
     },
@@ -3528,7 +3572,7 @@ definition may be used:</p>
      <tr>
       <td><a data-link-type="dfn" id="encodingAllowReserved"> </a>allowReserved
       <td style="text-align:center"><code>boolean</code>
-      <td>Determines whether the parameter value SHOULD allow reserved characters, as defined by [[!rfc3986]section-2.2) <code>:/?#[]]@!$&amp;'()*+,;=</code> to be included without percent-encoding. The default value is <code>false</code>. This property SHALL be ignored if the request body media type is not <code>application/x-www-form-urlencoded</code>.
+      <td>Determines whether the parameter value SHOULD allow reserved characters, as defined by <a data-link-type="biblio" href="#biblio-rfc3986">[rfc3986]</a>section-2.2) <code>:/?#[]@!$&amp;'()*+,;=</code> to be included without percent-encoding. The default value is <code>false</code>. This property SHALL be ignored if the request body media type is not <code>application/x-www-form-urlencoded</code>.
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="5.1.2.1" id="encoding-object-example"><span class="secno">5.1.2.1. </span><span class="content">Encoding Object Example</span><a class="self-link" href="#encoding-object-example"></a></h5>
@@ -3796,7 +3840,8 @@ A simple example might be <code>$request.body#/url</code>.
 However, using a <a href="#runtimeExpression">runtime expression</a> the complete HTTP message can be accessed.
 This includes accessing any part of a body that a JSON Pointer <a data-link-type="biblio" href="#biblio-rfc6901">[rfc6901]</a> can reference.</p>
    <p>For example, given the following HTTP request:</p>
-<pre class="nohighlight"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning</span> HTTP/1.1<span class="hljs-attribute">Host</span>: example.org
+<pre class="nohighlight"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: example.org
 <span class="hljs-attribute">Content-Type</span>: application/json
 <span class="hljs-attribute">Content-Length</span>: 187
 
@@ -4072,12 +4117,13 @@ using JSON references.</p>
    <p>Runtime expressions allow defining values based on information that will only be available within the HTTP message in an actual API call.
 This mechanism is used by <a href="#linkObject">Link Objects</a> and <a href="#callbackObject">Callback Objects</a>.</p>
    <p>The runtime expression is defined by the following [Advanced Backus-Naur Form] syntax</p>
-<pre class="highlight"><code>      expression = ( "$url" | "$method" | "$statusCode" | "$request." source | "$response." source )source = ( header-reference | query-reference | path-reference | body-reference )  
+<pre class="highlight"><code>expression = ( "$url" | "$method" | "$statusCode" | "$request." source | "$response." source )
+source = ( header-reference | query-reference | path-reference | body-reference )  
 header-reference = "header." token
 query-reference = "query." name  
 path-reference = "path." name
 body-reference = "body" ["#" fragment]
-fragment = a JSON Pointer [[!rfc 6901]]  
+fragment = a JSON Pointer [RFC 6901]  
 name = *( char )
 char = as per RFC [7159]section-7)
 token = as per RFC [7230]section-3.2.6)
@@ -4686,85 +4732,92 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
    </table>
    <p>The discriminator attribute is legal only when using one of the composite keywords <code>oneOf</code>, <code>anyOf</code>, <code>allOf</code>.</p>
    <p>In OAS 3.0, a response payload MAY be described to be exactly one of any number of types:</p>
-<pre class="highlight"><code>MyResponseType:oneOf:
-- $ref: '#/components/schemas/Cat'
-- $ref: '#/components/schemas/Dog'
-- $ref: '#/components/schemas/Lizard'
+<pre class="highlight"><code>MyResponseType:
+  oneOf:
+  - $ref: '#/components/schemas/Cat'
+  - $ref: '#/components/schemas/Dog'
+  - $ref: '#/components/schemas/Lizard'
 </code></pre>
    <p>which means the payload <em>MUST</em>, by validation, match exactly one of the schemas described by <code>Cat</code>, <code>Dog</code>, or <code>Lizard</code>.  In this case, a discriminator MAY act as a “hint” to shortcut validation and selection of the matching schema which may be a costly operation, depending on the complexity of the schema. We can then describe exactly which field tells us which schema to use:</p>
-<pre class="highlight"><code>MyResponseType:oneOf:
-- $ref: '#/components/schemas/Cat'
-- $ref: '#/components/schemas/Dog'
-- $ref: '#/components/schemas/Lizard'
-discriminator:
-  propertyName: pet_type
+<pre class="highlight"><code>MyResponseType:
+  oneOf:
+  - $ref: '#/components/schemas/Cat'
+  - $ref: '#/components/schemas/Dog'
+  - $ref: '#/components/schemas/Lizard'
+  discriminator:
+    propertyName: pet_type
 </code></pre>
    <p>The expectation now is that a property with name <code>pet_type</code> <em>MUST</em> be present in the response payload, and the value will correspond to the name of a schema defined in the OAS document.  Thus the response payload:</p>
-<pre class="highlight"><code>{  "id": 12345,
+<pre class="highlight"><code>{
+  "id": 12345,
   "pet_type": "Cat"
 }
 </code></pre>
    <p>Will indicate that the <code>Cat</code> schema be used in conjunction with this payload.</p>
    <p>In scenarios where the value of the discriminator field does not match the schema name or implicit mapping is not possible, an optional <code>mapping</code> definition MAY be used:</p>
-<pre class="highlight"><code>MyResponseType:oneOf:
-- $ref: '#/components/schemas/Cat'
-- $ref: '#/components/schemas/Dog'
-- $ref: '#/components/schemas/Lizard'
-- $ref: 'https://gigantic-server.com/schemas/Monster/schema.json'
-discriminator:
-  propertyName: pet_type
-  mapping:
-    dog: '#/components/schemas/Dog'
-    monster: 'https://gigantic-server.com/schemas/Monster/schema.json'
+<pre class="highlight"><code>MyResponseType:
+  oneOf:
+  - $ref: '#/components/schemas/Cat'
+  - $ref: '#/components/schemas/Dog'
+  - $ref: '#/components/schemas/Lizard'
+  - $ref: 'https://gigantic-server.com/schemas/Monster/schema.json'
+  discriminator:
+    propertyName: pet_type
+    mapping:
+      dog: '#/components/schemas/Dog'
+      monster: 'https://gigantic-server.com/schemas/Monster/schema.json'
 </code></pre>
    <p>Here the discriminator <em>value</em> of <code>dog</code> will map to the schema <code>#/components/schemas/Dog</code>, rather than the default (implicit) value of <code>Dog</code>.  If the discriminator <em>value</em> does not match an implicit or explicit mapping, no schema can be determined and validation SHOULD fail. Mapping keys MUST be string values, but tooling MAY convert response values to strings for comparison.</p>
    <p>When used in conjunction with the <code>anyOf</code> construct, the use of the discriminator can avoid ambiguity where multiple schemas may satisfy a single payload.</p>
    <p>In both the <code>oneOf</code> and <code>anyOf</code> use cases, all possible schemas MUST be listed explicitly.  To avoid redundancy, the discriminator MAY be added to a parent schema definition, and all schemas comprising the parent schema in an <code>allOf</code> construct may be used as an alternate schema.</p>
    <p>For example:</p>
-<pre class="highlight"><code>components:schemas:
-  Pet:
-    type: object
-    required:
-    - pet_type
-    properties:
-      pet_type:
-        type: string
-    discriminator:
-      propertyName: pet_type
-      mapping:
-        cachorro: Dog
-  Cat:
-    allOf:
-    - $ref: '#/components/schemas/Pet'
-    - type: object
-      # all other properties specific to a <code>Cat</code>
+<pre class="highlight"><code>components:
+  schemas:
+    Pet:
+      type: object
+      required:
+      - pet_type
       properties:
-        name:
+        pet_type:
           type: string
-  Dog:
-    allOf:
-    - $ref: '#/components/schemas/Pet'
-    - type: object
-      # all other properties specific to a <code>Dog</code>
-      properties:
-        bark:
-          type: string
-  Lizard:
-    allOf:
-    - $ref: '#/components/schemas/Pet'
-    - type: object
-      # all other properties specific to a <code>Lizard</code>
-      properties:
-        lovesRocks:
-          type: boolean
+      discriminator:
+        propertyName: pet_type
+        mapping:
+          cachorro: Dog
+    Cat:
+      allOf:
+      - $ref: '#/components/schemas/Pet'
+      - type: object
+        # all other properties specific to a <code>Cat</code>
+        properties:
+          name:
+            type: string
+    Dog:
+      allOf:
+      - $ref: '#/components/schemas/Pet'
+      - type: object
+        # all other properties specific to a <code>Dog</code>
+        properties:
+          bark:
+            type: string
+    Lizard:
+      allOf:
+      - $ref: '#/components/schemas/Pet'
+      - type: object
+        # all other properties specific to a <code>Lizard</code>
+        properties:
+          lovesRocks:
+            type: boolean
 </code></pre>
    <p>a payload like this:</p>
-<pre class="highlight"><code>{  "pet_type": "Cat",
+<pre class="highlight"><code>{
+  "pet_type": "Cat",
   "name": "misty"
 }
 </code></pre>
    <p>will indicate that the <code>Cat</code> schema be used.  Likewise this schema:</p>
-<pre class="highlight"><code>{  "pet_type": "cachorro",
+<pre class="highlight"><code>{
+  "pet_type": "cachorro",
   "bark": "soft"
 }
 </code></pre>
@@ -4833,7 +4886,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">  items:</span>
 <span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
 <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.7.1.2" id="xml-name-replacement"><span class="secno">9.1.7.1.2. </span><span class="content">XML Name Replacement</span><a class="self-link" href="#xml-name-replacement"></a></h6>
@@ -4891,7 +4945,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">        namespace:</span> <span class="hljs-attr">http://example.com/schema/sample</span>
 <span class="hljs-attr">        prefix:</span> <span class="hljs-string">sample</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"123"</span>></span>    <span class="hljs-tag">&lt;<span class="hljs-name">sample:name</span> <span class="hljs-attr">xmlns:sample</span>=<span class="hljs-string">"http://example.com/schema/sample"</span>></span>example<span class="hljs-tag">&lt;/<span class="hljs-name">sample:name</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"123"</span>></span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">sample:name</span> <span class="hljs-attr">xmlns:sample</span>=<span class="hljs-string">"http://example.com/schema/sample"</span>></span>example<span class="hljs-tag">&lt;/<span class="hljs-name">sample:name</span>></span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>></span>
 </code></pre>
    <h6 class="heading settled" data-level="9.1.7.1.4" id="xml-arrays"><span class="secno">9.1.7.1.4. </span><span class="content">XML Arrays</span><a class="self-link" href="#xml-arrays"></a></h6>
@@ -4915,7 +4970,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">    xml:</span>
 <span class="hljs-attr">      name:</span> <span class="hljs-string">animal</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
 </code></pre>
    <p>The external <code>name</code> property has no effect on the XML:</p>
 <pre class="nohighlight"><code>{
@@ -4942,7 +4998,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">  xml:</span>
 <span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
 </code></pre>
    <p>Even when the array is wrapped, if a name is not explicitly defined, the same name will be used both internally and externally:</p>
 <pre class="nohighlight"><code>{
@@ -4964,7 +5021,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">  xml:</span>
 <span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>  <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
   <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
 </code></pre>
@@ -4993,7 +5051,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">  xml:</span>
 <span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">animals</span>></span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
   <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>></span>
 </code></pre>
@@ -5024,7 +5083,8 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
 <span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
   <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>></span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>></span>
 </code></pre>
@@ -5050,13 +5110,14 @@ See examples for expected behavior.</p>
 <span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
 <span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>  <span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>></span>
+<pre class="nohighlight"><code><span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>></span>
   <span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>></span>value<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>></span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>></span>
 </code></pre>
    <h4 class="heading settled" data-level="9.1.8" id="security-scheme-object"><span class="secno">9.1.8. </span><span class="content"><a data-link-type="dfn" id="securitySchemeObject">Security Scheme Object</a></span><a class="self-link" href="#security-scheme-object"></a></h4>
    <p>Defines a security scheme that can be used by the operations.
-Supported schemes are HTTP authentication, an API key (either as a header or as a query parameter), OAuth2’s common flows (implicit, password, application and access code) as defined in <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06">[!rfc6749], and [OpenID Connect Discovery]</a>.</p>
+Supported schemes are HTTP authentication, an API key (either as a header or as a query parameter), OAuth2’s common flows (implicit, password, application and access code) as defined in <a data-link-type="biblio" href="#biblio-rfc6749">[rfc6749]</a>, and <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06">OpenID Connect Discovery</a>.</p>
    <h4 class="heading settled" data-level="9.1.9" id="fixed-fields②③"><span class="secno">9.1.9. </span><span class="content">Fixed Fields</span><a class="self-link" href="#fixed-fields②③"></a></h4>
    <table>
     <thead>
@@ -5224,7 +5285,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
    <h5 class="heading settled" data-level="9.1.13.1" id="oauth-flow-object-examples"><span class="secno">9.1.13.1. </span><span class="content">OAuth Flow Object Examples</span><a class="self-link" href="#oauth-flow-object-examples"></a></h5>
-<pre class="nohighlight"><code>{  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"oauth2"</span>,
+<pre class="nohighlight"><code>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"oauth2"</span>,
   <span class="hljs-attr">"flows"</span>: {
     <span class="hljs-attr">"implicit"</span>: {
       <span class="hljs-attr">"authorizationUrl"</span>: <span class="hljs-string">"https://example.com/api/oauth/dialog"</span>,
@@ -5244,7 +5306,8 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
   }
 }
 </code></pre>
-<pre class="nohighlight"><code><span class="hljs-attr">type:</span> <span class="hljs-string">oauth2</span><span class="hljs-attr">flows:</span> 
+<pre class="nohighlight"><code><span class="hljs-attr">type:</span> <span class="hljs-string">oauth2</span>
+<span class="hljs-attr">flows:</span> 
 <span class="hljs-attr">  implicit:</span>
 <span class="hljs-attr">    authorizationUrl:</span> <span class="hljs-attr">https://example.com/api/oauth/dialog</span>
 <span class="hljs-attr">    scopes:</span>
@@ -5514,19 +5577,15 @@ While not part of the specification itself, certain libraries MAY choose to allo
 })();
 </script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li>
-    <a data-link-type="biblio">[mediaqueries-4]</a> defines the following terms:
-    <ul>
-     <li><a href="https://drafts.csswg.org/mediaqueries-4/#media-type">media type</a>
-    </ul>
+   <li><a href="#media-types①">Media Types</a><span>, in §3.3</span>
+   <li><a href="#openapi-document①">OpenAPI Document</a><span>, in §3.1</span>
+   <li><a href="#path-templating①">Path Templating</a><span>, in §3.2</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
-   <dt id="biblio-mediaqueries-4">[MEDIAQUERIES-4]
-   <dd>Florian Rivoal; Tab Atkins Jr.. <a href="https://www.w3.org/TR/mediaqueries-4/">Media Queries Level 4</a>. 5 September 2017. CR. URL: <a href="https://www.w3.org/TR/mediaqueries-4/">https://www.w3.org/TR/mediaqueries-4/</a>
    <dt id="biblio-rfc1866">[RFC1866]
    <dd>D. Connolly; L. Masinter. <a href="https://tools.ietf.org/html/rfc2854">The 'text/html' Media Type</a>. June 2000. Informational. URL: <a href="https://tools.ietf.org/html/rfc2854">https://tools.ietf.org/html/rfc2854</a>
    <dt id="biblio-rfc2119">[RFC2119]
@@ -5535,6 +5594,8 @@ While not part of the specification itself, certain libraries MAY choose to allo
    <dd>T. Berners-Lee; R. Fielding; L. Masinter. <a href="https://tools.ietf.org/html/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a>. January 2005. Internet Standard. URL: <a href="https://tools.ietf.org/html/rfc3986">https://tools.ietf.org/html/rfc3986</a>
    <dt id="biblio-rfc6570">[RFC6570]
    <dd>J. Gregorio; et al. <a href="https://tools.ietf.org/html/rfc6570">URI Template</a>. March 2012. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a>
+   <dt id="biblio-rfc6749">[RFC6749]
+   <dd>D. Hardt, Ed.. <a href="https://tools.ietf.org/html/rfc6749">The OAuth 2.0 Authorization Framework</a>. October 2012. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a>
    <dt id="biblio-rfc6838">[RFC6838]
    <dd>N. Freed; J. Klensin; T. Hansen. <a href="https://tools.ietf.org/html/rfc6838">Media Type Specifications and Registration Procedures</a>. January 2013. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc6838">https://tools.ietf.org/html/rfc6838</a>
    <dt id="biblio-rfc6901">[RFC6901]
@@ -5546,3 +5607,78 @@ While not part of the specification itself, certain libraries MAY choose to allo
    <dt id="biblio-rfc8174">[RFC8174]
    <dd>B. Leiba. <a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>. May 2017. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc8174">https://tools.ietf.org/html/rfc8174</a>
   </dl>
+  <aside class="dfn-panel" data-for="openapi-document①">
+   <b><a href="#openapi-document①">#openapi-document①</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#oasDocument">3.1. OpenAPI Document</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="path-templating①">
+   <b><a href="#path-templating①">#path-templating①</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#pathTemplating">3.2. Path Templating</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="media-types①">
+   <b><a href="#media-types①">#media-types①</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#mediaTypes">3.3. Media Types</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+        document.body.addEventListener("click", function(e) {
+            var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+            // Find the dfn element or panel, if any, that was clicked on.
+            var el = e.target;
+            var target;
+            var hitALink = false;
+            while(el.parentElement) {
+                if(el.tagName == "A") {
+                    // Clicking on a link in a <dfn> shouldn't summon the panel
+                    hitALink = true;
+                }
+                if(el.classList.contains("dfn-paneled")) {
+                    target = "dfn";
+                    break;
+                }
+                if(el.classList.contains("dfn-panel")) {
+                    target = "dfn-panel";
+                    break;
+                }
+                el = el.parentElement;
+            }
+            if(target != "dfn-panel") {
+                // Turn off any currently "on" or "activated" panels.
+                queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+                    el.classList.remove("on");
+                    el.classList.remove("activated");
+                });
+            }
+            if(target == "dfn" && !hitALink) {
+                // open the panel
+                var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+                if(dfnPanel) {
+                    console.log(dfnPanel);
+                    dfnPanel.classList.add("on");
+                    var rect = el.getBoundingClientRect();
+                    dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+                    dfnPanel.style.top = window.scrollY + rect.top + "px";
+                    var panelRect = dfnPanel.getBoundingClientRect();
+                    var panelWidth = panelRect.right - panelRect.left;
+                    if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                        // Reposition, because the panel is overflowing
+                        dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+                    }
+                } else {
+                    console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+                }
+            } else if(target == "dfn-panel") {
+                // Switch it to "activated" state, which pins it.
+                el.classList.add("activated");
+                el.style.left = null;
+                el.style.top = null;
+            }
+
+        });
+        </script>
