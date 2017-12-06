@@ -2239,39 +2239,39 @@ All objects defined within the components object will have no effect on the API 
     <tbody>
      <tr>
       <td><a data-link-type="dfn" id="componentsSchemas"> </a> schemas
-      <td style="text-align:left">Map[<code>string</code>, <a href="#schemaObject">Schema Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#schemaObject">Schema Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#schemaObject">Schema Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsResponses"> </a> responses
-      <td style="text-align:left">Map[<code>string</code>, <a href="#responseObject">Response Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#responseObject">Response Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#responseObject">Response Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsParameters"> </a> parameters
-      <td style="text-align:left">Map[<code>string</code>, <a href="#parameterObject">Parameter Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#parameterObject">Parameter Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#parameterObject">Parameter Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsExamples"> </a> examples
-      <td style="text-align:left">Map[<code>string</code>, <a href="#exampleObject">Example Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#exampleObject">Example Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#exampleObject">Example Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsRequestBodies"> </a> requestBodies
-      <td style="text-align:left">Map[<code>string</code>, <a href="#requestBodyObject">Request Body Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#requestBodyObject">Request Body Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#requestBodyObject">Request Body Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsHeaders"> </a> headers
-      <td style="text-align:left">Map[<code>string</code>, <a href="#headerObject">Header Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#headerObject">Header Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#headerObject">Header Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsSecuritySchemes"> </a> securitySchemes
-      <td style="text-align:left">Map[<code>string</code>, <a href="#securitySchemeObject">Security Scheme Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#securitySchemeObject">Security Scheme Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#securitySchemeObject">Security Scheme Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsLinks"> </a> links
-      <td style="text-align:left">Map[<code>string</code>, <a href="#linkObject">Link Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#linkObject">Link Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#linkObject">Link Objects</a>.
      <tr>
       <td><a data-link-type="dfn" id="componentsCallbacks"> </a> callbacks
-      <td style="text-align:left">Map[<code>string</code>, <a href="#callbackObject">Callback Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:left">Map[<code>string</code>, <a href="#callbackObject">Callback Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>An object to hold reusable <a href="#callbackObject">Callback Objects</a>.
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
@@ -2561,7 +2561,7 @@ The path itself is still exposed to the documentation viewer but they will not k
       <td>An alternative <code>server</code> array to service all operations in this path.
      <tr>
       <td><a data-link-type="dfn" id="pathItemParameters"> </a>parameters
-      <td style="text-align:center">[<a href="#parameterObject">Parameter Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">[<a href="#parameterObject">Parameter Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>A list of parameters that are applicable for all the operations described under this path. These parameters can be overridden at the operation level, but cannot be removed there. The list MUST NOT include duplicated parameters. A unique parameter is defined by a combination of a <a href="#parameterName">name</a> and <a href="#parameterIn">location</a>. The list can use the <a href="#referenceObject">Reference Object</a> to link to parameters that are defined at the <a href="#componentsParameters">OpenAPI Object’s components/parameters</a>.
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
@@ -2676,11 +2676,11 @@ The path itself is still exposed to the documentation viewer but they will not k
       <td>Unique string used to identify the operation. The id MUST be unique among all operations described in the API. Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED to follow common programming naming conventions.
      <tr>
       <td><a data-link-type="dfn" id="operationParameters"> </a>parameters
-      <td style="text-align:center">[<a href="#parameterObject">Parameter Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">[<a href="#parameterObject">Parameter Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>A list of parameters that are applicable for this operation. If a parameter is already defined at the <a href="#pathItemParameters">Path Item</a>, the new definition will override it but can never remove it. The list MUST NOT include duplicated parameters. A unique parameter is defined by a combination of a <a href="#parameterName">name</a> and <a href="#parameterIn">location</a>. The list can use the <a href="#referenceObject">Reference Object</a> to link to parameters that are defined at the <a href="#componentsParameters">OpenAPI Object’s components/parameters</a>.
      <tr>
       <td><a data-link-type="dfn" id="operationRequestBody"> </a>requestBody
-      <td style="text-align:center"><a href="#requestBodyObject">Request Body Object</a> | <a href="#referenceObject">Reference Object</a>
+      <td style="text-align:center"><a href="#requestBodyObject">Request Body Object</a> ¦ <a href="#referenceObject">Reference Object</a>
       <td>The request body applicable for this operation.  The <code>requestBody</code> is only supported in HTTP methods where the HTTP 1.1 specification <a data-link-type="biblio" href="#biblio-rfc7231">[rfc7231]</a>section-4.3.1) has explicitly defined semantics for request bodies.  In other cases where the HTTP spec is vague, <code>requestBody</code> SHALL be ignored by consumers.
      <tr>
       <td><a data-link-type="dfn" id="operationResponses"> </a>responses
@@ -2688,7 +2688,7 @@ The path itself is still exposed to the documentation viewer but they will not k
       <td><strong>REQUIRED</strong>. The list of possible responses as they are returned from executing this operation.
      <tr>
       <td><a data-link-type="dfn" id="operationCallbacks"> </a>callbacks
-      <td style="text-align:center">Map[<code>string</code>, <a href="#callbackObject">Callback Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[<code>string</code>, <a href="#callbackObject">Callback Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>A map of possible out-of band callbacks related to the parent operation. The key is a unique identifier for the Callback Object. Each value in the map is a <a href="#callbackObject">Callback Object</a> that describes a request that may be initiated by the API provider and the expected responses. The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
      <tr>
       <td><a data-link-type="dfn" id="operationDeprecated"> </a>deprecated
@@ -2910,7 +2910,7 @@ For simpler scenarios, a <a href="#parameterSchema"><code>schema</code></a> and 
       <td>Determines whether the parameter value SHOULD allow reserved characters, as defined by <a data-link-type="biblio" href="#biblio-rfc3986">[rfc3986]</a>section-2.2) <code>:/?#[]@!$&amp;'()*+,;=</code> to be included without percent-encoding. This property only applies to parameters with an <code>in</code> value of <code>query</code>. The default value is <code>false</code>.
      <tr>
       <td><a data-link-type="dfn" id="parameterSchema"> </a>schema
-      <td style="text-align:center"><a href="#schemaObject">Schema Object</a> | <a href="#referenceObject">Reference Object</a>
+      <td style="text-align:center"><a href="#schemaObject">Schema Object</a> ¦ <a href="#referenceObject">Reference Object</a>
       <td>The schema defining the type used for the parameter.
      <tr>
       <td><a data-link-type="dfn" id="parameterExample"> </a>example
@@ -2918,7 +2918,7 @@ For simpler scenarios, a <a href="#parameterSchema"><code>schema</code></a> and 
       <td>Example of the media type.  The example SHOULD match the specified schema and encoding properties if present.  The <code>example</code> field is mutually exclusive of the <code>examples</code> field.  Furthermore, if referencing a <code>schema</code> which contains an example, the <code>example</code> value SHALL <em>override</em> the example provided by the schema. To represent examples of media types that cannot naturally be represented in JSON or YAML, a string value can contain the example with escaping where necessary.
      <tr>
       <td><a data-link-type="dfn" id="parameterExamples"> </a>examples
-      <td style="text-align:center">Map[ <code>string</code>, <a href="#exampleObject">Example Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[ <code>string</code>, <a href="#exampleObject">Example Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>Examples of the media type.  Each example SHOULD contain a value in the correct format as specified in the parameter encoding.  The <code>examples</code> field is mutually exclusive of the <code>example</code> field.  Furthermore, if referencing a <code>schema</code> which contains an example, the <code>examples</code> value SHALL <em>override</em> the example provided by the schema.
    </table>
    <p>For more complex scenarios, the <a href="#parameterContent"><code>content</code></a> property can define the media type and schema of the parameter.
@@ -3067,8 +3067,8 @@ object -> { "R": 100, "G": 200, "B": 150 }
       <td>false
       <td>n/a
       <td>n/a
-      <td>blue<var>black</var>brown
-      <td>R<var>100</var>G|200
+      <td>blue¦black¦brown
+      <td>R¦100¦G¦200
      <tr>
       <td>deepObject
       <td>true
@@ -3345,7 +3345,7 @@ object -> { "R": 100, "G": 200, "B": 150 }
     <tbody>
      <tr>
       <td><a data-link-type="dfn" id="mediaTypeSchema"> </a>schema
-      <td style="text-align:center"><a href="#schemaObject">Schema Object</a> | <a href="#referenceObject">Reference Object</a>
+      <td style="text-align:center"><a href="#schemaObject">Schema Object</a> ¦ <a href="#referenceObject">Reference Object</a>
       <td>The schema defining the type used for the request body.
      <tr>
       <td><a data-link-type="dfn" id="mediaTypeExample"> </a>example
@@ -3353,7 +3353,7 @@ object -> { "R": 100, "G": 200, "B": 150 }
       <td>Example of the media type.  The example object SHOULD be in the correct format as specified by the media type.  The <code>example</code> field is mutually exclusive of the <code>examples</code> field.  Furthermore, if referencing a <code>schema</code> which contains an example, the <code>example</code> value SHALL <em>override</em> the example provided by the schema.
      <tr>
       <td><a data-link-type="dfn" id="mediaTypeExamples"> </a>examples
-      <td style="text-align:center">Map[ <code>string</code>, <a href="#exampleObject">Example Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[ <code>string</code>, <a href="#exampleObject">Example Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>Examples of the media type.  Each example object SHOULD  match the media type and specified schema if present.  The <code>examples</code> field is mutually exclusive of the <code>example</code> field.  Furthermore, if referencing a <code>schema</code> which contains an example, the <code>examples</code> value SHALL <em>override</em> the example provided by the schema.
      <tr>
       <td><a data-link-type="dfn" id="mediaTypeEncoding"> </a>encoding
@@ -3543,7 +3543,7 @@ definition may be used:</p>
       <td>The Content-Type for encoding a specific property. Default value depends on the property type: for <code>string</code> with <code>format</code> being <code>binary</code> – <code>application/octet-stream</code>; for other primitive types – <code>text/plain</code>; for <code>object</code> - <code>application/json</code>; for <code>array</code> – the default is defined based on the inner type. The value can be a specific media type (e.g. <code>application/json</code>), a wildcard media type (e.g. <code>image/*</code>), or a comma-separated list of the two types.
      <tr>
       <td><a data-link-type="dfn" id="encodingHeaders"> </a>headers
-      <td style="text-align:center">Map[<code>string</code>, <a href="#headerObject">Header Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[<code>string</code>, <a href="#headerObject">Header Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>A map allowing additional information to be provided as headers, for example <code>Content-Disposition</code>. <code>Content-Type</code> is described separately and SHALL be ignored in this section. This property SHALL be ignored if the request body media type is not a <code>multipart</code>.
      <tr>
       <td><a data-link-type="dfn" id="encodingStyle"> </a>style
@@ -3615,7 +3615,7 @@ SHOULD be the response for a successful operation call.</p>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" id="responsesDefault"> </a>default
-      <td style="text-align:center"><a href="#responseObject">Response Object</a> | <a href="#referenceObject">Reference Object</a>
+      <td style="text-align:center"><a href="#responseObject">Response Object</a> ¦ <a href="#referenceObject">Reference Object</a>
       <td>The documentation of responses other than the ones declared for specific HTTP response codes. Use this field to cover undeclared responses. A <a href="#referenceObject">Reference Object</a> can link to a response that the <a href="#componentsResponses">OpenAPI Object’s components/responses</a> section defines.
    </table>
    <h5 class="heading settled" data-level="4.7.17.2" id="patterned-fields①"><span class="secno">4.7.17.2. </span><span class="content">Patterned Fields</span><a class="self-link" href="#patterned-fields①"></a></h5>
@@ -3628,7 +3628,7 @@ SHOULD be the response for a successful operation call.</p>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" id="responsesCode"> </a><a href="#httpCodes">HTTP Status Code</a>
-      <td style="text-align:center"><a href="#responseObject">Response Object</a> | <a href="#referenceObject">Reference Object</a>
+      <td style="text-align:center"><a href="#responseObject">Response Object</a> ¦ <a href="#referenceObject">Reference Object</a>
       <td>Any <a href="#httpCodes">HTTP status code</a> can be used as the property name, but only one property per code, to describe the expected response for that HTTP status code.  A <a href="#referenceObject">Reference Object</a> can link to a response that is defined in the <a href="#componentsResponses">OpenAPI Object’s components/responses</a> section. This field MUST be enclosed in quotation marks (for example, “200”) for compatibility between JSON and YAML. To define a range of response codes, this field MAY contain the uppercase wildcard character <code>X</code>. For example, <code>2XX</code> represents all response codes between <code>[200-299]</code>. The following range definitions are allowed: <code>1XX</code>, <code>2XX</code>, <code>3XX</code>, <code>4XX</code>, and <code>5XX</code>. If a response range is defined using an explicit code, the explicit code definition takes precedence over the range definition for that code.
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
@@ -3686,7 +3686,7 @@ SHOULD be the response for a successful operation call.</p>
       <td><strong>REQUIRED</strong>. A short description of the response. <a href="http://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      <tr>
       <td><a data-link-type="dfn" id="responseHeaders"> </a>headers
-      <td style="text-align:center">Map[<code>string</code>, <a href="#headerObject">Header Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[<code>string</code>, <a href="#headerObject">Header Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>Maps a header name to its definition. <a data-link-type="biblio" href="#biblio-rfc7230">[rfc7230]</a>page-22) states header names are case insensitive. If a response header is defined with the name <code>"Content-Type"</code>, it SHALL be ignored.
      <tr>
       <td><a data-link-type="dfn" id="responseContent"> </a>content
@@ -3694,7 +3694,7 @@ SHOULD be the response for a successful operation call.</p>
       <td>A map containing descriptions of potential response payloads. The key is a media type or [media type range]appendix-D) and the value describes it.  For responses that match multiple keys, only the most specific key is applicable. e.g. text/plain overrides text/*
      <tr>
       <td><a data-link-type="dfn" id="responseLinks"> </a>links
-      <td style="text-align:center">Map[<code>string</code>, <a href="#linkObject">Link Object</a> | <a href="#referenceObject">Reference Object</a>]
+      <td style="text-align:center">Map[<code>string</code>, <a href="#linkObject">Link Object</a> ¦ <a href="#referenceObject">Reference Object</a>]
       <td>A map of operations links that can be followed from the response. The key of the map is a short name for the link, following the naming constraints of the names for <a href="#componentsObject">Component Objects</a>.
    </table>
    <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
@@ -3999,11 +3999,11 @@ The presence of a link does not guarantee the caller’s ability to successfully
       <td>The name of an <em>existing</em>, resolvable OAS operation, as defined with a unique <code>operationId</code>.  This field is mutually exclusive of the <code>operationRef</code> field.
      <tr>
       <td><a data-link-type="dfn" id="linkParameters"> </a>parameters
-      <td style="text-align:center">Map[<code>string</code>, Any | <a href="#runtimeExpression">{expression}</a>]
+      <td style="text-align:center">Map[<code>string</code>, Any ¦ <a href="#runtimeExpression">{expression}</a>]
       <td>A map representing parameters to pass to an operation as specified with <code>operationId</code> or identified via <code>operationRef</code>. The key is the parameter name to be used, whereas the value can be a constant or an expression to be evaluated and passed to the linked operation.  The parameter name can be qualified using the <a href="#parameterIn">parameter location</a> <code>[{in}.]{name}</code> for operations that use the same parameter name in different locations (e.g. <a href="http://path.id">path.id</a>).
      <tr>
       <td><a data-link-type="dfn" id="linkRequestBody"> </a>requestBody
-      <td style="text-align:center">Any | <a href="#runtimeExpression">{expression}</a>
+      <td style="text-align:center">Any ¦ <a href="#runtimeExpression">{expression}</a>
       <td>A literal value or <a href="#runtimeExpression">{expression}</a> to use as a request body when calling the target operation.
      <tr>
       <td><a data-link-type="dfn" id="linkDescription"> </a>description
