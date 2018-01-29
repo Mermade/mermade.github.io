@@ -1,0 +1,19 @@
+- title: OpenAPI-gui - Visual editor for OpenAPI 2.0/3.0
+  link: https://mermade.github.io/openapi-gui
+  github: https://github.com/mermade/openapi-gui
+- title: Online Swagger 2.0 to OpenAPI 3.0.x converter / validator
+  link: https://mermade.org.uk/openapi-converter
+  github: https://github.com/mermade/swagger2openapi
+- title: Converter API documentation / console
+  link: http://petstore.swagger.io/?url=https://mermade.org.uk/contract/openapi.json
+- title: BBC iPlayer RSS Feeds
+  link: https://bbc-rss.herokuapp.com/
+  github: https://github.com/mermade/bbc-rss
+- title: Unofficial BBC Nitro API documentation
+  link: http://mermade.github.io/swagger/index.html?url=https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/swagger.json
+  github: https://github.com/mermade/bbcparse
+- title: Generate secure passwords
+  link: http://mermade.github.io/static/passwordHasher.html
+  class: lightbox
+- title: Films on UK TV
+  link: http://mermade.github.io/films/index.html

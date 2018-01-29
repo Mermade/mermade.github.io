@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,13 +127,9 @@
             <i class="fa fa-github fa-fw"></i>
             <a href="https://github.com/mermade">GitHub</a></h2>
             <ul>
-                <li><a href="https://mermade.github.io/openapi-gui"><strong>OpenAPI-gui - Visual editor for OpenAPI 2.0/3.0</strong></a>
-                <li><a href="https://mermade.org.uk/openapi-converter"><strong>Online Swagger 2.0 to OpenAPI 3.0.x converter / validator</strong></a>
-                <li><a href="http://petstore.swagger.io/?url=https://mermade.org.uk/contract/openapi.json">Converter API documentation / console</a></li>
-                <li><a href="https://bbc-rss.herokuapp.com"><strong>BBC iPlayer RSS Feeds</strong></a>
-                <li><a href="http://mermade.github.io/swagger/index.html?url=https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/swagger.json">Unofficial BBC Nitro API documentation</a></li>
-                <li><a id="aPassHash" href="/static/passwordHasher.html">Generate secure passwords</a></li>
-                <li><a href="/films/index.html">Films on UK TV</a></li>
+		{% for project in site.data.projects %}
+		  <li><a {% if project.class %}class="{{project.class}}"{% endif %} href="{{ project.link }}">{{ project.title }}</a>{% if project.github %}<a href="{{project.github}}"><i class="fa fa-github fa-fw"></i></a>{% endif %}</li>
+		{% endfor %}
             </ul>
           <!--
           <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
@@ -187,7 +185,7 @@
     <!-- Footer -->
     <footer>
       <div class="container text-center">
-        <p>Copyright &copy; Mermade Software 2017</p>
+        <p>Copyright &copy; Mermade Software 2018</p>
       </div>
     </footer>
 
@@ -224,7 +222,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
+            $(".lightbox").colorbox({iframe:true, width:"410", height:"90%"});
         });
     </script>
 
