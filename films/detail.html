@@ -106,7 +106,7 @@
 
 		$.ajax('https://bbc-rss.herokuapp.com/sky/tv/api/epg/programme/'+query.c+'/'+query.e).done(processResults);
 		$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-			alert('No data returned: '+thrownError+' '+settings.url);
+			alert('No data returned: '+jqxhr.status+' '+thrownError+' '+settings.url);
 			//if (table) {
 			//	table.clear().draw();
 			//}
