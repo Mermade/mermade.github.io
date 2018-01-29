@@ -116,9 +116,7 @@
 						}
 						if (!found) {
 							var row = add(obj.channelId,title,duration,obj.listings[l].eventId);
-                            /*
-							$.ajax('http://omdbapi.com/?t='+encodeURIComponent(obj.listings[l].title)+'&type=movie').done(processOmdb);
-                            */
+							$.ajax('http://omdbapi.com/?apikey=bfc6f2e3&t='+encodeURIComponent(obj.listings[l].title)+'&type=movie').done(processOmdb);
 							if (strip.indexOf(obj.channelId)<0) {
 								//console.log(row);
 								rows.push(row);
