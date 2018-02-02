@@ -1,5 +1,7 @@
 ---
 layout: markdown
+theme: jekyll-theme-cayman
+show_downloads: false
 ---
 
 # Public service announcements
