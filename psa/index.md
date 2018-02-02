@@ -1,5 +1,5 @@
 ---
-layout: markdown
+layout: default
 theme: jekyll-theme-cayman
 show_downloads: false
 ---
