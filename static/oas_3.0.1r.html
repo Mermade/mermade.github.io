@@ -1,4 +1,4 @@
-<html><head><meta charset="UTF-8"><title>OpenAPI Specification</title><script src="https://mermade.github.io/static/respec-oai.js" class="remove"></script><script class="remove">var respecConfig = {"specStatus":"base","editors":[{"name":"Darrel Miller"},{"name":"Jeremy Whitlock"},{"name":"Marsh Gardiner"},{"name":"Ron Ratovsky"}],"processVersion":2017,"edDraftURI":"http://github.com/OAI/openapi-specification","github":"https://github.com/OAI/openapi-specification","shortName":"dahut","noTOC":false,"additionalCopyrightHolders":"Copyright the Linux Foundation"};</script></head><body><section id="abstract">The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.</section><section class="notoc" id="sotd"><h2>State of the document</h2>The source-of-truth for the specification is the GitHub markdown file referenced above.</section>
+<html><head><meta charset="UTF-8"><title>OpenAPI Specification</title><script src="https://mermade.github.io/static/respec-oai.js" class="remove"></script><script class="remove">var respecConfig = {"specStatus":"base","editors":[{"name":"Darrel Miller "},{"name":"Jeremy Whitlock "},{"name":"Marsh Gardiner "},{"name":"Ron Ratovsky "}],"publishDate":"2018-02-05T13:08:39.081Z","processVersion":2017,"edDraftURI":"http://github.com/OAI/openapi-specification","github":{"repoURL":"https://github.com/OAI/openapi-specification","branch":"master"},"shortName":"dahut","noTOC":false,"lint":false,"additionalCopyrightHolders":"Copyright the Linux Foundation"};</script></head><body><style>#respec-ui { visibility: hidden; }h1,h2,h3 { color: #629b34; }a[href] { color: #45512c; }body:not(.toc-inline) #toc h2 { color: #45512c; }</style><section id="abstract">The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.</section><section class="notoc" id="sotd"><h2>State of the document</h2>The source-of-truth for the specification is the GitHub markdown file referenced above.</section>
 <section><h1>OpenAPI Specification</h1>
 <section><section><section><h4>Version 3.0.1</h4>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/bcp14">BCP 14</a> [[!rfc2119]] [[!rfc8174]] when, and only when, they appear in all capitals, as shown here.</p>
@@ -40,9 +40,9 @@ The available status codes are defined by [[!rfc7231]]section-6) and registered 
 </section><section><h3>Format</h3>
 <p>An OpenAPI document that conforms to the OpenAPI Specification is itself a JSON object, which may be represented either in JSON or YAML format.</p>
 <p>For example, if a field has an array value, the JSON array representation will be used:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-   <span class="hljs-attr">"field"</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ]
+   &quot;field&quot;: [ 1, 2, 3 ]
 }
 </code></pre>
 <p>All field names in the specification are <strong>case sensitive</strong>.</p>
@@ -257,35 +257,35 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Info Object Example:</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Sample Pet Store App"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"This is a sample server for a pet store."</span>,
-  <span class="hljs-attr">"termsOfService"</span>: <span class="hljs-string">"http://example.com/terms/"</span>,
-  <span class="hljs-attr">"contact"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Support"</span>,
-    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.example.com/support"</span>,
-    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"support@example.com"</span>
+  &quot;title&quot;: &quot;Sample Pet Store App&quot;,
+  &quot;description&quot;: &quot;This is a sample server for a pet store.&quot;,
+  &quot;termsOfService&quot;: &quot;http://example.com/terms/&quot;,
+  &quot;contact&quot;: {
+    &quot;name&quot;: &quot;API Support&quot;,
+    &quot;url&quot;: &quot;http://www.example.com/support&quot;,
+    &quot;email&quot;: &quot;support@example.com&quot;
   },
-  <span class="hljs-attr">"license"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Apache 2.0"</span>,
-    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://www.apache.org/licenses/LICENSE-2.0.html"</span>
+  &quot;license&quot;: {
+    &quot;name&quot;: &quot;Apache 2.0&quot;,
+    &quot;url&quot;: &quot;https://www.apache.org/licenses/LICENSE-2.0.html&quot;
   },
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.1"</span>
+  &quot;version&quot;: &quot;1.0.1&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">title:</span> <span class="hljs-string">Sample</span> <span class="hljs-string">Pet</span> <span class="hljs-string">Store</span> <span class="hljs-string">App</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">This</span> <span class="hljs-string">is</span> <span class="hljs-string">a</span> <span class="hljs-string">sample</span> <span class="hljs-string">server</span> <span class="hljs-string">for</span> <span class="hljs-string">a</span> <span class="hljs-string">pet</span> <span class="hljs-string">store.</span>
-<span class="hljs-attr">termsOfService:</span> <span class="hljs-attr">http://example.com/terms/</span>
-<span class="hljs-attr">contact:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">API</span> <span class="hljs-string">Support</span>
-<span class="hljs-attr">  url:</span> <span class="hljs-attr">http://www.example.com/support</span>
-<span class="hljs-attr">  email:</span> <span class="hljs-string">support@example.com</span>
-<span class="hljs-attr">license:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">Apache</span> <span class="hljs-number">2.0</span>
-<span class="hljs-attr">  url:</span> <span class="hljs-attr">https://www.apache.org/licenses/LICENSE-2.0.html</span>
-<span class="hljs-attr">version:</span> <span class="hljs-number">1.0</span><span class="hljs-number">.1</span>
+<pre class="highlight"><code>
+title: Sample Pet Store App
+description: This is a sample server for a pet store.
+termsOfService: http://example.com/terms/
+contact:
+  name: API Support
+  url: http://www.example.com/support
+  email: support@example.com
+license:
+  name: Apache 2.0
+  url: https://www.apache.org/licenses/LICENSE-2.0.html
+version: 1.0.1
 </code></pre>
 </section></section><section><h4><a id="contactObject">Contact Object</a></h4>
 <p>Contact information for the exposed API.</p>
@@ -318,17 +318,17 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Contact Object Example:</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Support"</span>,
-  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.example.com/support"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"support@example.com"</span>
+  &quot;name&quot;: &quot;API Support&quot;,
+  &quot;url&quot;: &quot;http://www.example.com/support&quot;,
+  &quot;email&quot;: &quot;support@example.com&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">API</span> <span class="hljs-string">Support</span>
-<span class="hljs-attr">url:</span> <span class="hljs-attr">http://www.example.com/support</span>
-<span class="hljs-attr">email:</span> <span class="hljs-string">support@example.com</span>
+<pre class="highlight"><code>
+name: API Support
+url: http://www.example.com/support
+email: support@example.com
 </code></pre>
 </section></section><section><h4><a id="licenseObject">License Object</a></h4>
 <p>License information for the exposed API.</p>
@@ -356,15 +356,15 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>License Object Example:</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Apache 2.0"</span>,
-  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://www.apache.org/licenses/LICENSE-2.0.html"</span>
+  &quot;name&quot;: &quot;Apache 2.0&quot;,
+  &quot;url&quot;: &quot;https://www.apache.org/licenses/LICENSE-2.0.html&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">Apache</span> <span class="hljs-number">2.0</span>
-<span class="hljs-attr">url:</span> <span class="hljs-attr">https://www.apache.org/licenses/LICENSE-2.0.html</span>
+<pre class="highlight"><code>
+name: Apache 2.0
+url: https://www.apache.org/licenses/LICENSE-2.0.html
 </code></pre>
 </section></section><section><h4><a id="serverObject">Server Object</a></h4>
 <p>An object representing a Server.</p>
@@ -398,88 +398,88 @@ The metadata MAY be used by the clients if needed, and MAY be presented in editi
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Server Object Example</h5>
 <p>A single server would be described as:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://development.gigantic-server.com/v1"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Development server"</span>
+  &quot;url&quot;: &quot;https://development.gigantic-server.com/v1&quot;,
+  &quot;description&quot;: &quot;Development server&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">url:</span> <span class="hljs-attr">https://development.gigantic-server.com/v1</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">Development</span> <span class="hljs-string">server</span>
+<pre class="highlight"><code>
+url: https://development.gigantic-server.com/v1
+description: Development server
 </code></pre>
 <p>The following shows how multiple servers can be described, for example, at the OpenAPI Object’s <a href="#oasServers"><code>servers</code></a>:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"servers"</span>: [
+  &quot;servers&quot;: [
     {
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://development.gigantic-server.com/v1"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Development server"</span>
+      &quot;url&quot;: &quot;https://development.gigantic-server.com/v1&quot;,
+      &quot;description&quot;: &quot;Development server&quot;
     },
     {
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://staging.gigantic-server.com/v1"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Staging server"</span>
+      &quot;url&quot;: &quot;https://staging.gigantic-server.com/v1&quot;,
+      &quot;description&quot;: &quot;Staging server&quot;
     },
     {
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://api.gigantic-server.com/v1"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Production server"</span>
+      &quot;url&quot;: &quot;https://api.gigantic-server.com/v1&quot;,
+      &quot;description&quot;: &quot;Production server&quot;
     }
   ]
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">servers:</span>
-<span class="hljs-attr">- url:</span> <span class="hljs-attr">https://development.gigantic-server.com/v1</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">Development</span> <span class="hljs-string">server</span>
-<span class="hljs-attr">- url:</span> <span class="hljs-attr">https://staging.gigantic-server.com/v1</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">Staging</span> <span class="hljs-string">server</span>
-<span class="hljs-attr">- url:</span> <span class="hljs-attr">https://api.gigantic-server.com/v1</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">Production</span> <span class="hljs-string">server</span>
+<pre class="highlight"><code>
+servers:
+- url: https://development.gigantic-server.com/v1
+  description: Development server
+- url: https://staging.gigantic-server.com/v1
+  description: Staging server
+- url: https://api.gigantic-server.com/v1
+  description: Production server
 </code></pre>
 <p>The following shows how variables can be used for a server configuration:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"servers"</span>: [
+  &quot;servers&quot;: [
     {
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://{username}.gigantic-server.com:{port}/{basePath}"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The production API server"</span>,
-      <span class="hljs-attr">"variables"</span>: {
-        <span class="hljs-attr">"username"</span>: {
-          <span class="hljs-attr">"default"</span>: <span class="hljs-string">"demo"</span>,
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"this value is assigned by the service provider, in this example `gigantic-server.com`"</span>
+      &quot;url&quot;: &quot;https://{username}.gigantic-server.com:{port}/{basePath}&quot;,
+      &quot;description&quot;: &quot;The production API server&quot;,
+      &quot;variables&quot;: {
+        &quot;username&quot;: {
+          &quot;default&quot;: &quot;demo&quot;,
+          &quot;description&quot;: &quot;this value is assigned by the service provider, in this example `gigantic-server.com`&quot;
         },
-        <span class="hljs-attr">"port"</span>: {
-          <span class="hljs-attr">"enum"</span>: [
-            <span class="hljs-string">"8443"</span>,
-            <span class="hljs-string">"443"</span>
+        &quot;port&quot;: {
+          &quot;enum&quot;: [
+            &quot;8443&quot;,
+            &quot;443&quot;
           ],
-          <span class="hljs-attr">"default"</span>: <span class="hljs-string">"8443"</span>
+          &quot;default&quot;: &quot;8443&quot;
         },
-        <span class="hljs-attr">"basePath"</span>: {
-          <span class="hljs-attr">"default"</span>: <span class="hljs-string">"v2"</span>
+        &quot;basePath&quot;: {
+          &quot;default&quot;: &quot;v2&quot;
         }
       }
     }
   ]
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">servers:</span>
-<span class="hljs-attr">- url:</span> <span class="hljs-attr">https://{username}.gigantic-server.com:{port}/{basePath}</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">The</span> <span class="hljs-string">production</span> <span class="hljs-string">API</span> <span class="hljs-string">server</span>
-<span class="hljs-attr">  variables:</span>
-<span class="hljs-attr">    username:</span>
-      <span class="hljs-comment"># note! no enum here means it is an open value</span>
-<span class="hljs-attr">      default:</span> <span class="hljs-string">demo</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">this</span> <span class="hljs-string">value</span> <span class="hljs-string">is</span> <span class="hljs-string">assigned</span> <span class="hljs-string">by</span> <span class="hljs-string">the</span> <span class="hljs-string">service</span> <span class="hljs-string">provider,</span> <span class="hljs-string">in</span> <span class="hljs-string">this</span> <span class="hljs-string">example</span> <span class="hljs-string">`gigantic-server.com`</span>
-<span class="hljs-attr">    port:</span>
-<span class="hljs-attr">      enum:</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">'8443'</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">'443'</span>
-<span class="hljs-attr">      default:</span> <span class="hljs-string">'8443'</span>
-<span class="hljs-attr">    basePath:</span>
-      <span class="hljs-comment"># open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`</span>
-<span class="hljs-attr">      default:</span> <span class="hljs-string">v2</span>
+<pre class="highlight"><code>
+servers:
+- url: https://{username}.gigantic-server.com:{port}/{basePath}
+  description: The production API server
+  variables:
+    username:
+      # note! no enum here means it is an open value
+      default: demo
+      description: this value is assigned by the service provider, in this example `gigantic-server.com`
+    port:
+      enum:
+        - '8443'
+        - '443'
+      default: '8443'
+    basePath:
+      # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`
+      default: v2
 </code></pre>
 </section></section><section><h4><a id="serverVariableObject">Server Variable Object</a></h4>
 <p>An object representing a Server Variable for server URL template substitution.</p>
@@ -582,88 +582,88 @@ user-name
 my.org.User
 </code></pre>
 </section><section><h5>Components Object Example</h5>
-<pre class="nohighlight"><code>
-<span class="hljs-string">"components"</span>: {
-  <span class="hljs-attr">"schemas"</span>: {
-    <span class="hljs-attr">"Category"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"id"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int64"</span>
+<pre class="highlight"><code>
+&quot;components&quot;: {
+  &quot;schemas&quot;: {
+    &quot;Category&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
         },
-        <span class="hljs-attr">"name"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        &quot;name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
         }
       }
     },
-    <span class="hljs-attr">"Tag"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"id"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int64"</span>
+    &quot;Tag&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
         },
-        <span class="hljs-attr">"name"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        &quot;name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
         }
       }
     }
   },
-  <span class="hljs-attr">"parameters"</span>: {
-    <span class="hljs-attr">"skipParam"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"skip"</span>,
-      <span class="hljs-attr">"in"</span>: <span class="hljs-string">"query"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"number of items to skip"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int32"</span>
+  &quot;parameters&quot;: {
+    &quot;skipParam&quot;: {
+      &quot;name&quot;: &quot;skip&quot;,
+      &quot;in&quot;: &quot;query&quot;,
+      &quot;description&quot;: &quot;number of items to skip&quot;,
+      &quot;required&quot;: true,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;format&quot;: &quot;int32&quot;
       }
     },
-    <span class="hljs-attr">"limitParam"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"limit"</span>,
-      <span class="hljs-attr">"in"</span>: <span class="hljs-string">"query"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"max records to return"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"schema"</span> : {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int32"</span>
+    &quot;limitParam&quot;: {
+      &quot;name&quot;: &quot;limit&quot;,
+      &quot;in&quot;: &quot;query&quot;,
+      &quot;description&quot;: &quot;max records to return&quot;,
+      &quot;required&quot;: true,
+      &quot;schema&quot; : {
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;format&quot;: &quot;int32&quot;
       }
     }
   },
-  <span class="hljs-attr">"responses"</span>: {
-    <span class="hljs-attr">"NotFound"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Entity not found."</span>
+  &quot;responses&quot;: {
+    &quot;NotFound&quot;: {
+      &quot;description&quot;: &quot;Entity not found.&quot;
     },
-    <span class="hljs-attr">"IllegalInput"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Illegal input for operation."</span>
+    &quot;IllegalInput&quot;: {
+      &quot;description&quot;: &quot;Illegal input for operation.&quot;
     },
-    <span class="hljs-attr">"GeneralError"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"General Error"</span>,
-      <span class="hljs-attr">"content"</span>: {
-        <span class="hljs-attr">"application/json"</span>: {
-          <span class="hljs-attr">"schema"</span>: {
-            <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/GeneralError"</span>
+    &quot;GeneralError&quot;: {
+      &quot;description&quot;: &quot;General Error&quot;,
+      &quot;content&quot;: {
+        &quot;application/json&quot;: {
+          &quot;schema&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/GeneralError&quot;
           }
         }
       }
     }
   },
-  <span class="hljs-attr">"securitySchemes"</span>: {
-    <span class="hljs-attr">"api_key"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"apiKey"</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"api_key"</span>,
-      <span class="hljs-attr">"in"</span>: <span class="hljs-string">"header"</span>
+  &quot;securitySchemes&quot;: {
+    &quot;api_key&quot;: {
+      &quot;type&quot;: &quot;apiKey&quot;,
+      &quot;name&quot;: &quot;api_key&quot;,
+      &quot;in&quot;: &quot;header&quot;
     },
-    <span class="hljs-attr">"petstore_auth"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"oauth2"</span>,
-      <span class="hljs-attr">"flows"</span>: {
-        <span class="hljs-attr">"implicit"</span>: {
-          <span class="hljs-attr">"authorizationUrl"</span>: <span class="hljs-string">"http://example.org/api/oauth/dialog"</span>,
-          <span class="hljs-attr">"scopes"</span>: {
-            <span class="hljs-attr">"write:pets"</span>: <span class="hljs-string">"modify pets in your account"</span>,
-            <span class="hljs-attr">"read:pets"</span>: <span class="hljs-string">"read your pets"</span>
+    &quot;petstore_auth&quot;: {
+      &quot;type&quot;: &quot;oauth2&quot;,
+      &quot;flows&quot;: {
+        &quot;implicit&quot;: {
+          &quot;authorizationUrl&quot;: &quot;http://example.org/api/oauth/dialog&quot;,
+          &quot;scopes&quot;: {
+            &quot;write:pets&quot;: &quot;modify pets in your account&quot;,
+            &quot;read:pets&quot;: &quot;read your pets&quot;
           }
         }
       }
@@ -671,66 +671,66 @@ my.org.User
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">components:</span>
-<span class="hljs-attr">  schemas:</span>
-<span class="hljs-attr">    Category:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">      properties:</span>
-<span class="hljs-attr">        id:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">          format:</span> <span class="hljs-string">int64</span>
-<span class="hljs-attr">        name:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    Tag:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">      properties:</span>
-<span class="hljs-attr">        id:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">          format:</span> <span class="hljs-string">int64</span>
-<span class="hljs-attr">        name:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  parameters:</span>
-<span class="hljs-attr">    skipParam:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">skip</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">query</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">items</span> <span class="hljs-string">to</span> <span class="hljs-string">skip</span>
-<span class="hljs-attr">      required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">int32</span>
-<span class="hljs-attr">    limitParam:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">limit</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">query</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">max</span> <span class="hljs-string">records</span> <span class="hljs-string">to</span> <span class="hljs-string">return</span>
-<span class="hljs-attr">      required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">int32</span>
-<span class="hljs-attr">  responses:</span>
-<span class="hljs-attr">    NotFound:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">Entity</span> <span class="hljs-string">not</span> <span class="hljs-string">found.</span>
-<span class="hljs-attr">    IllegalInput:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">Illegal</span> <span class="hljs-string">input</span> <span class="hljs-string">for</span> <span class="hljs-string">operation.</span>
-<span class="hljs-attr">    GeneralError:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">General</span> <span class="hljs-string">Error</span>
-<span class="hljs-attr">      content:</span>
-        <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">          schema:</span>
-            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/GeneralError'</span>
-<span class="hljs-attr">  securitySchemes:</span>
-<span class="hljs-attr">    api_key:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">apiKey</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">api_key</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">header</span>
-<span class="hljs-attr">    petstore_auth:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">oauth2</span>
-<span class="hljs-attr">      flows:</span> 
-<span class="hljs-attr">        implicit:</span>
-<span class="hljs-attr">          authorizationUrl:</span> <span class="hljs-attr">http://example.org/api/oauth/dialog</span>
-<span class="hljs-attr">          scopes:</span>
-<span class="hljs-attr">            write:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">modify</span> <span class="hljs-string">pets</span> <span class="hljs-string">in</span> <span class="hljs-string">your</span> <span class="hljs-string">account</span>
-<span class="hljs-attr">            read:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">read</span> <span class="hljs-string">your</span> <span class="hljs-string">pets</span>
+<pre class="highlight"><code>
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+  parameters:
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      required: true
+      schema:
+        type: integer
+        format: int32
+    limitParam:
+      name: limit
+      in: query
+      description: max records to return
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    NotFound:
+      description: Entity not found.
+    IllegalInput:
+      description: Illegal input for operation.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralError'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+    petstore_auth:
+      type: oauth2
+      flows: 
+        implicit:
+          authorizationUrl: http://example.org/api/oauth/dialog
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
 </code></pre>
 </section></section><section><h4><a id="pathsObject">Paths Object</a></h4>
 <p>Holds the relative paths to the individual endpoints and their operations.
@@ -770,20 +770,20 @@ The path is appended to the URL from the <a href="#serverObject"><code>Server Ob
   /books/{id}
 </code></pre>
 </section><section><h5>Paths Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"/pets"</span>: {
-    <span class="hljs-attr">"get"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Returns all pets from the system that the user has access to"</span>,
-      <span class="hljs-attr">"responses"</span>: {
-        <span class="hljs-attr">"200"</span>: {          
-          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A list of pets."</span>,
-          <span class="hljs-attr">"content"</span>: {
-            <span class="hljs-attr">"application/json"</span>: {
-              <span class="hljs-attr">"schema"</span>: {
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-                <span class="hljs-attr">"items"</span>: {
-                  <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/pet"</span>
+  &quot;/pets&quot;: {
+    &quot;get&quot;: {
+      &quot;description&quot;: &quot;Returns all pets from the system that the user has access to&quot;,
+      &quot;responses&quot;: {
+        &quot;200&quot;: {          
+          &quot;description&quot;: &quot;A list of pets.&quot;,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/pet&quot;
                 }
               }
             }
@@ -794,19 +794,19 @@ The path is appended to the URL from the <a href="#serverObject"><code>Server Ob
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">/pets:</span>
-<span class="hljs-attr">  get:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">Returns</span> <span class="hljs-string">all</span> <span class="hljs-string">pets</span> <span class="hljs-string">from</span> <span class="hljs-string">the</span> <span class="hljs-string">system</span> <span class="hljs-string">that</span> <span class="hljs-string">the</span> <span class="hljs-string">user</span> <span class="hljs-string">has</span> <span class="hljs-string">access</span> <span class="hljs-string">to</span>
-<span class="hljs-attr">    responses:</span>
-      <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">        description:</span> <span class="hljs-string">A</span> <span class="hljs-string">list</span> <span class="hljs-string">of</span> <span class="hljs-string">pets.</span>
-<span class="hljs-attr">        content:</span>
-          <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">            schema:</span>
-<span class="hljs-attr">              type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">              items:</span>
-                <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/pet'</span>
+<pre class="highlight"><code>
+/pets:
+  get:
+    description: Returns all pets from the system that the user has access to
+    responses:
+      '200':
+        description: A list of pets.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/pet'
 </code></pre>
 </section></section><section><h4><a id="pathItemObject">Path Item Object</a></h4>
 <p>Describes the operations available on a single path.
@@ -891,85 +891,85 @@ The path itself is still exposed to the documentation viewer but they will not k
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Path Item Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"get"</span>: {
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Returns pets based on ID"</span>,
-    <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"Find pets by ID"</span>,
-    <span class="hljs-attr">"operationId"</span>: <span class="hljs-string">"getPetsById"</span>,
-    <span class="hljs-attr">"responses"</span>: {
-      <span class="hljs-attr">"200"</span>: {
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"pet response"</span>,
-        <span class="hljs-attr">"content"</span>: {
-          <span class="hljs-attr">"*/*"</span>: {
-            <span class="hljs-attr">"schema"</span>: {
-              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-              <span class="hljs-attr">"items"</span>: {
-                <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+  &quot;get&quot;: {
+    &quot;description&quot;: &quot;Returns pets based on ID&quot;,
+    &quot;summary&quot;: &quot;Find pets by ID&quot;,
+    &quot;operationId&quot;: &quot;getPetsById&quot;,
+    &quot;responses&quot;: {
+      &quot;200&quot;: {
+        &quot;description&quot;: &quot;pet response&quot;,
+        &quot;content&quot;: {
+          &quot;*/*&quot;: {
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
               }
             }
           }
         }
       },
-      <span class="hljs-attr">"default"</span>: {
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"error payload"</span>,
-        <span class="hljs-attr">"content"</span>: {
-          <span class="hljs-attr">"text/html"</span>: {
-            <span class="hljs-attr">"schema"</span>: {
-              <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/ErrorModel"</span>
+      &quot;default&quot;: {
+        &quot;description&quot;: &quot;error payload&quot;,
+        &quot;content&quot;: {
+          &quot;text/html&quot;: {
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/ErrorModel&quot;
             }
           }
         }
       }
     }
   },
-  <span class="hljs-attr">"parameters"</span>: [
+  &quot;parameters&quot;: [
     {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>,
-      <span class="hljs-attr">"in"</span>: <span class="hljs-string">"path"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of pet to use"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-        <span class="hljs-attr">"items"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+      &quot;name&quot;: &quot;id&quot;,
+      &quot;in&quot;: &quot;path&quot;,
+      &quot;description&quot;: &quot;ID of pet to use&quot;,
+      &quot;required&quot;: true,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;items&quot;: {
+          &quot;type&quot;: &quot;string&quot;
         }
       },
-      <span class="hljs-attr">"style"</span>: <span class="hljs-string">"simple"</span>
+      &quot;style&quot;: &quot;simple&quot;
     }
   ]
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">get:</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">Returns</span> <span class="hljs-string">pets</span> <span class="hljs-string">based</span> <span class="hljs-string">on</span> <span class="hljs-string">ID</span>
-<span class="hljs-attr">  summary:</span> <span class="hljs-string">Find</span> <span class="hljs-string">pets</span> <span class="hljs-string">by</span> <span class="hljs-string">ID</span>
-<span class="hljs-attr">  operationId:</span> <span class="hljs-string">getPetsById</span>
-<span class="hljs-attr">  responses:</span>
-    <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">pet</span> <span class="hljs-string">response</span>
-<span class="hljs-attr">      content:</span>
-        <span class="hljs-string">'*/*'</span> <span class="hljs-string">:</span>
-<span class="hljs-attr">          schema:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">            items:</span>
-              <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Pet'</span>
-<span class="hljs-attr">    default:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">error</span> <span class="hljs-string">payload</span>
-<span class="hljs-attr">      content:</span>
-        <span class="hljs-string">'text/html'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">          schema:</span>
-            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/ErrorModel'</span>
-<span class="hljs-attr">parameters:</span>
-<span class="hljs-attr">- name:</span> <span class="hljs-string">id</span>
-<span class="hljs-attr">  in:</span> <span class="hljs-string">path</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">ID</span> <span class="hljs-string">of</span> <span class="hljs-string">pet</span> <span class="hljs-string">to</span> <span class="hljs-string">use</span>
-<span class="hljs-attr">  required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  schema:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">    style:</span> <span class="hljs-string">simple</span>
-<span class="hljs-attr">    items:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">string</span>  
+<pre class="highlight"><code>
+get:
+  description: Returns pets based on ID
+  summary: Find pets by ID
+  operationId: getPetsById
+  responses:
+    '200':
+      description: pet response
+      content:
+        '*/*' :
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Pet'
+    default:
+      description: error payload
+      content:
+        'text/html':
+          schema:
+            $ref: '#/components/schemas/ErrorModel'
+parameters:
+- name: id
+  in: path
+  description: ID of pet to use
+  required: true
+  schema:
+    type: array
+    style: simple
+    items:
+      type: string  
 </code></pre>
 </section></section><section><h4><a id="operationObject">Operation Object</a></h4>
 <p>Describes a single API operation on a path.</p>
@@ -1047,110 +1047,110 @@ The path itself is still exposed to the documentation viewer but they will not k
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Operation Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"tags"</span>: [
-    <span class="hljs-string">"pet"</span>
+  &quot;tags&quot;: [
+    &quot;pet&quot;
   ],
-  <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"Updates a pet in the store with form data"</span>,
-  <span class="hljs-attr">"operationId"</span>: <span class="hljs-string">"updatePetWithForm"</span>,
-  <span class="hljs-attr">"parameters"</span>: [
+  &quot;summary&quot;: &quot;Updates a pet in the store with form data&quot;,
+  &quot;operationId&quot;: &quot;updatePetWithForm&quot;,
+  &quot;parameters&quot;: [
     {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"petId"</span>,
-      <span class="hljs-attr">"in"</span>: <span class="hljs-string">"path"</span>,
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of pet that needs to be updated"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+      &quot;name&quot;: &quot;petId&quot;,
+      &quot;in&quot;: &quot;path&quot;,
+      &quot;description&quot;: &quot;ID of pet that needs to be updated&quot;,
+      &quot;required&quot;: true,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
       }
     }
   ],
-  <span class="hljs-attr">"requestBody"</span>: {
-    <span class="hljs-attr">"content"</span>: {
-      <span class="hljs-attr">"application/x-www-form-urlencoded"</span>: {
-        <span class="hljs-attr">"schema"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-           <span class="hljs-attr">"properties"</span>: {
-              <span class="hljs-attr">"name"</span>: { 
-                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updated name of the pet"</span>,
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;requestBody&quot;: {
+    &quot;content&quot;: {
+      &quot;application/x-www-form-urlencoded&quot;: {
+        &quot;schema&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+           &quot;properties&quot;: {
+              &quot;name&quot;: { 
+                &quot;description&quot;: &quot;Updated name of the pet&quot;,
+                &quot;type&quot;: &quot;string&quot;
               },
-              <span class="hljs-attr">"status"</span>: {
-                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updated status of the pet"</span>,
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+              &quot;status&quot;: {
+                &quot;description&quot;: &quot;Updated status of the pet&quot;,
+                &quot;type&quot;: &quot;string&quot;
              }
            },
-        <span class="hljs-attr">"required"</span>: [<span class="hljs-string">"status"</span>] 
+        &quot;required&quot;: [&quot;status&quot;] 
         }
       }
     }
   },
-  <span class="hljs-attr">"responses"</span>: {
-    <span class="hljs-attr">"200"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Pet updated."</span>,
-      <span class="hljs-attr">"content"</span>: {
-        <span class="hljs-attr">"application/json"</span>: {},
-        <span class="hljs-attr">"application/xml"</span>: {}
+  &quot;responses&quot;: {
+    &quot;200&quot;: {
+      &quot;description&quot;: &quot;Pet updated.&quot;,
+      &quot;content&quot;: {
+        &quot;application/json&quot;: {},
+        &quot;application/xml&quot;: {}
       }
     },
-    <span class="hljs-attr">"405"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid input"</span>,
-      <span class="hljs-attr">"content"</span>: {
-        <span class="hljs-attr">"application/json"</span>: {},
-        <span class="hljs-attr">"application/xml"</span>: {}
+    &quot;405&quot;: {
+      &quot;description&quot;: &quot;Invalid input&quot;,
+      &quot;content&quot;: {
+        &quot;application/json&quot;: {},
+        &quot;application/xml&quot;: {}
       }
     }
   },
-  <span class="hljs-attr">"security"</span>: [
+  &quot;security&quot;: [
     {
-      <span class="hljs-attr">"petstore_auth"</span>: [
-        <span class="hljs-string">"write:pets"</span>,
-        <span class="hljs-string">"read:pets"</span>
+      &quot;petstore_auth&quot;: [
+        &quot;write:pets&quot;,
+        &quot;read:pets&quot;
       ]
     }
   ]
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">tags:</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">pet</span>
-<span class="hljs-attr">summary:</span> <span class="hljs-string">Updates</span> <span class="hljs-string">a</span> <span class="hljs-string">pet</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">store</span> <span class="hljs-string">with</span> <span class="hljs-string">form</span> <span class="hljs-string">data</span>
-<span class="hljs-attr">operationId:</span> <span class="hljs-string">updatePetWithForm</span>
-<span class="hljs-attr">parameters:</span>
-<span class="hljs-attr">- name:</span> <span class="hljs-string">petId</span>
-<span class="hljs-attr">  in:</span> <span class="hljs-string">path</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">ID</span> <span class="hljs-string">of</span> <span class="hljs-string">pet</span> <span class="hljs-string">that</span> <span class="hljs-string">needs</span> <span class="hljs-string">to</span> <span class="hljs-string">be</span> <span class="hljs-string">updated</span>
-<span class="hljs-attr">  required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  schema:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">'application/x-www-form-urlencoded'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">       properties:</span>
-<span class="hljs-attr">          name:</span> 
-<span class="hljs-attr">            description:</span> <span class="hljs-string">Updated</span> <span class="hljs-string">name</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">pet</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">          status:</span>
-<span class="hljs-attr">            description:</span> <span class="hljs-string">Updated</span> <span class="hljs-string">status</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">pet</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">       required:</span>
-<span class="hljs-bullet">         -</span> <span class="hljs-string">status</span>
-<span class="hljs-attr">responses:</span>
-  <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">Pet</span> <span class="hljs-string">updated.</span>
-<span class="hljs-attr">    content:</span> 
-      <span class="hljs-string">'application/json'</span><span class="hljs-string">:</span> <span class="hljs-string">{}</span>
-      <span class="hljs-string">'application/xml'</span><span class="hljs-string">:</span> <span class="hljs-string">{}</span>
-  <span class="hljs-string">'405'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">Invalid</span> <span class="hljs-string">input</span>
-<span class="hljs-attr">    content:</span> 
-      <span class="hljs-string">'application/json'</span><span class="hljs-string">:</span> <span class="hljs-string">{}</span>
-      <span class="hljs-string">'application/xml'</span><span class="hljs-string">:</span> <span class="hljs-string">{}</span>
-<span class="hljs-attr">security:</span>
-<span class="hljs-attr">- petstore_auth:</span>
-<span class="hljs-attr">  - write:</span><span class="hljs-string">pets</span>
-<span class="hljs-attr">  - read:</span><span class="hljs-string">pets</span>
+<pre class="highlight"><code>
+tags:
+- pet
+summary: Updates a pet in the store with form data
+operationId: updatePetWithForm
+parameters:
+- name: petId
+  in: path
+  description: ID of pet that needs to be updated
+  required: true
+  schema:
+    type: string
+requestBody:
+  content:
+    'application/x-www-form-urlencoded':
+      schema:
+       properties:
+          name: 
+            description: Updated name of the pet
+            type: string
+          status:
+            description: Updated status of the pet
+            type: string
+       required:
+         - status
+responses:
+  '200':
+    description: Pet updated.
+    content: 
+      'application/json': {}
+      'application/xml': {}
+  '405':
+    description: Invalid input
+    content: 
+      'application/json': {}
+      'application/xml': {}
+security:
+- petstore_auth:
+  - write:pets
+  - read:pets
 </code></pre>
 </section></section><section><h4><a id="externalDocumentationObject">External Documentation Object</a></h4>
 <p>Allows referencing an external resource for extended documentation.</p>
@@ -1178,15 +1178,15 @@ The path itself is still exposed to the documentation viewer but they will not k
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>External Documentation Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Find more info here"</span>,
-  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://example.com"</span>
+  &quot;description&quot;: &quot;Find more info here&quot;,
+  &quot;url&quot;: &quot;https://example.com&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">Find</span> <span class="hljs-string">more</span> <span class="hljs-string">info</span> <span class="hljs-string">here</span>
-<span class="hljs-attr">url:</span> <span class="hljs-attr">https://example.com</span>
+<pre class="highlight"><code>
+description: Find more info here
+url: https://example.com
 </code></pre>
 </section></section><section><h4><a id="parameterObject">Parameter Object</a></h4>
 <p>Describes a single operation parameter.</p>
@@ -1472,125 +1472,125 @@ When <code>example</code> or <code>examples</code> are provided in conjunction w
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Parameter Object Examples</h5>
 <p>A header parameter with an array of 64 bit integer numbers:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"token"</span>,
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"header"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"token to be passed as a header"</span>,
-  <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"schema"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int64"</span>
+  &quot;name&quot;: &quot;token&quot;,
+  &quot;in&quot;: &quot;header&quot;,
+  &quot;description&quot;: &quot;token to be passed as a header&quot;,
+  &quot;required&quot;: true,
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;integer&quot;,
+      &quot;format&quot;: &quot;int64&quot;
     }
   },
-  <span class="hljs-attr">"style"</span>: <span class="hljs-string">"simple"</span>
+  &quot;style&quot;: &quot;simple&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">token</span>
-<span class="hljs-attr">in:</span> <span class="hljs-string">header</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">token</span> <span class="hljs-string">to</span> <span class="hljs-string">be</span> <span class="hljs-string">passed</span> <span class="hljs-string">as</span> <span class="hljs-string">a</span> <span class="hljs-string">header</span>
-<span class="hljs-attr">required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">    format:</span> <span class="hljs-string">int64</span>
-<span class="hljs-attr">style:</span> <span class="hljs-string">simple</span>
+<pre class="highlight"><code>
+name: token
+in: header
+description: token to be passed as a header
+required: true
+schema:
+  type: array
+  items:
+    type: integer
+    format: int64
+style: simple
 </code></pre>
 <p>A path parameter of a string value:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"username"</span>,
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"path"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"username to fetch"</span>,
-  <span class="hljs-attr">"required"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"schema"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;name&quot;: &quot;username&quot;,
+  &quot;in&quot;: &quot;path&quot;,
+  &quot;description&quot;: &quot;username to fetch&quot;,
+  &quot;required&quot;: true,
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;string&quot;
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">username</span>
-<span class="hljs-attr">in:</span> <span class="hljs-string">path</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">username</span> <span class="hljs-string">to</span> <span class="hljs-string">fetch</span>
-<span class="hljs-attr">required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+name: username
+in: path
+description: username to fetch
+required: true
+schema:
+  type: string
 </code></pre>
 <p>An optional query parameter of a string value, allowing multiple values by repeating the query parameter:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>,
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"query"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of the object to fetch"</span>,
-  <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"schema"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;name&quot;: &quot;id&quot;,
+  &quot;in&quot;: &quot;query&quot;,
+  &quot;description&quot;: &quot;ID of the object to fetch&quot;,
+  &quot;required&quot;: false,
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     }
   },
-  <span class="hljs-attr">"style"</span>: <span class="hljs-string">"form"</span>,
-  <span class="hljs-attr">"explode"</span>: <span class="hljs-literal">true</span>
+  &quot;style&quot;: &quot;form&quot;,
+  &quot;explode&quot;: true
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">id</span>
-<span class="hljs-attr">in:</span> <span class="hljs-string">query</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">ID</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">object</span> <span class="hljs-string">to</span> <span class="hljs-string">fetch</span>
-<span class="hljs-attr">required:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">style:</span> <span class="hljs-string">form</span>
-<span class="hljs-attr">explode:</span> <span class="hljs-literal">true</span>
+<pre class="highlight"><code>
+name: id
+in: query
+description: ID of the object to fetch
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
 </code></pre>
 <p>A free-form query parameter, allowing undefined parameters of a specific type:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"query"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"freeForm"</span>,
-  <span class="hljs-attr">"schema"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-    <span class="hljs-attr">"additionalProperties"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+  &quot;in&quot;: &quot;query&quot;,
+  &quot;name&quot;: &quot;freeForm&quot;,
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;additionalProperties&quot;: {
+      &quot;type&quot;: &quot;integer&quot;
     },
   },
-  <span class="hljs-attr">"style"</span>: <span class="hljs-string">"form"</span>
+  &quot;style&quot;: &quot;form&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">in:</span> <span class="hljs-string">query</span>
-<span class="hljs-attr">name:</span> <span class="hljs-string">freeForm</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">  additionalProperties:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">style:</span> <span class="hljs-string">form</span>
+<pre class="highlight"><code>
+in: query
+name: freeForm
+schema:
+  type: object
+  additionalProperties:
+    type: integer
+style: form
 </code></pre>
 <p>A complex parameter using <code>content</code> to define serialization:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"query"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"coordinates"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"application/json"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-        <span class="hljs-attr">"required"</span>: [
-          <span class="hljs-string">"lat"</span>,
-          <span class="hljs-string">"long"</span>
+  &quot;in&quot;: &quot;query&quot;,
+  &quot;name&quot;: &quot;coordinates&quot;,
+  &quot;content&quot;: {
+    &quot;application/json&quot;: {
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;required&quot;: [
+          &quot;lat&quot;,
+          &quot;long&quot;
         ],
-        <span class="hljs-attr">"properties"</span>: {
-          <span class="hljs-attr">"lat"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+        &quot;properties&quot;: {
+          &quot;lat&quot;: {
+            &quot;type&quot;: &quot;number&quot;
           },
-          <span class="hljs-attr">"long"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+          &quot;long&quot;: {
+            &quot;type&quot;: &quot;number&quot;
           }
         }
       }
@@ -1598,21 +1598,21 @@ When <code>example</code> or <code>examples</code> are provided in conjunction w
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">in:</span> <span class="hljs-string">query</span>
-<span class="hljs-attr">name:</span> <span class="hljs-string">coordinates</span>
-<span class="hljs-attr">content:</span>
-  <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">      required:</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">lat</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">long</span>
-<span class="hljs-attr">      properties:</span>
-<span class="hljs-attr">        lat:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">number</span>
-<span class="hljs-attr">        long:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">number</span>
+<pre class="highlight"><code>
+in: query
+name: coordinates
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - lat
+        - long
+      properties:
+        lat:
+          type: number
+        long:
+          type: number
 </code></pre>
 </section></section><section><h4><a id="requestBodyObject">Request Body Object</a></h4>
 <p>Describes a single request body.</p>
@@ -1646,104 +1646,104 @@ When <code>example</code> or <code>examples</code> are provided in conjunction w
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Request Body Examples</h5>
 <p>A request body with a referenced model definition.</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"user to add to the system"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"application/json"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/User"</span>
+  &quot;description&quot;: &quot;user to add to the system&quot;,
+  &quot;content&quot;: {
+    &quot;application/json&quot;: {
+      &quot;schema&quot;: {
+        &quot;$ref&quot;: &quot;#/components/schemas/User&quot;
       },
-      <span class="hljs-attr">"examples"</span>: {
-          <span class="hljs-attr">"user"</span> : {
-            <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"User Example"</span>, 
-            <span class="hljs-attr">"externalValue"</span>: <span class="hljs-string">"http://foo.bar/examples/user-example.json"</span>
+      &quot;examples&quot;: {
+          &quot;user&quot; : {
+            &quot;summary&quot;: &quot;User Example&quot;, 
+            &quot;externalValue&quot;: &quot;http://foo.bar/examples/user-example.json&quot;
           } 
         }
     },
-    <span class="hljs-attr">"application/xml"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/User"</span>
+    &quot;application/xml&quot;: {
+      &quot;schema&quot;: {
+        &quot;$ref&quot;: &quot;#/components/schemas/User&quot;
       },
-      <span class="hljs-attr">"examples"</span>: {
-          <span class="hljs-attr">"user"</span> : {
-            <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"User example in XML"</span>,
-            <span class="hljs-attr">"externalValue"</span>: <span class="hljs-string">"http://foo.bar/examples/user-example.xml"</span>
+      &quot;examples&quot;: {
+          &quot;user&quot; : {
+            &quot;summary&quot;: &quot;User example in XML&quot;,
+            &quot;externalValue&quot;: &quot;http://foo.bar/examples/user-example.xml&quot;
           }
         }
     },
-    <span class="hljs-attr">"text/plain"</span>: {
-      <span class="hljs-attr">"examples"</span>: {
-        <span class="hljs-attr">"user"</span> : {
-            <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"User example in Plain text"</span>,
-            <span class="hljs-attr">"externalValue"</span>: <span class="hljs-string">"http://foo.bar/examples/user-example.txt"</span> 
+    &quot;text/plain&quot;: {
+      &quot;examples&quot;: {
+        &quot;user&quot; : {
+            &quot;summary&quot;: &quot;User example in Plain text&quot;,
+            &quot;externalValue&quot;: &quot;http://foo.bar/examples/user-example.txt&quot; 
         }
       } 
     },
-    <span class="hljs-attr">"*/*"</span>: {
-      <span class="hljs-attr">"examples"</span>: {
-        <span class="hljs-attr">"user"</span> : {
-            <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"User example in other format"</span>,
-            <span class="hljs-attr">"externalValue"</span>: <span class="hljs-string">"http://foo.bar/examples/user-example.whatever"</span>
+    &quot;*/*&quot;: {
+      &quot;examples&quot;: {
+        &quot;user&quot; : {
+            &quot;summary&quot;: &quot;User example in other format&quot;,
+            &quot;externalValue&quot;: &quot;http://foo.bar/examples/user-example.whatever&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">user</span> <span class="hljs-string">to</span> <span class="hljs-string">add</span> <span class="hljs-string">to</span> <span class="hljs-string">the</span> <span class="hljs-string">system</span>
-<span class="hljs-attr">content:</span> 
-  <span class="hljs-string">'application/json'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    schema:</span>
-      <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/User'</span>
-<span class="hljs-attr">    examples:</span>
-<span class="hljs-attr">      user:</span>
-<span class="hljs-attr">        summary:</span> <span class="hljs-string">User</span> <span class="hljs-string">Example</span>
-<span class="hljs-attr">        externalValue:</span> <span class="hljs-string">'http://foo.bar/examples/user-example.json'</span>
-  <span class="hljs-string">'application/xml'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    schema:</span>
-      <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/User'</span>
-<span class="hljs-attr">    examples:</span>
-<span class="hljs-attr">      user:</span>
-<span class="hljs-attr">        summary:</span> <span class="hljs-string">User</span> <span class="hljs-string">Example</span> <span class="hljs-string">in</span> <span class="hljs-string">XML</span>
-<span class="hljs-attr">        externalValue:</span> <span class="hljs-string">'http://foo.bar/examples/user-example.xml'</span>
-  <span class="hljs-string">'text/plain'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    examples:</span>
-<span class="hljs-attr">      user:</span>
-<span class="hljs-attr">        summary:</span> <span class="hljs-string">User</span> <span class="hljs-string">example</span> <span class="hljs-string">in</span> <span class="hljs-string">text</span> <span class="hljs-string">plain</span> <span class="hljs-string">format</span>
-<span class="hljs-attr">        externalValue:</span> <span class="hljs-string">'http://foo.bar/examples/user-example.txt'</span>
-  <span class="hljs-string">'*/*'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    examples:</span>
-<span class="hljs-attr">      user:</span> 
-<span class="hljs-attr">        summary:</span> <span class="hljs-string">User</span> <span class="hljs-string">example</span> <span class="hljs-string">in</span> <span class="hljs-string">other</span> <span class="hljs-string">format</span>
-<span class="hljs-attr">        externalValue:</span> <span class="hljs-string">'http://foo.bar/examples/user-example.whatever'</span>
+<pre class="highlight"><code>
+description: user to add to the system
+content: 
+  'application/json':
+    schema:
+      $ref: '#/components/schemas/User'
+    examples:
+      user:
+        summary: User Example
+        externalValue: 'http://foo.bar/examples/user-example.json'
+  'application/xml':
+    schema:
+      $ref: '#/components/schemas/User'
+    examples:
+      user:
+        summary: User Example in XML
+        externalValue: 'http://foo.bar/examples/user-example.xml'
+  'text/plain':
+    examples:
+      user:
+        summary: User example in text plain format
+        externalValue: 'http://foo.bar/examples/user-example.txt'
+  '*/*':
+    examples:
+      user: 
+        summary: User example in other format
+        externalValue: 'http://foo.bar/examples/user-example.whatever'
 </code></pre>
 <p>A body parameter that is an array of string values:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"user to add to the system"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"text/plain"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-        <span class="hljs-attr">"items"</span>: {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;description&quot;: &quot;user to add to the system&quot;,
+  &quot;content&quot;: {
+    &quot;text/plain&quot;: {
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;items&quot;: {
+          &quot;type&quot;: &quot;string&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">user</span> <span class="hljs-string">to</span> <span class="hljs-string">add</span> <span class="hljs-string">to</span> <span class="hljs-string">the</span> <span class="hljs-string">system</span>
-<span class="hljs-attr">required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">content:</span>
-  <span class="hljs-string">text/plain:</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">      items:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+description: user to add to the system
+required: true
+content:
+  text/plain:
+    schema:
+      type: array
+      items:
+        type: string
 </code></pre>
 </section></section><section><h4><a id="mediaTypeObject">Media Type Object</a></h4>
 <p>Each Media Type Object provides schema and examples for the media type identified by its key.</p>
@@ -1781,138 +1781,138 @@ When <code>example</code> or <code>examples</code> are provided in conjunction w
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Media Type Examples</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-string">"application/json"</span>: {
-    <span class="hljs-string">"schema"</span>: {
-         <span class="hljs-string">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+  &quot;application/json&quot;: {
+    &quot;schema&quot;: {
+         &quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
     },
-    <span class="hljs-string">"examples"</span>: {
-      <span class="hljs-string">"cat"</span> : {
-        <span class="hljs-string">"summary"</span>: <span class="hljs-string">"An example of a cat"</span>,
-        <span class="hljs-string">"value"</span>: 
+    &quot;examples&quot;: {
+      &quot;cat&quot; : {
+        &quot;summary&quot;: &quot;An example of a cat&quot;,
+        &quot;value&quot;: 
           {
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Fluffy"</span>,
-            <span class="hljs-string">"petType"</span>: <span class="hljs-string">"Cat"</span>,
-            <span class="hljs-string">"color"</span>: <span class="hljs-string">"White"</span>,
-            <span class="hljs-string">"gender"</span>: <span class="hljs-string">"male"</span>,
-            <span class="hljs-string">"breed"</span>: <span class="hljs-string">"Persian"</span>
+            &quot;name&quot;: &quot;Fluffy&quot;,
+            &quot;petType&quot;: &quot;Cat&quot;,
+            &quot;color&quot;: &quot;White&quot;,
+            &quot;gender&quot;: &quot;male&quot;,
+            &quot;breed&quot;: &quot;Persian&quot;
           }
       },
-      <span class="hljs-string">"dog"</span>: {
-        <span class="hljs-string">"summary"</span>: <span class="hljs-string">"An example of a dog with a cat's name"</span>,
-        <span class="hljs-string">"value"</span> :  { 
-          <span class="hljs-string">"name"</span>: <span class="hljs-string">"Puma"</span>,
-          <span class="hljs-string">"petType"</span>: <span class="hljs-string">"Dog"</span>,
-          <span class="hljs-string">"color"</span>: <span class="hljs-string">"Black"</span>,
-          <span class="hljs-string">"gender"</span>: <span class="hljs-string">"Female"</span>,
-          <span class="hljs-string">"breed"</span>: <span class="hljs-string">"Mixed"</span>
+      &quot;dog&quot;: {
+        &quot;summary&quot;: &quot;An example of a dog with a cat's name&quot;,
+        &quot;value&quot; :  { 
+          &quot;name&quot;: &quot;Puma&quot;,
+          &quot;petType&quot;: &quot;Dog&quot;,
+          &quot;color&quot;: &quot;Black&quot;,
+          &quot;gender&quot;: &quot;Female&quot;,
+          &quot;breed&quot;: &quot;Mixed&quot;
         },
-      <span class="hljs-string">"frog"</span>: {
-          <span class="hljs-string">"$ref"</span>: <span class="hljs-string">"#/components/examples/frog-example"</span>
+      &quot;frog&quot;: {
+          &quot;$ref&quot;: &quot;#/components/examples/frog-example&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">application/json:</span> 
-<span class="hljs-attr">  schema:</span>
-    <span class="hljs-string">$ref:</span> <span class="hljs-string">"#/components/schemas/Pet"</span>
-<span class="hljs-attr">  examples:</span>
-<span class="hljs-attr">    cat:</span>
-<span class="hljs-attr">      summary:</span> <span class="hljs-string">An</span> <span class="hljs-string">example</span> <span class="hljs-string">of</span> <span class="hljs-string">a</span> <span class="hljs-string">cat</span>
-<span class="hljs-attr">      value:</span>
-<span class="hljs-attr">        name:</span> <span class="hljs-string">Fluffy</span>
-<span class="hljs-attr">        petType:</span> <span class="hljs-string">Cat</span>
-<span class="hljs-attr">        color:</span> <span class="hljs-string">White</span>
-<span class="hljs-attr">        gender:</span> <span class="hljs-string">male</span>
-<span class="hljs-attr">        breed:</span> <span class="hljs-string">Persian</span>
-<span class="hljs-attr">    dog:</span>
-<span class="hljs-attr">      summary:</span> <span class="hljs-string">An</span> <span class="hljs-string">example</span> <span class="hljs-string">of</span> <span class="hljs-string">a</span> <span class="hljs-string">dog</span> <span class="hljs-string">with</span> <span class="hljs-string">a</span> <span class="hljs-string">cat's</span> <span class="hljs-string">name</span>
-<span class="hljs-attr">      value:</span>
-<span class="hljs-attr">        name:</span> <span class="hljs-string">Puma</span>
-<span class="hljs-attr">        petType:</span> <span class="hljs-string">Dog</span>
-<span class="hljs-attr">        color:</span> <span class="hljs-string">Black</span>
-<span class="hljs-attr">        gender:</span> <span class="hljs-string">Female</span>
-<span class="hljs-attr">        breed:</span> <span class="hljs-string">Mixed</span>
-<span class="hljs-attr">    frog:</span>
-      <span class="hljs-string">$ref:</span> <span class="hljs-string">"#/components/examples/frog-example"</span>
+<pre class="highlight"><code>
+application/json: 
+  schema:
+    $ref: &quot;#/components/schemas/Pet&quot;
+  examples:
+    cat:
+      summary: An example of a cat
+      value:
+        name: Fluffy
+        petType: Cat
+        color: White
+        gender: male
+        breed: Persian
+    dog:
+      summary: An example of a dog with a cat's name
+      value:
+        name: Puma
+        petType: Dog
+        color: Black
+        gender: Female
+        breed: Mixed
+    frog:
+      $ref: &quot;#/components/examples/frog-example&quot;
 </code></pre>
 </section><section><h5>Considerations for File Uploads</h5>
 <p>In contrast with the 2.0 specification, <code>file</code> input/output content in OpenAPI is described with the same semantics as any other schema type. Specifically:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-comment"># content transferred with base64 encoding</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  format:</span> <span class="hljs-string">base64</span>
+<pre class="highlight"><code>
+# content transferred with base64 encoding
+schema:
+  type: string
+  format: base64
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-comment"># content transferred in binary (octet-stream):</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  format:</span> <span class="hljs-string">binary</span>
+<pre class="highlight"><code>
+# content transferred in binary (octet-stream):
+schema:
+  type: string
+  format: binary
 </code></pre>
 <p>These examples apply to either input payloads of file uploads or response payloads.</p>
 <p>A <code>requestBody</code> for submitting a file in a <code>POST</code> operation may look like the following example:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">application/octet-stream:</span>
-      <span class="hljs-comment"># any media type is accepted, functionally equivalent to `*/*`</span>
-<span class="hljs-attr">      schema:</span>
-        <span class="hljs-comment"># a binary file of any type</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">binary</span>
+<pre class="highlight"><code>
+requestBody:
+  content:
+    application/octet-stream:
+      # any media type is accepted, functionally equivalent to `*/*`
+      schema:
+        # a binary file of any type
+        type: string
+        format: binary
 </code></pre>
 <p>In addition, specific media types MAY be specified:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-comment"># multiple, specific media types may be specified:</span>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-      <span class="hljs-comment"># a binary file of type png or jpeg</span>
-    <span class="hljs-string">'image/jpeg'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">binary</span>
-    <span class="hljs-string">'image/png'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">binary</span>        
+<pre class="highlight"><code>
+# multiple, specific media types may be specified:
+requestBody:
+  content:
+      # a binary file of type png or jpeg
+    'image/jpeg':
+      schema:
+        type: string
+        format: binary
+    'image/png':
+      schema:
+        type: string
+        format: binary        
 </code></pre>
 <p>To upload multiple files, a <code>multipart</code> media type MUST be used:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">multipart/form-data:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        properties:</span>
-          <span class="hljs-comment"># The property name 'file' will be used for all files.</span>
-<span class="hljs-attr">          file:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">            items:</span>
-<span class="hljs-attr">              type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">              format:</span> <span class="hljs-string">binary</span>
+<pre class="highlight"><code>
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        properties:
+          # The property name 'file' will be used for all files.
+          file:
+            type: array
+            items:
+              type: string
+              format: binary
 
 </code></pre>
 </section><section><h5>Support for x-www-form-urlencoded Request Bodies</h5>
 <p>To submit content using form url encoding via [[!rfc1866]], the following
 definition may be used:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">application/x-www-form-urlencoded:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          id:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">uuid</span>
-<span class="hljs-attr">          address:</span>
-            <span class="hljs-comment"># complex types are stringified to support RFC 1866</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">            properties:</span> <span class="hljs-string">{}</span>
+<pre class="highlight"><code>
+requestBody:
+  content:
+    application/x-www-form-urlencoded:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+          address:
+            # complex types are stringified to support RFC 1866
+            type: object
+            properties: {}
 </code></pre>
 <p>In this example, the contents in the <code>requestBody</code> MUST be stringified per [[!rfc1866]]) when passed to the server.  In addition, the <code>address</code> field complex object will be stringified.</p>
 <p>When passing complex objects in the <code>application/x-www-form-urlencoded</code> content type, the default serialization strategy of such properties is described in the <a href="#encodingObject"><code>Encoding Object</code></a>'s <a href="#encodingStyle"><code>style</code></a> property as <code>form</code>.</p>
@@ -1925,34 +1925,34 @@ definition may be used:</p>
 <li>If the property is a <code>type: string</code> with <code>format: binary</code> or <code>format: base64</code> (aka a file object), the default Content-Type is <code>application/octet-stream</code></li>
 </ul>
 <p>Examples:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">multipart/form-data:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          id:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">uuid</span>
-<span class="hljs-attr">          address:</span>
-            <span class="hljs-comment"># default Content-Type for objects is `application/json`</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">            properties:</span> <span class="hljs-string">{}</span>
-<span class="hljs-attr">          profileImage:</span>
-            <span class="hljs-comment"># default Content-Type for string/binary is `application/octet-stream`</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">binary</span>
-<span class="hljs-attr">          children:</span>
-            <span class="hljs-comment"># default Content-Type for arrays is based on the `inner` type (text/plain here)</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">            items:</span>
-<span class="hljs-attr">              type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">          addresses:</span>
-            <span class="hljs-comment"># default Content-Type for arrays is based on the `inner` type (object shown, so `application/json` in this example)</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">            items:</span>
-<span class="hljs-attr">              type:</span> <span class="hljs-string">'#/components/schemas/Address'</span>
+<pre class="highlight"><code>
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+          address:
+            # default Content-Type for objects is `application/json`
+            type: object
+            properties: {}
+          profileImage:
+            # default Content-Type for string/binary is `application/octet-stream`
+            type: string
+            format: binary
+          children:
+            # default Content-Type for arrays is based on the `inner` type (text/plain here)
+            type: array
+            items:
+              type: string
+          addresses:
+            # default Content-Type for arrays is based on the `inner` type (object shown, so `application/json` in this example)
+            type: array
+            items:
+              type: '#/components/schemas/Address'
 </code></pre>
 <p>An <code>encoding</code> attribute is introduced to give you control over the serialization of parts of <code>multipart</code> request bodies.  This attribute is <em>only</em> applicable to <code>multipart</code> and <code>application/x-www-form-urlencoded</code> request bodies.</p>
 </section></section><section><h4><a id="encodingObject">Encoding Object</a></h4>
@@ -1996,42 +1996,42 @@ definition may be used:</p>
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Encoding Object Example</h5>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">requestBody:</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">multipart/mixed:</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          id:</span>
-            <span class="hljs-comment"># default is text/plain</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">uuid</span>
-<span class="hljs-attr">          address:</span>
-            <span class="hljs-comment"># default is application/json</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">            properties:</span> <span class="hljs-string">{}</span>
-<span class="hljs-attr">          historyMetadata:</span>
-            <span class="hljs-comment"># need to declare XML format!</span>
-<span class="hljs-attr">            description:</span> <span class="hljs-string">metadata</span> <span class="hljs-string">in</span> <span class="hljs-string">XML</span> <span class="hljs-string">format</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">            properties:</span> <span class="hljs-string">{}</span>
-<span class="hljs-attr">          profileImage:</span>
-            <span class="hljs-comment"># default is application/octet-stream, need to declare an image type only!</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">binary</span>
-<span class="hljs-attr">      encoding:</span>
-<span class="hljs-attr">        historyMetadata:</span>
-          <span class="hljs-comment"># require XML Content-Type in utf-8 encoding</span>
-<span class="hljs-attr">          contentType:</span> <span class="hljs-string">application/xml;</span> <span class="hljs-string">charset=utf-8</span>
-<span class="hljs-attr">        profileImage:</span>
-          <span class="hljs-comment"># only accept png/jpeg</span>
-<span class="hljs-attr">          contentType:</span> <span class="hljs-string">image/png,</span> <span class="hljs-string">image/jpeg</span>
-<span class="hljs-attr">          headers:</span>
-<span class="hljs-attr">            X-Rate-Limit-Limit:</span>
-<span class="hljs-attr">              description:</span> <span class="hljs-string">The</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">allowed</span> <span class="hljs-string">requests</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">period</span>
-<span class="hljs-attr">              schema:</span>
-<span class="hljs-attr">                type:</span> <span class="hljs-string">integer</span>
+<pre class="highlight"><code>
+requestBody:
+  content:
+    multipart/mixed:
+      schema:
+        type: object
+        properties:
+          id:
+            # default is text/plain
+            type: string
+            format: uuid
+          address:
+            # default is application/json
+            type: object
+            properties: {}
+          historyMetadata:
+            # need to declare XML format!
+            description: metadata in XML format
+            type: object
+            properties: {}
+          profileImage:
+            # default is application/octet-stream, need to declare an image type only!
+            type: string
+            format: binary
+      encoding:
+        historyMetadata:
+          # require XML Content-Type in utf-8 encoding
+          contentType: application/xml; charset=utf-8
+        profileImage:
+          # only accept png/jpeg
+          contentType: image/png, image/jpeg
+          headers:
+            X-Rate-Limit-Limit:
+              description: The number of allowed requests in the current period
+              schema:
+                type: integer
 </code></pre>
 </section></section><section><h4><a id="responsesObject">Responses Object</a></h4>
 <p>A container for the expected responses of an operation.
@@ -2079,43 +2079,43 @@ SHOULD be the response for a successful operation call.</p>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Responses Object Example</h5>
 <p>A 200 response for a successful operation and a default response for others (implying an error):</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"200"</span>: {
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"a pet to be returned"</span>,
-    <span class="hljs-attr">"content"</span>: {
-      <span class="hljs-attr">"application/json"</span>: {
-        <span class="hljs-attr">"schema"</span>: {
-          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+  &quot;200&quot;: {
+    &quot;description&quot;: &quot;a pet to be returned&quot;,
+    &quot;content&quot;: {
+      &quot;application/json&quot;: {
+        &quot;schema&quot;: {
+          &quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
         }
       }
     }
   },
-  <span class="hljs-attr">"default"</span>: {
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Unexpected error"</span>,
-    <span class="hljs-attr">"content"</span>: {
-      <span class="hljs-attr">"application/json"</span>: {
-        <span class="hljs-attr">"schema"</span>: {
-          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/ErrorModel"</span>
+  &quot;default&quot;: {
+    &quot;description&quot;: &quot;Unexpected error&quot;,
+    &quot;content&quot;: {
+      &quot;application/json&quot;: {
+        &quot;schema&quot;: {
+          &quot;$ref&quot;: &quot;#/components/schemas/ErrorModel&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">a</span> <span class="hljs-string">pet</span> <span class="hljs-string">to</span> <span class="hljs-string">be</span> <span class="hljs-string">returned</span>
-<span class="hljs-attr">  content:</span> 
-    <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">      schema:</span>
-        <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Pet'</span>
-<span class="hljs-attr">default:</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-string">Unexpected</span> <span class="hljs-string">error</span>
-<span class="hljs-attr">  content:</span>
-    <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">      schema:</span>
-        <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/ErrorModel'</span>
+<pre class="highlight"><code>
+'200':
+  description: a pet to be returned
+  content: 
+    application/json:
+      schema:
+        $ref: '#/components/schemas/Pet'
+default:
+  description: Unexpected error
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/ErrorModel'
 </code></pre>
 </section></section><section><h4><a id="responseObject">Response Object</a></h4>
 <p>Describes a single response from an API Operation, including design-time, static
@@ -2155,113 +2155,113 @@ SHOULD be the response for a successful operation call.</p>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Response Object Examples</h5>
 <p>Response of an array of a complex type:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A complex object array response"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"application/json"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-        <span class="hljs-attr">"items"</span>: {
-          <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/VeryComplexType"</span>
+  &quot;description&quot;: &quot;A complex object array response&quot;,
+  &quot;content&quot;: {
+    &quot;application/json&quot;: {
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;items&quot;: {
+          &quot;$ref&quot;: &quot;#/components/schemas/VeryComplexType&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">complex</span> <span class="hljs-string">object</span> <span class="hljs-string">array</span> <span class="hljs-string">response</span>
-<span class="hljs-attr">content:</span> 
-  <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">    schema:</span> 
-<span class="hljs-attr">      type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">      items:</span>
-        <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/VeryComplexType'</span>
+<pre class="highlight"><code>
+description: A complex object array response
+content: 
+  application/json:
+    schema: 
+      type: array
+      items:
+        $ref: '#/components/schemas/VeryComplexType'
 </code></pre>
 <p>Response with a string type:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A simple string response"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"text/plain"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;description&quot;: &quot;A simple string response&quot;,
+  &quot;content&quot;: {
+    &quot;text/plain&quot;: {
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
       }
     }
   }
 
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">simple</span> <span class="hljs-string">string</span> <span class="hljs-string">response</span>
-<span class="hljs-attr">content:</span>
-  <span class="hljs-string">text/plain:</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+description: A simple string response
+content:
+  text/plain:
+    schema:
+      type: string
 </code></pre>
 <p>Plain text response with headers:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A simple string response"</span>,
-  <span class="hljs-attr">"content"</span>: {
-    <span class="hljs-attr">"text/plain"</span>: {
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;description&quot;: &quot;A simple string response&quot;,
+  &quot;content&quot;: {
+    &quot;text/plain&quot;: {
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
       }
     }
   },
-  <span class="hljs-attr">"headers"</span>: {
-    <span class="hljs-attr">"X-Rate-Limit-Limit"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The number of allowed requests in the current period"</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+  &quot;headers&quot;: {
+    &quot;X-Rate-Limit-Limit&quot;: {
+      &quot;description&quot;: &quot;The number of allowed requests in the current period&quot;,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;integer&quot;
       }
     },
-    <span class="hljs-attr">"X-Rate-Limit-Remaining"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The number of remaining requests in the current period"</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+    &quot;X-Rate-Limit-Remaining&quot;: {
+      &quot;description&quot;: &quot;The number of remaining requests in the current period&quot;,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;integer&quot;
       }
     },
-    <span class="hljs-attr">"X-Rate-Limit-Reset"</span>: {
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The number of seconds left in the current period"</span>,
-      <span class="hljs-attr">"schema"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+    &quot;X-Rate-Limit-Reset&quot;: {
+      &quot;description&quot;: &quot;The number of seconds left in the current period&quot;,
+      &quot;schema&quot;: {
+        &quot;type&quot;: &quot;integer&quot;
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">simple</span> <span class="hljs-string">string</span> <span class="hljs-string">response</span>
-<span class="hljs-attr">content:</span>
-  <span class="hljs-string">text/plain:</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    example:</span> <span class="hljs-string">'whoa!'</span>
-<span class="hljs-attr">headers:</span>
-<span class="hljs-attr">  X-Rate-Limit-Limit:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">The</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">allowed</span> <span class="hljs-string">requests</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">period</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">  X-Rate-Limit-Remaining:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">The</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">remaining</span> <span class="hljs-string">requests</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">period</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">  X-Rate-Limit-Reset:</span>
-<span class="hljs-attr">    description:</span> <span class="hljs-string">The</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">seconds</span> <span class="hljs-string">left</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">period</span>
-<span class="hljs-attr">    schema:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">integer</span>
+<pre class="highlight"><code>
+description: A simple string response
+content:
+  text/plain:
+    schema:
+      type: string
+    example: 'whoa!'
+headers:
+  X-Rate-Limit-Limit:
+    description: The number of allowed requests in the current period
+    schema:
+      type: integer
+  X-Rate-Limit-Remaining:
+    description: The number of remaining requests in the current period
+    schema:
+      type: integer
+  X-Rate-Limit-Reset:
+    description: The number of seconds left in the current period
+    schema:
+      type: integer
 </code></pre>
 <p>Response with no return value:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"object created"</span>
+  &quot;description&quot;: &quot;object created&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">object</span> <span class="hljs-string">created</span>
+<pre class="highlight"><code>
+description: object created
 </code></pre>
 </section></section><section><h4><a id="callbackObject">Callback Object</a></h4>
 <p>A map of possible out-of band callbacks related to the parent operation.
@@ -2291,24 +2291,24 @@ A simple example might be <code>$request.body#/url</code>.
 However, using a <a href="#runtimeExpression">runtime expression</a> the complete HTTP message can be accessed.
 This includes accessing any part of a body that a JSON Pointer [[!rfc6901]] can reference.</p>
 <p>For example, given the following HTTP request:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-keyword">POST</span> <span class="hljs-string">/subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: example.org
-<span class="hljs-attribute">Content-Type</span>: application/json
-<span class="hljs-attribute">Content-Length</span>: 187
+<pre class="highlight"><code>
+POST /subscribe/myevent?queryUrl=http://clientdomain.com/stillrunning HTTP/1.1
+Host: example.org
+Content-Type: application/json
+Content-Length: 187
 
-<span class="groovy">{
-  <span class="hljs-string">"failedUrl"</span> : <span class="hljs-string">"http://clientdomain.com/failed"</span>,
-  <span class="hljs-string">"successUrls"</span> : [
-    <span class="hljs-string">"http://clientdomain.com/fast"</span>,
-    <span class="hljs-string">"http://clientdomain.com/medium"</span>,
-    <span class="hljs-string">"http://clientdomain.com/slow"</span>
+{
+  &quot;failedUrl&quot; : &quot;http://clientdomain.com/failed&quot;,
+  &quot;successUrls&quot; : [
+    &quot;http://clientdomain.com/fast&quot;,
+    &quot;http://clientdomain.com/medium&quot;,
+    &quot;http://clientdomain.com/slow&quot;
   ] 
 }
 
-<span class="hljs-number">201</span> Created
-<span class="hljs-string">Location:</span> <span class="hljs-string">http:</span><span class="hljs-comment">//example.org/subscription/1</span>
-</span></code></pre>
+201 Created
+Location: http://example.org/subscription/1
+</code></pre>
 <p>The following examples show how the various expressions evaluate, assuming the callback operation has a path parameter named <code>eventType</code> and a query parameter named <code>queryUrl</code>.</p>
 <table>
 <thead>
@@ -2354,19 +2354,19 @@ This includes accessing any part of a body that a JSON Pointer [[!rfc6901]] can 
 </table>
 </section><section><h5>Callback Object Example</h5>
 <p>The following example shows a callback to the URL specified by the <code>id</code> and <code>email</code> property in the request body.</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">myWebhook:</span>
-  <span class="hljs-string">'http://notificationServer.com?transactionId={$request.body#/id}&amp;email={$request.body#/email}'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">    post:</span>
-<span class="hljs-attr">      requestBody:</span>
-<span class="hljs-attr">        description:</span> <span class="hljs-string">Callback</span> <span class="hljs-string">payload</span>
-<span class="hljs-attr">        content:</span> 
-          <span class="hljs-string">'application/json'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">            schema:</span>
-              <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/SomePayload'</span>
-<span class="hljs-attr">      responses:</span>
-        <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">          description:</span> <span class="hljs-string">webhook</span> <span class="hljs-string">successfully</span> <span class="hljs-string">processed</span> <span class="hljs-string">and</span> <span class="hljs-literal">no</span> <span class="hljs-string">retries</span> <span class="hljs-string">will</span> <span class="hljs-string">be</span> <span class="hljs-string">performed</span>
+<pre class="highlight"><code>
+myWebhook:
+  'http://notificationServer.com?transactionId={$request.body#/id}&amp;email={$request.body#/email}':
+    post:
+      requestBody:
+        description: Callback payload
+        content: 
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/SomePayload'
+      responses:
+        '200':
+          description: webhook successfully processed and no retries will be performed
 </code></pre>
 </section></section><section><h4><a id="exampleObject">Example Object</a></h4>
 <section><h5>Fixed Fields</h5>
@@ -2406,63 +2406,63 @@ This includes accessing any part of a body that a JSON Pointer [[!rfc6901]] can 
 of its associated value.  Tooling implementations MAY choose to
 validate compatibility automatically, and reject the example value(s) if incompatible.</p>
 </section><section><h5>Example Object Example</h5>
-<pre class="nohighlight"><code>
-<span class="hljs-comment"># in a model</span>
-<span class="hljs-attr">schemas:</span>
-<span class="hljs-attr">  properties:</span>
-<span class="hljs-attr">    name:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">      examples:</span>
-<span class="hljs-attr">        name:</span>
-          <span class="hljs-string">$ref:</span> <span class="hljs-attr">http://example.org/petapi-examples/openapi.json#/components/examples/name-example</span>
+<pre class="highlight"><code>
+# in a model
+schemas:
+  properties:
+    name:
+      type: string
+      examples:
+        name:
+          $ref: http://example.org/petapi-examples/openapi.json#/components/examples/name-example
 
-<span class="hljs-comment"># in a request body:</span>
-<span class="hljs-attr">  requestBody:</span>
-<span class="hljs-attr">    content:</span>
-      <span class="hljs-string">'application/json'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">        schema:</span>
-          <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Address'</span>
-<span class="hljs-attr">        examples:</span> 
-<span class="hljs-attr">          foo:</span>
-<span class="hljs-attr">            summary:</span> <span class="hljs-string">A</span> <span class="hljs-string">foo</span> <span class="hljs-string">example</span>
-<span class="hljs-attr">            value:</span> <span class="hljs-string">{"foo":</span> <span class="hljs-string">"bar"</span><span class="hljs-string">}</span>
-<span class="hljs-attr">          bar:</span>
-<span class="hljs-attr">            summary:</span> <span class="hljs-string">A</span> <span class="hljs-string">bar</span> <span class="hljs-string">example</span>
-<span class="hljs-attr">            value:</span> <span class="hljs-string">{"bar":</span> <span class="hljs-string">"baz"</span><span class="hljs-string">}</span>
-      <span class="hljs-string">'application/xml'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">        examples:</span> 
-<span class="hljs-attr">          xmlExample:</span>
-<span class="hljs-attr">            summary:</span> <span class="hljs-string">This</span> <span class="hljs-string">is</span> <span class="hljs-string">an</span> <span class="hljs-string">example</span> <span class="hljs-string">in</span> <span class="hljs-string">XML</span>
-<span class="hljs-attr">            externalValue:</span> <span class="hljs-string">'http://example.org/examples/address-example.xml'</span>
-      <span class="hljs-string">'text/plain'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">        examples:</span>
-<span class="hljs-attr">          textExample:</span> 
-<span class="hljs-attr">            summary:</span> <span class="hljs-string">This</span> <span class="hljs-string">is</span> <span class="hljs-string">a</span> <span class="hljs-string">text</span> <span class="hljs-string">example</span>
-<span class="hljs-attr">            externalValue:</span> <span class="hljs-string">'http://foo.bar/examples/address-example.txt'</span> 
+# in a request body:
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '#/components/schemas/Address'
+        examples: 
+          foo:
+            summary: A foo example
+            value: {&quot;foo&quot;: &quot;bar&quot;}
+          bar:
+            summary: A bar example
+            value: {&quot;bar&quot;: &quot;baz&quot;}
+      'application/xml':
+        examples: 
+          xmlExample:
+            summary: This is an example in XML
+            externalValue: 'http://example.org/examples/address-example.xml'
+      'text/plain':
+        examples:
+          textExample: 
+            summary: This is a text example
+            externalValue: 'http://foo.bar/examples/address-example.txt' 
 
 
-<span class="hljs-comment"># in a parameter</span>
-<span class="hljs-attr">  parameters:</span>
-<span class="hljs-attr">    - name:</span> <span class="hljs-string">'zipCode'</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">'query'</span>
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">'string'</span>
-<span class="hljs-attr">        format:</span> <span class="hljs-string">'zip-code'</span>
-<span class="hljs-attr">        examples:</span>
-<span class="hljs-attr">          zip-example:</span> 
-            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/examples/zip-example'</span>
+# in a parameter
+  parameters:
+    - name: 'zipCode'
+      in: 'query'
+      schema:
+        type: 'string'
+        format: 'zip-code'
+        examples:
+          zip-example: 
+            $ref: '#/components/examples/zip-example'
 
-<span class="hljs-comment"># in a response</span>
-<span class="hljs-attr">  responses:</span>
-    <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">your</span> <span class="hljs-string">car</span> <span class="hljs-string">appointment</span> <span class="hljs-string">has</span> <span class="hljs-string">been</span> <span class="hljs-string">booked</span>
-<span class="hljs-attr">      content:</span> 
-        <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">          schema:</span>
-            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/SuccessResponse'</span>
-<span class="hljs-attr">          examples:</span>
-<span class="hljs-attr">            confirmation-success:</span>
-              <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/examples/confirmation-success'</span>
+# in a response
+  responses:
+    '200':
+      description: your car appointment has been booked
+      content: 
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessResponse'
+          examples:
+            confirmation-success:
+              $ref: '#/components/examples/confirmation-success'
 </code></pre>
 </section></section><section><h4><a id="linkObject">Link Object</a></h4>
 <p>The <code>Link object</code> represents a possible design-time link for a response.
@@ -2518,60 +2518,60 @@ Because of the potential for name clashes, the <code>operationRef</code> syntax 
 for specifications with external references.</p>
 </section><section><h5>Examples</h5>
 <p>Computing a link from a request operation where the <code>$request.path.id</code> is used to pass a request parameter to the linked operation.</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">paths:</span>
-  <span class="hljs-string">/users/{id}:</span>
-<span class="hljs-attr">    parameters:</span>
-<span class="hljs-attr">    - name:</span> <span class="hljs-string">id</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">path</span>
-<span class="hljs-attr">      required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">the</span> <span class="hljs-string">user</span> <span class="hljs-string">identifier,</span> <span class="hljs-string">as</span> <span class="hljs-string">userId</span> 
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    get:</span>
-<span class="hljs-attr">      responses:</span>
-        <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">          description:</span> <span class="hljs-string">the</span> <span class="hljs-string">user</span> <span class="hljs-string">being</span> <span class="hljs-string">returned</span>
-<span class="hljs-attr">          content:</span>
-            <span class="hljs-string">application/json:</span>
-<span class="hljs-attr">              schema:</span>
-<span class="hljs-attr">                type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">                properties:</span>
-<span class="hljs-attr">                  uuid:</span> <span class="hljs-comment"># the unique user id</span>
-<span class="hljs-attr">                    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">                    format:</span> <span class="hljs-string">uuid</span>
-<span class="hljs-attr">          links:</span>
-<span class="hljs-attr">            address:</span>
-              <span class="hljs-comment"># the target link operationId</span>
-<span class="hljs-attr">              operationId:</span> <span class="hljs-string">getUserAddress</span>
-<span class="hljs-attr">              parameters:</span>
-                <span class="hljs-comment"># get the `id` field from the request path parameter named `id`</span>
-<span class="hljs-attr">                userId:</span> <span class="hljs-string">$request.path.id</span>
-  <span class="hljs-comment"># the path item of the linked operation</span>
-  <span class="hljs-string">/users/{userid}/address:</span>
-<span class="hljs-attr">    parameters:</span>
-<span class="hljs-attr">    - name:</span> <span class="hljs-string">userid</span>
-<span class="hljs-attr">      in:</span> <span class="hljs-string">path</span>
-<span class="hljs-attr">      required:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">the</span> <span class="hljs-string">user</span> <span class="hljs-string">identifier,</span> <span class="hljs-string">as</span> <span class="hljs-string">userId</span> 
-<span class="hljs-attr">      schema:</span>
-<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
-    <span class="hljs-comment"># linked operation</span>
-<span class="hljs-attr">    get:</span>
-<span class="hljs-attr">      operationId:</span> <span class="hljs-string">getUserAddress</span>
-<span class="hljs-attr">      responses:</span>
-        <span class="hljs-string">'200'</span><span class="hljs-string">:</span>
-<span class="hljs-attr">          description:</span> <span class="hljs-string">the</span> <span class="hljs-string">user's</span> <span class="hljs-string">address</span>
+<pre class="highlight"><code>
+paths:
+  /users/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: the user identifier, as userId 
+      schema:
+        type: string
+    get:
+      responses:
+        '200':
+          description: the user being returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid: # the unique user id
+                    type: string
+                    format: uuid
+          links:
+            address:
+              # the target link operationId
+              operationId: getUserAddress
+              parameters:
+                # get the `id` field from the request path parameter named `id`
+                userId: $request.path.id
+  # the path item of the linked operation
+  /users/{userid}/address:
+    parameters:
+    - name: userid
+      in: path
+      required: true
+      description: the user identifier, as userId 
+      schema:
+        type: string
+    # linked operation
+    get:
+      operationId: getUserAddress
+      responses:
+        '200':
+          description: the user's address
 </code></pre>
 <p>When a runtime expression fails to evaluate, no parameter value is passed to the target operation.</p>
 <p>Values from the response body can be used to drive a linked operation.</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">links:</span>
-<span class="hljs-attr">  address:</span>
-<span class="hljs-attr">    operationId:</span> <span class="hljs-string">getUserAddressByUUID</span>
-<span class="hljs-attr">    parameters:</span>
-      <span class="hljs-comment"># get the `uuid` field from the `uuid` field in the response body</span>
-<span class="hljs-attr">      userUuid:</span> <span class="hljs-string">$response.body#/uuid</span>
+<pre class="highlight"><code>
+links:
+  address:
+    operationId: getUserAddressByUUID
+    parameters:
+      # get the `uuid` field from the `uuid` field in the response body
+      userUuid: $response.body#/uuid
 </code></pre>
 <p>Clients follow all links at their discretion.
 Neither permissions, nor the capability to make a successful call to that link, is guaranteed
@@ -2579,22 +2579,22 @@ solely by the existence of a relationship.</p>
 </section><section><h5>OperationRef Examples</h5>
 <p>As references to <code>operationId</code> MAY NOT be possible (the <code>operationId</code> is an optional
 value), references MAY also be made through a relative <code>operationRef</code>:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">links:</span>
-<span class="hljs-attr">  UserRepositories:</span>
-    <span class="hljs-comment"># returns array of '#/components/schemas/repository'</span>
-<span class="hljs-attr">    operationRef:</span> <span class="hljs-string">'#/paths/~12.0~1repositories~1{username}/get'</span>
-<span class="hljs-attr">    parameters:</span>
-<span class="hljs-attr">      username:</span> <span class="hljs-string">$response.body#/username</span>
+<pre class="highlight"><code>
+links:
+  UserRepositories:
+    # returns array of '#/components/schemas/repository'
+    operationRef: '#/paths/~12.0~1repositories~1{username}/get'
+    parameters:
+      username: $response.body#/username
 </code></pre>
 <p>or an absolute <code>operationRef</code>:</p>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">links:</span>
-<span class="hljs-attr">  UserRepositories:</span>
-    <span class="hljs-comment"># returns array of '#/components/schemas/repository'</span>
-<span class="hljs-attr">    operationRef:</span> <span class="hljs-string">'https://na2.gigantic-server.com/#/paths/~12.0~1repositories~1{username}/get'</span>
-<span class="hljs-attr">    parameters:</span>
-<span class="hljs-attr">      username:</span> <span class="hljs-string">$response.body#/username</span>
+<pre class="highlight"><code>
+links:
+  UserRepositories:
+    # returns array of '#/components/schemas/repository'
+    operationRef: 'https://na2.gigantic-server.com/#/paths/~12.0~1repositories~1{username}/get'
+    parameters:
+      username: $response.body#/username
 </code></pre>
 <p>Note that in the use of <code>operationRef</code>, the <em>escaped forward-slash</em> is necessary when
 using JSON references.</p>
@@ -2674,18 +2674,18 @@ Expressions can be embedded into string values by surrounding the expression wit
 </ol>
 <section><h5>Header Object Example</h5>
 <p>A simple header of type <code>integer</code>:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The number of allowed requests in the current period"</span>,
-  <span class="hljs-attr">"schema"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>
+  &quot;description&quot;: &quot;The number of allowed requests in the current period&quot;,
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;integer&quot;
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">description:</span> <span class="hljs-string">The</span> <span class="hljs-string">number</span> <span class="hljs-string">of</span> <span class="hljs-string">allowed</span> <span class="hljs-string">requests</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">period</span>
-<span class="hljs-attr">schema:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">integer</span>
+<pre class="highlight"><code>
+description: The number of allowed requests in the current period
+schema:
+  type: integer
 </code></pre>
 </section></section><section><h4><a id="tagObject">Tag Object</a></h4>
 <p>Adds metadata to a single tag that is used by the <a href="#operationObject">Operation Object</a>.
@@ -2719,15 +2719,15 @@ It is not mandatory to have a Tag Object per tag defined in the Operation Object
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Tag Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-	<span class="hljs-attr">"name"</span>: <span class="hljs-string">"pet"</span>,
-	<span class="hljs-attr">"description"</span>: <span class="hljs-string">"Pets operations"</span>
+	&quot;name&quot;: &quot;pet&quot;,
+	&quot;description&quot;: &quot;Pets operations&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">name:</span> <span class="hljs-string">pet</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">Pets</span> <span class="hljs-string">operations</span>
+<pre class="highlight"><code>
+name: pet
+description: Pets operations
 </code></pre>
 </section></section><section><h4><a id="referenceObject">Reference Object</a></h4>
 <p>A simple object to allow referencing other components in the specification, internally and externally.</p>
@@ -2752,31 +2752,31 @@ It is not mandatory to have a Tag Object per tag defined in the Operation Object
 </table>
 <p>This object cannot be extended with additional properties and any properties added SHALL be ignored.</p>
 </section><section><h5>Reference Object Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-	<span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+	&quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Pet'</span>
+<pre class="highlight"><code>
+$ref: '#/components/schemas/Pet'
 </code></pre>
 </section><section><h5>Relative Schema Document Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"Pet.json"</span>
+  &quot;$ref&quot;: &quot;Pet.json&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">$ref:</span> <span class="hljs-string">Pet.yaml</span>
+<pre class="highlight"><code>
+$ref: Pet.yaml
 </code></pre>
 </section><section><h5>Relative Documents With Embedded Schema Example</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"definitions.json#/Pet"</span>
+  &quot;$ref&quot;: &quot;definitions.json#/Pet&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-string">$ref:</span> <span class="hljs-string">definitions.yaml#/Pet</span>
+<pre class="highlight"><code>
+$ref: definitions.yaml#/Pet
 </code></pre>
 </section></section><section><h4><a id="schemaObject">Schema Object</a></h4>
 <p>The Schema Object allows the definition of input and output data types.
@@ -2892,152 +2892,152 @@ As such, inline schema definitions, which do not have a given id, <em>cannot</em
 The <a href="#xmlObject">XML Object</a> contains additional information about the available options.</p>
 </section></section><section><h5>Schema Object Examples</h5>
 <section><h6>Primitive Sample</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"format"</span>: <span class="hljs-string">"email"</span>
+  &quot;type&quot;: &quot;string&quot;,
+  &quot;format&quot;: &quot;email&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">format:</span> <span class="hljs-string">email</span>
+<pre class="highlight"><code>
+type: string
+format: email
 </code></pre>
 </section><section><h6>Simple Model</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-  <span class="hljs-attr">"required"</span>: [
-    <span class="hljs-string">"name"</span>
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;required&quot;: [
+    &quot;name&quot;
   ],
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"name"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;properties&quot;: {
+    &quot;name&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     },
-    <span class="hljs-attr">"address"</span>: {
-      <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Address"</span>
+    &quot;address&quot;: {
+      &quot;$ref&quot;: &quot;#/components/schemas/Address&quot;
     },
-    <span class="hljs-attr">"age"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int32"</span>,
-      <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+    &quot;age&quot;: {
+      &quot;type&quot;: &quot;integer&quot;,
+      &quot;format&quot;: &quot;int32&quot;,
+      &quot;minimum&quot;: 0
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">required:</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">name</span>
-<span class="hljs-attr">properties:</span>
-<span class="hljs-attr">  name:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  address:</span>
-    <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Address'</span>
-<span class="hljs-attr">  age:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">    format:</span> <span class="hljs-string">int32</span>
-<span class="hljs-attr">    minimum:</span> <span class="hljs-number">0</span>
+<pre class="highlight"><code>
+type: object
+required:
+- name
+properties:
+  name:
+    type: string
+  address:
+    $ref: '#/components/schemas/Address'
+  age:
+    type: integer
+    format: int32
+    minimum: 0
 </code></pre>
 </section><section><h6>Model with Map/Dictionary Properties</h6>
 <p>For a simple string to string mapping:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-  <span class="hljs-attr">"additionalProperties"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;additionalProperties&quot;: {
+    &quot;type&quot;: &quot;string&quot;
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">additionalProperties:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+type: object
+additionalProperties:
+  type: string
 </code></pre>
 <p>For a string to model mapping:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-  <span class="hljs-attr">"additionalProperties"</span>: {
-    <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/ComplexModel"</span>
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;additionalProperties&quot;: {
+    &quot;$ref&quot;: &quot;#/components/schemas/ComplexModel&quot;
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">additionalProperties:</span>
-  <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/ComplexModel'</span>
+<pre class="highlight"><code>
+type: object
+additionalProperties:
+  $ref: '#/components/schemas/ComplexModel'
 </code></pre>
 </section><section><h6>Model with Example</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"id"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-      <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int64"</span>
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;id&quot;: {
+      &quot;type&quot;: &quot;integer&quot;,
+      &quot;format&quot;: &quot;int64&quot;
     },
-    <span class="hljs-attr">"name"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+    &quot;name&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     }
   },
-  <span class="hljs-attr">"required"</span>: [
-    <span class="hljs-string">"name"</span>
+  &quot;required&quot;: [
+    &quot;name&quot;
   ],
-  <span class="hljs-attr">"example"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Puma"</span>,
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
+  &quot;example&quot;: {
+    &quot;name&quot;: &quot;Puma&quot;,
+    &quot;id&quot;: 1
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">properties:</span>
-<span class="hljs-attr">  id:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">    format:</span> <span class="hljs-string">int64</span>
-<span class="hljs-attr">  name:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">required:</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">name</span>
-<span class="hljs-attr">example:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">Puma</span>
-<span class="hljs-attr">  id:</span> <span class="hljs-number">1</span>
+<pre class="highlight"><code>
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type: string
+required:
+- name
+example:
+  name: Puma
+  id: 1
 </code></pre>
 </section><section><h6>Models with Composition</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"components"</span>: {
-    <span class="hljs-attr">"schemas"</span>: {
-      <span class="hljs-attr">"ErrorModel"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-        <span class="hljs-attr">"required"</span>: [
-          <span class="hljs-string">"message"</span>,
-          <span class="hljs-string">"code"</span>
+  &quot;components&quot;: {
+    &quot;schemas&quot;: {
+      &quot;ErrorModel&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;required&quot;: [
+          &quot;message&quot;,
+          &quot;code&quot;
         ],
-        <span class="hljs-attr">"properties"</span>: {
-          <span class="hljs-attr">"message"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        &quot;properties&quot;: {
+          &quot;message&quot;: {
+            &quot;type&quot;: &quot;string&quot;
           },
-          <span class="hljs-attr">"code"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-            <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">100</span>,
-            <span class="hljs-attr">"maximum"</span>: <span class="hljs-number">600</span>
+          &quot;code&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;minimum&quot;: 100,
+            &quot;maximum&quot;: 600
           }
         }
       },
-      <span class="hljs-attr">"ExtendedErrorModel"</span>: {
-        <span class="hljs-attr">"allOf"</span>: [
+      &quot;ExtendedErrorModel&quot;: {
+        &quot;allOf&quot;: [
           {
-            <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/ErrorModel"</span>
+            &quot;$ref&quot;: &quot;#/components/schemas/ErrorModel&quot;
           },
           {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-            <span class="hljs-attr">"required"</span>: [
-              <span class="hljs-string">"rootCause"</span>
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;required&quot;: [
+              &quot;rootCause&quot;
             ],
-            <span class="hljs-attr">"properties"</span>: {
-              <span class="hljs-attr">"rootCause"</span>: {
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+            &quot;properties&quot;: {
+              &quot;rootCause&quot;: {
+                &quot;type&quot;: &quot;string&quot;
               }
             }
           }
@@ -3047,100 +3047,100 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">components:</span>
-<span class="hljs-attr">  schemas:</span>
-<span class="hljs-attr">    ErrorModel:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">      required:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">message</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">code</span>
-<span class="hljs-attr">      properties:</span>
-<span class="hljs-attr">        message:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">        code:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">          minimum:</span> <span class="hljs-number">100</span>
-<span class="hljs-attr">          maximum:</span> <span class="hljs-number">600</span>
-<span class="hljs-attr">    ExtendedErrorModel:</span>
-<span class="hljs-attr">      allOf:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/ErrorModel'</span>
-<span class="hljs-attr">      - type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        required:</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">rootCause</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          rootCause:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+components:
+  schemas:
+    ErrorModel:
+      type: object
+      required:
+      - message
+      - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
+    ExtendedErrorModel:
+      allOf:
+      - $ref: '#/components/schemas/ErrorModel'
+      - type: object
+        required:
+        - rootCause
+        properties:
+          rootCause:
+            type: string
 </code></pre>
 </section><section><h6>Models with Polymorphism Support</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"components"</span>: {
-    <span class="hljs-attr">"schemas"</span>: {
-      <span class="hljs-attr">"Pet"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-        <span class="hljs-attr">"discriminator"</span>: {
-          <span class="hljs-attr">"propertyName"</span>: <span class="hljs-string">"petType"</span>
+  &quot;components&quot;: {
+    &quot;schemas&quot;: {
+      &quot;Pet&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;discriminator&quot;: {
+          &quot;propertyName&quot;: &quot;petType&quot;
         },
-        <span class="hljs-attr">"properties"</span>: {
-          <span class="hljs-attr">"name"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        &quot;properties&quot;: {
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;
           },
-          <span class="hljs-attr">"petType"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+          &quot;petType&quot;: {
+            &quot;type&quot;: &quot;string&quot;
           }
         },
-        <span class="hljs-attr">"required"</span>: [
-          <span class="hljs-string">"name"</span>,
-          <span class="hljs-string">"petType"</span>
+        &quot;required&quot;: [
+          &quot;name&quot;,
+          &quot;petType&quot;
         ]
       },
-      <span class="hljs-attr">"Cat"</span>: {
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A representation of a cat. Note that `Cat` will be used as the discriminator value."</span>,
-        <span class="hljs-attr">"allOf"</span>: [
+      &quot;Cat&quot;: {
+        &quot;description&quot;: &quot;A representation of a cat. Note that `Cat` will be used as the discriminator value.&quot;,
+        &quot;allOf&quot;: [
           {
-            <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+            &quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
           },
           {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-            <span class="hljs-attr">"properties"</span>: {
-              <span class="hljs-attr">"huntingSkill"</span>: {
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The measured skill for hunting"</span>,
-                <span class="hljs-attr">"default"</span>: <span class="hljs-string">"lazy"</span>,
-                <span class="hljs-attr">"enum"</span>: [
-                  <span class="hljs-string">"clueless"</span>,
-                  <span class="hljs-string">"lazy"</span>,
-                  <span class="hljs-string">"adventurous"</span>,
-                  <span class="hljs-string">"aggressive"</span>
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;huntingSkill&quot;: {
+                &quot;type&quot;: &quot;string&quot;,
+                &quot;description&quot;: &quot;The measured skill for hunting&quot;,
+                &quot;default&quot;: &quot;lazy&quot;,
+                &quot;enum&quot;: [
+                  &quot;clueless&quot;,
+                  &quot;lazy&quot;,
+                  &quot;adventurous&quot;,
+                  &quot;aggressive&quot;
                 ]
               }
             },
-            <span class="hljs-attr">"required"</span>: [
-              <span class="hljs-string">"huntingSkill"</span>
+            &quot;required&quot;: [
+              &quot;huntingSkill&quot;
             ]
           }
         ]
       },
-      <span class="hljs-attr">"Dog"</span>: {
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A representation of a dog. Note that `Dog` will be used as the discriminator value."</span>,
-        <span class="hljs-attr">"allOf"</span>: [
+      &quot;Dog&quot;: {
+        &quot;description&quot;: &quot;A representation of a dog. Note that `Dog` will be used as the discriminator value.&quot;,
+        &quot;allOf&quot;: [
           {
-            <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/components/schemas/Pet"</span>
+            &quot;$ref&quot;: &quot;#/components/schemas/Pet&quot;
           },
           {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-            <span class="hljs-attr">"properties"</span>: {
-              <span class="hljs-attr">"packSize"</span>: {
-                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-                <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int32"</span>,
-                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"the size of the pack the dog is from"</span>,
-                <span class="hljs-attr">"default"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"minimum"</span>: <span class="hljs-number">0</span>
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;packSize&quot;: {
+                &quot;type&quot;: &quot;integer&quot;,
+                &quot;format&quot;: &quot;int32&quot;,
+                &quot;description&quot;: &quot;the size of the pack the dog is from&quot;,
+                &quot;default&quot;: 0,
+                &quot;minimum&quot;: 0
               }
             },
-            <span class="hljs-attr">"required"</span>: [
-              <span class="hljs-string">"packSize"</span>
+            &quot;required&quot;: [
+              &quot;packSize&quot;
             ]
           }
         ]
@@ -3149,51 +3149,51 @@ The <a href="#xmlObject">XML Object</a> contains additional information about th
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">components:</span>
-<span class="hljs-attr">  schemas:</span>
-<span class="hljs-attr">    Pet:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">      discriminator:</span>
-<span class="hljs-attr">        propertyName:</span> <span class="hljs-string">petType</span>
-<span class="hljs-attr">      properties:</span>
-<span class="hljs-attr">        name:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">        petType:</span>
-<span class="hljs-attr">          type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">      required:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">name</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">petType</span>
-<span class="hljs-attr">    Cat:</span>  <span class="hljs-comment">## "Cat" will be used as the discriminator value</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">A</span> <span class="hljs-string">representation</span> <span class="hljs-string">of</span> <span class="hljs-string">a</span> <span class="hljs-string">cat</span>
-<span class="hljs-attr">      allOf:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Pet'</span>
-<span class="hljs-attr">      - type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          huntingSkill:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">            description:</span> <span class="hljs-string">The</span> <span class="hljs-string">measured</span> <span class="hljs-string">skill</span> <span class="hljs-string">for</span> <span class="hljs-string">hunting</span>
-<span class="hljs-attr">            enum:</span>
-<span class="hljs-bullet">            -</span> <span class="hljs-string">clueless</span>
-<span class="hljs-bullet">            -</span> <span class="hljs-string">lazy</span>
-<span class="hljs-bullet">            -</span> <span class="hljs-string">adventurous</span>
-<span class="hljs-bullet">            -</span> <span class="hljs-string">aggressive</span>
-<span class="hljs-attr">        required:</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">huntingSkill</span>
-<span class="hljs-attr">    Dog:</span>  <span class="hljs-comment">## "Dog" will be used as the discriminator value</span>
-<span class="hljs-attr">      description:</span> <span class="hljs-string">A</span> <span class="hljs-string">representation</span> <span class="hljs-string">of</span> <span class="hljs-string">a</span> <span class="hljs-string">dog</span>
-<span class="hljs-attr">      allOf:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/components/schemas/Pet'</span>
-<span class="hljs-attr">      - type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">        properties:</span>
-<span class="hljs-attr">          packSize:</span>
-<span class="hljs-attr">            type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">            format:</span> <span class="hljs-string">int32</span>
-<span class="hljs-attr">            description:</span> <span class="hljs-string">the</span> <span class="hljs-string">size</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">pack</span> <span class="hljs-string">the</span> <span class="hljs-string">dog</span> <span class="hljs-string">is</span> <span class="hljs-string">from</span>
-<span class="hljs-attr">            default:</span> <span class="hljs-number">0</span>
-<span class="hljs-attr">            minimum:</span> <span class="hljs-number">0</span>
-<span class="hljs-attr">        required:</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">packSize</span>
+<pre class="highlight"><code>
+components:
+  schemas:
+    Pet:
+      type: object
+      discriminator:
+        propertyName: petType
+      properties:
+        name:
+          type: string
+        petType:
+          type: string
+      required:
+      - name
+      - petType
+    Cat:  ## &quot;Cat&quot; will be used as the discriminator value
+      description: A representation of a cat
+      allOf:
+      - $ref: '#/components/schemas/Pet'
+      - type: object
+        properties:
+          huntingSkill:
+            type: string
+            description: The measured skill for hunting
+            enum:
+            - clueless
+            - lazy
+            - adventurous
+            - aggressive
+        required:
+        - huntingSkill
+    Dog:  ## &quot;Dog&quot; will be used as the discriminator value
+      description: A representation of a dog
+      allOf:
+      - $ref: '#/components/schemas/Pet'
+      - type: object
+        properties:
+          packSize:
+            type: integer
+            format: int32
+            description: the size of the pack the dog is from
+            default: 0
+            minimum: 0
+        required:
+        - packSize
 </code></pre>
 </section></section><section><h5><a id="discriminatorObject">Discriminator Object</a></h5>
 <p>When request bodies or response payloads may be one of a number of different schemas, a <code>discriminator</code> object can be used to aid in serialization, deserialization, and validation.  The discriminator is a specific object in a schema which is used to inform the consumer of the specification of an alternative schema based on the value associated with it.</p>
@@ -3365,290 +3365,290 @@ See examples for expected behavior.</p>
 <p>The examples of the XML object definitions are included inside a property definition of a <a href="#schemaObject">Schema Object</a> with a sample of the XML representation of it.</p>
 <section><h6>No XML Element</h6>
 <p>Basic string property:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-    <span class="hljs-attr">"animals"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+    &quot;animals&quot;: {
+        &quot;type&quot;: &quot;string&quot;
     }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+animals:
+  type: string
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animals&gt;...&lt;/animals&gt;
 </code></pre>
 <p>Basic string array property (<a href="#xmlWrapped"><code>wrapped</code></a> is <code>false</code> by default):</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-    <span class="hljs-attr">"animals"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-        <span class="hljs-attr">"items"</span>: {
-            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+    &quot;animals&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
         }
     }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animals&gt;...&lt;/animals&gt;
+&lt;animals&gt;...&lt;/animals&gt;
+&lt;animals&gt;...&lt;/animals&gt;
 </code></pre>
 </section><section><h6>XML Name Replacement</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"animal"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;string&quot;,
+    &quot;xml&quot;: {
+      &quot;name&quot;: &quot;animal&quot;
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">animal</span>
+<pre class="highlight"><code>
+animals:
+  type: string
+  xml:
+    name: animal
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animal&gt;...&lt;/animal&gt;
 </code></pre>
 </section><section><h6>XML Attribute, Prefix and Namespace</h6>
 <p>In this example, a full model definition is shown.</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"Person"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
-    <span class="hljs-attr">"properties"</span>: {
-      <span class="hljs-attr">"id"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"integer"</span>,
-        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"int32"</span>,
-        <span class="hljs-attr">"xml"</span>: {
-          <span class="hljs-attr">"attribute"</span>: <span class="hljs-literal">true</span>
+  &quot;Person&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+      &quot;id&quot;: {
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;format&quot;: &quot;int32&quot;,
+        &quot;xml&quot;: {
+          &quot;attribute&quot;: true
         }
       },
-      <span class="hljs-attr">"name"</span>: {
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-        <span class="hljs-attr">"xml"</span>: {
-          <span class="hljs-attr">"namespace"</span>: <span class="hljs-string">"http://example.com/schema/sample"</span>,
-          <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"sample"</span>
+      &quot;name&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;xml&quot;: {
+          &quot;namespace&quot;: &quot;http://example.com/schema/sample&quot;,
+          &quot;prefix&quot;: &quot;sample&quot;
         }
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">Person:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">object</span>
-<span class="hljs-attr">  properties:</span>
-<span class="hljs-attr">    id:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">integer</span>
-<span class="hljs-attr">      format:</span> <span class="hljs-string">int32</span>
-<span class="hljs-attr">      xml:</span>
-<span class="hljs-attr">        attribute:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">    name:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">      xml:</span>
-<span class="hljs-attr">        namespace:</span> <span class="hljs-attr">http://example.com/schema/sample</span>
-<span class="hljs-attr">        prefix:</span> <span class="hljs-string">sample</span>
+<pre class="highlight"><code>
+Person:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int32
+      xml:
+        attribute: true
+    name:
+      type: string
+      xml:
+        namespace: http://example.com/schema/sample
+        prefix: sample
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"123"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">sample:name</span> <span class="hljs-attr">xmlns:sample</span>=<span class="hljs-string">"http://example.com/schema/sample"</span>&gt;</span>example<span class="hljs-tag">&lt;/<span class="hljs-name">sample:name</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;Person id=&quot;123&quot;&gt;
+    &lt;sample:name xmlns:sample=&quot;http://example.com/schema/sample&quot;&gt;example&lt;/sample:name&gt;
+&lt;/Person&gt;
 </code></pre>
 </section><section><h6>XML Arrays</h6>
 <p>Changing the element names:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"xml"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"animal"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;xml&quot;: {
+        &quot;name&quot;: &quot;animal&quot;
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    xml:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">animal</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animal&gt;value&lt;/animal&gt;
+&lt;animal&gt;value&lt;/animal&gt;
 </code></pre>
 <p>The external <code>name</code> property has no effect on the XML:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"xml"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"animal"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;xml&quot;: {
+        &quot;name&quot;: &quot;animal&quot;
       }
     },
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aliens"</span>
+    &quot;xml&quot;: {
+      &quot;name&quot;: &quot;aliens&quot;
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    xml:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">animal</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
+  xml:
+    name: aliens
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animal&gt;value&lt;/animal&gt;
+&lt;animal&gt;value&lt;/animal&gt;
 </code></pre>
 <p>Even when the array is wrapped, if a name is not explicitly defined, the same name will be used both internally and externally:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     },
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"wrapped"</span>: <span class="hljs-literal">true</span>
+    &quot;xml&quot;: {
+      &quot;wrapped&quot;: true
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+  xml:
+    wrapped: true
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animals&gt;
+  &lt;animals&gt;value&lt;/animals&gt;
+  &lt;animals&gt;value&lt;/animals&gt;
+&lt;/animals&gt;
 </code></pre>
 <p>To overcome the naming problem in the example above, the following definition can be used:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"xml"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"animal"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;xml&quot;: {
+        &quot;name&quot;: &quot;animal&quot;
       }
     },
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"wrapped"</span>: <span class="hljs-literal">true</span>
+    &quot;xml&quot;: {
+      &quot;wrapped&quot;: true
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    xml:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">animal</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
+  xml:
+    wrapped: true
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">animals</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">animals</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;animals&gt;
+  &lt;animal&gt;value&lt;/animal&gt;
+  &lt;animal&gt;value&lt;/animal&gt;
+&lt;/animals&gt;
 </code></pre>
 <p>Affecting both internal and external names:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-      <span class="hljs-attr">"xml"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"animal"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;xml&quot;: {
+        &quot;name&quot;: &quot;animal&quot;
       }
     },
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aliens"</span>,
-      <span class="hljs-attr">"wrapped"</span>: <span class="hljs-literal">true</span>
+    &quot;xml&quot;: {
+      &quot;name&quot;: &quot;aliens&quot;,
+      &quot;wrapped&quot;: true
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">    xml:</span>
-<span class="hljs-attr">      name:</span> <span class="hljs-string">animal</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
-<span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+    xml:
+      name: animal
+  xml:
+    name: aliens
+    wrapped: true
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;aliens&gt;
+  &lt;animal&gt;value&lt;/animal&gt;
+  &lt;animal&gt;value&lt;/animal&gt;
+&lt;/aliens&gt;
 </code></pre>
 <p>If we change the external element but not the internal ones:</p>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"animals"</span>: {
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"array"</span>,
-    <span class="hljs-attr">"items"</span>: {
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+  &quot;animals&quot;: {
+    &quot;type&quot;: &quot;array&quot;,
+    &quot;items&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     },
-    <span class="hljs-attr">"xml"</span>: {
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aliens"</span>,
-      <span class="hljs-attr">"wrapped"</span>: <span class="hljs-literal">true</span>
+    &quot;xml&quot;: {
+      &quot;name&quot;: &quot;aliens&quot;,
+      &quot;wrapped&quot;: true
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">animals:</span>
-<span class="hljs-attr">  type:</span> <span class="hljs-string">array</span>
-<span class="hljs-attr">  items:</span>
-<span class="hljs-attr">    type:</span> <span class="hljs-string">string</span>
-<span class="hljs-attr">  xml:</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">aliens</span>
-<span class="hljs-attr">    wrapped:</span> <span class="hljs-literal">true</span>
+<pre class="highlight"><code>
+animals:
+  type: array
+  items:
+    type: string
+  xml:
+    name: aliens
+    wrapped: true
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">aliens</span>&gt;</span>value<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">aliens</span>&gt;</span>
+<pre class="highlight"><code>
+&lt;aliens&gt;
+  &lt;aliens&gt;value&lt;/aliens&gt;
+  &lt;aliens&gt;value&lt;/aliens&gt;
+&lt;/aliens&gt;
 </code></pre>
 </section></section><section><h5><a id="securitySchemeObject">Security Scheme Object</a></h5>
 <p>Defines a security scheme that can be used by the operations.
@@ -3717,65 +3717,65 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>Security Scheme Object Example</h5>
 <section><h6>Basic Authentication Sample</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"http"</span>,
-  <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"basic"</span>
+  &quot;type&quot;: &quot;http&quot;,
+  &quot;scheme&quot;: &quot;basic&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
-<span class="hljs-attr">scheme:</span> <span class="hljs-string">basic</span>
+<pre class="highlight"><code>
+type: http
+scheme: basic
 </code></pre>
 </section><section><h6>API Key Sample</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"apiKey"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"api_key"</span>,
-  <span class="hljs-attr">"in"</span>: <span class="hljs-string">"header"</span>
+  &quot;type&quot;: &quot;apiKey&quot;,
+  &quot;name&quot;: &quot;api_key&quot;,
+  &quot;in&quot;: &quot;header&quot;
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">apiKey</span>
-<span class="hljs-attr">name:</span> <span class="hljs-string">api_key</span>
-<span class="hljs-attr">in:</span> <span class="hljs-string">header</span>
+<pre class="highlight"><code>
+type: apiKey
+name: api_key
+in: header
 </code></pre>
 </section><section><h6>JWT Bearer Sample</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"http"</span>,
-  <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"bearer"</span>,
-  <span class="hljs-attr">"bearerFormat"</span>: <span class="hljs-string">"JWT"</span>,
+  &quot;type&quot;: &quot;http&quot;,
+  &quot;scheme&quot;: &quot;bearer&quot;,
+  &quot;bearerFormat&quot;: &quot;JWT&quot;,
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
-<span class="hljs-attr">scheme:</span> <span class="hljs-string">bearer</span>
-<span class="hljs-attr">bearerFormat:</span> <span class="hljs-string">JWT</span>
+<pre class="highlight"><code>
+type: http
+scheme: bearer
+bearerFormat: JWT
 </code></pre>
 </section><section><h6>Implicit OAuth2 Sample</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"oauth2"</span>,
-  <span class="hljs-attr">"flows"</span>: {
-    <span class="hljs-attr">"implicit"</span>: {
-      <span class="hljs-attr">"authorizationUrl"</span>: <span class="hljs-string">"https://example.com/api/oauth/dialog"</span>,
-      <span class="hljs-attr">"scopes"</span>: {
-        <span class="hljs-attr">"write:pets"</span>: <span class="hljs-string">"modify pets in your account"</span>,
-        <span class="hljs-attr">"read:pets"</span>: <span class="hljs-string">"read your pets"</span>
+  &quot;type&quot;: &quot;oauth2&quot;,
+  &quot;flows&quot;: {
+    &quot;implicit&quot;: {
+      &quot;authorizationUrl&quot;: &quot;https://example.com/api/oauth/dialog&quot;,
+      &quot;scopes&quot;: {
+        &quot;write:pets&quot;: &quot;modify pets in your account&quot;,
+        &quot;read:pets&quot;: &quot;read your pets&quot;
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">oauth2</span>
-<span class="hljs-attr">flows:</span> 
-<span class="hljs-attr">  implicit:</span>
-<span class="hljs-attr">    authorizationUrl:</span> <span class="hljs-attr">https://example.com/api/oauth/dialog</span>
-<span class="hljs-attr">    scopes:</span>
-<span class="hljs-attr">      write:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">modify</span> <span class="hljs-string">pets</span> <span class="hljs-string">in</span> <span class="hljs-string">your</span> <span class="hljs-string">account</span>
-<span class="hljs-attr">      read:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">read</span> <span class="hljs-string">your</span> <span class="hljs-string">pets</span>
+<pre class="highlight"><code>
+type: oauth2
+flows: 
+  implicit:
+    authorizationUrl: https://example.com/api/oauth/dialog
+    scopes:
+      write:pets: modify pets in your account
+      read:pets: read your pets
 </code></pre>
 </section></section><section><h5><a id="oauthFlowsObject">OAuth Flows Object</a></h5>
 <p>Allows configuration of the supported OAuth Flows.</p>
@@ -3853,42 +3853,42 @@ Supported schemes are HTTP authentication, an API key (either as a header or as 
 </table>
 <p>This object MAY be extended with <a href="#specificationExtensions">Specification Extensions</a>.</p>
 </section><section><h5>OAuth Flow Object Examples</h5>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"oauth2"</span>,
-  <span class="hljs-attr">"flows"</span>: {
-    <span class="hljs-attr">"implicit"</span>: {
-      <span class="hljs-attr">"authorizationUrl"</span>: <span class="hljs-string">"https://example.com/api/oauth/dialog"</span>,
-      <span class="hljs-attr">"scopes"</span>: {
-        <span class="hljs-attr">"write:pets"</span>: <span class="hljs-string">"modify pets in your account"</span>,
-        <span class="hljs-attr">"read:pets"</span>: <span class="hljs-string">"read your pets"</span>
+  &quot;type&quot;: &quot;oauth2&quot;,
+  &quot;flows&quot;: {
+    &quot;implicit&quot;: {
+      &quot;authorizationUrl&quot;: &quot;https://example.com/api/oauth/dialog&quot;,
+      &quot;scopes&quot;: {
+        &quot;write:pets&quot;: &quot;modify pets in your account&quot;,
+        &quot;read:pets&quot;: &quot;read your pets&quot;
       }
     },
-    <span class="hljs-attr">"authorizationCode"</span>: {
-      <span class="hljs-attr">"authorizationUrl"</span>: <span class="hljs-string">"https://example.com/api/oauth/dialog"</span>,
-      <span class="hljs-attr">"tokenUrl"</span>: <span class="hljs-string">"https://example.com/api/oauth/token"</span>,
-      <span class="hljs-attr">"scopes"</span>: {
-        <span class="hljs-attr">"write:pets"</span>: <span class="hljs-string">"modify pets in your account"</span>,
-        <span class="hljs-attr">"read:pets"</span>: <span class="hljs-string">"read your pets"</span>
+    &quot;authorizationCode&quot;: {
+      &quot;authorizationUrl&quot;: &quot;https://example.com/api/oauth/dialog&quot;,
+      &quot;tokenUrl&quot;: &quot;https://example.com/api/oauth/token&quot;,
+      &quot;scopes&quot;: {
+        &quot;write:pets&quot;: &quot;modify pets in your account&quot;,
+        &quot;read:pets&quot;: &quot;read your pets&quot;
       }
     }
   }
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">type:</span> <span class="hljs-string">oauth2</span>
-<span class="hljs-attr">flows:</span> 
-<span class="hljs-attr">  implicit:</span>
-<span class="hljs-attr">    authorizationUrl:</span> <span class="hljs-attr">https://example.com/api/oauth/dialog</span>
-<span class="hljs-attr">    scopes:</span>
-<span class="hljs-attr">      write:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">modify</span> <span class="hljs-string">pets</span> <span class="hljs-string">in</span> <span class="hljs-string">your</span> <span class="hljs-string">account</span>
-<span class="hljs-attr">      read:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">read</span> <span class="hljs-string">your</span> <span class="hljs-string">pets</span>
-<span class="hljs-attr">  authorizationCode:</span>
-<span class="hljs-attr">    authorizationUrl:</span> <span class="hljs-attr">https://example.com/api/oauth/dialog</span>
-<span class="hljs-attr">    tokenUrl:</span> <span class="hljs-attr">https://example.com/api/oauth/token</span>
-<span class="hljs-attr">    scopes:</span>
-<span class="hljs-attr">      write:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">modify</span> <span class="hljs-string">pets</span> <span class="hljs-string">in</span> <span class="hljs-string">your</span> <span class="hljs-string">account</span>
-<span class="hljs-attr">      read:</span><span class="hljs-attr">pets:</span> <span class="hljs-string">read</span> <span class="hljs-string">your</span> <span class="hljs-string">pets</span> 
+<pre class="highlight"><code>
+type: oauth2
+flows: 
+  implicit:
+    authorizationUrl: https://example.com/api/oauth/dialog
+    scopes:
+      write:pets: modify pets in your account
+      read:pets: read your pets
+  authorizationCode:
+    authorizationUrl: https://example.com/api/oauth/dialog
+    tokenUrl: https://example.com/api/oauth/token
+    scopes:
+      write:pets: modify pets in your account
+      read:pets: read your pets 
 </code></pre>
 </section></section><section><h4><a id="securityRequirementObject">Security Requirement Object</a></h4>
 <p>Lists the required security schemes to execute this operation.
@@ -3915,27 +3915,27 @@ This enables support for scenarios where multiple query parameters or HTTP heade
 </table>
 </section><section><h5>Security Requirement Object Examples</h5>
 <section><h6>Non-OAuth2 Security Requirement</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"api_key"</span>: []
+  &quot;api_key&quot;: []
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">api_key:</span> <span class="hljs-string">[]</span>
+<pre class="highlight"><code>
+api_key: []
 </code></pre>
 </section><section><h6>OAuth2 Security Requirement</h6>
-<pre class="nohighlight"><code>
+<pre class="highlight"><code>
 {
-  <span class="hljs-attr">"petstore_auth"</span>: [
-    <span class="hljs-string">"write:pets"</span>,
-    <span class="hljs-string">"read:pets"</span>
+  &quot;petstore_auth&quot;: [
+    &quot;write:pets&quot;,
+    &quot;read:pets&quot;
   ]
 }
 </code></pre>
-<pre class="nohighlight"><code>
-<span class="hljs-attr">petstore_auth:</span>
-<span class="hljs-attr">- write:</span><span class="hljs-string">pets</span>
-<span class="hljs-attr">- read:</span><span class="hljs-string">pets</span>
+<pre class="highlight"><code>
+petstore_auth:
+- write:pets
+- read:pets
 </code></pre>
 </section></section><section><h5><a id="specificationExtensions">Specification Extensions</a></h5>
 <p>While the OpenAPI Specification tries to accommodate most use cases, additional data can be added to extend the specification at certain points.</p>
