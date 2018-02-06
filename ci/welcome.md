@@ -1,6 +1,6 @@
 ---
 layout: default
-theme: jekyll-theme-cayman
+theme: jekyll-theme-architect
 show_downloads: false
 ---
 # Welcome to the Mermade API definition CI tool
