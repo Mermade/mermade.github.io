@@ -5,7 +5,7 @@ show_downloads: false
 title: Public service announcements
 ---
 
-# Public service announcments
+# Public service announcements
 
 The following services are now available at new URLs, please update your
 bookmarks.
