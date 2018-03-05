@@ -2,3 +2,4 @@ node_modules
 apikey.txt
 .sass-cache
 bower_components
+_site/
