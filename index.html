@@ -109,10 +109,6 @@
               taken at <a href="https://bletchleypark.org.uk/">Bletchley Park</a>.
             <!--<p>Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
               <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-            <p>This theme features stock photos by
-              <a href="http://gratisography.com/">Gratisography</a>
-              along with a custom Google Maps skin courtesy of
-              <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
             <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with SASS and LESS files for easy customization!</p>-->
           </div>
         </div>
@@ -181,7 +177,11 @@
     </section>
 
     <!-- Map Section -->
-    <div id="map"></div>
+    <div id="map">
+      <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4040184020996096%2C51.36459995269231%2C-1.2805938720703127%2C51.42468784982756&amp;layer=mapnik"></iframe>
+<!--style="border: 1px solid black"</iframe>-->
+<!--<br/><small><a href="https://www.openstreetmap.org/#map=13/51.3947/-1.3423">View Larger Map</a></small>-->
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -197,24 +197,6 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <style>
-        #map {
-            width: 100%;
-         }
-    </style>
-
-    <script type="text/javascript">
-       var map;
-       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 51.388, lng: -1.360},
-          zoom: 13
-        });
-      }
-    </script>
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp3rTerDurCDhxY-9YmZresDsJWXE7UKA&callback=initMap" async defer></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
