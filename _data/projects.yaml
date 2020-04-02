@@ -7,7 +7,7 @@
   github: https://github.com/mermade/swagger2openapi
 
 - title: Converter API documentation / console
-  link: http://petstore.swagger.io/?url=https://mermade.org.uk/contract/openapi.json
+  link: https://petstore.swagger.io/?url=https://mermade.org.uk/contract/openapi.json
 
 - title: Widdershins - convert OpenAPI/Swagger/AsyncAPI/Semoasa documents to Slate/Shins markdown
   link: https://github.com/mermade/widdershins
@@ -20,7 +20,7 @@
   github: https://github.com/mermade/bbc-rss
 
 - title: Unofficial BBC Nitro API documentation
-  link: https://mermade.github.io/swagger/index.html?url=https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/swagger.json
+  link: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/Mermade/bbcparse/master/nitroApi/openapi.yaml
   github: https://github.com/mermade/bbcparse
 
 - title: Generate secure passwords
