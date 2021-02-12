@@ -9,7 +9,7 @@
 - title: Converter API documentation / console
   link: https://petstore.swagger.io/?url=https://mermade.org.uk/contract/openapi.json
 
-- title: Widdershins - convert OpenAPI/Swagger/AsyncAPI/Semoasa documents to Slate/Shins markdown
+- title: Widdershins - convert OpenAPI/Swagger/AsyncAPI/Semoasa documents to Slate/ReSlate markdown
   link: https://github.com/mermade/widdershins
 
 - title: OpenAPI Codegen - Node.js model generator for Swagger-Codegen templates
