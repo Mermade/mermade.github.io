@@ -1,3 +1,7 @@
+- title: OAS-Kit - convert, resolve, validate & lint OpenAPI documents
+  link: https://mermade.github.io/oas-kit
+  github: https://github.com/mermade/oas-kit
+
 - title: OpenAPI-gui - Visual editor for OpenAPI 2.0/3.0
   link: https://mermade.github.io/openapi-gui
   github: https://github.com/mermade/openapi-gui
@@ -27,6 +31,6 @@
   link: https://mermade.github.io/static/passwordHasher.html
   class: lightbox
 
-- title: Films on UK TV
-  link: http://mermade.github.io/films/index.html
-  # https won't work because of mixed content from omdb
+#- title: Films on UK TV
+#  link: http://mermade.github.io/films/index.html
+#  # https won't work because of mixed content from omdb
