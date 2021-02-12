@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
@@ -102,7 +103,13 @@
 		var processResults = function(data) {
 			try {
 				//console.log(data);
-				var obj = JSON.parse(data);
+                                var obj = {};
+                                try {
+				  obj = JSON.parse(data);
+                                }
+                                catch (ex) {
+                                  console.warn(ex.message);
+                                }
 				var rows = [];
 				for (var l in obj.listings) {
 					var duration = Math.floor(obj.listings[l].length/60);
@@ -127,7 +134,7 @@
 				table.rows.add(rows).draw();
 			}
 			catch (e) {
-				alert(e);
+				console.error(e);	
 			}
 		};
 		$("#aPassHash").colorbox({iframe:true, width:"410", height:"90%"});
@@ -135,7 +142,8 @@
 		for (var d=0;d<7;d++) {
 			var dateStr = day.toISOString().slice(0, 10);
 			for (var c in channels) {
-				$.ajax('https://bbc-rss.herokuapp.com/sky/tv/api/epg/listings/'+channels[c]+'/'+dateStr).done(processResults);
+				//$.ajax('https://bbc-rss.herokuapp.com/sky/tv/api/epg/listings/'+channels[c]+'/'+dateStr).done(processResults);
+				$.ajax('http://epgservices.sky.com/tvlistings-proxy/TVListingsProxy/tvlistings.json?detail=2&dur=2400&time='+dateStr+'&channels='+channels[c]).done(processResults);
 			}
 			day = new Date(day.setTime(day.getTime() + 1 * 86400000));
 		}
