@@ -1,0 +1,214 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mermade Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/colorbox.css" media="screen">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
+  "documentation": "https://github.com/mermade/openapi-webconverter",
+  "termsOfService": "https://opensource.org/licenses/MIT",
+  "logo": "https://github.com/Mermade/swagger2openapi/raw/master/docs/logo.png?raw=true",
+  "name": "Swagger2OpenAPI Converter"
+}
+</script>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Your needs, our passion</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Solutions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">Mermade Software</h1>
+              <p class="intro-text">
+                Mermade Software is an independent consultancy focusing on web API technologies.
+                <br>Check out our Open-Source offerings.</p>
+              <a href="#about" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About Mermade Software</h2>
+            <p>
+                Founder Mike Ralphson has over 25 years experience in software development,
+                ranging from Node.js, Javascript, C# and Java to many flavours of SQL.
+            </p>
+            <br/>
+            <p>
+                He is the maintainer of the <a href="https://github.com/APIs-guru/openapi-directory">APIs.guru collection of OpenAPI definitions</a>, as
+		well as a member of the <a href="https://www.openapis.org/">OAI</a> <a href="https://www.openapis.org/about/technical-steering-committee">Technical Steering Committee (TSC)</a>
+		and the co-chair of the <a href="https://www.w3.org/community/web-api-discovery/">W3C Schema.Org WebAPI Discovery Group</a>.
+            </p>
+            <br/>
+            <p>
+                His blog is located at <a href="https://dev.to/mikeralphson/">Dev.To</a>.
+            </p>
+            <p>This site features photography by
+              <a href="https://www.flickr.com/people/fairiesforchange/">Claire Ralphson-Cook</a>
+              taken at <a href="https://bletchleypark.org.uk/">Bletchley Park</a>.
+            <!--<p>Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
+              <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+            <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with SASS and LESS files for easy customization!</p>-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section content-section text-center">
+      <div class="container">
+        <div class="col-lg-8 mx-auto">
+          <h1>Open-Source Solutions</h1>
+            <h2>See our Open-Source solutions on<br/>
+            <i class="fa fa-github fa-fw"></i>
+            <a href="https://github.com/mermade">GitHub</a></h2>
+            <ul>
+		{% for project in site.data.projects %}
+		  <li><a {% if project.class %}class="{{project.class}}"{% endif %} href="{{ project.link }}">{{ project.title }}</a>{% if project.github %}<a href="{{project.github}}"><i class="fa fa-github fa-fw"></i></a>{% endif %}</li>
+		{% endfor %}
+            </ul>
+          <!--
+          <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
+          <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact Us</h2>
+            <p>Feel free to leave us a comment via e-Mail or social media.
+            <ul class="list-inline banner-social-buttons">
+              <li class="list-inline-item">
+                <a href="mailto:mike.ralphson@gmail.com" class="btn btn-default btn-lg">
+                  <i class="fa fa-envelope fa-fw"></i>
+                  <span class="network-name">E-Mail</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://twitter.com/permittedsoc" class="btn btn-default btn-lg">
+                  <i class="fa fa-twitter fa-fw"></i>
+                  <span class="network-name">Twitter</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/mermade" class="btn btn-default btn-lg">
+                  <i class="fa fa-github fa-fw"></i>
+                  <span class="network-name">Github</span>
+                </a>
+              </li>
+              <!--
+              <li class="list-inline-item">
+                <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
+                  <i class="fa fa-google-plus fa-fw"></i>
+                  <span class="network-name">Google+</span>
+                </a>
+              </li>
+              -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map">
+      <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4040184020996096%2C51.36459995269231%2C-1.2805938720703127%2C51.42468784982756&amp;layer=mapnik"></iframe>
+<!--style="border: 1px solid black"</iframe>-->
+<!--<br/><small><a href="https://www.openstreetmap.org/#map=13/51.3947/-1.3423">View Larger Map</a></small>-->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; Mermade Software {{ 'now' | date: "%Y" }}</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/grayscale.min.js"></script>
+
+    <script src="/javascripts/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".lightbox").colorbox({iframe:true, width:"410", height:"90%"});
+        });
+    </script>
+
+  </body>
+
+</html>
