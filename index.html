@@ -436,7 +436,7 @@ h1 i {
                 <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/21.ico')"></div>
                 <div class="label">My Recent Documents</div>
               </div>
-              <div class="start-menu-item my-item">
+              <div id="menuPics" class="start-menu-item my-item">
                 <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/236.ico')"></div>
                 <div class="label">My Pictures</div>
               </div>
@@ -474,7 +474,7 @@ h1 i {
                 <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/23.ico')"></div>
                 <div class="label">Search</div>
               </div>
-              <div class="start-menu-item">
+              <div id="menuDOS" class="start-menu-item">
                 <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/25.ico')"></div>
                 <div class="label">Run...</div>
               </div>
@@ -573,12 +573,20 @@ $('#menuIE').on('click',function(){
   window.open('https://support.microsoft.com/en-us/topic/internet-explorer-help-23360e49-9cd3-4dda-ba52-705336cc0de2');
 });
 
+$('#menuDOS').on('click',function(){
+  window.open('https://bellard.org/jslinux/vm.html?url=freedos.cfg&mem=64&graphic=1&w=720&h=400');
+});
+
 $('#menuTwitter').on('click',function(){
   window.open('https://twitter.com/permittedsoc');
 });
 
 $('#menuGithub').on('click',function(){
   window.open('https://github.com/MikeRalphson');
+});
+
+$('#menuPics').on('click',function(){
+  window.open('https://www.flickr.com/photos/mermade');
 });
 
 $('#menuEmail').on('click',function(){
