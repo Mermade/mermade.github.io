@@ -46,8 +46,13 @@
     font-weight: bold;
     color: white;
     background-color: green;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-right: 5px;
     font-style: italic;
     font-size: 21px;
+    font-family: Verdana, sans-serif;
+    cursor: pointer;
 }
 
 .start-bar-controls {
@@ -269,12 +274,12 @@ h1 i {
   <div class="title-bar">
     <div class="title-bar-text">Command Prompt</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
+      <button id="btnMin" aria-label="Minimize"></button>
+      <button id="btnMax" aria-label="Maximize"></button>
+      <button class="btnClose" aria-label="Close"></button>
     </div>
   </div>
-  <div class="window-body">
+  <div id="winCmd" class="window-body">
     <pre>Mermade.Org.UK; (C) Copyright Mermade Software 1995-2021.
       <br>C:&#92;MERMADE&#92;SOFTWARE&gt; shutdown now
     </pre>
@@ -288,7 +293,7 @@ h1 i {
     <div class="title-bar-text">Mermade Software is going on hiatus</div>
     <div class="title-bar-controls">
       <button id="btnHelp" aria-label="Help"></button>
-      <button aria-label="Close"></button>
+      <button class="btnClose" aria-label="Close"></button>
     </div>
   </div>
   <div class="window-body">
@@ -359,6 +364,7 @@ h1 i {
 </div>
 
 <audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
+<audio id="bonk-mp3" src="./media/bonk.mp3"></audio>
 
 <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="./js/clippy.js"></script>
@@ -400,8 +406,8 @@ function openTab(event, tab) {
   article.removeAttribute("hidden");
 }
 
-function playAudio(){
-  document.getElementById("shutdown-mp3").play()
+function playAudio(id){
+  document.getElementById(id).play()
   .then(function(){})
   .catch(function(){
     console.log('Could not play audio');
@@ -409,21 +415,31 @@ function playAudio(){
 }
 
 window.onload = function() {
-  playAudio();
+  playAudio('shutdown-mp3');
   clippy.load('Clippy', function(agent){
     window.troll = agent;
   });
 }
 
 document.getElementById("btnStart").addEventListener("click", function() {
-  playAudio();
+  playAudio('shutdown-mp3');
   if (window.trollShown) window.troll.getAttention();
 });
 document.getElementById("btnOK").addEventListener("click", function() {
-  playAudio();
+  playAudio('shutdown-mp3');
 });
 document.getElementById("btnCancel").addEventListener("click", function() {
-  playAudio();
+  playAudio('bonk-mp3');
+});
+$('.btnClose').on('click',function(){
+  playAudio('bonk-mp3');
+});
+
+document.getElementById("btnMin").addEventListener("click", function() {
+  $('#winCmd').hide();
+});
+document.getElementById("btnMax").addEventListener("click", function() {
+  $('#winCmd').show();
 });
 
 document.getElementById("btnHelp").addEventListener("click", function() {
