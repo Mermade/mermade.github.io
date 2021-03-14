@@ -303,8 +303,9 @@ h1 i {
           <legend>Consultancy services</legend>
           <div class="field-row">
             <label>
-            If you need front-end website design or ordering functionality,
-            please consider the awesome people who run the companies in the following tabs. Thank you.
+            If you need front-end website design or web ordering functionality,
+            please consider the awesome people who run the companies in the following tabs.
+	    Hover over the business cards to flip them over. Thank you.
             </label>
           </div>
         </fieldset>
@@ -339,8 +340,8 @@ h1 i {
     </article>
 
     <section class="field-row" style="justify-content: flex-end">
-      <button>OK</button>
-      <button>Cancel</button>
+      <button id="btnOK">OK</button>
+      <button id="btnCancel">Cancel</button>
     </section>
   </div>
 </div>
@@ -351,10 +352,12 @@ h1 i {
 <div class="window" style="width:100%;position:absolute;bottom:0;">
   <div class="start-bar">
     <div class="start-bar-controls">
-      <div class="start-bar-text">&nbsp;<img src="./img/winlogo.png" height="21px">&nbsp;Start&nbsp;</div>
+      <div id="btnStart" class="start-bar-text">&nbsp;<img src="./img/winlogo.png" height="21px">&nbsp;Start&nbsp;</div>
       </div>
     </div>
 </div>
+
+<audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
 
 <script language="javascript">
 const tabs = document.querySelectorAll("menu[role=tablist]");
@@ -393,6 +396,29 @@ function openTab(event, tab) {
   );
   article.removeAttribute("hidden");
 }
+
+function playAudio(){
+  document.getElementById("shutdown-mp3").play()
+  .then(function(){})
+  .catch(function(){
+    console.log('Could not play audio');
+  });
+}
+
+window.onload = function() {
+  playAudio();
+}
+
+document.getElementById("btnStart").addEventListener("click", function() {
+  playAudio();
+});
+document.getElementById("btnOK").addEventListener("click", function() {
+  playAudio();
+});
+document.getElementById("btnCancel").addEventListener("click", function() {
+  playAudio();
+});
+
 </script>
 
   </body>
