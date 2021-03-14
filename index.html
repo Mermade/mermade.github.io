@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <link rel="stylesheet" href="./css/clippy.css">
     <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <style>
       body {
         background-image: url("./img/bliss.jpg");
@@ -328,6 +329,14 @@ h1 i {
             </label>
           </div>
         </fieldset>
+        <fieldset>
+          <legend>Credits</legend>
+          <div class="field-row">
+            <label>
+              This site is built with&nbsp;<a href="https://botoxparty.github.io/XP.css/">XP.css</a>&nbsp;the CSS start menu by&nbsp;<a href="https://codepen.io/brundolf/pen/wzrWdy">Brandon Rundolf</a>&nbsp;<span class="hidden" id="spnClippy">and <a href="https://www.smore.com/clippy-js">Clippy.js!</a></span>.
+            </label>
+          </div>
+        </fieldset>
         <section class="field-row">
           <button><a class="quiet" href="./landing.html">Click here for the old site</a></button>
           <label></label>
@@ -393,7 +402,7 @@ h1 i {
           <div class="start-menu-body">
             <div class="start-menu-favorites">
               <div class="start-menu-item intent-item">
-                <img src="./svg/microsoft.svg" height="20px" width="20px"/>
+                <img src="./svg/edge.svg" height="20px" width="20px"/>
                 <div class="label" id="menuIE">
                   <div class="intent">Internet</div>
                   <div class="program">Internet Explorer</div>
@@ -422,26 +431,34 @@ h1 i {
                   <div class="program">MikeRalphson</div>
                 </div>
               </div>
+              <div class="divider"></div>
+              <div class="start-menu-item favorite-item">
+                <img src="./svg/google_docs_editors.svg" height="20px" width="20px"/>
+                <div class="label" id="menuWord">
+                  <div class="intent">New Document</div>
+                  <div class="program">Google Docs</div>
+                </div>
+              </div>
               <div class="all-programs">
                 <div class="divider"></div>
                 <div class="start-menu-item all-programs-button">All Programs</div>
               </div>
             </div>
             <div class="start-menu-shortcuts">
-              <div class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/235.ico')"></div>
+              <div id="menuDocs" class="start-menu-item my-item">
+                <img src="./svg/google_drive.svg" height="20px" width="20px"/>
                 <div class="label">My Documents</div>
               </div>
-              <div class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/21.ico')"></div>
+              <div id="menuRecent" class="start-menu-item my-item">
+                <img src="./svg/google_drive.svg" height="20px" width="20px"/>
                 <div class="label">My Recent Documents</div>
               </div>
               <div id="menuPics" class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/236.ico')"></div>
+                <img src="./svg/flickr.svg" height="20px" width="20px"/>
                 <div class="label">My Pictures</div>
               </div>
-              <div class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/237.ico')"></div>
+              <div id="menuMusic" class="start-menu-item my-item">
+                <img src="./svg/apple_music.svg" height="20px" width="20px"/>
                 <div class="label">My Music</div>
               </div>
               <div class="start-menu-item my-item">
@@ -466,16 +483,16 @@ h1 i {
 
               <div class="divider"></div>
 
-              <div class="start-menu-item">
+              <div id="menuHelp" class="start-menu-item">
                 <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/24.ico')"></div>
                 <div class="label">Help and Support</div>
               </div>
-              <div class="start-menu-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/23.ico')"></div>
+              <div id="menuSearch" class="start-menu-item">
+                <img src="./svg/duckduckgo.svg" height="20px" width="20px"/>
                 <div class="label">Search</div>
               </div>
               <div id="menuDOS" class="start-menu-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/25.ico')"></div>
+                <img src="./svg/windows.svg" height="20px" width="20px"/>
                 <div class="label">Run...</div>
               </div>
             </div>
@@ -489,10 +506,17 @@ h1 i {
   </div>
 </div>
 
+<div id="ex1" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+
 <audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
 <audio id="bonk-mp3" src="./media/bonk.mp3"></audio>
 
 <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="./js/clippy.js"></script>
 <script src="./js/menu.js"></script>
 <script language="javascript">
@@ -585,8 +609,25 @@ $('#menuGithub').on('click',function(){
   window.open('https://github.com/MikeRalphson');
 });
 
+$('#menuSearch').on('click',function(){
+  window.open('https://duckduckgo.com/');
+});
+$('#menuDocs').on('click',function(){
+  window.open('https://drive.google.com/');
+});
+$('#menuRecent').on('click',function(){
+  window.open('https://drive.google.com/drive/recent');
+});
+$('#menuWord').on('click',function(){
+  window.open('https://doc.new/');
+});
+
 $('#menuPics').on('click',function(){
   window.open('https://www.flickr.com/photos/mermade');
+});
+
+$('#menuMusic').on('click',function(){
+  window.open('https://se2.itunes.apple.com/WebObjects/MZStoreElements2.woa/wa/socialProfile?cc=gb&id=sp.1bcb21e8-4790-42c0-9bd0-ecc5c644d016&v=1&ls');
 });
 
 $('#menuEmail').on('click',function(){
@@ -595,11 +636,19 @@ $('#menuEmail').on('click',function(){
   return false;
 });
 
-document.getElementById("btnHelp").addEventListener("click", function() {
+function doHelp(){
+  $('#spnClippy').show();
   window.troll.show();
   window.trollShown = true;
   window.troll.animate();
   window.troll.speak('Hi! It looks like you need some help. Why not get hold of Mike on Twitter? @permittedSoc');
+}
+
+document.getElementById("btnHelp").addEventListener("click", function() {
+  doHelp();
+});
+document.getElementById("menuHelp").addEventListener("click", function() {
+  doHelp();
 });
 
 </script>
