@@ -17,12 +17,11 @@
         text-decoration: none;
       }
       .hidden {
-	display: none !important;
+	    display: none;
       }
       .start-button {
         font-style: italic;
         font-family: Verdana, sans-serif;
-        cursor: pointer;
       }
 
 /*.start-bar {
@@ -71,7 +70,7 @@
 .buscard {
   width: 480px;
   height: 260px;
-  margin: 0 auto; 
+  margin: 0 auto;
   position: relative;
   -webkit-perspective: 1000;
 	-moz-perspective: 1000;
@@ -79,7 +78,7 @@
   -moz-transform: perspective(1400px);
 	-ms-transform: perspective(1400px);
 	-webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d; 
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-perspective-origin: right;
   -moz-perspective-origin: right;
@@ -90,7 +89,7 @@
   width: 480px;
   height: 260px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, .7), 0 17px 17px 0 rgba(0, 0, 0, .5);
-  position: relative; 
+  position: relative;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -100,7 +99,7 @@
   -ms-transform-origin: 100% 0%;
   transform-origin: 100% 0%;
   -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d; 
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: .8s ease-in-out;
 }
@@ -111,7 +110,7 @@
   background:
   linear-gradient(45deg, #F5AF69 50%, #F4EED7 50.9%),
   linear-gradient(90deg, #FC5135 50%, #4E203C 50%),
-  linear-gradient(-45deg, #F5AF69 50%, #E8D9A0 50.9%), 
+  linear-gradient(-45deg, #F5AF69 50%, #E8D9A0 50.9%),
   linear-gradient(#FC5135 50%, #4E203C 50%),
   linear-gradient(-45deg, #F5AF69 50%, #E8D9A0 50.9%),
   linear-gradient(90deg, #FC5135 50%, #4E203C 50%),
@@ -316,7 +315,9 @@ h1 i {
       <button aria-controls="simply-orders">Simply-Orders</button>
     </menu>
     <article role="tabpanel" id="about" style="height:260px">
-        <p>In April 2021, Mike Ralphson is joining <a href="https://www.postman.com/">Postman</a></p>
+        <legend>Out of Office responder: ✅</legend>
+        <p><b>From:</b> April 12th 2021
+        <p><b>Subject:</b> Mike Ralphson is joining <a href="https://www.postman.com/">Postman</a></p>
         <fieldset>
           <legend>Consultancy services</legend>
           <div class="field-row">
@@ -328,8 +329,8 @@ h1 i {
           </div>
         </fieldset>
         <section class="field-row">
-          <button><a class="quiet" href="./landing.html">Old Site</a></button>
-          <label>Click here for the old site</label>
+          <button><a class="quiet" href="./landing.html">Click here for the old site</a></button>
+          <label></label>
         </section>
       </article>
 
@@ -385,30 +386,41 @@ h1 i {
         <div class="start-menu">
           <div class="start-menu-header">
             <div class="account-image-wrapper">
-              <img src="./img/mike_hat.jpeg">
+              <img src="./img/mike_hat.jpeg" height="52px" width="52px">
             </div>
             <h1 class="account-name">Mike Ralphson</h1>
           </div>
           <div class="start-menu-body">
             <div class="start-menu-favorites">
               <div class="start-menu-item intent-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/512.ico')"></div>
-                <div class="label">
+                <img src="./svg/microsoft.svg" height="20px" width="20px"/>
+                <div class="label" id="menuIE">
                   <div class="intent">Internet</div>
                   <div class="program">Internet Explorer</div>
                 </div>
               </div>
               <div class="start-menu-item intent-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/email.png')"></div>
-                <div class="label">
+                <img src="./svg/email.svg" height="20px" width="20px"/>
+                <div class="label" id="menuEmail">
                   <div class="intent">E-mail</div>
-                  <div class="program">Outlook Express</div>
+                  <div class="program"><a id="lnkEmail" href="mailto:mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="start-menu-item favorite-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/notepadicon.png')"></div>
-                <div class="label">Notepad</div>
+                <img src="./svg/twitter.svg" height="20px" width="20px"/>
+                <div class="label" id="menuTwitter">
+                  <div class="intent">Twitter</div>
+                  <div class="program">@PermittedSoc</div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="start-menu-item favorite-item">
+                <img src="./svg/github.svg" height="20px" width="20px"/>
+                <div class="label" id="menuGithub">
+                  <div class="intent">GitHub</div>
+                  <div class="program">MikeRalphson</div>
+                </div>
               </div>
               <div class="all-programs">
                 <div class="divider"></div>
@@ -555,6 +567,24 @@ document.getElementById("btnMin").addEventListener("click", function() {
 });
 document.getElementById("btnMax").addEventListener("click", function() {
   $('#winCmd').show();
+});
+
+$('#menuIE').on('click',function(){
+  window.open('https://support.microsoft.com/en-us/topic/internet-explorer-help-23360e49-9cd3-4dda-ba52-705336cc0de2');
+});
+
+$('#menuTwitter').on('click',function(){
+  window.open('https://twitter.com/permittedsoc');
+});
+
+$('#menuGithub').on('click',function(){
+  window.open('https://github.com/MikeRalphson');
+});
+
+$('#menuEmail').on('click',function(){
+  $('#lnkEmail').click();
+  this.preventDefault(true);
+  return false;
 });
 
 document.getElementById("btnHelp").addEventListener("click", function() {

@@ -6,7 +6,7 @@
   position: absolute;
   display: flex;
   z-index: 100;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   width: 100%;
 }
@@ -34,7 +34,7 @@
   content: "";
   background: url("./img/winlogo.png") center/cover no-repeat;
   position: relative;
-  display: inline-block;
+  display: none;
   height: 15px;
   width: 15px;
   top: 1px;
@@ -67,6 +67,7 @@
   border-radius: 5px;
   padding: 2px;
   height: 52px;
+  width: 52px;
   display: inline-block;
   box-shadow: 2px 2px 4px #333;
 }
@@ -234,15 +235,19 @@
 }
 
 .container {
-  padding: 0vh;
+  padding: 0px;
   height: 100%;
   text-align: center;
   line-height: 90vh;
+  box-sizing: border-box;
 }
 .container .screen {
   /*width: 120vh;
   height: 90vh;*/
-  box-shadow: 3px 3px 15px #000;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  box-shadow: 3px 3px 0px #000;
   border-radius: 3px;
   /*overflow: hidden;
   display: inline-block;*/
@@ -252,7 +257,6 @@
 }
 
 * {
-  box-sizing: border-box;
   user-select: none;
   -webkit-user-select: none;
   cursor: default;
@@ -262,5 +266,5 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: verdana;
+  font-family: verdana, sans-serif;
 }
