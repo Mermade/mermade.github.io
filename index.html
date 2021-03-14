@@ -4,6 +4,7 @@
     <title>Mermade Software is shutting down...</title>
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <link rel="stylesheet" href="./css/clippy.css">
+    <link rel="stylesheet" href="./css/menu.css">
     <style>
       body {
         background-image: url("./img/bliss.jpg");
@@ -15,8 +16,16 @@
         color: black;
         text-decoration: none;
       }
+      .hidden {
+	display: none !important;
+      }
+      .start-button {
+        font-style: italic;
+        font-family: Verdana, sans-serif;
+        cursor: pointer;
+      }
 
-.start-bar {
+/*.start-bar {
     font-family: "Trebuchet MS";
     background: linear-gradient(
         180deg,
@@ -57,9 +66,9 @@
 
 .start-bar-controls {
     display: flex;
-}
+}*/
 
-.container {
+.buscard {
   width: 480px;
   height: 260px;
   margin: 0 auto; 
@@ -196,7 +205,7 @@
   transform: rotateY(-180deg);
   font-family: 'Arimo', sans-serif;
 }
-.container:hover .card {
+.buscard:hover .card {
   -webkit-transform: rotateY(180deg) translateX(100%);
   -moz-transform: rotateY(180deg) translateX(100%);
   -ms-transform: rotateY(180deg) translateX(100%);
@@ -270,6 +279,9 @@ h1 i {
   </head>
   <body>
 
+<div class="container">
+  <div class="screen">
+
 <div class="window" style="width:580px;margin-top:10px;margin-left:50px;">
   <div class="title-bar">
     <div class="title-bar-text">Command Prompt</div>
@@ -322,7 +334,7 @@ h1 i {
       </article>
 
     <article role="tabpanel" hidden id="code-red" style="height:260px">
-<div class="container">
+<div class="buscard">
   <div class="card">
     <div class="front">
       <div class="logo"><span></span></div>
@@ -355,12 +367,114 @@ h1 i {
 <br>
 <br>
 
-<div class="window" style="width:100%;position:absolute;bottom:0;">
+<!-- <div class="window" style="width:100%;position:absolute;bottom:0;">
   <div class="start-bar">
     <div class="start-bar-controls">
       <div id="btnStart" class="start-bar-text">&nbsp;<img src="./img/winlogo.png" height="21px">&nbsp;Start&nbsp;</div>
       </div>
     </div>
+</div> -->
+
+
+    <div class="taskbar">
+      <div class="main-section">
+        <input id="start-menu-active" type="checkbox" class="hidden">
+        <label class="start-button" for="start-menu-active">
+          Start
+        </label>
+        <div class="start-menu">
+          <div class="start-menu-header">
+            <div class="account-image-wrapper">
+              <img src="./img/mike_hat.jpeg">
+            </div>
+            <h1 class="account-name">Mike Ralphson</h1>
+          </div>
+          <div class="start-menu-body">
+            <div class="start-menu-favorites">
+              <div class="start-menu-item intent-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/512.ico')"></div>
+                <div class="label">
+                  <div class="intent">Internet</div>
+                  <div class="program">Internet Explorer</div>
+                </div>
+              </div>
+              <div class="start-menu-item intent-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/email.png')"></div>
+                <div class="label">
+                  <div class="intent">E-mail</div>
+                  <div class="program">Outlook Express</div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="start-menu-item favorite-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/notepadicon.png')"></div>
+                <div class="label">Notepad</div>
+              </div>
+              <div class="all-programs">
+                <div class="divider"></div>
+                <div class="start-menu-item all-programs-button">All Programs</div>
+              </div>
+            </div>
+            <div class="start-menu-shortcuts">
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/235.ico')"></div>
+                <div class="label">My Documents</div>
+              </div>
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/21.ico')"></div>
+                <div class="label">My Recent Documents</div>
+              </div>
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/236.ico')"></div>
+                <div class="label">My Pictures</div>
+              </div>
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/237.ico')"></div>
+                <div class="label">My Music</div>
+              </div>
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/16.ico')"></div>
+                <div class="label">My Computer</div>
+              </div>
+              <div class="start-menu-item my-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/18.ico')"></div>
+                <div class="label">My Network Places</div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="start-menu-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/22.ico')"></div>
+                <div class="label">Control Panel</div>
+              </div>
+              <div class="start-menu-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/138.ico')"></div>
+                <div class="label">Printers and Faxes</div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="start-menu-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/24.ico')"></div>
+                <div class="label">Help and Support</div>
+              </div>
+              <div class="start-menu-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/23.ico')"></div>
+                <div class="label">Search</div>
+              </div>
+              <div class="start-menu-item">
+                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/25.ico')"></div>
+                <div class="label">Run...</div>
+              </div>
+            </div>
+          </div>
+          <div class="start-menu-footer">
+          </div>
+        </div>
+      </div>
+      <div class="quick-section"></div>
+    </div>
+  </div>
 </div>
 
 <audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
@@ -368,6 +482,7 @@ h1 i {
 
 <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="./js/clippy.js"></script>
+<script src="./js/menu.js"></script>
 <script language="javascript">
 const tabs = document.querySelectorAll("menu[role=tablist]");
 
@@ -421,10 +536,10 @@ window.onload = function() {
   });
 }
 
-document.getElementById("btnStart").addEventListener("click", function() {
+/*document.getElementById("btnStart").addEventListener("click", function() {
   playAudio('shutdown-mp3');
   if (window.trollShown) window.troll.getAttention();
-});
+});*/
 document.getElementById("btnOK").addEventListener("click", function() {
   playAudio('shutdown-mp3');
 });

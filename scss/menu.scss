@@ -1,0 +1,315 @@
+$medium-blue:#245edb;
+$light-blue:#0c8dea;
+
+.screen {
+  position:relative;
+  background: url('http://1cv4y131sweukg8sr2f7vd57.wpengine.netdna-cdn.com/wp-content/uploads/windows-xp-desktop-background-wallpaper-bliss-800x600.jpg') center/cover no-repeat $light-blue;
+  
+  .taskbar {
+    position:absolute;
+    display:flex;
+    z-index:100;
+    bottom:0;
+    left:0;
+    width:100%;
+    
+    .main-section {
+      height:100%;
+      flex-grow:1;
+      background:linear-gradient(to bottom, #{$medium-blue} 0%, #3f8cf3 9%, #{$medium-blue} 18%, #{$medium-blue} 92%, #333 100%) center/cover no-repeat;
+
+      .start-button {
+        &::before {
+          content:'';
+          background: url('http://opi.wiki/pic?w=6&f=108883&e=2&o=703') center/cover no-repeat;
+          position:relative;
+          display:inline-block;
+          height:15px;
+          width:15px;
+          top:1px;
+          transform:skewX(3deg);
+          -webkit-filter:drop-shadow(1px 1px 1px #333);
+        }
+        
+        position:relative;
+        display:inline-block;
+        font-size:18px;
+        color:white;
+        font-style:italic;
+        padding: 5px 25px 5px 15px;
+        text-shadow:1px 1px 1px #333;
+        border-radius:0px 10px 15px 0px;
+        border:none;
+        transform:skewX(-3deg);
+        left:-5px;
+        
+        box-shadow: 0px 5px 10px #79ce71 inset;
+        background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+      }
+      
+      .start-menu {
+        display:none;
+        position:absolute;
+        background-color:$light-blue;
+        width:380px;
+        height:550px;
+        left:0%;
+        bottom:100%;
+        z-index:-50;
+        border-radius:5px 5px 0px 0px;
+        box-shadow:
+          2px 6px 10px #333,
+          -2px 0px 5px rgba(20, 20, 20, 0.6) inset,
+          2px 0px 3px #7fbce8 inset;
+
+        overflow:hidden;
+        //letter-spacing:-0.2px;
+        
+        .start-menu-header {
+          display:flex;
+          align-items:center;
+          height:65px;
+          box-shadow: 3px 2px 3px #7fbce8 inset;
+          background:linear-gradient(to bottom, #{$medium-blue} 0%, #{$light-blue} 100%);
+          padding: 8px 0px 7px 8px;
+          .account-image-wrapper {
+            background-color:white;
+            border-radius:5px;
+            padding:2px;
+            height: 52px;
+            display:inline-block;
+            box-shadow:2px 2px 4px #333;
+          }
+          .account-name {
+            display:inline-block;
+            margin:0;
+            color:white;
+            font-size:18px;
+            font-weight:normal;
+            margin-left:10px;
+            text-shadow:0px 0px 3px #555;
+          }
+        }
+        .start-menu-body {
+          position:relative;
+          display:flex;
+          height:calc(100% - 65px - 43px);
+          background-color:white;
+          border:1px solid $light-blue;
+          margin:0 1px;
+          overflow:hidden;
+          
+          &::before {
+            content: '';
+            position: absolute;
+            top: -7.5px;
+            left: 10%;
+            width: 80%;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 5px #e88f0b;
+            z-index: 10;
+          }
+          
+          .start-menu-item {
+            display:flex;
+            align-items:center;
+            padding:5px;
+            font-size:11px;
+
+            > * {
+              display:inline-block;
+            }
+            .icon {
+              height:30px;
+              width:30px;
+              background-size:contain;
+              background-position:center;
+              background-repeat:no-repeat;
+            }
+            .label {
+              margin-left:5px;
+
+              .intent {
+                font-weight:bold;
+                color:rgb(55,55,56);
+              }
+              .program {
+                color:rgb(128,128,128);
+              }
+            }
+
+            &:hover {
+              background-color:rgb(61,100,189);
+              color:white;
+              .label {
+                color:white;
+              }
+            }
+          }
+          
+          .divider {
+            margin:5px 0px;
+            height:1px;
+            background:linear-gradient(to right, white 0%, rgb(211,211,200) 50%, white 100%) center/cover no-repeat;
+          }
+          
+          .start-menu-favorites {
+            position:relative;
+            display:inline-flex;
+            flex-direction:column;
+            height:100%;
+            width:50%;
+            padding:8px;
+            
+            
+            .start-menu-item.intent-item {
+              .label {
+                .intent {
+                  font-weight:bold;
+                  color:rgb(55,55,56);
+                }
+                .program {
+                  color:rgb(128,128,128);
+                }
+              }
+              
+              &:hover {
+                .label {
+                  .intent,
+                  .program {
+                    color:inherit;
+                  }
+                }
+              }
+            }
+            
+            .start-menu-item.favorite-item {
+              .label {
+                color:rgb(55,55,56);
+              }
+              &:hover {
+                .label {
+                  color:white;
+                }
+              }
+            }
+            
+            .all-programs {
+              position:absolute;
+              bottom:0;
+              left:0;
+              width:100%;
+              padding:0px 8px 8px 8px;
+              
+              .start-menu-item.all-programs-button {
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:11px;
+                font-weight:bold;
+                color:rgb(55,55,56);
+                padding:5px 0px;
+                
+                &::after {
+                  content:'';
+                  background:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/246.ico') center/contain no-repeat;
+                  display:inline-block;
+                  width:20px;
+                  height:20px;
+                  margin-left:5px;
+                }
+                
+                &:hover {
+                  color:white;
+                }
+              }
+            }
+          }
+          .start-menu-shortcuts {
+            display:inline-flex;
+            flex-direction:column;
+            height:100%;
+            width:50%;
+            padding:8px;
+            background:rgb(211,229,250);
+            border-left:1px solid rgb(149,189,238);
+            
+            .start-menu-item {
+              .icon {
+                width:25px;
+                height:25px;
+              }
+              .label {
+                color:#29356c;
+                font-size:10px;
+              }
+              &:hover {
+                .label {
+                  color:white;
+                }
+              }
+            }
+            .start-menu-item.my-item {
+              .label {
+                font-weight:bold;
+              }
+              &:hover {
+                .label {
+                  color:white;
+                }
+              }
+            }
+            .divider {
+              background:linear-gradient(to right, transparent 0%, #aebad6 50%, transparent 100%) center/cover no-repeat;
+            }
+          }
+        }
+        .start-menu-footer {
+          height:43px;
+          background:linear-gradient(to top, #{$medium-blue} 0%, #{$light-blue} 100%);
+          box-shadow:-2px -2px 5px rgba(20, 20, 20, 0.6) inset;
+        }
+      }
+      
+      #start-menu-active {
+        display:none;
+      }
+      #start-menu-active:checked {
+        & ~ .start-button {
+          box-shadow:0px 0px 15px #333 inset;
+        }
+
+        & ~ .start-menu {
+          display:block;
+        }
+      }
+    }
+  }
+}
+
+
+
+// container layout
+.container {
+  padding:5vh;
+  height:100%;
+  text-align:center;
+  line-height:90vh;
+  
+  .screen {
+    width:120vh;
+    height:90vh;
+    box-shadow:3px 3px 15px #000;
+    border-radius:3px;
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:middle;
+    text-align:left;
+    line-height:normal;
+  }
+}
+
+* {box-sizing:border-box; user-select:none; -webkit-user-select:none; cursor:default;}
+html, body {margin:0;width:100%;height:100%;font-family:verdana;}
+
