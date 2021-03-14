@@ -3,6 +3,7 @@
   <head>
     <title>Mermade Software is shutting down...</title>
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <link rel="stylesheet" href="./css/clippy.css">
     <style>
       body {
         background-image: url("./img/bliss.jpg");
@@ -286,7 +287,7 @@ h1 i {
   <div class="title-bar">
     <div class="title-bar-text">Mermade Software is going on hiatus</div>
     <div class="title-bar-controls">
-      <button aria-label="Help"></button>
+      <button id="btnHelp" aria-label="Help"></button>
       <button aria-label="Close"></button>
     </div>
   </div>
@@ -359,6 +360,8 @@ h1 i {
 
 <audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
 
+<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="./js/clippy.js"></script>
 <script language="javascript">
 const tabs = document.querySelectorAll("menu[role=tablist]");
 
@@ -407,16 +410,27 @@ function playAudio(){
 
 window.onload = function() {
   playAudio();
+  clippy.load('Clippy', function(agent){
+    window.troll = agent;
+  });
 }
 
 document.getElementById("btnStart").addEventListener("click", function() {
   playAudio();
+  if (window.trollShown) window.troll.getAttention();
 });
 document.getElementById("btnOK").addEventListener("click", function() {
   playAudio();
 });
 document.getElementById("btnCancel").addEventListener("click", function() {
   playAudio();
+});
+
+document.getElementById("btnHelp").addEventListener("click", function() {
+  window.troll.show();
+  window.trollShown = true;
+  window.troll.animate();
+  window.troll.speak('Hi! It looks like you need some help. Why not get hold of Mike on Twitter? @permittedSoc');
 });
 
 </script>
