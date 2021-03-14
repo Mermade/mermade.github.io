@@ -333,7 +333,7 @@ h1 i {
           <legend>Credits</legend>
           <div class="field-row">
             <label>
-              This site is built with&nbsp;<a href="https://botoxparty.github.io/XP.css/">XP.css</a>&nbsp;the CSS start menu by&nbsp;<a href="https://codepen.io/brundolf/pen/wzrWdy">Brandon Rundolf</a>&nbsp;<span class="hidden" id="spnClippy">and <a href="https://www.smore.com/clippy-js">Clippy.js!</a></span>.
+              This site is built with&nbsp;<a href="https://botoxparty.github.io/XP.css/">XP.css</a>&nbsp;and the CSS start menu by&nbsp;<a href="https://codepen.io/brundolf/pen/wzrWdy">Brandon Rundolf</a>&nbsp;<span class="hidden" id="spnClippy">and <a href="https://www.smore.com/clippy-js">Clippy.js!</a></span>.
             </label>
           </div>
         </fieldset>
@@ -461,12 +461,12 @@ h1 i {
                 <img src="./svg/apple_music.svg" height="20px" width="20px"/>
                 <div class="label">My Music</div>
               </div>
-              <div class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/16.ico')"></div>
+              <div id="menuComp" class="start-menu-item my-item">
+                <img src="./svg/hp.svg" height="20px" width="20px"/>
                 <div class="label">My Computer</div>
               </div>
-              <div class="start-menu-item my-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/18.ico')"></div>
+              <div id="menuNet" class="start-menu-item my-item">
+                <img src="./svg/internet_archive.svg" height="20px" width="20px"/>
                 <div class="label">My Network Places</div>
               </div>
 
@@ -624,6 +624,13 @@ $('#menuWord').on('click',function(){
 
 $('#menuPics').on('click',function(){
   window.open('https://www.flickr.com/photos/mermade');
+});
+
+$('#menuComp').on('click',function(){
+  window.open('https://store.hp.com/UKStore/Merch/List.aspx?sel=NTB');
+});
+$('#menuNet').on('click',function(){
+  window.open('https://archive.org/');
 });
 
 $('#menuMusic').on('click',function(){
