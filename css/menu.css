@@ -17,7 +17,7 @@
 }
 .screen .taskbar .main-section .start-button {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   font-size: 18px;
   color: white;
   font-style: italic;
@@ -26,18 +26,20 @@
   border-radius: 0px 10px 15px 0px;
   border: none;
   transform: skewX(-3deg);
-  left: -5px;
+  left: -19px;
   box-shadow: 0px 5px 10px #79ce71 inset;
   background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
 }
 .screen .taskbar .main-section .start-button::before {
   content: "";
-  background: url("./img/winlogo.png") center/cover no-repeat;
+  background: url("../img/winlogo.png");
   position: relative;
-  display: none;
+  display: inherit;
+  border: none;
   height: 15px;
   width: 15px;
   top: 1px;
+  margin-left: 15px;
   transform: skewX(3deg);
   -webkit-filter: drop-shadow(1px 1px 1px #333);
 }
