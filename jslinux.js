@@ -1,6 +1,6 @@
 /*
  * JS Linux main
- * 
+ *
  * Copyright (c) 2017 Fabrice Bellard
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -109,7 +109,7 @@ function get_params()
 function get_absolute_url(fname)
 {
     var path, p;
-    
+
     if (fname.indexOf(":") >= 0)
         return fname;
     path = window.location.pathname;
@@ -123,7 +123,7 @@ function GraphicDisplay(parent_el, width, height)
 {
     this.width = width;
     this.height = height;
-    
+
     this.canvas_el = document.createElement("canvas");
     this.canvas_el.width = width; /* logical width */
     this.canvas_el.height = height; /* logical width */
@@ -131,23 +131,23 @@ function GraphicDisplay(parent_el, width, height)
     this.canvas_el.style.width = width + "px";
     this.canvas_el.style.height = height + "px";
     this.canvas_el.style.cursor = "none";
-    
+
     parent_el.appendChild(this.canvas_el);
 
     this.ctx = this.canvas_el.getContext("2d");
     /* clear the display */
     this.ctx.fillStyle = "#000000";
     this.ctx.fillRect(0, 0, width, height);
-    
+
     this.image = this.ctx.createImageData(width, height);
 
     this.key_pressed = new Uint8Array(128);
 
     document.addEventListener("keydown",
                               this.keyDownHandler.bind(this), false);
-    document.addEventListener("keyup", 
+    document.addEventListener("keyup",
                               this.keyUpHandler.bind(this), false);
-    document.addEventListener("blur", 
+    document.addEventListener("blur",
                               this.blurHandler.bind(this), false);
 
     this.canvas_el.onmousedown = this.mouseMoveHandler.bind(this);
@@ -276,7 +276,7 @@ GraphicDisplay.key_code_to_input_map = new Uint8Array([
     0, 0x1E, 0x30, 0x2E, 0x20, 0x12, 0x21, 0x22, /* 0x40 */
     0x23, 0x17, 0x24, 0x25, 0x26, 0x32, 0x31, 0x18,
     0x19, 0x10, 0x13, 0x1F, 0x14, 0x16, 0x2F, 0x11, /* 0x50 */
-    0x2D, 0x15, 0x2C, 125, 126, 127, 0, 0, 
+    0x2D, 0x15, 0x2C, 125, 126, 127, 0, 0,
     0x52, 0x4F, 0x50, 0x51, 0x4B, 0x4C, 0x4D, 0x47, /* 0x60 */
     0x48, 0x49, 0x37, 0x4e, 0, 0x4a, 0x53, 98,
     0x3B, 0x3C, 0x3D, 0x3E, 0x3F, 0x40, 0x41, 0x42, /* 0x70 */
@@ -335,7 +335,7 @@ GraphicDisplay.prototype.keyHandler = function keyHandler(ev, isDown)
             if (input_key_code) {
                 this.key_pressed[input_key_code] = isDown;
                 display_key_event(isDown, input_key_code);
-                
+
                 if (ev.stopPropagation)
                     ev.stopPropagation();
                 if (ev.preventDefault)
@@ -380,7 +380,10 @@ GraphicDisplay.prototype.mouseMoveHandler = function (ev)
     y = ev.clientY - rect.top;
     buttons = ev.buttons & 7;
 //    console.log("mouse: x=" + x + " y=" + y + " buttons=" + buttons);
-    display_mouse_event(x, y, buttons);
+    try {
+      display_mouse_event(x, y, buttons);
+    }
+    catch (ex) {}
     if (ev.stopPropagation)
         ev.stopPropagation();
     if (ev.preventDefault)
@@ -480,13 +483,13 @@ function start_vm(user, pwd)
     var url, mem_size, cpu, params, vm_url, cmdline, cols, rows, guest_url;
     var font_size, graphic_enable, width, height, net_url, alloc_size;
     var drive_url, vm_file;
-    
+
     function loadScript(src, f) {
         var head = document.getElementsByTagName("head")[0];
         var script = document.createElement("script");
         script.src = src;
         var done = false;
-        script.onload = script.onreadystatechange = function() { 
+        script.onload = script.onreadystatechange = function() {
             // attach to both events for cross browser finish detection:
             if ( !done && (!this.readyState ||
                            this.readyState == "loaded" || this.readyState == "complete") ) {
@@ -560,14 +563,14 @@ function start_vm(user, pwd)
     } else if (guest_url) {
         cmdline += " GUEST_URL=" + guest_url;
     }
-    
+
     if (graphic_enable) {
         graphic_display = new GraphicDisplay(document.getElementById("term_container"), width, height);
     } else {
         var term_wrap_el;
         width = 0;
         height = 0;
-        
+
         /* start the terminal */
         term = new Term({ cols: cols, rows: rows, scrollback: 10000, fontSize: font_size });
         term.setKeyHandler(term_handler);
@@ -577,7 +580,7 @@ function start_vm(user, pwd)
         term_wrap_el = document.getElementById("term_wrap")
         term_wrap_el.style.width = term.term_el.style.width;
         term_wrap_el.onclick = term_wrap_onclick_handler;
-            
+
         term.write("Loading...\r\n");
     }
 
@@ -634,12 +637,12 @@ function on_login()
         status.innerHTML = "User name must be provided";
         return false;
     }
-    
+
     login_wrap_el.style.display = "none";
     term_wrap_el.style.display = "block";
     form.password.value = "";
     form.user.value = "";
-    
+
     start_vm(user, pwd);
 
     return false;

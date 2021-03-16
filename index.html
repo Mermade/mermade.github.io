@@ -643,19 +643,23 @@ document.getElementById("menuHelp").addEventListener("click", function() {
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("menuDOS");
+var modalBtn = document.getElementById("menuDOS");
 
-// Get the <span> element that closes the modal
-var span = document.getElementById("btnModalMin");
+// Get the button that closes the modal
+var modalMin = document.getElementById("btnModalMin");
+var modalClose = document.getElementById("btnModalClose");
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+modalBtn.onclick = function() {
   $('#start-menu-active').prop('checked',false);
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+// When the user clicks on the minimise or close buttons, close the modal
+modalMin.onclick = function() {
+  modal.style.display = "none";
+}
+modalClose.onclick = function() {
   modal.style.display = "none";
 }
 
