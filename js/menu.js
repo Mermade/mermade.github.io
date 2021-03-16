@@ -9,17 +9,17 @@ $('.screen').click(function(e){
 // Keep clock updated
 function updateClock() {
   var now = new Date();
-  //$('.start-button').text(now.toLocaleTimeString());
+  $('#spnDate').text(now.toLocaleTimeString());
 }
-var oneMinute = 1000 * 60;
+var oneSecond = 1000;
 var now = new Date();
-var timeUntilMinuteTick =
-    oneMinute -
+var timeUntilSecondTick =
+    oneSecond -
     (now.getSeconds() * 1000 + now.getMilliseconds());
 setTimeout(function(){
   updateClock();
-  setInterval(updateClock, oneMinute);
-}, timeUntilMinuteTick);
+  setInterval(updateClock, oneSecond);
+}, timeUntilSecondTick);
 updateClock();
 
 // Maintain aspect ratio while resizing viewport

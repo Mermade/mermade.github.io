@@ -10,6 +10,13 @@
   left: 0;
   width: 100%;
 }
+.screen .taskbar .quick-section {
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  padding: 5px 25px 5px 15px;
+  background: linear-gradient(to bottom, #668adb 0%, #70a5ee 9%, #b9c6e3 18%, #5f87d9 92%, #555353 100%) center/cover no-repeat;
+}
 .screen .taskbar .main-section {
   height: 100%;
   flex-grow: 1;
