@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <link rel="stylesheet" href="./css/clippy.css">
     <link rel="stylesheet" href="./css/menu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <style>
       body {
         background-image: url("./img/bliss.jpg");
@@ -24,49 +23,6 @@
         font-style: italic;
         font-family: Verdana, sans-serif;
       }
-
-/*.start-bar {
-    font-family: "Trebuchet MS";
-    background: linear-gradient(
-        180deg,
-        rgba(9, 151, 255, 1) 0%,
-        rgba(0, 83, 238, 1) 8%,
-        rgba(0, 80, 238, 1) 40%,
-        rgba(0, 102, 255, 1) 88%,
-        rgba(0, 102, 255, 1) 93%,
-        rgba(0, 91, 255, 1) 95%,
-        rgba(0, 61, 215, 1) 96%,
-        rgba(0, 61, 215, 1) 100%
-    );
-    padding: 5px 0px 3px 3px;
-    border-top: 1px solid #0831d9;
-    border-left: 1px solid #0831d9;
-    border-right: 1px solid #001ea0;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    font-size: 13px;
-    text-shadow: 1px 1px #0f1089;
-    height: 21px;
-}
-
-.start-bar-text {
-    padding-left: 0px;
-    margin-left: 0px;
-    font-weight: bold;
-    color: white;
-    background-color: green;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    padding-right: 5px;
-    font-style: italic;
-    font-size: 21px;
-    font-family: Verdana, sans-serif;
-    cursor: pointer;
-}
-
-.start-bar-controls {
-    display: flex;
-}*/
 
 .buscard {
   width: 480px;
@@ -275,12 +231,53 @@ h1 i {
   font-family: 'Playfair Display', serif;
 }
 
+/* The modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 5px; /* Location of the box */
+  padding-left: 5px;
+  width: 640px;
+  height: 640px;
+  overflow: hidden; /* Disable scroll */
+}
+
+/* Modal Content */
+.modal-content {
+  margin: auto;
+  padding: 0px;
+  width: 100%; /* full width */
+  height: 100%;
+}
+
     </style>
   </head>
   <body>
 
 <div class="container">
   <div class="screen">
+
+<!-- The Modal -->
+<div id="myModal" class="modal hidden">
+  <!-- Modal content -->
+  <div class="modal-content">
+<div class="window" style="height:100%;">
+  <div class="title-bar">
+    <div class="title-bar-text">DOS Box</div>
+    <div class="title-bar-controls">
+      <button id="btnModalMin" aria-label="Minimize"></button>
+      <button id="btnModalMax" aria-label="Maximize"></button>
+      <button id="btnModalClose" aria-label="Close"></button>
+    </div>
+  </div>
+  <div id="winModal" class="window-body" style="height:100%;">
+    <iframe style="width:100%;height:100%;" src="./vm.html?url=https://bellard.org/jslinux/freedos.cfg&mem=64&graphic=1&w=640&h=480"></iframe>
+  </div>
+</div>
+  </div>
+</div>
+
 
 <div class="window" style="width:580px;margin-top:10px;margin-left:50px;">
   <div class="title-bar">
@@ -377,15 +374,6 @@ h1 i {
 <br>
 <br>
 
-<!-- <div class="window" style="width:100%;position:absolute;bottom:0;">
-  <div class="start-bar">
-    <div class="start-bar-controls">
-      <div id="btnStart" class="start-bar-text">&nbsp;<img src="./img/winlogo.png" height="21px">&nbsp;Start&nbsp;</div>
-      </div>
-    </div>
-</div> -->
-
-
     <div class="taskbar">
       <div class="main-section">
         <input id="start-menu-active" type="checkbox" class="hidden">
@@ -466,25 +454,25 @@ h1 i {
                 <div class="label">My Computer</div>
               </div>
               <div id="menuNet" class="start-menu-item my-item">
-                <img src="./svg/internet_archive.svg" height="20px" width="20px"/>
+                <div class="icon" style="font-size:21px;">🖧</div>
                 <div class="label">My Network Places</div>
               </div>
 
               <div class="divider"></div>
 
               <div class="start-menu-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/22.ico')"></div>
+                <div class="icon" style="font-size:21px;">⚙</div>
                 <div class="label">Control Panel</div>
               </div>
               <div class="start-menu-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/138.ico')"></div>
+                <div class="icon" style="font-size:21px;">🖨️</div>
                 <div class="label">Printers and Faxes</div>
               </div>
 
               <div class="divider"></div>
 
               <div id="menuHelp" class="start-menu-item">
-                <div class="icon" style="background-image:url('https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/24.ico')"></div>
+                <div class="icon" style="font-size:21px;">🙋</div>
                 <div class="label">Help and Support</div>
               </div>
               <div id="menuSearch" class="start-menu-item">
@@ -506,17 +494,10 @@ h1 i {
   </div>
 </div>
 
-<div id="ex1" class="modal">
-  <p>Thanks for clicking. That felt good.</p>
-  <a href="#" rel="modal:close">Close</a>
-</div>
-
-
 <audio id="shutdown-mp3" src="./media/shutdown.mp3"></audio>
 <audio id="bonk-mp3" src="./media/bonk.mp3"></audio>
 
 <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="./js/clippy.js"></script>
 <script src="./js/menu.js"></script>
 <script language="javascript">
@@ -597,7 +578,7 @@ $('#menuIE').on('click',function(){
   window.open('https://support.microsoft.com/en-us/topic/internet-explorer-help-23360e49-9cd3-4dda-ba52-705336cc0de2');
 });
 
-$('#menuDOS').on('click',function(){
+$('#menuDOSx').on('click',function(){
   window.open('https://bellard.org/jslinux/vm.html?url=freedos.cfg&mem=64&graphic=1&w=720&h=400');
 });
 
@@ -657,6 +638,34 @@ document.getElementById("btnHelp").addEventListener("click", function() {
 document.getElementById("menuHelp").addEventListener("click", function() {
   doHelp();
 });
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("menuDOS");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("btnModalMin");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  $('#start-menu-active').prop('checked',false);
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    console.log('Closing the modal');
+    modal.style.display = "none";
+  }
+}
 
 </script>
 

@@ -183,7 +183,6 @@
 }
 .screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .all-programs .start-menu-item.all-programs-button::after {
   content: "";
-  background: url("https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/246.ico") center/contain no-repeat;
   display: inline-block;
   width: 20px;
   height: 20px;
