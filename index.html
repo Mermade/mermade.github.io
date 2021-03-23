@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8"/>
     <title>Mermade Software is shutting down...</title>
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <link rel="stylesheet" href="./css/clippy.css">
@@ -373,6 +374,8 @@ h1 i {
 <br>
 <br>
 
+<img id="iconPass" src="./img/passhash.png" height="64px" width="64px" style="position:absolute; top:120px; left:800px;"/>
+
     <div class="taskbar">
       <div class="main-section">
         <input id="start-menu-active" type="checkbox" class="hidden">
@@ -618,6 +621,10 @@ $('#menuNet').on('click',function(){
 
 $('#menuMusic').on('click',function(){
   window.open('https://se2.itunes.apple.com/WebObjects/MZStoreElements2.woa/wa/socialProfile?cc=gb&id=sp.1bcb21e8-4790-42c0-9bd0-ecc5c644d016&v=1&ls');
+});
+
+$("#iconPass").on("click",function(){
+  window.open("./static/passwordHasher.html");
 });
 
 $('#menuEmail').on('click',function(){
