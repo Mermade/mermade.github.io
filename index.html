@@ -466,7 +466,7 @@ h1 i {
                 <div class="icon" style="font-size:21px;">⚙</div>
                 <div class="label">Control Panel</div>
               </div>
-              <div class="start-menu-item">
+              <div id="menuPrint" class="start-menu-item">
                 <div class="icon" style="font-size:21px;">🖨️</div>
                 <div class="label">Printers and Faxes</div>
               </div>
@@ -625,6 +625,10 @@ $('#menuMusic').on('click',function(){
 
 $("#iconPass").on("click",function(){
   window.open("./static/passwordHasher.html");
+});
+
+$("#menuPrint").on("click",function(){
+  window.open("./bsod.html");
 });
 
 $('#menuEmail').on('click',function(){
