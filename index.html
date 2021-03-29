@@ -239,7 +239,7 @@ h1 i {
   z-index: 100; /* Sit on top */
   padding-top: 5px; /* Location of the box */
   padding-left: 5px;
-  width: 640px;
+  width: 800px;
   height: 640px;
   overflow: hidden; /* Disable scroll */
 }
@@ -273,7 +273,7 @@ h1 i {
     </div>
   </div>
   <div id="winModal" class="window-body" style="height:100%;">
-    <iframe style="width:100%;height:100%;" src="./vm.html?url=https://mermade.github.io/freedos.cfg&mem=64&graphic=1&w=640&h=480"></iframe>
+    <iframe style="width:100%;height:100%;" src="./jsl/index.html?url=root-x86.cfg&mem=128&graphic=0&w=640&h=480&cpu=x86"></iframe>
   </div>
 </div>
   </div>
@@ -628,7 +628,7 @@ $("#iconPass").on("click",function(){
 });
 
 $("#menuPrint").on("click",function(){
-  window.open("./bsod.html");
+  window.location.href = "./bsod.html";
 });
 
 $('#menuEmail').on('click',function(){
