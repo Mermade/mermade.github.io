@@ -263,19 +263,35 @@ h1 i {
 <div id="myModal" class="modal hidden">
   <!-- Modal content -->
   <div class="modal-content">
-<div class="window" style="height:100%;">
-  <div class="title-bar">
-    <div class="title-bar-text">DOS Box</div>
-    <div class="title-bar-controls">
-      <button id="btnModalMin" aria-label="Minimize"></button>
-      <button id="btnModalMax" aria-label="Maximize"></button>
-      <button id="btnModalClose" aria-label="Close"></button>
+    <div class="window" style="height:100%;">
+      <div class="title-bar">
+        <div class="title-bar-text">DOS Box</div>
+        <div class="title-bar-controls">
+          <button id="btnModalMin" aria-label="Minimize"></button>
+          <button id="btnModalMax" aria-label="Maximize"></button>
+          <button id="btnModalClose" aria-label="Close"></button>
+        </div>
+      </div>
+      <div id="winModal" class="window-body" style="height:100%;">
+        <iframe style="width:100%;height:100%;" src="./jsl/index.html?url=root-x86.cfg&mem=128&graphic=0&w=640&h=480&cpu=x86"></iframe>
+      </div>
     </div>
   </div>
-  <div id="winModal" class="window-body" style="height:100%;">
-    <iframe style="width:100%;height:100%;" src="./jsl/index.html?url=root-x86.cfg&mem=128&graphic=0&w=640&h=480&cpu=x86"></iframe>
-  </div>
 </div>
+
+<div id="modalPassHash" class="modal hidden" style="height:95%;width:300px;">
+  <div class="modal-content">
+    <div class="title-bar" style="width:295px">
+      <div class="title-bar-text">Password Hasher</div>
+      <div class="title-bar-controls">
+        <button id="btnModalPHMin" aria-label="Minimize"></button>
+        <button id="btnModalPHMax" aria-label="Maximize"></button>
+        <button id="btnModalPHClose" aria-label="Close"></button>
+      </div>
+    </div>
+    <div id="winModalPH" class="window-body" style="height:100%;margin:0;">
+      <iframe style="height:100%" src="./static/passwordHasher.html"></iframe>
+    </div>
   </div>
 </div>
 
@@ -326,11 +342,11 @@ h1 i {
             </label>
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset style="height:55px;">
           <legend>Credits</legend>
           <div class="field-row">
             <label>
-              This site is built with&nbsp;<a href="https://botoxparty.github.io/XP.css/">XP.css</a>&nbsp;and the CSS start menu by&nbsp;<a href="https://codepen.io/brundolf/pen/wzrWdy">Brandon Rundolf</a>&nbsp;<span class="hidden" id="spnClippy">and <a href="https://www.smore.com/clippy-js">Clippy.js!</a></span>.
+              This site is built with&nbsp;<a href="https://botoxparty.github.io/XP.css/">XP.css</a>&nbsp;and the CSS start menu by&nbsp;<a href="https://codepen.io/brundolf/pen/wzrWdy">Brandon Rundolf</a>&nbsp;Bliss wallpaper by MrSchlendermann&nbsp;<span class="hidden" id="spnClippy">and <a href="https://www.smore.com/clippy-js">Clippy.js!</a></span>.
             </label>
           </div>
         </fieldset>
@@ -374,7 +390,17 @@ h1 i {
 <br>
 <br>
 
+<img id="iconPM" src="./img/postman.png" height="64px" width="64px" style="position:absolute; top:40px; left:800px;"/>
 <img id="iconPass" src="./img/passhash.png" height="64px" width="64px" style="position:absolute; top:120px; left:800px;"/>
+<img id="iconBlog" src="./img/blog.svg" height="64px" width="64px" style="position:absolute; top:200px; left:800px;"/>
+<img id="iconAG" src="./img/ag-logo.svg" height="64px" width="64px" style="position:absolute; top:280px; left:800px;"/>
+<img id="iconOAI" src="./img/oai.png" height="64px" width="64px" style="position:absolute; top:360px; left:800px;"/>
+<img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px" style="position:absolute; top:440px; left:800px;"/>
+
+<img id="iconTwitter" src="./img/twitter.svg" height="64px" width="64px" style="position:absolute; top:40px; left:900px;"/>
+<img id="iconGithub" src="./img/github.svg" height="64px" width="64px" style="position:absolute; top:120px; left:900px;"/>
+<img id="iconSlack" src="./img/slack.svg" height="64px" width="64px" style="position:absolute; top:200px; left:900px;"/>
+<img id="iconLinkedIn" src="./img/linkedin.svg" height="64px" width="64px" style="position:absolute; top:280px; left:900px;"/>
 
     <div class="taskbar">
       <div class="main-section">
@@ -462,7 +488,7 @@ h1 i {
 
               <div class="divider"></div>
 
-              <div class="start-menu-item">
+              <div id="menuSettings" class="start-menu-item">
                 <div class="icon" style="font-size:21px;">⚙</div>
                 <div class="label">Control Panel</div>
               </div>
@@ -558,6 +584,10 @@ window.onload = function() {
   });
 }
 
+// Get the modals
+var modal = document.getElementById("myModal");
+var modalPassHash = document.getElementById("modalPassHash");
+
 /*document.getElementById("btnStart").addEventListener("click", function() {
   playAudio('shutdown-mp3');
   if (window.trollShown) window.troll.getAttention();
@@ -624,11 +654,51 @@ $('#menuMusic').on('click',function(){
 });
 
 $("#iconPass").on("click",function(){
-  window.open("./static/passwordHasher.html");
+  modalPassHash.style.display = "block";
+});
+$('#btnModalPHMin').on('click',function(){
+  modalPassHash.style.display = "none";
+});
+$('#btnModalPHMax').on('click',function(){
+  playAudio('bonk-mp3');
+});
+$('#btnModalPHClose').on('click',function(){
+  modalPassHash.style.display = "none";
 });
 
 $("#menuPrint").on("click",function(){
   window.location.href = "./bsod.html";
+});
+$("#iconBlog").on("click",function(){
+  window.location.href = "https://dev.to/mikeralphson";
+});
+$("#iconAG").on("click",function(){
+  window.location.href = "https://apis.guru";
+});
+$("#iconPM").on("click",function(){
+  window.location.href = "https://postman.com";
+});
+$("#iconOAI").on("click",function(){
+  window.location.href = "https://openapis.org";
+});
+$("#iconMS").on("click",function(){
+  window.location.href = "https://alexaegis.github.io/svelte-minesweeper/";
+});
+$("#iconTwitter").on("click",function(){
+  window.location.href = "https://twitter.com/permittedsoc/";
+});
+$("#iconGithub").on("click",function(){
+  window.location.href = "https://github.com/MikeRalphson/";
+});
+$("#iconSlack").on("click",function(){
+  window.location.href = "https://apis-working-group.slack.com/";
+});
+$("#iconLinkedIn").on("click",function(){
+  window.location.href = "https://linkedin.com/in/MikeRalphson/";
+});
+
+$("#menuSettings").on("click",function(){
+  window.location.href = "https://learning.postman.com/docs/getting-started/settings/";
 });
 
 $('#menuEmail').on('click',function(){
@@ -652,8 +722,101 @@ document.getElementById("menuHelp").addEventListener("click", function() {
   doHelp();
 });
 
-// Get the modal
-var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var modalBtn = document.getElementById("menuDOS");
+
+// Get the button that closes the modal
+$("#iconMS").on("click",function(){
+  window.location.href = "https://alexaegis.github.io/svelte-minesweeper/";
+});
+
+$("#menuSettings").on("click",function(){
+  window.location.href = "https://learning.postman.com/docs/getting-started/settings/";
+});
+
+$('#menuEmail').on('click',function(){
+  $('#lnkEmail').click();
+  this.preventDefault(true);
+  return false;
+});
+
+function doHelp(){
+  $('#spnClippy').show();
+  window.troll.show();
+  window.trollShown = true;
+  window.troll.animate();
+  window.troll.speak('Hi! It looks like you need some help. Why not get hold of Mike on Twitter? @permittedSoc');
+}
+
+document.getElementById("btnHelp").addEventListener("click", function() {
+  doHelp();
+});
+document.getElementById("menuHelp").addEventListener("click", function() {
+  doHelp();
+});
+
+// Get the button that opens the modal
+var modalBtn = document.getElementById("menuDOS");
+
+// Get the button that closes the modal
+$("#iconMS").on("click",function(){
+  window.location.href = "https://alexaegis.github.io/svelte-minesweeper/";
+});
+
+$("#menuSettings").on("click",function(){
+  window.location.href = "https://learning.postman.com/docs/getting-started/settings/";
+});
+
+$('#menuEmail').on('click',function(){
+  $('#lnkEmail').click();
+  this.preventDefault(true);
+  return false;
+});
+
+function doHelp(){
+  $('#spnClippy').show();
+  window.troll.show();
+  window.trollShown = true;
+  window.troll.animate();
+  window.troll.speak('Hi! It looks like you need some help. Why not get hold of Mike on Twitter? @permittedSoc');
+}
+
+document.getElementById("btnHelp").addEventListener("click", function() {
+  doHelp();
+});
+document.getElementById("menuHelp").addEventListener("click", function() {
+  doHelp();
+});
+
+// Get the button that opens the modal
+var modalBtn = document.getElementById("menuDOS");
+
+// Get the button that closes the modal
+
+$("#menuSettings").on("click",function(){
+  window.location.href = "https://learning.postman.com/docs/getting-started/settings/";
+});
+
+$('#menuEmail').on('click',function(){
+  $('#lnkEmail').click();
+  this.preventDefault(true);
+  return false;
+});
+
+function doHelp(){
+  $('#spnClippy').show();
+  window.troll.show();
+  window.trollShown = true;
+  window.troll.animate();
+  window.troll.speak('Hi! It looks like you need some help. Why not get hold of Mike on Twitter? @permittedSoc');
+}
+
+document.getElementById("btnHelp").addEventListener("click", function() {
+  doHelp();
+});
+document.getElementById("menuHelp").addEventListener("click", function() {
+  doHelp();
+});
 
 // Get the button that opens the modal
 var modalBtn = document.getElementById("menuDOS");
@@ -678,10 +841,8 @@ modalClose.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    console.log('Closing the modal');
-    modal.style.display = "none";
-  }
+  console.log('Closing modals');
+  $('.modal').css('display:none');
 }
 
 </script>
