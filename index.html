@@ -46,7 +46,7 @@
       }
 
 .buscard {
-  width: 480px;
+  width: 510px;
   height: 260px;
   margin: 0 auto;
   position: relative;
@@ -64,7 +64,7 @@
 }
 
 .card {
-  width: 480px;
+  width: 510px;
   height: 260px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, .7), 0 17px 17px 0 rgba(0, 0, 0, .5);
   position: relative;
@@ -228,17 +228,27 @@ li:before {
   border-radius: 50%;
   font-family: FontAwesome;
 }
-li:nth-child(1):before {content: "\f095"}
+/*li:nth-child(1):before {content: "\f095"}
 li:nth-child(2):before {content: "\f003"}
-li:nth-child(3):before {content: "\f0c1"}
+li:nth-child(3):before {content: "\f0c1"}*/
 h1 {
   color: #FC5135;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 400;
   line-height: 1;
-  margin-top: 110px;
+  margin-top: 50px;
   text-align: center;
   font-size: 40px;
+}
+.subheading {
+  color: #FC5135;
+  text-transform: none;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
 }
 h1 span {
   color: #4E203C;
@@ -357,7 +367,7 @@ h1 i {
           <div class="field-row">
             <label>
             If you need front-end website design or web ordering functionality,
-            please consider the awesome people who run the companies in the following tabs.
+            please consider the awesome people who run the companies in the tabs above.
 	    Hover over the business cards to flip them over. Thank you.
             </label>
           </div>
@@ -380,14 +390,14 @@ h1 i {
 <div class="buscard">
   <div class="card">
     <div class="front">
-      <div class="logo"><span></span></div>
+      <img src="./img/code-red.png" style="filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));" height="200" width="200"/>
     </div>
     <div class="back">
-      <h1>Helen Parker<span>design <i>&</i> photography</span></h1>
+      <h1>Code-Red Digital Ltd</h1>
+      <div class="subheading">Hand crafted websites, made by Dave</div>
       <ul>
-        <li>+1-111-111-11-11</li>
-        <li>my-email@email.com</li>
-        <li>my-site.com</li>
+        <li><a href="https://code-red.uk">https://code-red.uk</a></li>
+        <li><a href="mailto:hello@code-red.uk">hello@code-red.uk</a></li>
         </ul>
     </div>
     </div>
@@ -395,9 +405,39 @@ h1 i {
     </article>
 
     <article role="tabpanel" hidden id="spectacle" style="height:260px">
+<div class="buscard">
+  <div class="card">
+    <div class="front">
+      <img src="./img/mas.svg" style="filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));" height="200" width="200"/>
+    </div>
+    <div class="back">
+      <h1>MakeASpectacle.co.uk</h1>
+      <div class="subheading">We specialise in bespoke websites for people in the creative industries</div>
+      <ul>
+        <li><a href="https://makeaspectacle.co.uk">https://makeaspectacle.co.uk</a></li>
+        <li><a href="mailto:hello@makeaspectacle.co.uk">hello@makeaspectacle.co.uk</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
     </article>
 
     <article role="tabpanel" hidden id="simply-orders" style="height:260px">
+<div class="buscard">
+  <div class="card">
+    <div class="front">
+      <img src="./img/simply-orders.png" style="filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));" height="200" width="200"/>
+    </div>
+    <div class="back">
+      <h1>SimplyOrders.co</h1>
+      <div class="subheading">We make selling online simple</div>
+      <ul>
+        <li><a href="https://simplyorders.co.">https://simplyorders.co</a></li>
+        <li><a href="mailto:hello@simplyorders.co">hello@simplyorders.co</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
     </article>
 
     <section class="field-row" style="justify-content: flex-end">
@@ -413,14 +453,18 @@ h1 i {
 <img id="iconPM" src="./img/postman.png" height="64px" width="64px" style="position:absolute; top:40px; left:800px;"/>
 <img id="iconPass" src="./img/passhash.png" height="64px" width="64px" style="position:absolute; top:120px; left:800px;"/>
 <img id="iconBlog" src="./img/blog.svg" height="64px" width="64px" style="position:absolute; top:200px; left:800px;"/>
-<img id="iconAG" src="./img/ag-logo.svg" height="64px" width="64px" style="position:absolute; top:360px; left:800px;"/>
 <img id="iconOAI" src="./img/oai.png" height="64px" width="64px" style="position:absolute; top:280px; left:800px;"/>
-<img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px" style="position:absolute; top:440px; left:800px;"/>
+<img id="iconAG" src="./img/ag-logo.svg" height="64px" width="64px" style="position:absolute; top:360px; left:800px;"/>
+<img id="iconMAS" src="./img/mas.svg" height="64px" width="64px" style="position:absolute; top:440px; left:800px;"/>
+<img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px" style="position:absolute; top:520px; left:800px;"/>
 
 <img id="iconTwitter" src="./img/twitter.svg" height="64px" width="64px" style="position:absolute; top:40px; left:900px;"/>
 <img id="iconGithub" src="./img/github.svg" height="64px" width="64px" style="position:absolute; top:120px; left:900px;"/>
 <img id="iconSlack" src="./img/slack.svg" height="64px" width="64px" style="position:absolute; top:200px; left:900px;"/>
 <img id="iconLinkedIn" src="./img/linkedin.svg" height="64px" width="64px" style="position:absolute; top:280px; left:900px;"/>
+<img id="iconCodeRed" src="./img/code-red.png" height="64px" width="64px" style="position:absolute; top:360px; left:900px;"/>
+<img id="iconSO" src="./img/simply-orders.png" height="64px" width="64px" style="position:absolute; top:440px; left:900px;"/>
+<img id="iconSol" src="./img/icon-sol.png" height="64px" width="64px" style="position:absolute; top:520px; left:900px;"/>
 
     <div class="taskbar">
       <div class="main-section">
@@ -715,6 +759,18 @@ $("#iconSlack").on("click",function(){
 });
 $("#iconLinkedIn").on("click",function(){
   window.location.href = "https://linkedin.com/in/MikeRalphson/";
+});
+$("#iconCodeRed").on("click",function(){
+  window.location.href = "https://code-red.uk/";
+});
+$("#iconMAS").on("click",function(){
+  window.location.href = "https://makeaspectacle.co.uk/";
+});
+$("#iconSO").on("click",function(){
+  window.location.href = "https://simplyorders.co/";
+});
+$("#iconSol").on("click",function(){
+  window.location.href = "https://www.spiderette.com/solitaire/windows-xp/fullscreen/";
 });
 
 $("#menuSettings").on("click",function(){
