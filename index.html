@@ -357,6 +357,7 @@ h1 i {
       <button aria-controls="code-red">Code-Red.UK</button>
       <button aria-controls="spectacle">MakeASpectacle</button>
       <button aria-controls="simply-orders">Simply-Orders</button>
+      <button aria-controls="aywh">Phil Sturgeon</button>
     </menu>
     <article role="tabpanel" id="about" style="height:260px">
         <legend>Out of Office responder: ✅</legend>
@@ -366,7 +367,7 @@ h1 i {
           <legend>Consultancy services</legend>
           <div class="field-row">
             <label>
-            If you need front-end website design or web ordering functionality,
+            If you need front-end website design, web ordering functionality, or API consultancy
             please consider the awesome people who run the companies in the tabs above.
 	    Hover over the business cards to flip them over. Thank you.
             </label>
@@ -440,6 +441,24 @@ h1 i {
   </div>
     </article>
 
+    <article role="tabpanel" hidden id="aywh" style="height:260px">
+<div class="buscard">
+  <div class="card">
+    <div class="front">
+      <img src="./img/aywh.png" style="filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));" height="200" width="200"/>
+    </div>
+    <div class="back">
+      <h1>Phil Sturgeon</h1>
+      <div class="subheading">Consults on APIs for tree money</div>
+      <ul>
+        <li><a href="https://calendly.com/philsturgeon">https://calendly.com/philsturgeon</a></li>
+        <!-- <li><a href="mailto:hello@simplyorders.co">hello@simplyorders.co</a></li> -->
+        </ul>
+    </div>
+    </div>
+  </div>
+    </article>
+
     <section class="field-row" style="justify-content: flex-end">
       <button id="btnOK">OK</button>
       <button id="btnCancel">Cancel</button>
@@ -456,7 +475,7 @@ h1 i {
 <img id="iconOAI" src="./img/oai.png" height="64px" width="64px" style="position:absolute; top:280px; left:800px;"/>
 <img id="iconAG" src="./img/ag-logo.svg" height="64px" width="64px" style="position:absolute; top:360px; left:800px;"/>
 <img id="iconMAS" src="./img/mas.svg" height="64px" width="64px" style="position:absolute; top:440px; left:800px;"/>
-<img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px" style="position:absolute; top:520px; left:800px;"/>
+<img id="iconAYWH" src="./img/aywh.png" height="64px" width="64px" style="position:absolute; top:520px; left:800px;"/>
 
 <img id="iconTwitter" src="./img/twitter.svg" height="64px" width="64px" style="position:absolute; top:40px; left:900px;"/>
 <img id="iconGithub" src="./img/github.svg" height="64px" width="64px" style="position:absolute; top:120px; left:900px;"/>
@@ -464,7 +483,8 @@ h1 i {
 <img id="iconLinkedIn" src="./img/linkedin.svg" height="64px" width="64px" style="position:absolute; top:280px; left:900px;"/>
 <img id="iconCodeRed" src="./img/code-red.png" height="64px" width="64px" style="position:absolute; top:360px; left:900px;"/>
 <img id="iconSO" src="./img/simply-orders.png" height="64px" width="64px" style="position:absolute; top:440px; left:900px;"/>
-<img id="iconSol" src="./img/icon-sol.png" height="64px" width="64px" style="position:absolute; top:520px; left:900px;"/>
+<img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px" style="position:absolute; top:520px; left:900px;"/>
+<!--<img id="iconSol" src="./img/icon-sol.png" height="64px" width="64px" style="position:absolute; top:520px; left:900px;"/>-->
 
     <div class="taskbar">
       <div class="main-section">
@@ -765,6 +785,9 @@ $("#iconCodeRed").on("click",function(){
 });
 $("#iconMAS").on("click",function(){
   window.location.href = "https://makeaspectacle.co.uk/";
+});
+$("#iconAYWH").on("click",function(){
+  window.location.href = "https://calendly.com/philsturgeon/";
 });
 $("#iconSO").on("click",function(){
   window.location.href = "https://simplyorders.co/";
