@@ -390,7 +390,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
           </menu>
           <article role="tabpanel" id="about" style="height:260px">
             <legend>Out of Office responder: ✅</legend>
-            <p><b>From:</b> April 12th 2021
+            <p><b>From:</b> April 2021
             <p><b>Subject:</b> Mike Ralphson is joining <a href="https://www.postman.com/">Postman</a></p>
             <fieldset>
               <legend>Consultancy services</legend>
@@ -503,6 +503,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
       </div>
 
       <br>
+      <div id="divWebamp" style="z-index:200;"></div>
       <br>
 
       <img id="iconPM" src="./img/postman.png" height="64px" width="64px"
@@ -639,7 +640,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
                   <div class="label">Help and Support</div>
                 </div>
                 <div id="menuSearch" class="start-menu-item">
-                  <img src="./svg/duckduckgo.svg" height="20px" width="20px" />
+                  <div class="icon" style="font-size:21px;">🔍</div>
                   <div class="label">Search</div>
                 </div>
                 <div id="menuDOS" class="start-menu-item">
@@ -664,6 +665,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
   <audio id="bonk-mp3" src="./media/bonk.mp3"></audio>
 
   <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/webamp"></script>
   <script src="./js/clippy.js"></script>
   <script src="./js/menu.js"></script>
   <script language="javascript">
@@ -761,7 +763,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
     });
 
     $('#menuSearch').on('click', function () {
-      window.open('https://duckduckgo.com/');
+      window.location.href = "./search.html";
     });
     $('#menuDocs').on('click', function () {
       window.open('https://drive.google.com/');
@@ -785,7 +787,16 @@ li:nth-child(3):before {content: "\f0c1"}*/
     });
 
     $('#menuMusic').on('click', function () {
-      window.open('https://se2.itunes.apple.com/WebObjects/MZStoreElements2.woa/wa/socialProfile?cc=gb&id=sp.1bcb21e8-4790-42c0-9bd0-ecc5c644d016&v=1&ls');
+      new Webamp({
+            initialTracks: [
+                {
+                    metaData: {
+                        artist: "Sam Brown",
+                        title: "Your Time is Your Own"
+                    },
+                    url: "media/43-1.mp3",
+                    duration: 210.322286
+                }]}).renderWhenReady(divWebamp);
     });
 
     $("#iconPass").on("click", function () {
