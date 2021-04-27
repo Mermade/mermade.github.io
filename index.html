@@ -503,7 +503,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
       </div>
 
       <br>
-      <div id="divWebamp" style="z-index:200;"></div>
+      <div id="divWebamp"></div>
       <br>
 
       <img id="iconPM" src="./img/postman.png" height="64px" width="64px"
@@ -535,7 +535,10 @@ li:nth-child(3):before {content: "\f0c1"}*/
         style="position:absolute; top:440px; left:900px;" />
       <img id="iconMS" src="./img/minesweeper.png" height="64px" width="64px"
         style="position:absolute; top:520px; left:900px;" />
-      <!--<img id="iconSol" src="./img/icon-sol.png" height="64px" width="64px" style="position:absolute; top:520px; left:900px;"/>-->
+
+      <img id="iconPaint" src="./img/paint.png" height="64px" width="64px"
+        style="position:absolute; top:40px; left:1000px;" />
+      <img id="iconSol" src="./img/icon-sol.png" height="64px" width="64px" style="position:absolute; top:120px; left:1000px;"/>
 
       <div class="taskbar">
         <div class="main-section">
@@ -788,6 +791,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
 
     $('#menuMusic').on('click', function () {
       new Webamp({
+            zIndex: 200,
             initialTracks: [
                 {
                     metaData: {
@@ -796,7 +800,32 @@ li:nth-child(3):before {content: "\f0c1"}*/
                     },
                     url: "media/43-1.mp3",
                     duration: 210.322286
-                }]}).renderWhenReady(divWebamp);
+                },
+                {
+                    metaData: {
+                        artist: "The Raconteurs",
+                        title: "You Don't Believe Me"
+                    },
+                    url: "media/raconteurs1.mp3",
+                    duration: 210.322286
+                },
+                {
+                    metaData: {
+                        artist: "Annie Williamson",
+                        title: "Say Nothing"
+                    },
+                    url: "media/annie1.mp3",
+                    duration: 210.322286
+                },
+                {
+                    metaData: {
+                        artist: "Cortina Deluxx",
+                        title: "Ready About?"
+                    },
+                    url: "media/cortina1.mp3",
+                    duration: 210.322286
+                },
+                ]}).renderWhenReady(divWebamp);
     });
 
     $("#iconPass").on("click", function () {
@@ -856,6 +885,9 @@ li:nth-child(3):before {content: "\f0c1"}*/
     });
     $("#iconSol").on("click", function () {
       window.location.href = "https://www.spiderette.com/solitaire/windows-xp/fullscreen/";
+    });
+    $("#iconPaint").on("click", function () {
+      window.location.href = "https://jspaint.app/";
     });
 
     $("#menuSettings").on("click", function () {
