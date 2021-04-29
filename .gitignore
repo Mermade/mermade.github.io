@@ -1,4 +1,5 @@
 node_modules
+.DS_Store
 apikey.txt
 .sass-cache
 bower_components
