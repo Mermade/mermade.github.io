@@ -1,9 +1,6 @@
 ---
 layout: page
 title: PCx86 Examples
-permalink: /apps/pcx86/examples/
-redirect_from:
-  - /docs/pcx86/examples/
 machines:
   - id: example3
     type: pcx86
@@ -32,7 +29,5 @@ the "file:" or "http:" protocol.
 up-to-date.
 
 Have fun!
-
-{% include machine.html id="example3" %}
 
 [Return to [PCx86 Documentation](/docs/pcx86/)]
