@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <machine id="dos3" type="pcx86" width="720px">
 	<computer id="pc" name="IBM PC"/>
-	<ram id="ramLow" addr="0x00000" size="0x10000"/>
+	<ram id="ramLow" addr="0x00000" size="0x30000"/>
 	<rom id="romBASIC" addr="0xf6000" size="0x8000" file="ibm-basic-1.00.json"/>
 	<rom id="romBIOS" addr="0xfe000" size="0x2000" file="1981-04-24.json"/>
 	<keyboard id="keyboard"/>
