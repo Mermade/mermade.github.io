@@ -1,0 +1,1186 @@
+<!DOCTYPE html><html><he3d>
+      <title>hhg-fit12</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+	      <h1 class="mume-header" id="the-hitch-hikers-guide-to-the-galaxy-fit-the-twelfth">&apos;The Hitch-Hiker&apos;s Guide to the Galaxy&apos;</h1>
+
+<h2 class="mume-header" id="fit-the-twelfth">Fit the Twelfth</h2>
+
+<h3 class="mume-header" id="by-douglas-adams">by Douglas Adams</h3>
+
+<p>ANNOUNCER:<br>
+&#x2019;The Hitch-Hiker&#x2019;s Guide to the Galaxy&#x2019;, by Douglas Adams. Starring Peter Jones as &#x2018;The Book&#x2019;.</p>
+<h3 class="mume-header" id="a-idscene1scene-1-int-derelict-spaceporta"><a id="scene1">Scene 1. Int. Derelict Spaceport</a></h3>
+
+<p>NARRATOR:<br>
+What we find is this: that Ford Prefect and Zaphod Beeblebrox have broken into an ancient building concerning which, they have reached the following conclusion:</p>
+<p>ZAPHOD:<br>
+It&#x2019;s a derelict spaceport&#x2026;</p>
+<p>NARRATOR:<br>
+And within which they have discovered a large number of</p>
+<p>FORD:<br>
+&#x2026;amazing old ships&#x2026;</p>
+<p>NARRATOR:<br>
+Whose condition has been described by Ford Prefect in these terms:</p>
+<p>FORD:<br>
+&#x2026;just rust and wreckage&#x2026;</p>
+<p>NARRATOR:<br>
+And by Zaphod Beeblebrox like this:</p>
+<p>ZAPHOD:<br>
+&#x2026;just like huge, broken eggshells&#x2026;</p>
+<p>NARRATOR:<br>
+We find that one ship has caught their eye for this reason:</p>
+<p>FORD:<br>
+It&#x2019;s covered with muck and dust, but it looks like it&#x2019;s still in one piece.,,</p>
+<p>ZAPHOD:<br>
+Yeah, a- and it&#x2019;s still connected to its supply lines.</p>
+<p>NARRATOR:<br>
+And we find that this provokes them into closer investigation. This is what they find:</p>
+<p>FORD:<br>
+Feels like it&#x2019;s on power. Just a very slight vibration.</p>
+<p>ZAPHOD:<br>
+But it must&#x2019;ve been here for centuries. Hey man, pass me those four bits of tubing.</p>
+<p>FORD:<br>
+What, these?</p>
+<p>ZAPHOD:<br>
+Yeah. I&#x2019;m gonna make me a stethoscope and take a listen to this baby. There. And there. Like that.</p>
+<p>FORD:<br>
+Ya hear anything?</p>
+<p>ZAPHOD:<br>
+Hey! Yeah! Yeah I can hear&#x2026; something&#x2026;</p>
+<p>FORD:<br>
+What is it?</p>
+<p>ZAPHOD:<br>
+Ohhhhho, Ford! I don&#x2019;t believe what I just heard!</p>
+<p>FORD:<br>
+Here, let me listen!</p>
+<p>ZAPHOD:<br>
+Okay. But you better keep your head screwed on kid! You can hear?</p>
+<p>FORD:<br>
+Yeah&#x2026; It&#x2019;s a voice!</p>
+<p>ZAPHOD:<br>
+But can you hear what it&#x2019;s saying man?! Can you get your mind behind what it&#x2019;s saying?!</p>
+<p>FORD:<br>
+Shh-shh. I&#x2019;m trying.</p>
+<p>P.A. VOICE:<br>
+Trans-Stellar Space Lines would like to apologise to passengers for the continuing delay for the departure of this flight.</p>
+<p>FORD:<br>
+Hey, weird.</p>
+<p>P.A. VOICE:<br>
+We are currently awaiting the loading of our compliment of small, lemon-soaked paper napkins for your comfort, refreshment, and hygiene during the flight, which will be of two hours duration. Meanwhile we thank you for your patience. The cabin crew will shortly be serving coffee and biscuits&#x2026; again.</p>
+<p>FORD:<br>
+Zaphod! How long has this ship been standing here?</p>
+<p>ZAPHOD:<br>
+Man, there&#x2019;s a departure board right behind us and I&#x2019;ve been looking at the flight schedules. Man this ship is late, man this ship is very, very late! Man this ship is over nine-hundred years late.</p>
+<p>FORD:<br>
+Zaphod, we&#x2019;ve got to get in there.</p>
+<p>ZAPHOD:<br>
+But man, can you cope with what we might find?</p>
+<p>FORD:<br>
+I dunno know. We&#x2019;ve got to get in there.</p>
+<p>ZAPHOD:<br>
+We gotta get in there. What we find, we find. What we also find is that Arthur Dent, Marvin, and the girl Lintilla, who, as has already been established has now been cloned over five-hundred-and-seventy-eight-thousand-million times - and has thus created a problem in some quarters - are now thoroughly lost in the Dolmansaxlil base. This is because there is no light, which is in turn because Marvin has done something aggravating to the Dolmansaxlil power supply, which is in turn because he was anxious to create some confusion under cover of which he could rescue Arthur and Lintilla, which was in turn because they had been captured by Hig Hurtenflirst, which was in turn because&#x2026; and so on back to the initial and highly controversial creation of the universe. Only two of Lintilla&#x2019;s five-hundred-and-seventy-eight-thousand-million clones are on the planet Brontitall with her. And it is more than likely that we shall also find them.</p>
+<h3 class="mume-header" id="a-idscene2scene-2-ext-surface-of-planet-brontitalla"><a id="scene2">Scene 2. Ext. Surface of Planet Brontitall</a></h3>
+
+<p>[Panting]</p>
+<p>LINTILLA and LINTILLA:<br>
+Lintilla!</p>
+<p>ARTHUR:<br>
+Ah! There&#x2019;s your better half and worse half. Or at least your exactly the same halves. Thirds.</p>
+<p>ARTHUR:<br>
+Whatever&#x2026; why do you people&#x2026;</p>
+<p>LINTILLA:<br>
+Lintilla!</p>
+<p>ARTHUR:<br>
+&#x2026; lead such complicated lives?</p>
+<p>LINTILLA:<br>
+Lintilla.</p>
+<p>LINTILLA:<br>
+What happened to you?</p>
+<p>LINTILLA:<br>
+There were a couple of foot warriors standing guard over us.</p>
+<p>LINTILLA:<br>
+But after a while they sat guard over us.</p>
+<p>LINTILLA:<br>
+Then they wandered away to find some corn-plasters.</p>
+<p>LINTILLA:<br>
+And so we escaped.</p>
+<p>ARTHUR:<br>
+Right. Where are we going?</p>
+<p>MARVIN:<br>
+How should I know? It&#x2019;s your Universe, you go where you like.</p>
+<p>LINTILLA:<br>
+We&#x2019;ll get back to our ship.</p>
+<p>ARTHUR:<br>
+I thought you said it didn&#x2019;t work!</p>
+<p>LINTILLA:<br>
+Well, there&#x2019;s a derelict spaceport about a mile or so from here, we might be able to get some parts to repair it with.</p>
+<p>ARTHUR:<br>
+Ah, well I&#x2019;m not very skilled at repairing spaceships.</p>
+<p>LINTILLA:<br>
+Well you can learn.</p>
+<p>ARTHUR:<br>
+Take a bit of time I think.</p>
+<p>LINTILLA:<br>
+You could take some evening classes.</p>
+<p>ARTHUR:<br>
+What here?!</p>
+<p>LINTILLA:<br>
+Yes. I&#x2019;ve got a bottle of them - little pink ones.</p>
+<p>ARTHUR:<br>
+Well, I&#x2026;</p>
+<p>LINTILLA:<br>
+Come on then, let&#x2019;s get out of here before they restore the power and find us.</p>
+<p>[The power comes back on]</p>
+<p>LINTILLA:<br>
+They&#x2019;ve restored the power!</p>
+<p>[Laser gun fire]</p>
+<p>FOOT WARRIOR:<br>
+In the name of&#x2026;</p>
+<p>ARTHUR:<br>
+They&#x2019;ve found us! Keep down.</p>
+<p>[More laser gun fire]</p>
+<p>FOOT WARRIOR:<br>
+&#x2026;the Dolmansaxlil Shoe Corporation, we demand that you give yourself up!</p>
+<p>FOOT WARRIOR:<br>
+Come out with your hands up.</p>
+<p>FOOT WARRIOR:<br>
+We&#x2019;ve got you covered - shooting us won&#x2019;t do you any good.</p>
+<p>FOOT WARRIORS:<br>
+Or us, for that matter</p>
+<p>FOOT WARRIOR:<br>
+That&#x2019;s right.</p>
+<p>FOOT WARRIOR:<br>
+Come out. Now.</p>
+<p>[More laser gun fire]</p>
+<p>ARTHUR:<br>
+This probably seems a terrible thing to say, but you know what I sometimes think would be useful in these situations?</p>
+<p>LINTILLA:<br>
+What?</p>
+<p>ARTHUR:<br>
+A gun of some sort.</p>
+<p>LINTILLA:<br>
+Will this help?</p>
+<p>ARTHUR:<br>
+What is it?</p>
+<p>LINTILLA:<br>
+It&#x2019;s a gun of some sort.</p>
+<p>ARTHUR:<br>
+Oh! - that&#x2019;ll help. Can you make it fire?</p>
+<p>LINTILLA:<br>
+Uhhhh&#x2026;</p>
+<p>[LINTILLA&#x2019;s gun fires]</p>
+<p>LINTILLA:<br>
+Yes.</p>
+<p>ARTHUR:<br>
+Right, look. Why don&#x2019;t you keep firing at them, I&#x2019;ll make a dash for the next intersection, you throw me the gun, I&#x2019;ll keep firing, and you make a dash for it - did you ever see &#x2019;Gunfight at the O.K. Corral&#x2019;?</p>
+<p>LINTILLA:<br>
+What?</p>
+<p>ARTHUR:<br>
+No you wouldn&#x2019;t&#x2019;ve done.</p>
+<p>LINTILLA:<br>
+What?</p>
+<p>ARTHUR:<br>
+Oh, never mind.</p>
+<p>LINTILLA:<br>
+No, what?</p>
+<p>ARTHUR:<br>
+Oh, just an old western&#x2026; er, please, I don&#x2019;t want to talk about it. Right, everyone understand?</p>
+<p>LINTILLA:<br>
+Yes.</p>
+<p>LINTILLA:<br>
+Yes.</p>
+<p>LINTILLA:<br>
+Yes.</p>
+<p>ARTHUR:<br>
+Marvin?</p>
+<p>MARVIN:<br>
+Understand? You ask me if I understand?</p>
+<p>ARTHUR:<br>
+Yes or no!</p>
+<p>MARVIN:<br>
+Guess.</p>
+<p>ARTHUR:<br>
+Right! I&#x2019;m going. You fire, I&#x2019;ll run. Now!</p>
+<p>ARTHUR:<br>
+Right.</p>
+<p>[Under LINTILLA&#x2019;s covering laser gun fire we hear ARTHUR running]</p>
+<p>POODOO:<br>
+Er, excuse me.</p>
+<p>ARTHUR:<br>
+Aghh! Who are you?</p>
+<p>POODOO:<br>
+Er, me? Ah, well, ya see, what it is, ya see, is I&#x2019;m Poodoo. And look, I&#x2019;m sorry to interrupt, are you busy?</p>
+<p>ARTHUR:<br>
+What?! Yes!!</p>
+<p>[The laser gun fire is still going on as the conversation continues]</p>
+<p>POODOO:<br>
+Can I just ask you something?</p>
+<p>ARTHUR:<br>
+No. In a minute. Please get back!</p>
+<p>ARTHUR:<br>
+Right! Lintilla!</p>
+<p>POODOO:<br>
+Only, I can see you&#x2019;re busy, so I won&#x2019;t take up a moment of your time. If I could just -</p>
+<p>ARTHUR:<br>
+What?</p>
+<p>POODOO:<br>
+&#x2026;introduce a couple of friends of mine. Well, three actually, four if you count the priest.</p>
+<p>ALLITNIL, ALLITNIL and ALLITNIL:<br>
+Hello.</p>
+<p>VARNTVAR THE PRIEST:<br>
+Hello.</p>
+<p>ARTHUR:<br>
+Ahh!</p>
+<p>POODOO:<br>
+Only, we were wondering -</p>
+<p>ARTHUR:<br>
+Who are you?!</p>
+<p>POODOO:<br>
+Can I just ask you something?</p>
+<p>ARTHUR:<br>
+look, please.</p>
+<p>POODOO:<br>
+It&#x2019;s just - do you know those girls over there?</p>
+<p>ARTHUR:<br>
+What?! Yes!</p>
+<p>POODOO:<br>
+Oh that&#x2019;s good. Thank you very much. That&#x2019;s all I wanted, that&#x2019;s all. Thanks.</p>
+<p>ARTHUR:<br>
+Good! Lintilla! Throw the gun!</p>
+<p>POODOO:<br>
+Only!, why I ask you see, is, and, er, seeing as you&#x2019;re busy, I&#x2019;ll just be very brief - did I introduce my friends?</p>
+<p>ARTHUR:<br>
+Yes!</p>
+<p>POODOO:<br>
+I&#x2019;m sure they&#x2019;d like to introduce themselves.</p>
+<p>ALLITNIL:<br>
+Hello, I&#x2019;m Allitnil.</p>
+<p>ALLITNIL:<br>
+So am I.</p>
+<p>ALLITNIL:<br>
+Me too.</p>
+<p>ARTHUR:<br>
+Go Away!</p>
+<p>POODOO:<br>
+And this is Fartfar the priest.</p>
+<p>VARNTVAR THE PRIEST:<br>
+Varntva.</p>
+<p>POODOO:<br>
+Varntva. He&#x2019;s a priest you see. He does marriages, and other things, but mostly marriages, only -</p>
+<p>ARTHUR:<br>
+Shut up!</p>
+<p>POODOO:<br>
+We were wondering if you could introduce Allitnil -</p>
+<p>ARTHUR:<br>
+Who?!</p>
+<p>POODOO:<br>
+Allitnil! And Allitnil, and Allitnil to the girls, your lady friends.</p>
+<p>ARTHUR:<br>
+Lintilla!!</p>
+<p>POODOO:<br>
+Yes! That&#x2019;s right! Just social you see. All very pleasant.</p>
+<p>ARTHUR:<br>
+Throw the gun!</p>
+<p>POODOO:<br>
+We brought some drinks; we could just have a quiet, social get together. And some music, of course, got to have some music. Here we go!</p>
+<p>[As the gunfire continues, music starts playing]</p>
+<p>ARTHUR:<br>
+Throw the gun!</p>
+<p>LINTILLA:<br>
+Got it?!</p>
+<p>ARTHUR:<br>
+Got it! Now when I start firing, run!</p>
+<p>POODOO:<br>
+Then, if it all goes very well, you see, we&#x2019;ve got a priest on hand in case anybody wants to get married at all, just to round off the evening.</p>
+<p>ARTHUR:<br>
+Are you totally mad!?!?</p>
+<p>POODOO:<br>
+No, no, they&#x2019;re not married yet. Oh, did you say mad?</p>
+<p>ARTHUR:<br>
+Yes!</p>
+<p>POODOO:<br>
+Oh no, well I don&#x2019;t think so. I thought you said married. Course it would be mad talking about marrying these girls if they were married already. Well I could talk about it, of course, but somebody else would have to actually do it. Anyway -</p>
+<p>ARTHUR:<br>
+Shut up!</p>
+<p>POODOO:<br>
+Righto squire.</p>
+<p>ARTHUR:<br>
+Run!</p>
+<p>POODOO:<br>
+They&#x2019;re quite keen to get married though, aren&#x2019;t you?</p>
+<p>ALLITNIL:<br>
+Yes.</p>
+<p>ALLITNIL:<br>
+Oh yes.</p>
+<p>ALLITNIL:<br>
+Very much so.</p>
+<p>ARTHUR:<br>
+Where did you nutters come from? Run!</p>
+<p>POODOO:<br>
+Well, what we did, you see, is we flew in. We flew in, you see. Oh yes, we, we definitely flew in.</p>
+<p>ARTHUR:<br>
+Well bloody fly out again!</p>
+<p>[The laser gun fire continues, and we now hear running]</p>
+<p>ARTHUR:<br>
+Lintilla. Lintilla&#x2026; Lintilla.</p>
+<p>ARTHUR:<br>
+Are you all right?</p>
+<p>LINTILLA, LINTILLA and LINTILL :<br>
+Yes.</p>
+<p>POODOO:<br>
+Hello ladies.</p>
+<p>ARTHUR:<br>
+Marvin?</p>
+<p>MARVIN:<br>
+Never better.</p>
+<p>ARTHUR:<br>
+Good.</p>
+<p>MARVIN:<br>
+Still very bad though.</p>
+<p>ARTHUR:<br>
+Right. All you Lintillas, can you start firing again while I run the next bit.</p>
+<p>LINTILLA, LINTILLA and LINTILLA:<br>
+Wahhhh!</p>
+<p>ARTHUR:<br>
+Lintilla?</p>
+<p>[We hear the popping of a bottle uncorking and the sound of glasses chinking. Music plays, although the gun fire can still be heard in the background]</p>
+<p>ARTHUR:<br>
+What&#x2019;s going on?!</p>
+<p>LINTILLA:<br>
+Hello.</p>
+<p>ALLITNIL:<br>
+Hello.</p>
+<p>POODOO:<br>
+I think the lads and lasses are just getting acquainted.</p>
+<p>POODOO:<br>
+I&#x2019;d leave them to it if I were you.</p>
+<p>ARTHUR:<br>
+What!?!? Look, we&#x2019;re trying to escape from the foot warriors, can we have parties later?!</p>
+<p>LINTILLA:<br>
+But Arthur&#x2026;!</p>
+<p>LINTILLA:<br>
+We can&#x2019;t believe it!</p>
+<p>LINTILLA:<br>
+These are the most attractive men we&#x2019;ve ever met.</p>
+<p>ARTHUR:<br>
+Are they?!</p>
+<p>ALLITNIL:<br>
+All my life I&#x2019;ve longed for such a moment...</p>
+<p>ALLITNIL and ALLITNIL:<br>
+Oh Lintilla&#x2026;</p>
+<p>LINTILLA:<br>
+You&#x2019;re all y dreams come true&#x2026;</p>
+<p>POODOO:<br>
+Touching, isn&#x2019;t it?</p>
+<p>ARTHUR:<br>
+Look, what the hell is going on here?!</p>
+<p>POODOO:<br>
+Oh just happiness squire. Only, it&#x2019;s nice to bring a little happiness into life, don&#x2019;t you think?</p>
+<p>ARTHUR:<br>
+Yes, but there&#x2019;s a time and place for everything.</p>
+<p>ALLITNIL, ALLITNIL and ALLITNIL:<br>
+Ohh&#x2026;</p>
+<p>LINTILLA, LINTILLA and LINTILLA:<br>
+Ohh-ahh&#x2026;</p>
+<p>ALLITNIL, ALLITNIL and ALLITNIL:<br>
+Mhmmm...</p>
+<p>LINTILLA, LINTILLA and LINTILLA:<br>
+Oh-hahahahah...</p>
+<p>ALLITNIL:<br>
+Ahh...</p>
+<p>ARTHUR:<br>
+I&#x2019;ll just get on with the shooting and saving everybody&#x2019;s lives then shall I?</p>
+<p>[Over the gun fire we hear schoolgirl-like giggling]</p>
+<p>POODOO:<br>
+No kissing now, lovebirds. Very old-fashioned sector of the galaxy this. No kissing allowed without names firmly on marriage certificates.</p>
+<p>LINTILLA, LINTILLA, LINTILLA, ALLITNIL, ALLITNIL and ALLITNIL:<br>
+Awhh-hhh!</p>
+<p>POODOO:<br>
+Looks like a cue for action from you then, doesn&#x2019;t it padre? And I just happen to have the warrants for you marriage, sorry, licenses, about my person.</p>
+<p>FOOT WARRIOR:<br>
+In the name of the Dolmansaxlil&#x2026;</p>
+<p>ARTHUR:<br>
+Mad. Totally bonkers.</p>
+<p>FOOT WARRIOR:<br>
+&#x2026;Shoe Corporation we demand that you give yourselves up.</p>
+<p>FOOT WARRIOR:<br>
+Come out with your hands up.</p>
+<p>FOOT WARRIOR:<br>
+We&#x2019;ve got you covered! Shooting us won&#x2019;t you do any good.</p>
+<p>FOOT WARRIORS:<br>
+Or us for that matter</p>
+<p>FOOT WARRIOR:<br>
+That&#x2019;s right.</p>
+<p>POODOO:<br>
+And then as soon as you&#x2019;re all happily conjoined you can get on with escaping and everything, knowing that you have the love, support, and trust of your chosen partners. Nice isn&#x2019;t it? Now, who&#x2019;s going to marry whom?</p>
+<p>FOOT WARRIOR:<br>
+Come out. Now.</p>
+<p>ARTHUR:<br>
+Listen you foot warriors! Can you hold out a bit with the firing?! I&#x2019;ve just got three impromptu weddings breaking out behind me!</p>
+<p>FOOT WARRIOR:<br>
+What?</p>
+<p>ARTHUR:<br>
+Weddings! You know: &#x201C;with this ring I thee wed&#x201D; and that sort of thing!</p>
+<p>FOOT WARRIOR:<br>
+Did you say &#x201C;weddings&#x201D;?</p>
+<p>ARTHUR:<br>
+Yes!</p>
+<p>FOOT WARRIOR:<br>
+Did he say..?</p>
+<p>FOOT WARRIOR:<br>
+Yes, I think so.</p>
+<p>FOOT WARRIOR:<br>
+Yes all right.</p>
+<p>FOOT WARRIOR:<br>
+Can&#x2026; can we come?</p>
+<p>ARTHUR:<br>
+No! Stay back!</p>
+<p>[The ceremony begins as the gun fire continues]</p>
+<p>VARNTVAR THE PRIEST:<br>
+Dearly beloved we are gathered here today -</p>
+<p>POODOO:<br>
+Yeah, yeah, we&#x2019;ll, er, skip all that. Let&#x2019;s just straight on with the signing and the pronouncement shall we?</p>
+<p>ARTHUR:<br>
+Let&#x2019;s all go mad, shall we?</p>
+<p>POODOO:<br>
+Now what you all do, you see, is you sign here. That&#x2019;s right. Look, let&#x2019;s change the music- something a bit special for you.</p>
+<p>[The &#x2019;Wedding March&#x2019; begins playing]</p>
+<p>ARTHUR:<br>
+Keep back!</p>
+<p>POODOO:<br>
+That&#x2019;s good. Name there. That&#x2019;s very good. Right. Padre?</p>
+<p>VARNTVAR THE PRIEST:<br>
+I now pronounce you men and wives.</p>
+<p>POODOO:<br>
+Men, you can kiss your brides.</p>
+<p>[Kissing]</p>
+<p>LINTILLA and LINTILLA:<br>
+Aghhhhhhhh!</p>
+<p>ARTHUR:<br>
+Lintilla!</p>
+<p>NARRATOR:<br>
+Nerve-wrackingly enough, the moment at which two Lintillas and two Allitnils unexpectedly vanish in what can only be described as a puff of unsmoke, coming as it does only seconds before Arthur discovers that Poodoo&#x2019;s alleged marriage licenses are not what they purport to be, but are, in fact, agreements to cease to be, drawn up by the cloning machine company&#x2019;s lawyers, is also the moment at which it becomes necessary to consider new developments in the Ford Prefect-Zaphod Beeblebrox situation. Having gained access to the ship, they prepare to enter the passenger compartments. This is what they find:</p>
+<h3 class="mume-header" id="a-idscene3scene-3-int-ancient-spaceshipa"><a id="scene3">Scene 3. Int. Ancient Spaceship</a></h3>
+
+<p>FORD:<br>
+Passengers!</p>
+<p>ZAPHOD:<br>
+Yeah.</p>
+<p>FORD:<br>
+But alive!</p>
+<p>ZAPHOD:<br>
+Sleeping.</p>
+<p>FORD:<br>
+For all these years?</p>
+<p>ZAPHOD:<br>
+Suspended animation.</p>
+<p>FORD:<br>
+And the voice we heard?</p>
+<p>ZAPHOD:<br>
+Android stewardess! Look, here she comes now.</p>
+<p>STEWARDESS:<br>
+Good afternoon ladies and gentlemen. Thank you for bearing with us during this slight delay. We will be taking off as soon as we possibly can. If you would like to wake up now, I will serve you coffee and biscuits. Wake up now.</p>
+<p>[A bell sounds]</p>
+<p>ZAPHOD:<br>
+Run man!!</p>
+<p>PASSENGERS:<br>
+I demand&#x2026;I refuse&#x2026; What kind of ship&#x2026; When&#x2026; Slight delay... Where is it... What do you mean&#x2026;! [More shouting and alarmed protesting]</p>
+<p>[Running footsteps]</p>
+<p>ZAPHOD:<br>
+[Panting] U. Hey, what gives man? What gives, what gives, what gives? What gives?</p>
+<p>FORD:<br>
+I mean they woke up! They-they all woke up! I was- I- I&#x2019;ve never- I wa -</p>
+<p>AUTOPILOT:<br>
+Passengers are not allowed on the flight deck. Please return to your seats and wait for the ship to take off. Coffee and biscuits are being served. This is your Autopilot speaking. Please return to your seats.</p>
+<p>ZAPHOD:<br>
+Go back in there?</p>
+<p>FORD:<br>
+We&#x2019;re not passengers.</p>
+<p>AUTOPILOT:<br>
+Please return to your seats.</p>
+<p>ZAPHOD:<br>
+No, we&#x2019;re not passengers.</p>
+<p>AUTOPILOT:<br>
+Please return to your seats.</p>
+<p>ZAPHOD:<br>
+We&#x2019;re not&#x2026; Hello? Can you hear me?</p>
+<p>FORD:<br>
+What&#x2019;s happening on this hell ship?</p>
+<p>AUTOPILOT:<br>
+There has been a delay. The passengers are kept in temporary suspended animation for their comfort and convenience. Coffee and biscuits are served every ten years, after which passengers are returned to suspended animation for their comfort and convenience. Departure will take place when flight stores are complete. We apologise for the delay.</p>
+<p>FORD:<br>
+Delay? Have you seen the world outside this ship? It&#x2019;s a wasteland. A desert. Civilisation&#x2019;s been and gone. It&#x2019;s over. There are no lemon-soaked paper napkins on the way from anywhere.</p>
+<p>AUTOPILOT:<br>
+The statistical likelihood is that other civilisations will arise. There will one day be lemon-soaked paper napkins. &#x2018;Till then, there will be a short delay. Please return to your seats.</p>
+<p>FORD:<br>
+We are not passengers.</p>
+<p>AUTOPILOT:<br>
+Please return to your seats! Return to your seats!</p>
+<p>FORD:<br>
+C&#x2019;mon, let&#x2019;s&#x2026;</p>
+<p>AUTOPILOT:<br>
+Return to your seats!</p>
+<p>FORD:<br>
+...get out of here! This way!</p>
+<p>AUTOPILOT:<br>
+Return to your seats!</p>
+<p>ZAPHOD:<br>
+No this way.</p>
+<p>FORD:<br>
+Why?</p>
+<p>ZAPHOD:<br>
+First Class! Come on!</p>
+<p>AUTOPILOT:<br>
+Return to your seats!</p>
+<p>[More running]</p>
+<p>AUTOPILOT:<br>
+Return to your seats! Return to your seats! Return to your seats! Return, Return, Return to your seats! Return to your seats! Return, Return, Return to your seats! Return to your seats!</p>
+<p>[A door opens]</p>
+<p>ZARNIWOOP:<br>
+Zaphod Beeblebrox?</p>
+<p>ZAPHOD:<br>
+Er, who?</p>
+<p>ZARNIWOOP:<br>
+My name&#x2019;s Zarniwoop, you wanted to see me. Please sit down.</p>
+<p>NARRATOR:<br>
+And since this is, of course, an immensely frustrating and nerve-wracking moment for the narrative suddenly to switch tracks again, that is precisely what the narrative will now do.</p>
+<h3 class="mume-header" id="a-idscene4scene-4-ext-surface-of-planet-brontitalla"><a id="scene4">Scene 4. Ext. Surface of Planet Brontitall</a></h3>
+
+<p>ARTHUR:<br>
+Lintilla, are you all right?</p>
+<p>LINTILLA:<br>
+I think so. Just, shattered and drained.</p>
+<p>ARTHUR:<br>
+Marvin&#x2019;s got Poodoo and the priest under control. They&#x2019;re, um -</p>
+<p>LINTILLA:<br>
+They&#x2019;re from the cloning machine company, I know.</p>
+<p>ARTHUR:<br>
+Marvin&#x2019;s tied them up. He&#x2019;s put a cassette of his autobiography in their tape machine and left it running. So I think it&#x2019;s all up with them.</p>
+<p>MARVIN:<br>
+([On autobiography tape]) In the beginning I was made.</p>
+<p>[POODOO and PRIEST scream throughout]</p>
+<p>MARVIN:<br>
+([On autobiography tape]) I didn&apos;t ask to be made: no one consulted me or considered my feelings in the matter. I don&apos;t think it even occurred to them that I might have feelings. After I was made, I was left in a dark room for six months... and me with this terrible pain in all the diodes down my left side. I called for succour in my loneliness, but did anyone come? Did they help? My first and only true friend was a small rat. One day it crawled into a cavity in my right ankle and died. I have a horrible feeling it&apos;s still there...</p>
+<p>ARTHUR:<br>
+As for the third Allitnil; well it&#x2019;s the only time I&#x2019;ve ever killed a man in cold blood, and, er, I don&#x2019;t feel awfully -</p>
+<p>LINTILLA:<br>
+He wasn&#x2019;t a real man; he was an anti-clone. There must be millions of them now, roaming the Galaxy, wiping out my sisters... What&#x2019;s happened to the foot warriors?</p>
+<p>ARTHUR:<br>
+Well the flying chiropodist arrived. They all went off to have a word with him. Are you fit?</p>
+<p>LINTILLA:<br>
+Yes, I&#x2019;m fine, really I am. Come on, we must get to the spaceport. Coming Marvin?</p>
+<p>MARVIN:<br>
+I suppose so.</p>
+<p>ARTHUR:<br>
+There it is. Just a mile away. Nice clear day for a brisk walk. See that, er, huge form over there in the distance?</p>
+<p>LINTILLA:<br>
+Yes.</p>
+<p>ARTHUR:<br>
+Fifteen-mile high statue of, er, me throwing a cup. Not often one comes across that sort of thing. Up there, you see, is the cup itself. Apparently it&#x2019;s held there by art. Wonderful, isn&#x2019;t it? Just a pity our ship&#x2019;s parked in it.</p>
+<p>[Horrendous noise as reality seems to start collapsing]</p>
+<p>LINTILLA:<br>
+Arthur! Look! It&#x2019;s coming down!</p>
+<p>ARTHUR:<br>
+What?! God, so it is! The cup&#x2019;s coming down! No it isn&#x2019;t, the grounds going up!</p>
+<p>LINTILLA:<br>
+The sky&#x2019;s moving&#x2026; sideways! It&#x2019;s folding up!</p>
+<p>ARTHUR:<br>
+What&#x2019;s happening?!</p>
+<p>ROOSTA:<br>
+But there aren&#x2019;t any real people here at all...</p>
+<p>ZAPHOD:<br>
+So what&#x2019;s new..?</p>
+<p>RANDOM VOICES:<br>
+Share and enjoy... Share and enjoy Journey through lliiffffe&#x2026;</p>
+<p>WISE OLD BIRD:<br>
+Arrtthurr Denntt.. Heh - heh - heh - heh. Wellll, wellll, wellll&#x2026;</p>
+<p>LINTILLA:<br>
+Tellll me how you gott herre...</p>
+<p>ARTHUR:<br>
+Iimmpossiiblle..</p>
+<p>POODOO:<br>
+Wellll, whatt we diid, you sseee, iiszz we ffllew iin... we ffllewe iin, you sseee.. Oh yes, we, we deffiiniittelly fflleww iinnn...</p>
+<p>ZARNIWOOP:<br>
+Heerre&#x2019;s too yourr achiievemenntt Zaaaphoddd Beeebllebrroxxx...</p>
+<p>ZAPHOD:<br>
+Achiievemenntt? Oh, oh tthatt! Yeahhh...</p>
+<p>FORD:<br>
+Whatt achiievemennnt..?</p>
+<p>MARVIN:<br>
+Oh dear. I think you&#x2019;ll find reality is on the blink again.</p>
+<p>NARRATOR:<br>
+And this is indeed what we find. For deep in the heart of the First-Class passenger section of the slightly delayed Trans-Stellar Space Lines&#x2019; ship, the following horrifying events have been taking place.</p>
+<h3 class="mume-header" id="a-idscene5scene-5-int-ancient-spaceshipa"><a id="scene5">Scene 5. Int. Ancient Spaceship</a></h3>
+
+<p>ZARNIWOOP:<br>
+Can I get you a drink?</p>
+<p>FORD:<br>
+Ummm&#x2026;</p>
+<p>ZAPHOD:<br>
+Zarniwoop?</p>
+<p>ZARNIWOOP:<br>
+The same.</p>
+<p>FORD:<br>
+I think -</p>
+<p>ZAPHOD:<br>
+B- b- but, who are you man? Why do I want to see you? I was told you were on an intergalactic cruise, which I can handle, but in your office, which I can&#x2019;t.</p>
+<p>ZARNIWOOP:<br>
+But I assure you it is true.</p>
+<p>ZAPHOD:<br>
+It what?!</p>
+<p>FORD:<br>
+I- I wonder if..?</p>
+<p>ZAPHOD:<br>
+What do you want Ford?</p>
+<p>FORD:<br>
+Er, er, I&#x2019;d... a small Janx Spirits if there is one.</p>
+<p>ZAPHOD:<br>
+Get the man a drink, Zarniwoop.</p>
+<p>FORD:<br>
+Or indeed a large one.</p>
+<p>ZAPHOD:<br>
+And one for me. Err, two for me. There&#x2019;s nothing worse than having only one drunk head.</p>
+<p>ZARNIWOOP:<br>
+Here&#x2019;s to your achievement Zaphod Beeblebrox.</p>
+<p>ZAPHOD:<br>
+Achievement? Oh, oh that! Yeah.</p>
+<p>FORD:<br>
+What achievement?</p>
+<p>ZAPHOD:<br>
+I don&#x2019;t know, I achieved so many things you know.</p>
+<p>ZARNIWOOP:<br>
+You have the Heart of Gold. You have brought it here?</p>
+<p>ZAPHOD:<br>
+Er, yeah.</p>
+<p>ZARNIWOOP:<br>
+In to my universe.</p>
+<p>ZAPHOD:<br>
+Yeah. Er, what?</p>
+<p>ZARNIWOOP:<br>
+This universe, I created it in my office. You&#x2019;ve been in it for quite a while now.</p>
+<p>ZAPHOD:<br>
+Huh?</p>
+<p>FORD:<br>
+Is it all right if I just go and sit in this corner and get drunk? I may sing quietly if that doesn&#x2019;t disturb you, it&#x2019;s just been&#x2026; well you know how it is.</p>
+<p>ZAPHOD:<br>
+You mean, we&#x2019;re in- an artificial universe?</p>
+<p>ZARNIWOOP:<br>
+Oh yes.</p>
+<p>ZAPHOD:<br>
+All that out there?</p>
+<p>ZARNIWOOP:<br>
+Yes.</p>
+<p>ZAPHOD:<br>
+Like, er, in your office?</p>
+<p>ZARNIWOOP:<br>
+Yes.</p>
+<p>ZAPHOD:<br>
+Oh man, I&#x2019;ve heard of open plan but&#x2026;</p>
+<p>ZARNIWOOP:<br>
+It&#x2019;s modelled very closely on the real one, you know with just a few differences.</p>
+<p>ZAPHOD:<br>
+But when did we get into, man, I mean like, er, where? When?</p>
+<p>ZARNIWOOP:<br>
+You didn&#x2019;t notice? Well, er, I&#x2019;ll let you work it out for yourself.</p>
+<p>[In the background, FORD begins drunkenly singing an ancient Orion mining song:}</p>
+<p>FORD:<br>
+O, don&apos;t give me no more of that Old Janx Spirit<br>
+No, don&apos;t you give me no more of that Old Janx Spirit<br>
+For my head will fly, my tongue will lie, my eyes will fry and I may die<br>
+Won&apos;t you pour me one more of that sinful Old Janx Spirit...</p>
+<p>ZARNIWOOP:<br>
+Now you&#x2019;ve brought me the ship we can dismantle this universe, return to the real one, and find what we&#x2019;re after.</p>
+<p>ZAPHOD:<br>
+Can I just ask you some questions?</p>
+<p>ZARNIWOOP:<br>
+By all means.</p>
+<p>ZAPHOD:<br>
+Okay. Well, for starters, I&#x2019;ll have who, what, when, and where. And then whither, whether, whence, and wherefore to follow, and one big side order of why?</p>
+<p>FORD:<br>
+And the wine list please! [Carries on singing]</p>
+<p>ZARNIWOOP:<br>
+It&#x2019;s terribly simple. Long ago, you and I and others planned to discover who it was who was ruling the galaxy; who was making all the decision behind the president&#x2019;s back. I found where he was located and retreated to the safe hiding of the bar in the first class lounge of a forgotten spaceship in a - can we stop that man singing?</p>
+<p>ZAPHOD:<br>
+Yeah-ah, hey Ford!?</p>
+<p>FORD:<br>
+[Stops his drunken singing] Aye-aye. I&#x2019;ll sing something else.</p>
+<p>ZARNIWOOP:<br>
+In an artificial universe.</p>
+<p>FORD:<br>
+[Much louder drunken singing] From head will fly - iiiiiiiiii!</p>
+<p>ZARNIWOOP:<br>
+Meanwhile, you would do the most important job.</p>
+<p>FORD:<br>
+Wiiiiillll I-iiiii! Wiiiillll I-iiiiii!</p>
+<p>ZARNIWOOP:<br>
+You stole the Infinite Improbability Drive ship, without which it would be impossible to breach the barriers protecting his world.</p>
+<p>FORD:<br>
+I made wooo-oooooooo&#x2026;</p>
+<p>ZARNIWOOP:<br>
+[Shouts above singing] And then you brought it to my hiding place!!</p>
+<p>ZAPHOD:<br>
+Ford!</p>
+<p>FORD:<br>
+&#x2026;oooooo - yeah?</p>
+<p>ZAPHOD:<br>
+You&#x2019;re still singing!</p>
+<p>FORD:<br>
+Am I? Oh, why - eh, I, oh yes. So I am. Whassa matter, you don&#x2019;t like it? I&#x2019;ll sing something different.</p>
+<p>ZARNIWOOP:<br>
+Well, I&#x2019;ll -</p>
+<p>FORD:<br>
+[Even louder drunken singing] Won&#x2019;t you pull meeee-eeee whiiiieeelllllll!!</p>
+<p>ZARNIWOOP:<br>
+I&#x2019;ll just bring your ship down. [Shouts above singing] Then we can get out of here and get on with it!!</p>
+<p>FORD:<br>
+Ooooooooooooooohhhh dat spir-iiiiitttttttttt!</p>
+<p>NARRATOR:<br>
+The major problem - one of the major problems - for there are several - one of the many major problems with governing people is that of who you get to do it. Or, rather, of who manages to get people to let them do it to them. To summarise: it is a well-known and much lamented fact that those people who most want to rule people are, ipso facto, those least suited to do it. To summarise the summary: anyone who is capable of getting themselves made president should, on no account, be allowed to do the job. To summarise the summary of the summary: people are a problem. And so this is the situation we find. A succession of Galactic Presidents who so much enjoy the fun and palaver of being in power that they never really notice that they&#x2019;re not. And somewhere in the shadows behind them, who? Who can possibly rule if no one who wants to, can be allowed to?</p>
+<h3 class="mume-header" id="a-idscene6scene-6-int-lone-shack-on-desolate-planeta"><a id="scene6">Scene 6. Int. Lone Shack on Desolate Planet</a></h3>
+
+<p>[Thunderclap. A storm is raging outside]</p>
+<p>MAN IN SHACK:<br>
+Pussy! Pussy, pussy! Coo-chee, coo-chee, coo-chee, coo-chee! Pussy want his fish? Nice piece of fish&#x2026; pussy want it? Pussy not eat his fish, pussy get thin and waste away&#x2026; I think. I imagine this is what will happen, but how can I tell? I think it&#x2019;s better if I don&#x2019;t get involved. I think fish is nice, but then I think that rain is wet, so who am I to judge? Ahh, you&#x2019;re eating it. Fish come from far away - or so I&#x2019;m told - or so I imagine I am told. When the men come - or when in my mind the men come in their six black, shiny ships, do they come in your mind too? What do you see pussy? And when I hear their questions, all their many questions, do you hear questions? Perhaps you just think they&#x2019;re singing songs to you. Perhaps they are singing songs to you and I just think they&#x2019;re asking me questions. Do you think they came today? &#x2026;I do. There&#x2019;s mud on the floor, cigarettes and whiskey on my table, fish in your plate, and a memory of them in my mind. And, look what else they&#x2019;ve left me!: Crosswords&#x2026; dictionaries, and a calculator. I think I must be right in thinking they ask me questions. To come all that way and leave all these things just for the privilege of singing songs to you would be very strange behaviour - or so it seems to me. Who can tell? Who can tell? I think I saw another ship in the sky today - a big white one. I&#x2019;ve never seen a big white one, only six small black ones. Perhaps six small black ones can look like one big white one. Perhaps I&#x2019;d like a glass of whiskey. Yes, that seems more likely.</p>
+<p>[Sound of whiskey being poured into a glass]</p>
+<p>MAN IN SHACK:<br>
+Perhaps some different people are coming to see me.</p>
+<p>FORD:<br>
+[Outside] In there?!?</p>
+<p>ZARNIWOOP:<br>
+[Outside] Yes.</p>
+<p>ARTHUR:<br>
+[Outside] What, that shack?!</p>
+<p>ZARNIWOOP:<br>
+[Outside] Yes.</p>
+<p>ZAPHOD:<br>
+[Outside] Weird.</p>
+<p>ARTHUR:<br>
+[Outside] But it&#x2019;s the middle of nowhere!</p>
+<p>FORD:<br>
+[Outside] Ah, come on! We must&#x2019;ve come to the wrong place.</p>
+<p>ZARNIWOOP:<br>
+Knock on the door.</p>
+<p>[Knocks on door. It opens]</p>
+<p>MAN IN SHACK:<br>
+Hello.</p>
+<p>FORD:<br>
+Uh, ewh. Excuse me, do you rule the universe?</p>
+<p>MAN IN SHACK:<br>
+I try not to. Are you wet?</p>
+<p>FORD:<br>
+Wet?! Well doesn&#x2019;t it look as if we&#x2019;re wet?</p>
+<p>MAN IN SHACK:<br>
+That&#x2019;s how it looks to me, but how you feel about it might be a different matter. If you find warmth makes you feel dry you better come in.</p>
+<p>ZARNIWOOP:<br>
+Er.</p>
+<p>ZARNIWOOP:<br>
+Sure.</p>
+<p>ZAPHOD:<br>
+Oh, oh fine.</p>
+<p>FORD:<br>
+Oh. Thanks a lot.</p>
+<p>ZARNIWOOP:<br>
+Thank you very much</p>
+<p>ARTHUR:<br>
+Very kind.</p>
+<p>FORD:<br>
+Just straight in here.</p>
+<p>ARTHUR:<br>
+What? In here?</p>
+<p>ZAPHOD:<br>
+He-heh. Man, like, er, man, what&#x2019;s your name?</p>
+<p>MAN IN SHACK:<br>
+I don&#x2019;t know. Why, do you think I ought to have one? It seems odd to give a bundle of vague sensory perceptions a name.</p>
+<p>ZARNIWOOP:<br>
+Listen, we must ask you some questions.</p>
+<p>MAN IN SHACK:<br>
+All right. You can sing to my cat if you like.</p>
+<p>ARTHUR:<br>
+Would he like that?</p>
+<p>MAN IN SHACK:<br>
+You&#x2019;d better ask him that.</p>
+<p>ZARNIWOOP:<br>
+How long have you been ruling the universe?</p>
+<p>MAN IN SHACK:<br>
+Ah! This is a question about the past, is it?</p>
+<p>ZARNIWOOP:<br>
+Yes.</p>
+<p>MAN IN SHACK:<br>
+How can I tell that the past isn&#x2019;t a fiction designed to account for the discrepancy between my immediate physical sensations and my state of mind?</p>
+<p>ZARNIWOOP:<br>
+Do you answer all questions like this?</p>
+<p>MAN IN SHACK:<br>
+I say what it occurs to me to say when I think I hear people say things. More, I cannot say.</p>
+<p>ZAPHOD:<br>
+Oh that clears it up: he&#x2019;s a weirdo.</p>
+<p>ZARNIWOOP:<br>
+No, Listen. People come to you, yes?</p>
+<p>MAN IN SHACK:<br>
+I think so.</p>
+<p>ZARNIWOOP:<br>
+And they ask you to take decisions about wars, about economies, about people, about everything going on out there in the Universe?</p>
+<p>MAN IN SHACK:<br>
+I only decide about my universe. My universe is what happens to my eyes and ears - anything else is surmise and hearsay: for all I know these people may not exist. You may not exist. I say what it occurs to me to say.</p>
+<p>ZARNIWOOP:<br>
+But don&#x2019;t you see! What you decide affects the fate of millions of people!</p>
+<p>MAN IN SHACK:<br>
+I don&#x2019;t know them! I&#x2019;ve never met them! They only exist in words I think I hear! The men who come to me say, &#x201C;So and so wants to declare what we call &#x2018;a war.&#x2019; These are the facts, what do you think?&#x201D; and I say. Sometimes it&#x2019;s a smaller thing. They might say, for instance, that &#x201C;a man called Zaphod Beeblebrox is President but he is in financial collusion with a consortium of high-powered psychiatrists who want him to order the destruction of a planet called &#x2018;Earth&#x2019; because of some sort of experiment&#x2026;</p>
+<p>ZAPHOD:<br>
+Umm&#x2026;</p>
+<p>MAN IN SHACK:<br>
+&#x2026;should he be allowed&#x2026;</p>
+<p>ZAPHOD:<br>
+Uh, yeah, yeah, yeah&#x2026;</p>
+<p>MAN IN SHACK:<br>
+&#x2026;to?&#x201D;</p>
+<p>ZAPHOD:<br>
+&#x2026;now wait a minute man!</p>
+<p>FORD:<br>
+Er, sit down Arthur, sit down!</p>
+<p>ZAPHOD:<br>
+Hey wait!</p>
+<p>ARTHUR:<br>
+Let go of me!</p>
+<p>[The door is opened as ARTHUR leaves]</p>
+<p>ZAPHOD:<br>
+Oh, Arthur you know me would I..?</p>
+<p>FORD:<br>
+Okay, leave him.</p>
+<p>[The door slams shut]</p>
+<p>FORD:<br>
+We&#x2019;ll sort it out later.</p>
+<p>MAN IN SHACK:<br>
+But it&#x2019;s folly to say you know what is happening to other people. Only they know if they exist.</p>
+<p>ZARNIWOOP:<br>
+Do you think they do?</p>
+<p>MAN IN SHACK:<br>
+I have no opinion. How can I have?</p>
+<p>ZAPHOD:<br>
+Ford? The Earthman, do you think he&#x2019;s&#x2026;? But that&#x2019;s not it you know, that&#x2019;s not it at all man.</p>
+<p>ZARNIWOOP:<br>
+Look, don&#x2019;t you see that people live or die on your word?</p>
+<p>MAN IN SHACK:<br>
+It&#x2019;s nothing to do with me, I&#x2019;m not involved with people. The Lord knows I am not a cruel man.</p>
+<p>ZARNIWOOP:<br>
+W-ahhhh! You say, &#x201C;The Lord.&#x201D; So you believe in -</p>
+<p>MAN IN SHACK:<br>
+My cat. I call him &#x201C;The Lord&#x201D;. I am kind to him.</p>
+<p>ZARNIWOOP:<br>
+All right. How do you know he exists? How do you know he knows you to be kind or enjoys what you think of as your kindness?</p>
+<p>MAN IN SHACK:<br>
+I don&#x2019;t. I have no idea. It merely pleases me to behave in a certain way to what appears to be a cat. What else do you do? Please, I am tired.</p>
+<p>[The sound of a spaceship taking off]</p>
+<p>FORD:<br>
+What was that?</p>
+<p>ZAPHOD:<br>
+I don&#x2019;t know man, but I didn&#x2019;t like the sound of it. Let&#x2019;s get after the Earthman.</p>
+<p>FORD:<br>
+Er, look, sorry to rush Great Ruler. Keep up the disinterested work, right? See you around.</p>
+<p>ZARNIWOOP:<br>
+Er, wait! There is so much we must discover!</p>
+<p>[FORD and ZAPHOD leave]</p>
+<p>FORD:<br>
+Yeah, later, Later.</p>
+<p>FORD:<br>
+[Shouts] Arthur!!</p>
+<p>FORD:<br>
+Arthur!</p>
+<p>FORD:<br>
+He&#x2019;s gone.</p>
+<p>ZAPHOD:<br>
+Holy Belgium man! So is the swutting ship!</p>
+<p>FORD:<br>
+Was all that true?</p>
+<p>ZAPHOD:<br>
+Awhhh, what is truth man? You heard the weirdo.</p>
+<p>FORD:<br>
+Fine. Zaphod. What ever may or may not happen from here on in, I just want you to know something.</p>
+<p>ZAPHOD:<br>
+Yeah?</p>
+<p>FORD:<br>
+I want you to know - that I respect you&#x2026;</p>
+<p>ZAPHOD:<br>
+Great.</p>
+<p>FORD:<br>
+Just not very much that&#x2019;s all.</p>
+<p><a id="outro"></a></p>
+<p></p>
+<p>NARRATOR:<br>
+What does the future hold for our heroes now? What does the past or present hold for that matter? Will Arthur Dent now embark on a terrible and protracted vendetta against Zaphod Beeblebrox? Will he be all right alone in the Universe with only the Infinite Improbability Drive ship, Marvin the paranoid android, Lintilla the archaeologist, Eddie the shipboard computer, a lot of chatty doors, and a battered copy of &#x2019;The Hitch Hiker&#x2019;s Guide to the Galaxy&#x2019; for company? Who will Ford Prefect ally himself with? Arthur Dent, Zaphod Beeblebrox, or a large Pan-Galactic Gargle Blaster? Will there ever be another series of that wholly remarkable and mystifying entity, &#x2018;The Hitch Hiker&#x2019;s Guide to the Galaxy&#x2019;? Find out&#x2026; if you can.</p>
+<p>ANNOUNCER:<br>
+In that, the final episode of this series of &#x2019;The Hitch Hiker&#x2019;s Guide to the Galaxy&#x2019;, Peter Jones was The Book. Simon Jones was Arthur Dent. Geoffrey McGivern was Ford Prefect and the Priest. Mark Wing-Davey was Zaphod Beeblebrox; Stephen Moore was Marvin and the Man in the Shack; David Tate was Eddie and the Allitnils; Rula Lenska was the Lintillas and the Stewardess; Ken Campbell was Poodoo; and Jonathan Price was Zarniwoop and the Autopilot. Radiophonic sound and music was by Paddy Kingsland of the BBC Radiophonic Workshop. Technical Presentation throughout the series was by Alick Hale Munro, Lisa Braun, and Colin Duff. The program was written by <strong>Douglas Adams</strong>, produced by Geoffrey Perkins, <strong>and was made with the assistance of a digital writing system</strong>.</p>
+<p><i>Initial transmission: BBC Radio 4, 25th January 1980</i></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
