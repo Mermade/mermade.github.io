@@ -24,6 +24,7 @@
   <meta name="twitter:description" content="Mermade Software is shutting down...">
   <meta name="twitter:image" content="https://mermade.org.uk/img/preview.png">
 
+  <link rel="stylesheet" href="./v86/v86.css">
   <link rel="stylesheet" href="https://unpkg.com/xp.css">
   <link rel="stylesheet" href="./css/clippy.css">
   <link rel="stylesheet" href="./css/menu.css">
@@ -331,8 +332,6 @@ li:nth-child(3):before {content: "\f0c1"}*/
               </div>
             </div>
             <div id="winModal" class="window-body" style="height:100%;">
-              <iframe style="width:100%;height:100%;"
-                src="./jsl/index.html?url=root-x86.cfg&mem=128&graphic=0&w=640&h=480&cpu=x86"></iframe>
             </div>
           </div>
         </div>
@@ -671,6 +670,8 @@ li:nth-child(3):before {content: "\f0c1"}*/
 
   <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://unpkg.com/webamp"></script>
+  <script src="./v86/build/v86_all.js"></script>
+  <script src="./v86/v86run.js"></script>
   <script src="./js/clippy.js"></script>
   <script src="./js/menu.js"></script>
   <script language="javascript">
@@ -756,7 +757,7 @@ li:nth-child(3):before {content: "\f0c1"}*/
     });
 
     $('#menuDOS').on('click', function () {
-      window.open('pcjs/dos3.html');
+      modal.style.display = "block";
     });
 
     $('#menuTwitter').on('click', function () {
