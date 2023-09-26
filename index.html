@@ -342,51 +342,45 @@
       </ul>
     </div>
 
-    <!-- note -->
 
-    <br><br><br>
-
-    <div class="window note ui-draggable ui-draggable-handle" style="position: relative; display: block;">
+<div class="container__Window" style="display: flex;">
+      <!-- Terminal -->
+      <div class="window terminal ui-draggable ui-draggable-handle" style="position: relative; display: block; left: -10px; top: -44px;">
         <div class="window__taskbar">
           <div class="window__taskbar--actions">
-            <button class="close-note"></button>
-            <button class="backfull-note"></button>
-            <button class="full-note">
-              <svg viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M4.871 3.553L9.37 8.098V3.553H4.871zm3.134 5.769L3.506 4.777v4.545h4.499z"></path><circle cx="6.438" cy="6.438" r="6.438" fill="black"></circle></svg>
-            </button>
+            <button class="close"></button>
+            <button class="backfull"></button>
+            <button class="full"></button>
           </div>
-
-          <div class="window__taskbar--right">
-
-            <div class="Customize__icon hidden">
-              <span class="material-icons" accesskey="v"> window </span>
-            </div>
-            <div class="Customize__icon">
-              <span class="material-icons adding" accesskey="n"> add_circle </span>
-            </div>
-            <div class="Customize__icon">
-              <span class="material-icons deleting" accesskey="r"> delete </span>
-            </div>
-            <div class="Customize__icon hidden">
-              <span class="material-icons"> ios_share </span>
-            </div>
-            <div class="containerSearch">
-              <svg width="24" height="24">
-                <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path>
-              </svg>
-              <input type="search" name="search" placeholder="search" accesskey="s">
-            </div>
+          <div class="window__taskbar--content">
+            <h2>Terminal</h2>
           </div>
         </div>
-        <div class="content">
-          <div class="content__sidebar">
-            <div class="content__sidebar--notes"></div>
-          </div>
-          <div class="Parent__content--typing">
-            <textarea cols="30" rows="12" class="content__typing" style="display: block;">Mermade Software returns...
+        <div class="terminal_content">
+          <p>Last Login : Yesterday on console</p>
 
-Check back soon for an exciting announcement!</textarea>
+          <!--    Oh My Zsh bash      -->
+          <div class="terminal_line">
+            <p>
+              <span class="color_green">➜</span>&nbsp;
+              <span class="color_blue">~&nbsp;
+              <span style="color:magenta">cd ~/Documents</span><br>
+              <span class="color_green">➜</span>&nbsp;
+              <span class="color_blue">~</span>&nbsp;
+              <span style="color:magenta">cat announcement.md</span><br>
+              <span class="color_green">Coming soon...</span><br>
+              <span class="color_green"><br>
+            </p>
           </div>
+
+          <!--    MacOs Default bash -->
+                    <div class="terminal_line">
+                      <span class="color_green"></span><br>
+                      <p>MacBook-Pro:~ root$&nbsp;
+                        <span autofocus contenteditable="true" class="cursor"></span>
+                      </p>
+                    </div>
+          </span>
         </div>
       </div>
 

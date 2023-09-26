@@ -420,14 +420,14 @@ function init_terminal_line() {
         command_output = "CPU = 56% <br> MEMORY = 25% <br> DISK = 34%";
       } else if (command.startsWith("cat ")) {
         command_output =
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Fugiat nihil totam expedita sint necessitatibus quos ducimus.";
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
       } else if (command.startsWith("du -hs ")) {
         command_output = Math.floor(Math.random() * 100) + "GB";
       }
 
       $(this).removeAttr("contenteditable");
       $(this).removeClass("cursor");
-      terminalApp.content
+      terminalApp.content()
         .append(command_output)
         .append(terminal_line_html.replace("~", path));
       placeCaretAtEnd(document.querySelector(".cursor"));
@@ -493,6 +493,9 @@ const calculateBattery = () => {
         batteryIsCharging = battery.charging;
       });
     })
+    .catch(function (err) {
+      console.log(err.message);
+    })
     .finally(() => {
       elements.batteryText.textContent = `${number}%`;
       elements.batteryProgress.style.width = `${number}%`;
@@ -517,6 +520,7 @@ elements.batteryButton.addEventListener("click", () => {
 elements.passwordHasherButton.addEventListener("click", () => {
   window.location = "./static/PasswordHasher.html";
 })
+open_window(terminalApp.window, terminalApp.point, terminalApp.app_name)
 
 // Call the functions
 calculateBattery();
